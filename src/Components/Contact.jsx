@@ -53,7 +53,7 @@ const Contact = () => {
             {
               icon: <FaGithub size={40} className="text-[#181717]" />,
               label: 'GitHub',
-              link: 'https://github.com/SamratVsnv',
+              link: 'https://github.com/SamratVsn',
             },
             {
               icon: <FaGoogle size={40} className="text-[#4285F4]" />,
