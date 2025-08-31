@@ -1,8 +1,12 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
     { name: "Home", to: "/" },
@@ -11,43 +15,40 @@ const Navbar = () => {
     { name: "Projects", to: "/Projects" },
     { name: "Contact", to: "/Contact" },
   ];
+
   return (
     <nav className="fixed top-0 left-0 w-full h-[70px] bg-gradient-to-r from-[#061666] to-[#0a26dd] backdrop-blur-md shadow-md border-b border-cyan-300/20 z-[1000] flex justify-center">
-      {/* nav-container */}
       <div className="w-full max-w-[1200px] px-4 md:px-8 flex justify-between items-center gap-2 md:gap-8">
 
         {/* Logo */}
-        <div className="font-mono font-semibold text-[#f2f2f2] flex items-center nav-logo
-          text-[0.8rem] md:text-[1.2rem]">
-          <span className="text-[#0080ff] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)]
-            text-[1rem] md:text-[1.5rem] logo-bracket"
-          >
+        <div className="font-mono font-semibold text-[#f2f2f2] flex items-center nav-logo text-[0.8rem] md:text-[1.2rem]">
+          <span className="text-[#0080ff] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)] text-[1rem] md:text-[1.5rem]">
             &lt;
           </span>
 
-          <Link to="/" className="mx-1 no-underline text-[#0ac9eb] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)]
-            text-[1rem] md:text-[1.5rem] logo-text"
+          <Link
+            to="/"
+            className="mx-1 no-underline text-[#0ac9eb] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)] text-[1rem] md:text-[1.5rem]"
           >
             SAMRAT
           </Link>
 
-          <span className="text-[#0080ff] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)]
-            text-[1rem] md:text-[1.5rem] logo-bracket"
-          >
+          <span className="text-[#0080ff] font-orbitron font-bold tracking-wide drop-shadow-[0_0_10px_rgba(0,195,255,0.3)] text-[1rem] md:text-[1.5rem]">
             /&gt;
           </span>
         </div>
 
-        {/* Nav Links */}
-        <ul className="flex gap-6 list-none flex-nowrap justify-start md:justify-center sm:flex-row sm:gap-2 md:gap-6">
+        {/* Desktop Nav Links */}
+        <ul className="hidden md:flex gap-6 list-none flex-nowrap justify-start md:justify-center">
           {navLinks.map(({ name, to }) => (
             <li key={to}>
               <Link
                 to={to}
                 className={`relative font-medium text-base px-1 py-2 transition-all duration-300
-                  ${pathname === to
-                    ? 'text-[#00c3ff] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#00c3ff] after:animate-fadein'
-                    : 'text-slate-200 hover:text-[#00c3ff]'
+                  ${
+                    pathname === to
+                      ? "text-[#00c3ff] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#00c3ff] after:animate-fadein"
+                      : "text-slate-200 hover:text-[#00c3ff]"
                   }`}
               >
                 {name}
@@ -56,9 +57,9 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Social Icons */}
-        <div className="flex items-center gap-4 social-icons max-[720px]:hidden">
-          {[
+        {/* Social Icons - hidden on mobile */}
+        <div className="hidden md:flex items-center gap-4">
+          {[ // same social icons array as before
             { href: "https://www.linkedin.com", fill: "#0A66C2", icon: "linkedin" },
             { href: "https://github.com", fill: "#181717", icon: "github" },
             { href: "https://facebook.com", fill: "#1877F2", icon: "facebook" },
@@ -71,24 +72,63 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-cyan-300/20 transition-all duration-300 transform hover:-translate-y-[2px]"
             >
-              <svg
-                className="w-4 h-4 md:w-[18px] md:h-[18px]"
-                fill={fill}
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
+              <svg className="w-4 h-4 md:w-[18px] md:h-[18px]" fill={fill} viewBox="0 0 24 24">
                 {getSVGPath(icon)}
               </svg>
             </a>
           ))}
         </div>
+
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-cyan-200 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <line x1="6" y1="6" x2="18" y2="18" strokeWidth="2" strokeLinecap="round" />
+                <line x1="6" y1="18" x2="18" y2="6" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <line x1="4" y1="6" x2="20" y2="6" strokeWidth="2" strokeLinecap="round" />
+                <line x1="4" y1="12" x2="20" y2="12" strokeWidth="2" strokeLinecap="round" />
+                <line x1="4" y1="18" x2="20" y2="18" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <div className="md:hidden bg-[#0441e7] border border-cyan-500/40">
+          <ul className="flex flex-col px-6 py-4 space-y-3 text-base font-medium">
+            {navLinks.map(({ name, to }) => (
+              <li key={to}>
+                <Link
+                  to={to}
+                  onClick={closeMenu}
+                  className={`block transition ${
+                    pathname === to ? "text-[#00c3ff]" : "text-slate-200 hover:text-[#00c3ff]"
+                  }`}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
 
+/* Utility function */
 function getSVGPath(icon) {
   switch (icon) {
     case "linkedin":
@@ -104,10 +144,11 @@ function getSVGPath(icon) {
         <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V11.08h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.626h-3.12V24h6.116C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z" />
       );
     case "google":
-      return (
-        <path d="M113.7 85.3 0 256l113.7 170.7h94.6L94.6 256 208.3 85.3H113.7zM303.1 85.3 189.4 256l113.7 170.7h94.6L384 426.7 398.7 448 512 256 398.7 64l-14.7 21.3-14.6 21.3h-94.6z" />
-      );
+  return (
+    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23zM5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62zM12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#4285F4"/>
+  );
     default:
       return null;
   }
 }
+

@@ -1,10 +1,10 @@
 import homeImg from '../assets/Home1.png';
 import { Link } from 'react-router-dom';
 import { FaUser, FaEnvelope, FaHtml5, FaCss3Alt, FaJs, FaReact, FaGithub } from 'react-icons/fa';
-import portfolioImg from '../assets/Portfolio1.jpg';
 import homeBack from '../assets/homeBack.png';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
+import Hero from '../assets/Hero.png'
 
 function Home() {
   return (
@@ -77,7 +77,7 @@ function Home() {
               ></div>
               <div className="relative w-full h-full rounded-[20px] overflow-hidden border-3 border-[#0080ff] shadow-[0_20px_60px_rgba(0,0,0,0.3)] group">
                 <img
-                  src={portfolioImg}
+                  src={Hero}
                   alt="Profile"
                   className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                 />
