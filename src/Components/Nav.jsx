@@ -150,4 +150,3 @@ function getSVGPath(icon) {
       return null;
   }
 }
-

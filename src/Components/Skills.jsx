@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaReact, FaJs, FaCuttlefish } from "react-icons/fa";
+import { FaReact, FaJs, FaCode } from "react-icons/fa"; // Using FaCode for C
 import { SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
 
@@ -17,7 +17,7 @@ const skillsData = [
   { name: "React", icon: <FaReact className="text-cyan-400 text-lg sm:text-xl" />, progress: 60 },
   { name: "Tailwind", icon: <SiTailwindcss className="text-sky-400 text-lg sm:text-xl" />, progress: 70 },
   { name: "JavaScript", icon: <FaJs className="text-yellow-400 text-lg sm:text-xl" />, progress: 49 },
-  { name: "C", icon: <FaCuttlefish className="text-gray-200 text-lg sm:text-xl" />, progress: 70 },
+  { name: "C", icon: <FaCode className="text-gray-200 text-lg sm:text-xl" />, progress: 70 },
 ];
 
 const toolsData = [
@@ -79,11 +79,10 @@ const Skills = () => {
               {skillsData.map((skill, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-center gap-4 relative"
+                  className="flex items-center gap-4 relative group"
                   initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
                   onMouseEnter={() => setTooltipIndex(index)}
                   onMouseLeave={() => setTooltipIndex(null)}
                 >
@@ -98,9 +97,8 @@ const Skills = () => {
                     <motion.div
                       className="h-full bg-gradient-to-r from-blue-500 to-green-400"
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.progress}%` }}
+                      animate={{ width: `${skill.progress}%` }}
                       transition={{ duration: 1.2 }}
-                      viewport={{ once: true }}
                     />
                   </div>
 
@@ -116,13 +114,8 @@ const Skills = () => {
 
                   {/* Tooltip */}
                   {tooltipIndex === index && (
-                    <div
-                      className="absolute bottom-full mb-3 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded bg-gray-900 text-white text-xs whitespace-nowrap z-50
-                    shadow-lg pointer-events-none select-none"
-                    >
-                      {`My proficiency in ${skill.name} is ${skill.progress}%, which is considered ${getSkillLevel(
-                        skill.progress
-                      )}.`}
+                    <div className="absolute bottom-full mb-3 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded bg-gray-900 text-white text-xs max-w-xs whitespace-nowrap z-50 shadow-lg pointer-events-none select-none">
+                      {`My proficiency in ${skill.name} is ${skill.progress}%, which is considered ${getSkillLevel(skill.progress)}.`}
                     </div>
                   )}
                 </motion.div>
@@ -148,9 +141,8 @@ const Skills = () => {
                   className="flex flex-col items-center gap-2 p-4 bg-[#10151c] border border-[#33394a] rounded-xl text-center hover:border-purple-500 hover:shadow-md transition-all"
                   whileHover={{ scale: 1.05 }}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
                 >
                   <img
                     src={tool.icon}
