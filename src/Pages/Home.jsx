@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import ReactI from '../assets/react.svg'
+import HireMe from '../Components/HireMe'
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -91,7 +92,7 @@ function Home() {
                   delaySpeed={1100}
                 />
               </motion.div>
-
+              <HireMe />
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -196,7 +197,7 @@ function Home() {
               whileHover={{
                 scale: 1.3,
                 rotate: 360,
-                transition: { repeat: Infinity, duration: 2, ease: "linear" }, 
+                transition: { repeat: Infinity, duration: 2, ease: "linear" },
               }}
             />
           </div>
