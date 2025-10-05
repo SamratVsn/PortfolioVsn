@@ -6,6 +6,7 @@ import SMS from '../Components/SMS'
 import More from '../Components/More'
 import AllioVsn from '../Components/AllioVsn'
 import BlogVsn from '../Components/BlogVsn'
+import This from '../Components/This'
 
 const Projects = () => {
   return (
@@ -15,6 +16,7 @@ const Projects = () => {
         <Route path="/sms" element={<SMS />} />
         <Route path="/blogvsn" element={<BlogVsn />} />
         <Route path="/alliovsn" element={<AllioVsn />} />
+        <Route path="/this" element={<This />} />
         <Route path="/more" element={<More />} />
       </Routes>
     </PageLayout>
