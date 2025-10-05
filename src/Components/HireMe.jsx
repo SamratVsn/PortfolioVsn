@@ -14,7 +14,7 @@ export default function HireMe() {
         {/* Message */}
         <div className="max-w-[220px]">
           <p className="text-sm md:text-base font-semibold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-pink-300 to-sky-300">
-            💡 Student • Learner • Builder
+            💡 Student • Learner • Developer
           </p>
           <p className="text-xs md:text-sm text-gray-200 leading-snug">
             Still learning — but open to <span className="text-sky-300 font-medium">collabs, ideas</span> & <span className="text-pink-300 font-medium">opportunities</span>!
