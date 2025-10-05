@@ -33,7 +33,7 @@ export const ProjectGrid = () => {
       category: "Web Application",
       tags: ["React", "TailwindCSS", "Blog"],
       icon: Globe,
-      status: "Ongoing"
+      status: "Completed"
     },
     {
       title: "Allio VSN",

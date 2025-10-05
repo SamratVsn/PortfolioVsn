@@ -15,7 +15,7 @@ export default function AllioVsn() {
         AllioVsn
       </h1>
       <p className="text-center mb-10 text-lg">
-        Built with: <span className="font-semibold text-purple-300">[Your Stack e.g. React, Next.js, API]</span>
+        Built with: <span className="font-semibold text-purple-300">React, Framer Motion, Different APIs</span>
       </p>
 
       {/* Intro Image */}
@@ -33,22 +33,18 @@ export default function AllioVsn() {
           Project Overview
         </h2>
         <p className="mb-6 text-gray-200 leading-relaxed">
-          <span className="font-semibold text-purple-300">AllioVsn</span> is a project that [...]
-          (describe the core idea: what it does, who it’s for, main innovations).
+          <span className="font-semibold text-purple-300">AllioVsn</span> is a project that I built to compress all of my mini projects into 1 single website & watch them together
         </p>
 
         <ol className="list-decimal list-inside space-y-5 text-gray-100">
           <li>
-            <span className="font-semibold text-indigo-200">Feature One:</span> Explain a
-            key feature or functionality.
+            <span className="font-semibold text-indigo-200">Feature One:</span>Small Projects Integratioj
           </li>
           <li>
-            <span className="font-semibold text-indigo-200">Feature Two:</span> Another feature
-            highlight or architecture point.
+            <span className="font-semibold text-indigo-200">Feature Two:</span> Use of many APIs
           </li>
           <li>
-            <span className="font-semibold text-indigo-200">Feature Three:</span> Perhaps
-            something about API integration, data flow, authentication, etc.
+            <span className="font-semibold text-indigo-200">Feature Three:</span>Learnt to build website with many core concepts.
           </li>
           <li>
             <span className="font-semibold text-indigo-200">User Interface & UX:</span> Talk
@@ -61,7 +57,7 @@ export default function AllioVsn() {
         </ol>
 
         <p className="mt-8 text-gray-300">
-          This project showcases my abilities in [...], and demonstrates how the stack
+          This project showcases my abilities in React Routing, API Handling & Complex Routing, and demonstrates how the stack
           comes together to deliver a clean and performant solution.
         </p>
       </div>
@@ -101,31 +97,27 @@ export default function AllioVsn() {
         </h2>
         <ul className="list-disc list-inside space-y-4 text-gray-200">
           <li>
-            <span className="font-semibold text-pink-200">Challenge A:</span> What issue you faced
-            and how you resolved it.
+            <span className="font-semibold text-pink-200">Challenge A:</span> I faced a lot of issue while working with axios & APIs. I was really confused about finding an API, using it efficiently & also making it smooth.
           </li>
           <li>
-            <span className="font-semibold text-pink-200">Challenge B:</span> Another hurdle,
-            e.g. with performance, state management, API limits.
+            <span className="font-semibold text-pink-200">Challenge B:</span>The perofrmance of the website was a hurdle to me.
           </li>
           <li>
-            <span className="font-semibold text-pink-200">Design Trade-offs:</span> How you
-            balanced usability vs complexity, mobile vs desktop, etc.
+            <span className="font-semibold text-pink-200">Design Trade-offs:</span>TailwindCss.
           </li>
           <li>
-            <span className="font-semibold text-pink-200">Scaling / Optimization:</span> Any
-            techniques you used to make the app faster or leaner.
+            <span className="font-semibold text-pink-200">Scaling / Optimization:</span> Using NULL.
           </li>
         </ul>
         <p className="mt-6 text-gray-300">
-          Working on AllioVsn deepened my understanding of [...] and taught me how to tackle
+          Working on AllioVsn deepened my understanding of essential concepts of web development and taught me how to tackle
           real-world challenges in web development.
         </p>
       </div>
 
       {/* Screenshots */}
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-purple-300">
-        Application Screenshots
+        Project Screenshots
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {screenshots.map((src, index) => (
