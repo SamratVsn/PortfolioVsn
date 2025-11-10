@@ -67,15 +67,30 @@ function Home() {
           <div className="min-h-screen flex-1 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
             <div className="min-h-[25vh] items-center justify-center px-4 sm:max-w-6xl mx-auto flex flex-col text-center space-y-6 sm:space-y-8">
 
-              <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center"
-              >
-                Hello, I'm <span className="text-sky-300 cursor-pointer hover:text-cyan-200 transition-colors duration-300">Samrat</span>
-              </motion.h1>
-
+<motion.h1
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center relative pb-5"
+>
+  <span
+    className="bg-gradient-to-r from-sky-500 via-sky-300 to-teal-300 bg-clip-text text-transparent font-extrabold"
+    style={{
+      textShadow: `
+        2px 2px 0 rgba(30, 58, 138, 0.5),
+        8px 8px 30px rgba(0, 0, 0, 0.6)
+      `
+    }}
+  >
+    Samrat Parajuli
+  </span>
+  <motion.div
+    initial={{ scaleX: 0 }}
+    animate={{ scaleX: 1 }}
+    transition={{ delay: 0.7, duration: 0.9 }}
+    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-blue-900 via-emerald-400 via-teal-300 to-sky-200 rounded-full"
+  />
+</motion.h1>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -85,35 +100,24 @@ function Home() {
                 whileTap={{ scale: 0.95 }}>
               <Typewriter
                   words={["⚡ Problem Solver", "💻 Kotlin Programmer", "⚡ Student", "💻 Developer"]} loop={true} cursor cursorStyle="|" typeSpeed={50} deleteSpeed={30} delaySpeed={2000}/>
-  <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs">
-    ✨
-  </span>
-</motion.div>
+              <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs"> ✨ </span>
+              <span className="ml-3 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs">
+  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 border border-sky-400/30 rounded-full px-3 py-1 backdrop-blur-sm">
+    <span className="text-sky-200">More:</span>
+    <Link to="/projects" className="text-cyan-400 hover:text-cyan-300 font-bold transition-colors hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">Projects ✦</Link>
+  </span> </span>
+            </motion.div>
               <HireMe />
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-                className="w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl"
-              >
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 leading-relaxed px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 backdrop-blur-sm bg-white/5 rounded-lg sm:rounded-xl md:rounded-2xl border border-white/10 shadow-xl">
-                  I'm a <span className="text-sky-300 font-semibold bg-sky-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-sky-300/20">passionate learner</span> and <span className="text-cyan-300 font-semibold bg-cyan-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-cyan-300/20">aspiring developer</span> from Nepal, eager to create meaningful <span className="text-blue-300 font-semibold bg-blue-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-blue-300/20">projects</span> and grow my skills in technology and <span className="text-sky-200 font-bold bg-sky-200/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-sky-200/20">problem-solving</span>.
-                </p>
-              </motion.div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-              >
-                <Link
-                  to="/projects"
-                  className="inline-block px-5 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-sky-500 to-cyan-400 text-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg hover:shadow-cyan-300/50 transition-all duration-300 font-medium text-sm sm:text-base lg:text-lg hover:scale-105 active:scale-95"
-                >
-                  See My Works
-                </Link>
-              </motion.div>
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
+  className="w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl"
+>
+  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 leading-relaxed px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 backdrop-blur-sm bg-white/5 rounded-lg sm:rounded-xl md:rounded-2xl border border-white/10 shadow-xl">
+    Hi! I’m a <span className="text-sky-300 font-semibold bg-sky-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-sky-300/20">passionate learner</span> and <span className="text-cyan-300 font-semibold bg-cyan-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-cyan-300/20">aspiring developer</span> from Nepal. I love building <span className="text-blue-300 font-semibold bg-blue-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-blue-300/20">projects</span> that make a difference and challenge my <span className="text-sky-200 font-bold bg-sky-200/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-sky-200/20">problem-solving</span> skills. Exploring new technologies and improving my craft is what drives me. When I’m not coding, I enjoy learning, experimenting, and sharing what I’ve learned with others. Welcome to my portfolio—I’m glad you’re here!
+  </p>
+</motion.div>
 
               <motion.div
                 className="flex items-center justify-center gap-3 sm:mx-auto sm:gap-4 md:gap-6 pt-2 sm:pt-4 px-3 py-2 sm:px-6 sm:py-3"
@@ -152,51 +156,6 @@ function Home() {
                 ))}
               </motion.div>
             </div>
-          </div>
-          <div className="min-h-60 w-full bg-gradient-to-b from-[#1e3a8a]/30 via-[#0f172a]/60 to-[#0f172a] py-12 sm:py-16 px-6 sm:px-10 md:px-16 lg:px-24 mt-12">
-            <motion.h2
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 text-sky-300 drop-shadow-md"
-            >
-              About Me
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto text-center backdrop-blur-sm bg-white/5 rounded-lg p-6 border border-white/10 shadow-xl"
-            >
-              Hi, I’m <span className="text-sky-300 font-semibold">Samrat Parajuli</span> — a grade 12 student from Nepal passionate about
-              <span className="text-cyan-300 font-semibold"> web development</span> and
-              <span className="text-blue-300 font-semibold"> computer science</span>.
-              I build projects with <span className="text-sky-200 font-semibold">React, JavaScript, and Tailwind</span> and enjoy exploring new ideas in
-              <span className="text-sky-100 font-semibold"> computer networking & programming</span>. 🚀
-              <br /><br />
-              <Link
-                to="/about"
-                className="inline-block mt-4 px-5 sm:px-6 md:px-8 py-2.5 bg-gradient-to-r from-sky-500 to-cyan-400 text-white rounded-lg shadow-lg hover:shadow-cyan-300/50 transition-all duration-300 font-medium text-sm sm:text-base hover:scale-105 active:scale-95"
-              >
-                Learn More
-              </Link>
-            </motion.p>
-            <motion.img
-              src={ReactI}
-              alt="React Logo"
-              className="mt-20 w-32 h-32 mx-auto"
-              initial={{ rotate: 0, scale: 1 }}
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-              whileHover={{
-                scale: 1.3,
-                rotate: 360,
-                transition: { repeat: Infinity, duration: 2, ease: "linear" },
-              }}
-            />
           </div>
         </div>
       </>)
