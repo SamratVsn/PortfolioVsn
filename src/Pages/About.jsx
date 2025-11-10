@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Components/Header'
 import { motion } from 'framer-motion'
-import myPhoto from '../assets/PortfolioImage.jpg'
+import PortfolioImage from '../assets/PortfolioImage.jpg'
 import HireMe from '../Components/HireMe'
 
 function About() {
@@ -9,57 +9,67 @@ function About() {
     <div className="min-h-screen pb-20 bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white">
       <Header />
     <HireMe />
-      <div className="mt-[70px] w-full py-12 sm:py-16 px-6 sm:px-10 md:px-16 lg:px-24">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-sky-300 drop-shadow-md"
-        >
-          <span className='text-yellow-200 font-bold'>About</span> Me
-        </motion.h2>
+      <div className="mt-[70px] w-full py-12 sm:py-16 px-6 sm:px-10 md:px-16 lg:px-24 relative">
+  {/* Interactive Heading */}
+  <motion.h2
+    initial={{ opacity: 0, y: -20, scale: 0.9 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    whileHover={{ scale: 1.05, rotate: 2 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-sky-300 to-cyan-300 drop-shadow-lg"
+  >
+    <span className="text-yellow-200 font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400">
+      Get to Know
+    </span>{" "}
+    Me
+  </motion.h2>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-10 md:gap-16 lg:gap-20 max-w-6xl mx-auto">
+  <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 max-w-6xl mx-auto">
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex-shrink-0"
-          >
-            <img
-              src={myPhoto}
-              alt="Samrat Parajuli"
-              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-cover rounded-2xl shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300"
-            />
-          </motion.div>
+    {/* Interactive Image */}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.12, rotate: 4, transition: { duration: 0.3 } }}
+      viewport={{ once: true }}
+      className="flex-shrink-0 w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 mb-6 md:mb-0"
+    >
+      <img
+        src={PortfolioImage}
+        alt="Samrat Parajuli"
+        className="w-full h-full object-cover rounded-3xl shadow-2xl border-2 border-white/20 hover:shadow-cyan-400/50 transition-transform duration-300 mx-auto md:mx-0"
+      />
+    </motion.div>
 
-          {/* Text */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed text-center md:text-left backdrop-blur-sm bg-white/5 rounded-lg p-6 border border-white/10 shadow-xl"
-          >
-            Hey, I’m <span className="text-sky-300 font-semibold">Samrat Parajuli</span> — a grade 12 student from Nepal, passionate about
-            <span className="text-cyan-300 font-semibold"> computer science</span> and
-            <span className="text-blue-300 font-semibold"> web development</span>.
-            I love creating projects with <span className="text-sky-200 font-semibold">React, JavaScript, and Tailwind</span>, and I’m currently exploring 
-            <span className="text-sky-100 font-semibold"> computer networking</span> to deepen my technical foundation.
+    {/* Text Card */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.3 }}
+      viewport={{ once: true }}
+      className="flex-1 backdrop-blur-md bg-white/5 rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl w-full md:max-w-2xl"
+    >
+      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
+        Hello! I’m <span className="text-sky-300 font-semibold">Samrat Parajuli</span>, a grade 12 student from Nepal passionate about <span className="text-cyan-300 font-semibold">computer science</span> and <span className="text-blue-300 font-semibold">web development</span>. I enjoy transforming ideas into <span className="text-sky-200 font-semibold">interactive, user-friendly web experiences</span> using <span className="text-sky-100 font-semibold">React, JavaScript, and Tailwind CSS</span>. I’m currently exploring <span className="text-indigo-300 font-semibold">computer networking</span> to strengthen my technical foundation and expand my problem-solving abilities.
+      </p>
 
-            <br /><br />
-            Driven by curiosity and a growth mindset, I enjoy building clean, user-friendly interfaces and experimenting with new ideas. Every project helps me learn something new and push my limits further.
+      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
+        I’m fueled by curiosity, creativity, and a growth-oriented mindset. I love crafting clean and intuitive interfaces, experimenting with innovative ideas, and tackling challenges as opportunities to learn, grow, and innovate continuously.
+      </p>
 
-            <br /><br />
-            I’m always open to <span className="text-green-300 font-semibold">collaborations</span>,
-            <span className="text-purple-300 font-semibold">projects</span>, and meaningful
-            <span className="text-pink-300 font-semibold">conversations</span> — let’s connect and create together 🚀
-          </motion.p>
-        </div>
-      </div>
+      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
+        Beyond coding, I’m always open to <span className="text-green-300 font-semibold">collaborations</span>, contributing to <span className="text-purple-300 font-semibold">projects</span>, and engaging in meaningful <span className="text-pink-300 font-semibold">conversations</span>. Each interaction helps me expand my knowledge, gain new perspectives, and build something remarkable.
+      </p>
+
+      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">
+        Let’s connect and create amazing solutions that blend creativity, functionality, and aesthetics 🚀
+      </p>
+    </motion.div>
+
+  </div>
+</div>
+
       <div>
 
         <div className="min-h-screen mt-16 sm:mt-20">
@@ -74,6 +84,53 @@ function About() {
           </motion.h2>
 
           <div className="grid grid-cols-1 px-3 sm:px-2 lg:px-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  viewport={{ once: true }}
+  className="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10 shadow-xl hover:bg-white/10 hover:scale-105 transition-all duration-300"
+>
+  <div className="flex items-center mb-4">
+    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+      KT
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-cyan-300">Kotlin</h3>
+      <div className="flex items-center">
+        <span className="text-purple-300 text-sm">✨ Beginner</span>
+      </div>
+    </div>
+  </div>
+  <p className="text-white/80 text-sm leading-relaxed">
+    Using it in Android development & building clean, concise mobile applications
+  </p>
+</motion.div>
+
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  viewport={{ once: true }}
+  className="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10 shadow-xl hover:bg-white/10 hover:scale-105 transition-all duration-300"
+>
+  <div className="flex items-center mb-4">
+    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center text-white font-bold text-lg mr-4">
+      AS
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-cyan-300">Android Studio</h3>
+      <div className="flex items-center">
+        <span className="text-green-300 text-sm">✨ Starter</span>
+      </div>
+    </div>
+  </div>
+  <p className="text-white/80 text-sm leading-relaxed">
+    Learning to use it for Kotlin & Applications. Exploring the uses & doing it regularly
+  </p>
+</motion.div>
+
+
             {/* C Programming */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -239,29 +296,6 @@ function About() {
               </div>
               <p className="text-white/80 text-sm leading-relaxed">
                 Solved algorithmic challenges & logical tasks in C
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="backdrop-blur-sm bg-white/5 rounded-xl p-6 border border-white/10 shadow-xl hover:bg-white/10 hover:scale-105 transition-all duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center text-white font-bold text-sm mr-4">
-                  📚
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-sky-300">Currently Learning</h3>
-                  <div className="flex items-center">
-                    <span className="text-purple-300 text-sm">✨ Node.js</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-white/80 text-sm leading-relaxed">
-                Basics, Server-side rendering & better React workflow
               </p>
             </motion.div>
           </div>
