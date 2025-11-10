@@ -128,7 +128,7 @@ function Home() {
                 {[
                   { href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/", icon: FaLinkedin, label: "LinkedIn", color: "hover:border-blue-400/50 hover:bg-blue-400/10" },
                   { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub", color: "hover:border-gray-400/50 hover:bg-gray-400/10" },
-                  { href: "mailto:std.samrat068@gmail.com", icon: MdEmail, label: "Email", color: "hover:border-red-400/50 hover:bg-red-400/10" },
+                  { href: "mailto:samratvsn@gmail.com", icon: MdEmail, label: "Email", color: "hover:border-red-400/50 hover:bg-red-400/10" },
                   { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google", color: "hover:border-green-400/50 hover:bg-green-400/10" }
                 ].map(({ href, icon: Icon, label, color }, index) => (
                   <motion.a
