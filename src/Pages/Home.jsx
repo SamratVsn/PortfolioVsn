@@ -83,7 +83,7 @@ function Home() {
                 className="text-sm sm:text-base md:text-lg lg:text-xl text-sky-100 h-6 sm:h-8 flex items-center justify-center"
               >
                 <Typewriter
-                  words={["Learner of Tech", "Explorer of Consciousness", "Student", "Developer"]}
+                  words={["Problem Solver", "Kotlin Programmer", "Student", "Developer"]}
                   loop={true}
                   cursor
                   cursorStyle="|"
