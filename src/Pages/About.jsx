@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Components/Header'
 import { motion } from 'framer-motion'
-import myPhoto from '.../PortfolioImage.png'
+import myPhoto from '../assets/PortfolioImage.jpg'
 import HireMe from '../Components/HireMe'
 
 function About() {
