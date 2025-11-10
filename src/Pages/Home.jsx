@@ -80,18 +80,15 @@ function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl text-sky-100 h-6 sm:h-8 flex items-center justify-center"
-              >
-                <Typewriter
-                  words={["Problem Solver", "Kotlin Programmer", "Student", "Developer"]}
-                  loop={true}
-                  cursor
-                  cursorStyle="|"
-                  typeSpeed={70}
-                  deleteSpeed={45}
-                  delaySpeed={1100}
-                />
-              </motion.div>
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-sky-100 h-6 sm:h-8 flex items-center justify-center cursor-pointer group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+              <Typewriter
+                  words={["⚡ Problem Solver", "💻 Kotlin Programmer", "⚡ Student", "💻 Developer"]} loop={true} cursor cursorStyle="|" typeSpeed={50} deleteSpeed={30} delaySpeed={2000}/>
+  <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs">
+    ✨
+  </span>
+</motion.div>
               <HireMe />
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
