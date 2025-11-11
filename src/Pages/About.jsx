@@ -3,6 +3,7 @@ import Header from '../Components/Header'
 import { motion } from 'framer-motion'
 import PortfolioImage from '../assets/PortfolioImage.jpg'
 import HireMe from '../Components/HireMe'
+import Footer from '../Components/Footer' 
 
 function About() {
   return (
@@ -304,6 +305,7 @@ function About() {
           </div>
         </div>
       </div>
+      <Footer /> 
     </div>
   )
 }
