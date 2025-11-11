@@ -44,29 +44,32 @@ function About() {
 
     {/* Text Card */}
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.3 }}
-      viewport={{ once: true }}
-      className="flex-1 backdrop-blur-md bg-white/5 rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl w-full md:max-w-2xl"
-    >
-      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
-        Hello! I’m <span className="text-sky-300 font-semibold">Samrat Parajuli</span>, a grade 12 student from Nepal passionate about <span className="text-cyan-300 font-semibold">computer science</span> and <span className="text-blue-300 font-semibold">web development</span>. I enjoy transforming ideas into <span className="text-sky-200 font-semibold">interactive, user-friendly web experiences</span> using <span className="text-sky-100 font-semibold">React, JavaScript, and Tailwind CSS</span>. I’m currently exploring <span className="text-indigo-300 font-semibold">computer networking</span> to strengthen my technical foundation and expand my problem-solving abilities.
-      </p>
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.3 }}
+  viewport={{ once: true }}
+  className="flex-1 backdrop-blur-md bg-white/5 rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl w-full md:max-w-2xl"
+>
+  <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
+    Hello! I’m <span className="text-sky-300 font-semibold">Samrat Parajuli</span>, a Grade 12 student from Nepal with a deep passion for <span className="text-cyan-300 font-semibold">computer science</span> and <span className="text-blue-300 font-semibold">mobile app development</span>.  
+    I love turning ideas into <span className="text-sky-200 font-semibold">interactive, user-focused experiences</span> using <span className="text-sky-100 font-semibold">React</span> and now exploring <span className="text-indigo-300 font-semibold">Kotlin</span> for <span className="text-indigo-300 font-semibold">Android development</span>.  
+    Currently, I’m diving deeper into <span className="text-indigo-300 font-semibold">Android Studio</span> to strengthen my technical foundation and problem-solving skills.
+  </p>
 
-      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
-        I’m fueled by curiosity, creativity, and a growth-oriented mindset. I love crafting clean and intuitive interfaces, experimenting with innovative ideas, and tackling challenges as opportunities to learn, grow, and innovate continuously.
-      </p>
+  <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
+    Driven by curiosity, creativity, and a growth-oriented mindset, I enjoy crafting clean, intuitive interfaces and experimenting with new technologies.  
+    Every project I take on is an opportunity to learn, grow, and push the boundaries of what’s possible.
+  </p>
 
-      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
-        Beyond coding, I’m always open to <span className="text-green-300 font-semibold">collaborations</span>, contributing to <span className="text-purple-300 font-semibold">projects</span>, and engaging in meaningful <span className="text-pink-300 font-semibold">conversations</span>. Each interaction helps me expand my knowledge, gain new perspectives, and build something remarkable.
-      </p>
+  <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4">
+    Beyond coding, I’m always eager to <span className="text-green-300 font-semibold">collaborate</span>, contribute to exciting <span className="text-purple-300 font-semibold">projects</span>, and engage in meaningful <span className="text-pink-300 font-semibold">conversations</span>.  
+    Each interaction helps me gain new perspectives and become a better creator.
+  </p>
 
-      <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">
-        Let’s connect and create amazing solutions that blend creativity, functionality, and aesthetics 🚀
-      </p>
-    </motion.div>
-
+  <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">
+    Let’s connect and build something that blends <span className="text-sky-300 font-semibold">creativity</span>, <span className="text-blue-300 font-semibold">functionality</span>, and <span className="text-indigo-300 font-semibold">beautiful design</span> 🚀
+  </p>
+</motion.div>
   </div>
 </div>
 
