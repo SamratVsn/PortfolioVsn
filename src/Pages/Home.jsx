@@ -7,6 +7,7 @@ import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import ReactI from '../assets/react.svg'
 import HireMe from '../Components/HireMe'
+import Footer from '../Components/Footer'
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -157,6 +158,7 @@ function Home() {
               </motion.div>
             </div>
           </div>
+          <Footer />
         </div>
       </>)
       }
