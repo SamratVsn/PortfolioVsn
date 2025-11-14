@@ -4,7 +4,7 @@ import Header from '../Components/Header'
 import { Typewriter } from 'react-simple-typewriter'
 import { Link } from 'react-router-dom'
 import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
+import { FaXTwitter } from "react-icons/fa6";
 import HireMe from '../Components/HireMe'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
@@ -129,8 +129,8 @@ function Home() {
                 {[
                   { href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/", icon: FaLinkedin, label: "LinkedIn", color: "hover:border-blue-400/50 hover:bg-blue-400/10" },
                   { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub", color: "hover:border-gray-400/50 hover:bg-gray-400/10" },
-                  { href: "mailto:std.samrat068@gmail.com", icon: MdEmail, label: "Email", color: "hover:border-red-400/50 hover:bg-red-400/10" },
-                  { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google", color: "hover:border-green-400/50 hover:bg-green-400/10" }
+                  { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X", color: "hover:border-neutral-500/50 hover:bg-neutral-500/10"},
+                  { href: "https://g.dev/samratvsn", icon: FaGoogle, label: "Google", color: "hover:border-green-400/50 hover:bg-green-400/10" }
                 ].map(({ href, icon: Icon, label, color }, index) => (
                   <motion.a
                     key={index}
