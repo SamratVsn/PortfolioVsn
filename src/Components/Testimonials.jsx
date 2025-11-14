@@ -1,6 +1,6 @@
   import { motion } from "framer-motion";
   import Himanshu from '../assets/image.png'
-  import Anish from '../assets/anish.jpg'
+  import Anish from '../assets/Anish.jpg'
 
   export default function Testimonials() {
     const testimonials = [
