@@ -51,7 +51,7 @@ function Home() {
         >
           <span className="text-sky-600 brightness-110">Connecting</span>{' '}
           <span className="text-blue-600">with</span>{' '}
-          <span className="text-cyan-600">Vsn</span>
+          <span className="text-cyan-600">Vision</span>
         </motion.h1>
         <motion.p
           className="text-white/70 mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl px-4 text-center max-w-xs sm:max-w-sm"
