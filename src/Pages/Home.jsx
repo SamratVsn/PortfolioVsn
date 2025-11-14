@@ -8,6 +8,7 @@ import { MdEmail } from 'react-icons/md'
 import ReactI from '../assets/react.svg'
 import HireMe from '../Components/HireMe'
 import Footer from '../Components/Footer'
+import Testimonials from '../Components/Testimonials'
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -158,6 +159,7 @@ function Home() {
               </motion.div>
             </div>
           </div>
+          <Testimonials />
           <Footer />
         </div>
       </>)
