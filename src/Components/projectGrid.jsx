@@ -7,10 +7,8 @@ import {
   Layers, 
   MoreHorizontal, 
   ArrowRight,
-  ExternalLink,
-  UserStar,
+  User,
 } from 'lucide-react';
-
 
 export const ProjectGrid = () => {
   const navigate = useNavigate();
@@ -19,7 +17,7 @@ export const ProjectGrid = () => {
   const projects = [
     {
       title: "Student Management System",
-      desc: "A comprehensive student management system with file handling capabilities and CRUD operations built in C",
+      desc: "Console-based student management with file handling and CRUD operations in C",
       link: "/projects/sms",
       category: "System Software",
       tags: ["C", "File Handling", "CRUD"],
@@ -27,38 +25,38 @@ export const ProjectGrid = () => {
       status: "Completed"
     },
     {
-      title: "Blog VSN",
-      desc: "A modern, responsive blog website featuring clean design and smooth user experience built with React & TailwindCSS",
+      title: "BlogVsn",
+      desc: "Modern blogging platform with Google OAuth and Blogger API integration",
       link: "/projects/blogvsn",
       category: "Web Application",
-      tags: ["React", "TailwindCSS", "Blog"],
+      tags: ["React", "Google APIs", "OAuth"],
       icon: Globe,
       status: "Completed"
     },
     {
-      title: "Allio VSN",
-      desc: "A curated collection of mini projects showcasing various React components and TailwindCSS implementations",
+      title: "AllioVsn",
+      desc: "Unified dashboard consolidating multiple mini-projects with various API integrations",
       link: "/projects/alliovsn",
       category: "Project Collection",
-      tags: ["React", "TailwindCSS", "Components"],
+      tags: ["React", "Axios", "APIs"],
       icon: Layers,
       status: "Completed"
     },
     {
-      title: "This",
-      desc: "A Portfolio website showing my current progress & introcuding me to the tech world",
+      title: "Portfolio Website",
+      desc: "This portfolio showcasing my projects with interactive displays and modern design",
       link: "/projects/this",
       category: "Portfolio",
-      tags: ["React", "TailwindCSS", "Components", "EmailJs"],
-      icon: UserStar,
+      tags: ["React", "Tailwind", "Framer Motion"],
+      icon: User,
       status: "Completed"
     },
     {
-      title: "More Projects",
-      desc: "Explore additional projects and ongoing work including experimental features and upcoming releases",
+      title: "Mobile Development",
+      desc: "Transitioning to mobile app development with Kotlin and React Native",
       link: "/projects/more",
-      category: "More",
-      tags: ["Various", "In Progress"],
+      category: "In Progress",
+      tags: ["Kotlin", "React Native", "Learning"],
       icon: MoreHorizontal,
       status: "Ongoing"
     },
@@ -114,7 +112,7 @@ export const ProjectGrid = () => {
             My Projects
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Explore my collection of projects showcasing various technologies and creative solutions
+            A collection of web applications, system software, and ongoing learning projects
           </p>
         </motion.div>
 
@@ -171,22 +169,17 @@ export const ProjectGrid = () => {
                     {project.desc}
                   </p>
                   
-                  {/* Footer with Link and Tags */}
+                  {/* Footer with Link */}
                   <div className="flex justify-between items-center mt-auto">
                     <Link
                       to={project.link}
-                      className="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center group-hover:translate-x-1 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50 rounded px-2 py-1"
+                      className="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center group/link transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50 rounded px-2 py-1"
                       aria-label={`View ${project.title} project details`}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <span className="mr-2">View Project</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
                     </Link>
-                    
-                    {/* External Link Indicator for certain projects */}
-                    {(project.status === 'Live' || project.status === 'Active') && (
-                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
-                    )}
                   </div>
 
                   {/* Tags */}
@@ -210,4 +203,4 @@ export const ProjectGrid = () => {
   );
 };
 
-export default ProjectGrid ;
+export default ProjectGrid;
