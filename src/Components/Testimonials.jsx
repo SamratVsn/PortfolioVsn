@@ -22,9 +22,9 @@
       },
       {
         quote:
-          "Very hardworking and always willing to explore. His growth in development is impressive. Just waiting for other testimonials to add more.",
-        author: "John De",
-        position: "NULL",
+          "I have had the pleasure of knowing Samrat as a dedicated and skilled developer. His hard work and commitment to excellence consistently shine through in every project he undertakes. He has a great ability to solve complex problems efficiently while maintaining clean, well-organized code. His passion for development and continuous learning makes him a dependable and valuable collaborator. I wholeheartedly recommend him for any development role or project.",
+        author: "Ankit ",
+        position: "Video Editor | Friend | Colleague",
         photo: "/imgs/sanjay.jpg",
         rating: 4,
       },
