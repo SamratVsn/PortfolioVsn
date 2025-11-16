@@ -7,7 +7,6 @@ import More from '../Components/More'
 import AllioVsn from '../Components/AllioVsn'
 import BlogVsn from '../Components/BlogVsn'
 import This from '../Components/This'
-import HireMe from '../Components/HireMe';
 
 const Projects = () => {
   return (
@@ -20,7 +19,6 @@ const Projects = () => {
         <Route path="/this" element={<This />} />
         <Route path="/more" element={<More />} />
       </Routes>
-      <HireMe />
     </PageLayout>
   );
 };

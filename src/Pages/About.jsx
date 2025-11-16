@@ -2,13 +2,11 @@ import React from 'react'
 import Header from '../Components/Header'
 import { motion } from 'framer-motion'
 import PortfolioImage from '../assets/PortfolioImage.jpg'
-import HireMe from '../Components/HireMe'
 
 function About() {
   return (
     <div className="min-h-screen pb-20 bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white">
       <Header />
-    <HireMe />
       <div className="mt-[70px] w-full py-12 sm:py-16 px-6 sm:px-10 md:px-16 lg:px-24 relative">
   {/* Interactive Heading */}
   <motion.h2

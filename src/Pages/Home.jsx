@@ -5,7 +5,6 @@ import { Typewriter } from 'react-simple-typewriter'
 import { Link } from 'react-router-dom'
 import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import HireMe from '../Components/HireMe'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
 
@@ -108,7 +107,6 @@ function Home() {
                     <Link to="/projects" className="text-cyan-400 hover:text-cyan-300 font-bold transition-colors hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">Projects ✦</Link>
                   </span> </span>
               </motion.div>
-              <HireMe />
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
