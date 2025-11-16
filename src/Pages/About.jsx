@@ -2,10 +2,11 @@ import React from 'react'
 import Header from '../Components/Header'
 import { motion } from 'framer-motion'
 import PortfolioImage from '../assets/PortfolioImage.jpg'
+import Footer from '../Components/Footer'
 
 function About() {
   return (
-    <div className="min-h-screen pb-20 bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white">
       <Header />
       <div className="mt-[70px] w-full py-12 sm:py-16 px-6 sm:px-10 md:px-16 lg:px-24 relative">
   {/* Interactive Heading */}
@@ -302,6 +303,7 @@ function About() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
