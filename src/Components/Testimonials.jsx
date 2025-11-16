@@ -27,7 +27,7 @@
         author: "Ankit ",
         position: "Video Editor | Friend | Colleague",
         photo: Ankit,
-        rating: 4,
+        rating: 5,
       },
     ];
 
