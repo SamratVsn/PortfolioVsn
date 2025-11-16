@@ -1,6 +1,7 @@
   import { motion } from "framer-motion";
   import Himanshu from '../assets/image.png'
   import Anish from '../assets/Anish.jpg'
+  import Ankit from '../assets/Ankit.jpg'
 
   export default function Testimonials() {
     const testimonials = [
@@ -25,7 +26,7 @@
           "I have had the pleasure of knowing Samrat as a dedicated and skilled developer. His hard work and commitment to excellence consistently shine through in every project he undertakes. He has a great ability to solve complex problems efficiently while maintaining clean, well-organized code. His passion for development and continuous learning makes him a dependable and valuable collaborator. I wholeheartedly recommend him for any development role or project.",
         author: "Ankit ",
         position: "Video Editor | Friend | Colleague",
-        photo: "/imgs/sanjay.jpg",
+        photo: Ankit,
         rating: 4,
       },
     ];
