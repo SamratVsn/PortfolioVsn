@@ -12,61 +12,51 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
+    const timer = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] via-[#2563eb] to-[#38bdf8] text-white font-sans">
       {loading ? (<motion.div
-        className="fixed inset-0 bg-gradient-to-br from-[#0a0f1f] via-[#193a63] to-[#4fc3f7] flex flex-col items-center justify-center z-50"
-        initial={{ opacity: 1 }}
-        exit={{ opacity: 0, transition: { duration: 0.8 } }}
+        className="fixed inset-0 bg-gradient-to-b from-[#030712] via-[#0f172a] to-[#1e293b] flex flex-col items-center justify-center z-50"
+        initial={{ opacity: 0, filter: "blur(10px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }}
+        exit={{ opacity: 0, transition: { duration: 0.5 } }}
+        transition={{ duration: 0.8 }}
       >
-        {/* Animated dots */}
-        <div className="flex space-x-3">
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-teal-200/90 shadow-lg"
-              animate={{
-                y: [0, -12, 0],
-                scale: [1, 1.3, 1],
-                opacity: [0.7, 1, 0.7],
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 0.9,
-                delay: i * 0.25,
-              }}
-            />
-          ))}
-        </div>
+        {/* Neon Ring Loader */}
+        <motion.div
+          className="w-16 h-16 rounded-full border-4 border-teal-500/20 border-t-teal-400 shadow-[0_0_25px_#14b8a6]"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        />
 
 
         {/* Title */}
         <motion.h1
-          className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-center text-white drop-shadow-2xl px-4"
+          className="text-4xl md:text-5xl font-semibold tracking-tight mt-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-400 drop-shadow-[0_0_20px_#0d9488]"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <span className="text-teal-300">Connecting</span>{" "}
-          <span className="text-indigo-300">with</span>{" "}
-          <span className="text-sky-300">Vision</span>
+          Connecting with Vision
         </motion.h1>
 
 
         {/* Subtitle */}
         <motion.p
-          className="text-white/70 mt-4 text-lg md:text-xl text-center max-w-sm px-4"
+          className="text-white/60 mt-4 text-lg md:text-xl text-center max-w-sm px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.3 }}
         >
           Loading your experience...
         </motion.p>
+
+
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 pointer-events-none" />
       </motion.div>
       ) : (<>
         <Header />
