@@ -19,44 +19,51 @@ function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] via-[#2563eb] to-[#38bdf8] text-white font-sans">
       {loading ? (<motion.div
-        className="fixed inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] via-[#2563eb] to-[#38bdf8] flex flex-col items-center justify-center z-50"
+        className="fixed inset-0 bg-gradient-to-br from-[#0a0f1f] via-[#193a63] to-[#4fc3f7] flex flex-col items-center justify-center z-50"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0, transition: { duration: 0.8 } }}
       >
-        <div className="flex space-x-2 sm:space-x-3">
+        {/* Animated dots */}
+        <div className="flex space-x-3">
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-yellow-100"
+              className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-teal-200/90 shadow-lg"
               animate={{
-                y: [0, -10, 0],
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 1, 0.5],
+                y: [0, -12, 0],
+                scale: [1, 1.3, 1],
+                opacity: [0.7, 1, 0.7],
               }}
               transition={{
                 repeat: Infinity,
-                repeatType: "mirror",
-                duration: 0.8,
-                delay: i * 0.2,
+                repeatType: "loop",
+                duration: 0.9,
+                delay: i * 0.25,
               }}
             />
           ))}
         </div>
+
+
+        {/* Title */}
         <motion.h1
-          className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg mt-4 sm:mt-5 text-center px-4"
+          className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-center text-white drop-shadow-2xl px-4"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <span className="text-sky-600 brightness-110">Connecting</span>{' '}
-          <span className="text-blue-600">with</span>{' '}
-          <span className="text-cyan-600">Vision</span>
+          <span className="text-teal-300">Connecting</span>{" "}
+          <span className="text-indigo-300">with</span>{" "}
+          <span className="text-sky-300">Vision</span>
         </motion.h1>
+
+
+        {/* Subtitle */}
         <motion.p
-          className="text-white/70 mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl px-4 text-center max-w-xs sm:max-w-sm"
+          className="text-white/70 mt-4 text-lg md:text-xl text-center max-w-sm px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1.3 }}
         >
           Loading your experience...
         </motion.p>
