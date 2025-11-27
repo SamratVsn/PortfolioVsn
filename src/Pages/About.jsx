@@ -100,12 +100,12 @@ function About() {
     <div>
       <h3 className="text-lg font-semibold text-cyan-300">Kotlin</h3>
       <div className="flex items-center">
-        <span className="text-purple-300 text-sm">✨ Beginner</span>
+        <span className="text-purple-300 text-sm">✨ Intermediate</span>
       </div>
     </div>
   </div>
   <p className="text-white/80 text-sm leading-relaxed">
-    Using it in Android development & building clean, concise mobile applications
+    Learnt its basics & laid a good foundation for Android Development
   </p>
 </motion.div>
 
@@ -123,12 +123,12 @@ function About() {
     <div>
       <h3 className="text-lg font-semibold text-cyan-300">Android Studio</h3>
       <div className="flex items-center">
-        <span className="text-green-300 text-sm">✨ Starter</span>
+        <span className="text-green-300 text-sm">✨ Beginner</span>
       </div>
     </div>
   </div>
   <p className="text-white/80 text-sm leading-relaxed">
-    Learning to use it for Kotlin & Applications. Exploring the uses & doing it regularly
+    Learnt basic kotlin. Now learning to build android apps using Android Studio
   </p>
 </motion.div>
 
