@@ -25,6 +25,15 @@ export const ProjectGrid = () => {
       status: "Completed"
     },
     {
+      title: "Bank Management System",
+      desc: "A Console-based bank management system with OOPS & CRUD operations in kotlin",
+      link: "/projects/bmsk",
+      category: "CLI Project",
+      tags: ["Kotlin", "OOPS", "CRUD"],
+      icon: Database,
+      status: "Completed"
+    },
+    {
       title: "BlogVsn",
       desc: "Modern blogging platform with Google OAuth and Blogger API integration",
       link: "/projects/blogvsn",

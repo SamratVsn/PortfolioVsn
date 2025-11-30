@@ -165,12 +165,7 @@ function SMS() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 font-medium capitalize transition-colors relative ${
-                activeTab === tab
-                  ? 'text-cyan-400'
-                  : 'text-gray-400 hover:text-gray-200'
-              }`}
-            >
+              className={`px-6 py-3 font-medium capitalize transition-colors relative ${ activeTab === tab  ? 'text-cyan-400' : 'text-gray-400 hover:text-gray-200'}`}>
               {tab}
               {activeTab === tab && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-400" />
