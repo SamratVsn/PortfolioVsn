@@ -11,7 +11,7 @@ export default function Testimonials() {
     position: "",
     email: "",
     review: "",
-    rating: 5
+    rating: 0
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
