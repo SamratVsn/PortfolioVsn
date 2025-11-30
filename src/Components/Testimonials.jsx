@@ -30,7 +30,7 @@ export default function Testimonials() {
       quote:
         "Samrat is a highly dedicated and talented tech professional. I admire his curiosity, problem-solving mindset, and willingness to help others. He approaches every task with creativity and professionalism, and his passion for technology is clear. He's always eager to learn and take on new challenges, which makes him a joy to work with. I'm confident he'll continue to grow and achieve great things in the tech world.",
       author: "Anish Sah",
-      position: "Tech Enthusiast",
+      position: "Cybersecurity Enthusiast",
       photo: Anish,
       rating: 5,
     },

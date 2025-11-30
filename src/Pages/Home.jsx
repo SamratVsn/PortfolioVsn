@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Header from '../Components/Header'
 import { Typewriter } from 'react-simple-typewriter'
 import { Link } from 'react-router-dom'
-import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaGoogle,  FaCode, FaMobile, FaPaintBrush, FaDatabase } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
@@ -15,6 +15,33 @@ function Home() {
     const timer = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(timer);
   }, []);
+
+  const services = [
+    {
+      icon: FaCode,
+      title: "Problem Solving",
+      description: "Tackling complex challenges with clean, efficient code and innovative solutions",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: FaMobile,
+      title: "Android Development",
+      description: "Building native Android apps with Kotlin and Jetpack Compose",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: FaPaintBrush,
+      title: "UI/UX Design",
+      description: "Creating beautiful, intuitive interfaces that users love",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: FaDatabase,
+      title: "Frontend Development",
+      description: "Developing robust client-side solutions and UI components",
+      color: "from-orange-500 to-red-500"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] via-[#2563eb] to-[#38bdf8] text-white font-sans">
@@ -153,6 +180,56 @@ function Home() {
               </motion.div>
             </div>
           </div>
+          <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-6xl mx-auto px-4 py-16 sm:py-20"
+            >
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent"
+              >
+                What I Do
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center text-white/60 mb-12 text-sm sm:text-base md:text-lg"
+              >
+                Turning ideas into reality through code
+              </motion.p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.15, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+                  >
+                    <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-sky-300 mb-3 group-hover:text-cyan-300 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-white/70 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           <Testimonials />
           <Footer />
         </div>
