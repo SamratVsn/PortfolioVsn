@@ -10,7 +10,7 @@ export default function Testimonials() {
     name: "",
     position: "",
     email: "",
-    review: "",
+    message: "",
     rating: 0
   });
   const [sending, setSending] = useState(false);
@@ -60,7 +60,7 @@ export default function Testimonials() {
       formData.name.trim() !== '' &&
       formData.email.trim() !== '' &&
       formData.position.trim() !== '' &&
-      formData.review.trim() !== '' &&
+      formData.message.trim() !== '' &&
       formData.rating > 0
     );
   };
@@ -80,7 +80,7 @@ export default function Testimonials() {
       email: formData.email,
       position: formData.position,
       rating: formData.rating,
-      review: formData.review,
+      review: formData.message,
     };
     
     emailjs.send(
@@ -97,7 +97,7 @@ export default function Testimonials() {
             name: '', 
             email: '', 
             position: '',
-            review: '',
+            message: '',
             rating: 5 
           });
           setTimeout(() => setSent(false), 6000);
@@ -340,7 +340,7 @@ export default function Testimonials() {
                 <textarea
                   id="review"
                   name="review"
-                  value={formData.review}
+                  value={formData.message}
                   onChange={handleChange}
                   rows="5"
                   className="w-full px-4 py-3 bg-slate-700/60 border border-sky-500/30 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition-all resize-none"
