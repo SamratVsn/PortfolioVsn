@@ -80,7 +80,7 @@ export default function Testimonials() {
       email: formData.email,
       position: formData.position,
       rating: formData.rating,
-      review: formData.message,
+      message: formData.message,
     };
     
     emailjs.send(
@@ -334,12 +334,12 @@ export default function Testimonials() {
 
               {/* Review */}
               <div>
-                <label htmlFor="review" className="block text-sm font-medium text-sky-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-sky-300 mb-2">
                   Your Review *
                 </label>
                 <textarea
-                  id="review"
-                  name="review"
+                  id="message"
+                  name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
