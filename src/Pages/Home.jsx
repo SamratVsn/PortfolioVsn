@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion} from 'framer-motion'
 import Header from '../Components/Header'
-import { Typewriter } from 'react-simple-typewriter'
-import { Link } from 'react-router-dom'
-import { FaLinkedin, FaGithub, FaGoogle,  FaCode, FaMobile, FaPaintBrush, FaDatabase } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
@@ -12,230 +10,255 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
+  const details = [
+    { label: "FOCUS", value: "Mobile App Development", detail: "Building interfaces that feel natural." },
+    { label: "PATH", value: "Continuous Learning", detail: "Deep diving into learning & Problem Solving." },
+    { label: "MIND", value: "Spiritual Tech", detail: "Merging logic with mindful execution." }
+  ];
+
   const services = [
     {
-      icon: FaCode,
+      id: "01",
       title: "Problem Solving",
       description: "Tackling complex challenges with clean, efficient code and innovative solutions",
-      color: "from-blue-500 to-cyan-500"
+      tag: "Logic"
     },
     {
-      icon: FaMobile,
+      id: "02",
       title: "Android Development",
-      description: "Building native Android apps with Kotlin and Jetpack Compose",
-      color: "from-green-500 to-emerald-500"
+      description: "Building native mobile experiences with Kotlin and Jetpack Compose",
+      tag: "Mobile"
     },
     {
-      icon: FaPaintBrush,
-      title: "UI/UX Design",
-      description: "Creating beautiful, intuitive interfaces that users love",
-      color: "from-purple-500 to-pink-500"
+      id: "03",
+      title: "Interface Design",
+      description: "Creating intentional, intuitive interfaces that prioritize user harmony",
+      tag: "UI/UX"
     },
     {
-      icon: FaDatabase,
-      title: "Frontend Development",
-      description: "Developing robust client-side solutions and UI components",
-      color: "from-orange-500 to-red-500"
+      id: "04",
+      title: "Frontend Systems",
+      description: "Developing robust client-side solutions with modern reactive frameworks",
+      tag: "Web"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] via-[#2563eb] to-[#38bdf8] text-white font-sans">
-      {loading ? (<motion.div
-        className="fixed inset-0 bg-gradient-to-b from-[#030712] via-[#0f172a] to-[#1e293b] flex flex-col items-center justify-center z-50"
-        initial={{ opacity: 0, filter: "blur(10px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
-        exit={{ opacity: 0, transition: { duration: 0.5 } }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Neon Ring Loader */}
+    <div className="min-h-screen bg-[#0F172A] text-slate-100 font-sans">
+      {loading ? (
         <motion.div
-          className="w-16 h-16 rounded-full border-4 border-teal-500/20 border-t-teal-400 shadow-[0_0_25px_#14b8a6]"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-        />
-
-
-        {/* Title */}
-        <motion.h1
-          className="text-4xl md:text-5xl font-semibold tracking-tight mt-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-400 drop-shadow-[0_0_20px_#0d9488]"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          className="fixed inset-0 bg-[#0F172A] flex flex-col items-center justify-center z-50"
+          exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          Connecting with Vision
-        </motion.h1>
-
-
-        {/* Subtitle */}
-        <motion.p
-          className="text-white/60 mt-4 text-lg md:text-xl text-center max-w-sm px-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.3 }}
-        >
-          Loading your experience...
-        </motion.p>
-
-
-        {/* Subtle vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 pointer-events-none" />
-      </motion.div>
-      ) : (<>
-        <Header />
-        <div className="pt-[70px] flex flex-col">
-          <div className="min-h-screen flex-1 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
-            <div className="min-h-[25vh] items-center justify-center px-4 sm:max-w-6xl mx-auto flex flex-col text-center space-y-6 sm:space-y-8">
-
-              <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center relative pb-5"
-              >
-                <span
-                  className="bg-gradient-to-r from-sky-500 via-sky-300 to-teal-300 bg-clip-text text-transparent font-extrabold"
-                  style={{
-                    textShadow: `
-        2px 2px 0 rgba(30, 58, 138, 0.5),
-        8px 8px 30px rgba(0, 0, 0, 0.6)
-      `
-                  }}
-                >
-                  Samrat Parajuli
-                </span>
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.7, duration: 0.9 }}
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-blue-900 via-emerald-400 via-teal-300 to-sky-200 rounded-full"
-                />
-              </motion.h1>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-sm sm:text-base md:text-lg lg:text-xl text-sky-100 h-6 sm:h-8 flex items-center justify-center cursor-pointer group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}>
-                <Typewriter
-                  words={["⚡ Problem Solver", "💻 Kotlin Programmer", "⚡ Student", "💻 Developer"]} loop={true} cursor cursorStyle="|" typeSpeed={50} deleteSpeed={30} delaySpeed={2000} />
-                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-xs"> ✨ </span>
-                <span className="ml-3 opacity-0 group-hover:opacity-100 transition-all duration-300 text-xs">
-                  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 border border-sky-400/30 rounded-full px-3 py-1 backdrop-blur-sm">
-                    <span className="text-sky-200">More:</span>
-                    <Link to="/projects" className="text-cyan-400 hover:text-cyan-300 font-bold transition-colors hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">Projects ✦</Link>
-                  </span> </span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-                className="w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl"
-              >
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 leading-relaxed px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 backdrop-blur-sm bg-white/5 rounded-lg sm:rounded-xl md:rounded-2xl border border-white/10 shadow-xl">
-                  Hi! I’m a <span className="text-sky-300 font-semibold bg-sky-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-sky-300/20">passionate learner</span> and <span className="text-cyan-300 font-semibold bg-cyan-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-cyan-300/20">aspiring developer</span> from Nepal. I love building <span className="text-blue-300 font-semibold bg-blue-300/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-blue-300/20">projects</span> that make a difference and challenge my <span className="text-sky-200 font-bold bg-sky-200/10 px-1 py-0.5 sm:px-2 sm:py-1 rounded transition-all duration-300 hover:bg-sky-200/20">problem-solving</span> skills. Exploring new technologies and improving my craft is what drives me. When I’m not coding, I enjoy learning, experimenting, and sharing what I’ve learned with others. Welcome to my portfolio—I’m glad you’re here!
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="flex items-center justify-center gap-3 sm:mx-auto sm:gap-4 md:gap-6 pt-2 sm:pt-4 px-3 py-2 sm:px-6 sm:py-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-              >
-                {[
-                  { href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/", icon: FaLinkedin, label: "LinkedIn", color: "hover:border-blue-400/50 hover:bg-blue-400/10" },
-                  { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub", color: "hover:border-gray-400/50 hover:bg-gray-400/10" },
-                  { href: "mailto:std.samrat068@gmail.com", icon: MdEmail, label: "Email", color: "hover:border-red-400/50 hover:bg-red-400/10" },
-                  { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google", color: "hover:border-green-400/50 hover:bg-green-400/10" }
-                ].map(({ href, icon: Icon, label, color }, index) => (
-                  <motion.a
-                    key={index}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center rounded-full bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 ${color}`}
-                    whileHover={{
-                      scale: 1.1,
-                      y: -2,
-                      boxShadow: "0 8px 20px rgba(34, 211, 238, 0.2)"
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                  >
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-sky-200 group-hover:text-white transition-all duration-300 group-hover:scale-110" />
-
-                    <div className="absolute -top-8 sm:-top-10 md:-top-12 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-900/95 backdrop-blur-sm text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg border border-white/10">
-                      {label}
-                    </div>
-                  </motion.a>
-                ))}
-              </motion.div>
-            </div>
+          {/* The Iris: A soft, breathing glow instead of a spin */}
+          <div className="relative flex items-center justify-center">
+            <motion.div
+              className="absolute w-12 h-12 bg-[#2DD4BF]/20 rounded-full blur-xl"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="w-2 h-2 bg-[#2DD4BF] rounded-full shadow-[0_0_15px_#2DD4BF]"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+            />
           </div>
-          <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="max-w-6xl mx-auto px-4 py-16 sm:py-20"
-            >
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent"
-              >
-                What I Do
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-center text-white/60 mb-12 text-sm sm:text-base md:text-lg"
-              >
-                Turning ideas into reality through code
-              </motion.p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-12 text-center">
+            <motion.h1
+              className="text-slate-100 text-xl font-mono tracking-[0.3em] uppercase"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+            >
+              Initializing
+            </motion.h1>
+
+            <motion.div
+              className="mt-2 h-[1px] bg-slate-800 w-48 overflow-hidden relative mx-auto"
+            >
+              <motion.div
+                className="absolute inset-0 bg-[#2DD4BF]"
+                initial={{ x: "-100%" }}
+                animate={{ x: "0%" }}
+                transition={{ duration: 2.5, ease: "easeInOut" }}
+              />
+            </motion.div>
+
+            <motion.p
+              className="text-slate-500 mt-4 font-mono text-[10px] uppercase tracking-widest"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 2, times: [0, 0.5, 1] }}
+            >
+              Preparing the space
+            </motion.p>
+          </div>
+        </motion.div>
+      ) : (
+        <>
+          <Header />
+          <div className="pt-[70px] flex flex-col">
+            <div className="min-h-screen flex-1 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
+              <div className="min-h-[25vh] items-center justify-center px-4 sm:max-w-6xl mx-auto flex flex-col text-center space-y-6 sm:space-y-8">
+
+                <motion.h1
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center relative pb-5"
+                >
+                  <span className="text-slate-100 font-bold tracking-tight">
+                    Samrat Parajuli
+                  </span>
+
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ delay: 0.7, duration: 0.9 }}
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#2DD4BF] rounded-full shadow-[0_0_15px_rgba(45,212,191,0.4)]"
+                  />
+                </motion.h1>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.9, duration: 1 }}
+                  className="w-full max-w-2xl border-l border-slate-800 pl-6 py-4 my-8"
+                >
+                  <p className="text-base md:text-lg text-slate-400 font-mono leading-relaxed">
+                    <span className="text-slate-100 italic">"Seeker of knowledge, builder of systems."</span>
+                    <br /><br />
+                    Hi! I'm a developer from Nepal focused on
+                    <span className="text-[#2DD4BF]"> mobile architecture </span>
+                    and <span className="text-[#2DD4BF]"> user-centric design</span>.
+                    I view coding as a craft—a continuous journey of learning and sharing
+                    what I discover along the way.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  className="flex items-center gap-8 pt-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.5 }}
+                >
+                  {[
+                    { href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/", icon: FaLinkedin, label: "LinkedIn" },
+                    { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
+                    { href: "mailto:std.samrat068@gmail.com", icon: MdEmail, label: "Email" },
+                    { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google" }
+                  ].map(({ href, icon: Icon, label }, index) => (
+                    <motion.a
+                      key={index}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex items-center justify-center"
+                      whileHover={{ y: -3 }}>
+                      <div className="absolute -bottom-4 w-1 h-1 bg-[#2DD4BF] rounded-full opacity-0 group-hover:opacity-100 transition-all" />
+
+                      <Icon className="text-xl md:text-2xl text-slate-500 group-hover:text-slate-100 transition-colors duration-300" />
+
+                      <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-all font-mono text-[10px] tracking-tighter text-[#2DD4BF] uppercase">
+                        {label}
+                      </span>
+                    </motion.a>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-8 mt-12 px-6">
+              {details.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.3 }}
+                  className="group flex flex-col md:flex-row md:items-start gap-4 border-l border-slate-800 pl-6 py-2 hover:border-[#2DD4BF] transition-colors duration-500"
+                >
+                  <span className="font-mono text-xs text-[#2DD4BF] mt-1 opacity-60">
+                    [{item.label}]
+                  </span>
+                  <div>
+                    <h3 className="text-xl text-slate-200 font-semibold font-mono">
+                      {item.value}
+                    </h3>
+                    <p className="text-slate-500 text-sm mt-1 leading-relaxed">
+                      {item.detail}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="max-w-6xl mx-auto px-6 py-24"
+            >
+              {/* Header: Solid & Monospace */}
+              <div className="mb-16">
+                <motion.h2
+                  className="text-slate-100 text-3xl md:text-4xl font-mono tracking-tighter mb-4"
+                >
+                  Expertise<span className="text-[#2DD4BF]">_</span>
+                </motion.h2>
+                <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
+      // Merging technical precision with mindful design
+                </p>
+              </div>
+
+              {/* Grid: Border-based instead of Box-based */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-800/50 border border-slate-800 overflow-hidden rounded-2xl">
                 {services.map((service, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.15, duration: 0.6 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+                    whileHover={{ backgroundColor: "rgba(15, 23, 42, 0.6)" }}
+                    className="bg-[#0F172A] p-8 md:p-12 transition-all duration-500 group relative"
                   >
-                    <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="w-7 h-7 text-white" />
+                    {/* Subtle accent corner */}
+                    <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 transition-opacity">
+                      <span className="font-mono text-[#2DD4BF] text-xs tracking-widest uppercase">
+                        {service.tag}
+                      </span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-sky-300 mb-3 group-hover:text-cyan-300 transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
+
+                    <div className="flex flex-col gap-4">
+                      <span className="text-[#2DD4BF] font-mono text-sm mb-2 opacity-50">
+                        {service.id} //
+                      </span>
+
+                      <h3 className="text-xl md:text-2xl font-bold text-slate-100 group-hover:text-[#2DD4BF] transition-colors duration-300">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-sm">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    {/* The "Glow" - appears only on hover */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2DD4BF]/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
                   </motion.div>
                 ))}
               </div>
             </motion.div>
-          <Testimonials />
-          <Footer />
-        </div>
-      </>)
-      }
-    </div >
+
+            <Testimonials />
+            <Footer />
+          </div>
+        </>
+      )}
+    </div>
   )
 }
 

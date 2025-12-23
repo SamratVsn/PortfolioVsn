@@ -1,153 +1,139 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Home, ArrowLeft, Search } from "lucide-react";
+import { Home, ArrowLeft, Terminal, AlertTriangle, Cpu } from "lucide-react";
 
-function NotFound() {
+const NotFound = () => {
+  // Glitch animation variants for the 404 text
+  const glitchVariants = {
+    initial: { skew: 0 },
+    animate: {
+      skew: [0, -2, 2, -1, 0],
+      x: [0, 2, -2, 1, 0],
+      transition: {
+        duration: 0.4,
+        repeat: Infinity,
+        repeatType: "mirror",
+        repeatDelay: 2
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white px-4 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#020617] text-slate-300 px-4 relative overflow-hidden font-sans">
       
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" 
-             style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" 
-             style={{ animationDuration: '10s', animationDelay: '2s' }} />
+      {/* 1. ARCHITECTURAL BACKGROUND ELEMENTS */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Subtle Grid Overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" 
+             style={{ backgroundImage: 'radial-gradient(#2DD4BF 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-sky-400/30 rounded-full"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 3) * 20}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.3,
-            }}
-          />
-        ))}
+        {/* Background Glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#2DD4BF]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px]" />
       </div>
 
-      {/* Content */}
+      {/* 2. MAIN TERMINAL CONTENT */}
       <div className="relative z-10 text-center max-w-2xl">
         
-        {/* Animated 404 Number */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5, rotateX: -90 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{ 
-            duration: 1, 
-            type: "spring",
-            stiffness: 100 
-          }}
-          className="relative mb-8"
-        >
-          <h1 className="text-8xl sm:text-9xl md:text-[12rem] font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-400 drop-shadow-2xl leading-none">
-            404
-          </h1>
-          
-          {/* Glowing effect behind number */}
-          <div className="absolute inset-0 blur-3xl opacity-50 bg-gradient-to-r from-sky-400 to-blue-500 -z-10" />
-        </motion.div>
-
-        {/* Icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex justify-center mb-6"
-        >
-          <div className="w-20 h-20 rounded-full bg-sky-500/20 border border-sky-400/30 flex items-center justify-center">
-            <Search className="w-10 h-10 text-sky-400" />
+        {/* Error Code Group */}
+        <div className="mb-12 relative inline-block">
+          <div className="flex items-center justify-center gap-2 text-[10px] font-mono text-red-500 uppercase tracking-[0.4em] mb-4">
+            <AlertTriangle size={12} /> ERR_ROUTE_NOT_FOUND
           </div>
-        </motion.div>
-
-        {/* Main Message */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
-        >
-          Page Not Found
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-gray-300 mb-3 text-base sm:text-lg leading-relaxed"
-        >
-          The page you're looking for doesn't exist or has been moved.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-sky-300/80 mb-10 text-sm sm:text-base"
-        >
-          Don't worry though, there's plenty to explore on the homepage.
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <a
-            href="/"
-            className="group flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 transform hover:scale-105"
-          >
-            <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            Go to Homepage
-          </a>
           
-          <button
-            onClick={() => window.history.back()}
-            className="group flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
+          <motion.div
+            variants={glitchVariants}
+            initial="initial"
+            animate="animate"
+            className="relative"
           >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            Go Back
-          </button>
-        </motion.div>
+            <h1 className="text-[12rem] sm:text-[14rem] font-mono font-black leading-none tracking-tighter text-slate-100 opacity-90 select-none">
+              404
+            </h1>
+            {/* Split color layer for "chromatic aberration" effect */}
+            <h1 className="absolute inset-0 text-[12rem] sm:text-[14rem] font-mono font-black leading-none tracking-tighter text-[#2DD4BF] opacity-20 -translate-x-1 translate-y-1 -z-10">
+              404
+            </h1>
+          </motion.div>
+        </div>
 
-        {/* Quick Links */}
+        {/* System Message */}
+        <div className="space-y-4 mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-xl md:text-2xl font-mono font-bold text-slate-100 uppercase tracking-tight"
+          >
+            Requested_Resource_Unavailable
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-sm md:text-base text-slate-500 font-mono leading-relaxed"
+          >
+            &gt; The routing engine could not resolve the path. <br className="hidden md:block" /> 
+            Either the source has been moved or the URL is malformed.
+          </motion.p>
+        </div>
+
+        {/* 3. NAVIGATION OPTIONS */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <motion.a
+            href="/"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="group flex items-center gap-3 px-8 py-4 bg-[#2DD4BF] text-black rounded font-mono text-xs font-black uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(45,212,191,0.3)]"
+          >
+            <Home size={16} /> RETURN_TO_HOME
+          </motion.a>
+          
+          <motion.button
+            onClick={() => window.history.back()}
+            whileHover={{ scale: 1.02 }}
+            className="group flex items-center gap-3 px-8 py-4 border border-slate-800 bg-[#070d1f] hover:bg-slate-800 text-slate-300 rounded font-mono text-xs font-bold uppercase tracking-widest transition-all"
+          >
+            <ArrowLeft size={16} /> STEP_BACK
+          </motion.button>
+        </div>
+
+        {/* 4. SYSTEM DIRECTORY (Quick Links) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-12 pt-8 border-t border-white/10"
+          transition={{ delay: 0.5 }}
+          className="pt-10 border-t border-slate-800/50"
         >
-          <p className="text-gray-400 text-sm mb-4">Quick Links:</p>
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Cpu size={14} className="text-slate-700" />
+            <span className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Active_Modules</span>
+          </div>
+          
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              { name: 'About', path: '/About' },
+              { name: 'Root', path: '/' },
+              { name: 'Portfolio', path: '/About' },
               { name: 'Projects', path: '/Projects' },
-              { name: 'Contact', path: '/Contact' }
+              { name: 'Comm_Link', path: '/Contact' }
             ].map((link, idx) => (
               <a
                 key={idx}
                 href={link.path}
-                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-sky-400/50 rounded-lg text-sm text-gray-300 hover:text-sky-300 transition-all duration-300"
+                className="px-4 py-2 bg-slate-900/50 border border-slate-800 hover:border-[#2DD4BF]/50 rounded font-mono text-[10px] text-slate-500 hover:text-[#2DD4BF] transition-all"
               >
-                {link.name}
+                ./{link.name}
               </a>
             ))}
           </div>
         </motion.div>
       </div>
+
+      {/* Footer System Info */}
+      <div className="absolute bottom-8 font-mono text-[9px] text-slate-800 uppercase tracking-widest">
+        Session_ID: {Math.random().toString(36).substring(7).toUpperCase()} | Status: 404_RES_MISSING
+      </div>
     </div>
   );
-}
+};
 
 export default NotFound;

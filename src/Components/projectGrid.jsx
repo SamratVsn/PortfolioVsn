@@ -1,212 +1,108 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  Database, 
-  Globe, 
-  Layers, 
-  MoreHorizontal, 
-  ArrowRight,
-  User,
-} from 'lucide-react';
+import { Terminal, Code2, Globe, Cpu, ArrowUpRight } from 'lucide-react';
 
 export const ProjectGrid = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
 
   const projects = [
     {
       title: "Student Management System",
-      desc: "Console-based student management with file handling and CRUD operations in C",
+      desc: "Console-based CRUD implementation focusing on binary file handling and memory management.",
       link: "/projects/sms",
-      category: "System Software",
-      tags: ["C", "File Handling", "CRUD"],
-      icon: Database,
-      status: "Completed"
+      category: "C_LOGIC",
+      tags: ["C", "System"],
+      icon: Cpu,
     },
     {
-      title: "Bank Management System",
-      desc: "A Console-based bank management system with OOPS & CRUD operations in kotlin",
+      title: "Bank Management (Kotlin)",
+      desc: "An exploration of OOPS principles and state management within a CLI banking environment.",
       link: "/projects/bmsk",
-      category: "CLI Project",
-      tags: ["Kotlin", "OOPS", "CRUD"],
-      icon: Database,
-      status: "Completed"
+      category: "KOTLIN_CLI",
+      tags: ["Kotlin", "OOPS"],
+      icon: Terminal,
     },
     {
-      title: "BlogVsn",
-      desc: "Modern blogging platform with Google OAuth and Blogger API integration",
+      title: "BlogVsn Platform",
+      desc: "Integration-heavy blogging engine utilizing Google OAuth and RESTful API structures.",
       link: "/projects/blogvsn",
-      category: "Web Application",
-      tags: ["React", "Google APIs", "OAuth"],
+      category: "WEB_APP",
+      tags: ["React", "OAuth"],
       icon: Globe,
-      status: "Completed"
     },
     {
-      title: "AllioVsn",
-      desc: "Unified dashboard consolidating multiple mini-projects with various API integrations",
-      link: "/projects/alliovsn",
-      category: "Project Collection",
-      tags: ["React", "Axios", "APIs"],
-      icon: Layers,
-      status: "Completed"
-    },
-    {
-      title: "Portfolio Website",
-      desc: "This portfolio showcasing my projects with interactive displays and modern design",
+      title: "Unified Portfolio",
+      desc: "The current interface: A study in technical minimalism and motion design.",
       link: "/projects/this",
-      category: "Portfolio",
-      tags: ["React", "Tailwind", "Framer Motion"],
-      icon: User,
-      status: "Completed"
-    },
-    {
-      title: "Mobile Development",
-      desc: "Transitioning to mobile app development with Kotlin and React Native",
-      link: "/projects/more",
-      category: "In Progress",
-      tags: ["Kotlin", "React Native", "Learning"],
-      icon: MoreHorizontal,
-      status: "Ongoing"
-    },
+      category: "FRONTEND",
+      tags: ["Framer", "Tailwind"],
+      icon: Code2,
+    }
   ];
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'Completed': return 'bg-green-500/30 text-green-200';
-      case 'Live': return 'bg-blue-500/30 text-blue-200';
-      case 'Active': return 'bg-purple-500/30 text-purple-200';
-      case 'Ongoing': return 'bg-orange-500/30 text-orange-200';
-      default: return 'bg-gray-500/30 text-gray-200';
-    }
-  };
-
-  const handleProjectClick = (link) => {
-    navigate(link);
-  };
-
-  const renderLoadingSkeleton = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-      {[...Array(4)].map((_, i) => (
-        <div key={i} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 animate-pulse">
-          <div className="flex items-start justify-between mb-4">
-            <div className="w-12 h-12 bg-gray-600 rounded-lg"></div>
-            <div className="w-16 h-6 bg-gray-600 rounded-full"></div>
-          </div>
-          <div className="h-6 bg-gray-600 rounded mb-3"></div>
-          <div className="h-16 bg-gray-600 rounded mb-4"></div>
-          <div className="flex justify-between items-center">
-            <div className="h-4 bg-gray-600 rounded w-24"></div>
-            <div className="flex gap-2">
-              <div className="h-6 w-12 bg-gray-600 rounded"></div>
-              <div className="h-6 w-16 bg-gray-600 rounded"></div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Projects Section Header */}
+    <div className="max-w-7xl mx-auto px-6">
+      {/* Refined Header */}
+      <header className="mb-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="inline-block"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent mb-4">
-            My Projects
+          <span className="text-[#2DD4BF] font-mono text-xs uppercase tracking-[0.3em] mb-4 block">
+            // Repository: Build_Log_2025
+          </span>
+          <h1 className="text-4xl md:text-6xl font-mono tracking-tighter text-slate-100 uppercase">
+            Self Projects<span className="text-[#2DD4BF]">_</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            A collection of web applications, system software, and ongoing learning projects
-          </p>
         </motion.div>
+      </header>
 
-        {/* Projects Grid */}
-        {loading ? renderLoadingSkeleton() : (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            {projects.map((project, i) => {
-              const IconComponent = project.icon;
-              
-              return (
-                <motion.article
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  role="article"
-                  aria-labelledby={`project-title-${i}`}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer focus-within:ring-2 focus-within:ring-sky-400 focus-within:ring-opacity-50"
-                  onClick={() => handleProjectClick(project.link)}
-                >
-                  {/* Header with Icon and Status */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-sky-500/20 rounded-lg group-hover:bg-sky-500/30 transition-colors">
-                      <IconComponent className="w-6 h-6 text-sky-400 group-hover:text-sky-300 transition-colors" />
-                    </div>
-                    <span className={`text-xs px-3 py-1 rounded-full font-medium ${getStatusColor(project.status)}`}>
-                      {project.status}
-                    </span>
-                  </div>
+      {/* Grid: Border-collapse style (The Engineer look) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-800/50 border border-slate-800 rounded-lg overflow-hidden shadow-2xl shadow-black/50">
+        {projects.map((project, i) => (
+          <motion.article
+            key={i}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="group relative bg-[#020617] p-8 md:p-12 hover:bg-[#070d1f] transition-all duration-500 cursor-pointer"
+            onClick={() => navigate(project.link)}
+          >
+            {/* Project Index Number */}
+            <span className="absolute top-8 right-8 font-mono text-[10px] text-slate-700 group-hover:text-[#2DD4BF] transition-colors">
+              0{i + 1}
+            </span>
 
-                  {/* Category Badge */}
-                  <div className="mb-3">
-                    <span className="text-xs bg-sky-500/20 text-sky-300 px-2 py-1 rounded-md font-medium">
-                      {project.category}
-                    </span>
-                  </div>
-                  
-                  {/* Title */}
-                  <h3 
-                    id={`project-title-${i}`} 
-                    className="text-xl font-semibold text-sky-300 mb-3 group-hover:text-sky-200 transition-colors"
-                  >
-                    {project.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-gray-300 mb-5 text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
-                    {project.desc}
-                  </p>
-                  
-                  {/* Footer with Link */}
-                  <div className="flex justify-between items-center mt-auto">
-                    <Link
-                      to={project.link}
-                      className="text-sky-400 hover:text-sky-300 font-medium inline-flex items-center group/link transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50 rounded px-2 py-1"
-                      aria-label={`View ${project.title} project details`}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <span className="mr-2">View Project</span>
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
-                    </Link>
-                  </div>
+            <div className="flex flex-col h-full">
+              <div className="mb-6">
+                <span className="text-[10px] font-mono text-slate-500 bg-slate-900 border border-slate-800 px-2 py-1 rounded">
+                  {project.category}
+                </span>
+              </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/10">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span 
-                        key={tagIndex} 
-                        className="text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded-md font-medium hover:bg-gray-600/50 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        )}
+              <h3 className="text-2xl font-mono font-bold text-slate-100 mb-4 flex items-center gap-3">
+                {project.title}
+                <ArrowUpRight className="w-4 h-4 text-[#2DD4BF] opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+              </h3>
+
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm">
+                {project.desc}
+              </p>
+
+              {/* Tag system: clean and lowercase */}
+              <div className="mt-auto flex gap-4">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="text-[11px] font-mono text-slate-600 group-hover:text-slate-400 transition-colors">
+                    #{tag.toLowerCase()}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.article>
+        ))}
       </div>
     </div>
   );

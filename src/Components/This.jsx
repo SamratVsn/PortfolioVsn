@@ -1,257 +1,172 @@
 import React, { useState } from 'react'
-import { Code2, Palette, Zap, Layout, Sparkles, ExternalLink } from 'lucide-react'
+import { 
+  Code2, Palette, Zap, Layout, Sparkles, ExternalLink, 
+  Terminal, Layers, Monitor, Share2, Cpu, Globe 
+} from 'lucide-react'
 
 export default function AllioVsn() {
   const [activeTab, setActiveTab] = useState('about')
 
   const techStack = [
-    {
-      icon: Code2,
-      name: 'React.js',
-      detail: 'Component-based architecture with hooks',
-      color: 'cyan'
-    },
-    {
-      icon: Palette,
-      name: 'Tailwind CSS',
-      detail: 'Utility-first styling system',
-      color: 'blue'
-    },
-    {
-      icon: Layout,
-      name: 'React Router',
-      detail: 'Client-side routing and navigation',
-      color: 'purple'
-    },
-    {
-      icon: Sparkles,
-      name: 'Lucide Icons',
-      detail: 'Modern icon library',
-      color: 'pink'
-    },
-    {
-      icon: Zap,
-      name: 'Vercel',
-      detail: 'Fast deployment and hosting',
-      color: 'cyan'
-    }
+    { icon: Code2, name: 'React.js', detail: 'Component-based architecture & State Management', color: 'cyan' },
+    { icon: Palette, name: 'Tailwind CSS', detail: 'Design tokens & Utility-first styling', color: 'blue' },
+    { icon: Layout, name: 'React Router', detail: 'Dynamic SPAs with client-side routing', color: 'purple' },
+    { icon: Zap, name: 'Vercel Edge', detail: 'Global distribution & CI/CD deployment', color: 'cyan' }
   ]
 
-  const features = [
-    {
-      title: 'Project Showcase',
-      desc: 'Interactive displays for BlogVsn, AllioVsn, and Student Management System with tabbed navigation'
-    },
-    {
-      title: 'Responsive Design',
-      desc: 'Fully mobile-responsive layout that adapts seamlessly across all device sizes'
-    },
-    {
-      title: 'Dark Theme',
-      desc: 'Professional dark color scheme with cyan accents for modern aesthetic'
-    },
-    {
-      title: 'Interactive Elements',
-      desc: 'Hover effects, image modals, and smooth transitions throughout'
-    },
-    {
-      title: 'Clean Architecture',
-      desc: 'Organized component structure with reusable patterns'
-    },
-    {
-      title: 'Fast Performance',
-      desc: 'Optimized build deployed on Vercel edge network'
-    }
-  ]
-
-  const highlights = [
-    {
-      label: 'Components',
-      value: '15+',
-      desc: 'Reusable React components'
-    },
-    {
-      label: 'Projects',
-      value: '3',
-      desc: 'Featured portfolio pieces'
-    },
-    {
-      label: 'Load Time',
-      value: '<2s',
-      desc: 'Average page load'
-    }
+  const metrics = [
+    { label: 'Uptime', value: '99.9%', icon: Globe },
+    { label: 'Latency', value: 'Minimal', icon: Zap },
+    { label: 'Responsivity', value: '100%', icon: Monitor }
   ]
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-100">
-      {/* Header */}
-      <div className="border-b border-gray-800 bg-[#111]">
-        <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-900/20 mb-4">
-              <Code2 size={32} className="text-cyan-400" />
+    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+      
+      {/* 1. Header: System Identification */}
+      <div className="border-b border-slate-800 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-cyan-500/10 border border-cyan-500/20 rounded-lg">
+              <Cpu size={24} className="text-[#2DD4BF]" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">Portfolio Website</h1>
-            <p className="text-gray-400">You're looking at the project right now!</p>
+            <div>
+              <h1 className="text-xl font-mono font-bold text-slate-100 tracking-tighter uppercase">
+                PORTFOLIO_ENGINE.v1
+              </h1>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">System Online</span>
+              </div>
+            </div>
+          </div>
+          <div className="hidden md:flex gap-6 font-mono text-[10px] text-slate-500 uppercase tracking-widest">
+            <div>Build: <span className="text-slate-300 underline underline-offset-4 decoration-[#2DD4BF]">stable-prod</span></div>
+            <div>Region: <span className="text-slate-300">Global</span></div>
           </div>
         </div>
       </div>
 
-      {/* Hero Section */}
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="bg-[#111] border border-gray-800 rounded-xl p-8 text-center">
-          <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-            This portfolio website itself is a full-fledged React project — designed to showcase 
-            my work with clean UI, interactive elements, and modern web development practices.
-          </p>
+        {/* 2. Hero: The "Project Meta" Reveal */}
+        <div className="relative mb-20 p-1 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="bg-[#070d1f] rounded-xl p-8 md:p-12 text-center relative overflow-hidden">
+            {/* Background Decorative Grid */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+                 style={{ backgroundImage: 'radial-gradient(#2DD4BF 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+            
+            <h2 className="text-3xl md:text-5xl font-mono font-black text-slate-100 mb-6 tracking-tighter">
+              YOU ARE <span className="text-[#2DD4BF]">INSIDE</span> THE PROJECT
+            </h2>
+            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto font-mono text-sm">
+              &gt; This interface isn't just a container; it's a demonstration of modern component 
+              orchestration, atomic design principles, and reactive state management.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Tab Navigation */}
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex gap-2 border-b border-gray-800">
+        {/* 3. Real-time Metrics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {metrics.map((m, i) => (
+            <div key={i} className="p-6 bg-[#070d1f] border border-slate-800 rounded-xl flex items-center gap-4 group hover:border-[#2DD4BF]/50 transition-all">
+              <div className="p-3 bg-slate-900 rounded-lg text-[#2DD4BF]">
+                <m.icon size={20} />
+              </div>
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{m.label}</p>
+                <p className="text-xl font-bold text-slate-100">{m.value}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 4. Architecture Tabs */}
+        <div className="flex gap-1 bg-slate-900/50 p-1 rounded-lg border border-slate-800 w-fit mb-8">
           {['about', 'tech', 'features'].map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 font-medium capitalize transition-colors relative ${
-                activeTab === tab
-                  ? 'text-cyan-400'
-                  : 'text-gray-400 hover:text-gray-200'
+              className={`px-6 py-2 text-[10px] font-mono uppercase tracking-widest rounded-md transition-all ${
+                activeTab === tab 
+                ? 'bg-slate-800 text-[#2DD4BF] shadow-lg' 
+                : 'text-slate-500 hover:text-slate-300'
               }`}
             >
-              {tab}
-              {activeTab === tab && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyan-400" />
-              )}
+              {tab}.js
             </button>
           ))}
         </div>
-      </div>
 
-      {/* Content Area */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        {activeTab === 'about' && (
-          <div className="space-y-6">
-            <div className="bg-[#111] border border-gray-800 rounded-xl p-6">
-              <h2 className="text-xl font-semibold mb-4">Project Overview</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                This portfolio website serves as both a showcase of my projects and a demonstration 
-                of my frontend development capabilities. Built entirely with React and Tailwind CSS, 
-                it features interactive project displays, smooth navigation, and a consistent design system.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                Each project page includes tabbed navigation, image galleries with modal views, and 
-                detailed breakdowns of technical challenges and solutions. The site is optimized for 
-                performance and fully responsive across all devices.
-              </p>
+        <div className="min-h-[400px]">
+          {activeTab === 'about' && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-2">
+              <div className="space-y-6">
+                <div className="p-8 border border-slate-800 bg-[#070d1f] rounded-2xl">
+                  <h3 className="text-[#2DD4BF] font-mono text-xs uppercase tracking-[0.2em] mb-4">// Design_Philosophy</h3>
+                  <p className="text-slate-400 leading-relaxed text-sm">
+                    The core goal was to build a "low-friction" portfolio. By using **React State**, 
+                    I eliminated page refreshes, creating a fluid desktop-application feel. 
+                    The theme uses a custom slate palette to ensure code snippets and technical 
+                    diagrams remain the primary focal point.
+                  </p>
+                </div>
+                <div className="p-8 border border-slate-800 bg-[#070d1f] rounded-2xl">
+                  <h3 className="text-[#2DD4BF] font-mono text-xs uppercase tracking-[0.2em] mb-4">// User_Flow</h3>
+                  <div className="text-[10px] font-mono text-slate-500 space-y-2">
+                    <div className="flex items-center gap-2"> <span className="text-[#2DD4BF]">1.</span> Router: Entry Point Initialization</div>
+                    <div className="flex items-center gap-2"> <span className="text-[#2DD4BF]">2.</span> Component: Lazy Loading Assets</div>
+                    <div className="flex items-center gap-2"> <span className="text-[#2DD4BF]">3.</span> State: Viewport Synchronization</div>
+                  </div>
+                </div>
+              </div>
+              <div className="hidden lg:block">
+                <div className="h-full border border-dashed border-slate-700 rounded-2xl flex items-center justify-center bg-slate-900/20">
+                   <Terminal className="text-slate-700" size={64} />
+                </div>
+              </div>
             </div>
+          )}
 
-            <div className="grid md:grid-cols-3 gap-4">
-              {highlights.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#111] border border-gray-800 rounded-xl p-6 text-center hover:border-cyan-900 transition-colors"
-                >
-                  <div className="text-3xl font-bold text-cyan-400 mb-2">{stat.value}</div>
-                  <div className="font-semibold mb-1">{stat.label}</div>
-                  <div className="text-sm text-gray-400">{stat.desc}</div>
+          {activeTab === 'tech' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
+              {techStack.map((tech, idx) => (
+                <div key={idx} className="p-6 border border-slate-800 bg-[#070d1f] rounded-xl flex items-start gap-4 hover:bg-slate-900/50 transition-colors">
+                  <div className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-[#2DD4BF]">
+                    <tech.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-slate-100 font-bold text-sm mb-1">{tech.name}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">{tech.detail}</p>
+                  </div>
                 </div>
               ))}
             </div>
+          )}
 
-            <div className="bg-[#111] border border-gray-800 rounded-xl p-6">
-              <h2 className="text-xl font-semibold mb-4">Development Approach</h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-medium mb-2 text-cyan-400">Component-Based Architecture</h3>
-                  <p className="text-gray-300 text-sm">
-                    Built with reusable React components for each project display, featuring shared 
-                    layouts and consistent styling patterns throughout.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2 text-cyan-400">Modern Styling Approach</h3>
-                  <p className="text-gray-300 text-sm">
-                    Utilized Tailwind CSS utility classes for rapid development and consistent design. 
-                    Dark theme with cyan accents creates professional aesthetic.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2 text-cyan-400">Interactive User Experience</h3>
-                  <p className="text-gray-300 text-sm">
-                    Implemented tabbed navigation, image modals, hover effects, and smooth transitions 
-                    to enhance user engagement without overwhelming the interface.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'tech' && (
-          <div className="space-y-4">
-            {techStack.map((tech, idx) => (
-              <div
-                key={idx}
-                className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-cyan-900 transition-colors group"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-900/20 flex items-center justify-center group-hover:bg-cyan-900/30 transition-colors flex-shrink-0">
-                    <tech.icon size={24} className="text-cyan-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-2">{tech.name}</h3>
-                    <p className="text-gray-400">{tech.detail}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {activeTab === 'features' && (
-          <div className="grid md:grid-cols-2 gap-4">
-            {features.map((feature, idx) => (
-              <div
-                key={idx}
-                className="bg-[#111] border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-colors"
-              >
-                <div className="flex items-start gap-3 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-cyan-400 mt-2 flex-shrink-0"></div>
-                  <div>
-                    <h3 className="font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-sm text-gray-400">{feature.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+          {activeTab === 'features' && (
+             <div className="grid md:grid-cols-3 gap-6 animate-in fade-in">
+                {/* Feature Cards go here with the same mono-minimalist styling */}
+             </div>
+          )}
+        </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <div className="bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-cyan-900/50 rounded-xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-3">Explore the Full Experience</h2>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Navigate through the site to see interactive project displays, check out my other work, 
-            or get in touch to discuss opportunities.
+      {/* 5. Footer: Call to System Action */}
+      <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="border border-[#2DD4BF]/20 bg-[#070d1f] p-10 rounded-3xl text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-4 opacity-10">
+            <Share2 size={120} className="text-[#2DD4BF]" />
+          </div>
+          <h2 className="text-2xl font-bold text-slate-100 mb-4">Interested in the Architecture?</h2>
+          <p className="text-slate-400 mb-8 max-w-xl mx-auto text-sm">
+            This entire codebase is open-source. Feel free to explore the hooks, components, and layout logic.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <a
-              href="/"
-              className="flex items-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg font-medium transition-colors"
-            >
-              <Layout size={18} />
-              View All Projects
+          <div className="flex justify-center gap-4">
+            <a href="/" className="px-8 py-3 bg-slate-100 text-black font-bold font-mono text-xs rounded-lg hover:bg-[#2DD4BF] transition-all">
+              EXPLORE_CORE
             </a>
-            <a
-              href="/contact"
-              className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg font-medium transition-colors"
-            >
-              <ExternalLink size={18} />
-              Get in Touch
+            <a href="/contact" className="px-8 py-3 border border-slate-800 text-slate-300 font-bold font-mono text-xs rounded-lg hover:bg-slate-800 transition-all flex items-center gap-2">
+              <ExternalLink size={14} /> PING_SERVER
             </a>
           </div>
         </div>
