@@ -174,29 +174,58 @@ function Home() {
               </div>
             </div>
 
-            <div className="max-w-3xl mx-auto space-y-8 mt-12 px-6">
-              {details.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.3 }}
-                  className="group flex flex-col md:flex-row md:items-start gap-4 border-l border-slate-800 pl-6 py-2 hover:border-[#2DD4BF] transition-colors duration-500"
-                >
-                  <span className="font-mono text-xs text-[#2DD4BF] mt-1 opacity-60">
-                    [{item.label}]
-                  </span>
-                  <div>
-                    <h3 className="text-xl text-slate-200 font-semibold font-mono">
-                      {item.value}
-                    </h3>
-                    <p className="text-slate-500 text-sm mt-1 leading-relaxed">
-                      {item.detail}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {/* REPLACEMENT SECTION START */}
+<div className="max-w-6xl mx-auto mt-24 px-6 mb-24">
+  {/* Section Label */}
+  <div className="flex items-center gap-2 mb-8 opacity-50">
+    <div className="h-px w-8 bg-[#2DD4BF]" />
+    <span className="font-mono text-xs text-[#2DD4BF] uppercase tracking-widest">
+      System_Parameters
+    </span>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {details.map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.2 }}
+        className="group relative bg-[#0F172A]/40 border border-slate-800/60 p-6 rounded-lg overflow-hidden hover:border-slate-700 transition-colors duration-300"
+      >
+        {/* Hover Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Top Accent Line */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+
+        <div className="relative z-10 flex flex-col h-full justify-between">
+          <div className="flex justify-between items-start mb-4">
+            <span className="font-mono text-xs text-[#2DD4BF] opacity-70 bg-[#2DD4BF]/10 px-2 py-1 rounded">
+              0{index + 1} // {item.label}
+            </span>
+            <span className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </div>
+
+          <div>
+            <h3 className="text-xl text-slate-100 font-bold font-mono tracking-tight mb-2 group-hover:text-[#2DD4BF] transition-colors duration-300">
+              {item.value}
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed border-l-2 border-slate-800 pl-3 group-hover:border-[#2DD4BF]/50 transition-colors duration-300">
+              {item.detail}
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
+{/* REPLACEMENT SECTION END */}
 
             <motion.div
               initial={{ opacity: 0 }}
