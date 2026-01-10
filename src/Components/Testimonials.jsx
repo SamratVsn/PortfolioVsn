@@ -14,7 +14,7 @@ export default function Testimonials() {
     {
       quote: "He approaches every task with creativity and a problem-solving mindset. His passion for technology is clear and his growth is consistent.",
       author: "Anish Sah",
-      position: "Tech Enthusiast",
+      position: "Cyber-Security Enthusiast",
       photo: Anish,
     },
     {
@@ -63,7 +63,7 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4 border-t border-slate-800/50 pt-6 mt-auto">
-                <div className="relative">
+                <div className="relative cursor-pointer">
                   <img
                     src={t.photo}
                     alt={t.author}

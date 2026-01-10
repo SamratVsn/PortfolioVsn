@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { motion} from 'framer-motion'
 import Header from '../Components/Header'
 import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
+import {FaXTwitter} from 'react-icons/fa6'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
 
@@ -151,7 +151,7 @@ function Home() {
                   {[
                     { href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/", icon: FaLinkedin, label: "LinkedIn" },
                     { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
-                    { href: "mailto:std.samrat068@gmail.com", icon: MdEmail, label: "Email" },
+                    { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X" },
                     { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google" }
                   ].map(({ href, icon: Icon, label }, index) => (
                     <motion.a

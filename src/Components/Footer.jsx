@@ -109,7 +109,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="pt-8 border-t border-gray-800 flex flex-col md:row justify-between items-center gap-4 text-sm">
-            <p>© {new Date().getFullYear()} SamratVsn. Built with passion.</p>
+            <p>© {new Date().getFullYear()} SamratVsn. Built with passion & creativity.</p>
             <div className="flex items-center gap-4">
                <Heart className="w-4 h-4 text-red-500 fill-red-500" />
                <Code className="w-4 h-4 text-sky-500" />
