@@ -195,7 +195,7 @@ function About() {
             </motion.div>
           </div>
         </section>
-
+        
       </main>
 
       <Footer />
