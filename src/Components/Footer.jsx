@@ -33,7 +33,7 @@ export default function Footer() {
     },
     {
       icon: <Linkedin />,
-      href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/",
+      href: "https://www.linkedin.com/in/samratvsn/",
       label: "LinkedIn",
     },
   ];

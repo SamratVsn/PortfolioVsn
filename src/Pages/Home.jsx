@@ -149,7 +149,7 @@ function Home() {
                   transition={{ delay: 1.5 }}
                 >
                   {[
-                    { href: "https://www.linkedin.com/in/samrat-parajuli-54310732b/", icon: FaLinkedin, label: "LinkedIn" },
+                    { href: "https://www.linkedin.com/in/samratvsn/", icon: FaLinkedin, label: "LinkedIn" },
                     { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
                     { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X" },
                     { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google" }
