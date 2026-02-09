@@ -16,34 +16,34 @@ function Home() {
 
   const details = [
     { label: "FOCUS", value: "Mobile App Development", detail: "Building interfaces that feel natural." },
-    { label: "PATH", value: "Continuous Learning", detail: "Deep diving into learning & Problem Solving." },
-    { label: "MIND", value: "Spiritual Tech", detail: "Merging logic with mindful execution." }
+    { label: "PATH", value: "Learning with Purpose", detail: "Deep diving into learning everything deeply." },
+    { label: "MIND", value: "Spiritual Tech", detail: "Merging logic with mindful & calm execution." }
   ];
 
   const services = [
     {
       id: "01",
+      title: "Android Development",
+      description: "Building native mobile experiences with Kotlin and Jetpack Compose",
+      tag: "Android"
+    },
+    {
+      id: "02",
       title: "Problem Solving",
       description: "Tackling complex challenges with clean, efficient code and innovative solutions",
       tag: "Logic"
     },
     {
-      id: "02",
-      title: "Android Development",
-      description: "Building native mobile experiences with Kotlin and Jetpack Compose",
-      tag: "Mobile"
-    },
-    {
       id: "03",
-      title: "Interface Design",
+      title: "Interactive Design",
       description: "Creating intentional, intuitive interfaces that prioritize user harmony",
       tag: "UI/UX"
     },
     {
       id: "04",
-      title: "Frontend Systems",
-      description: "Developing robust client-side solutions with modern reactive frameworks",
-      tag: "Web"
+      title: "MVVM Architecture",
+      description: "Implementing robust, scalable app architectures for maintainable codebases",
+      tag: "Android"
     }
   ];
 
