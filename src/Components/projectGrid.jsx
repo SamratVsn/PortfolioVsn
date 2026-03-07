@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const PROJECTS = [
   {
@@ -9,9 +10,10 @@ const PROJECTS = [
     description:
       "Console-based CRUD system written in C, focusing on file handling, structured data storage, and basic memory management.",
     tags: ["#c", "#file-handling", "#cli"],
-    github: "https://github.com/SamratVsn/student-management-system",
+    github: "https://github.com/SamratVsn/",
     live: null,
     status: "completed",
+    path: "/projects/sms",
   },
   {
     id: "02",
@@ -20,20 +22,22 @@ const PROJECTS = [
     description:
       "A Kotlin CLI project exploring object-oriented programming concepts such as classes, state management, and modular logic.",
     tags: ["#kotlin", "#oop", "#cli"],
-    github: "https://github.com/SamratVsn/bank-management-kotlin",
+    github: "https://github.com/SamratVsn/",
     live: null,
     status: "completed",
+    path: "/projects/bmsk",
   },
   {
     id: "03",
-    category: "ANDROID_APP",
-    title: "Compose Learning Apps",
+    category: "WEBSITE",
+    title: "BlogVsn Platform",
     description:
-      "A collection of small Android applications built while following the Android Basics with Jetpack Compose pathway.",
-    tags: ["#android", "#kotlin", "#compose"],
+      "Integration-heavy blogging engine utilizing Google OAuth and RESTful API structures..",
+    tags: ["#web", "#0Auth", "#React"],
     github: "https://github.com/SamratVsn",
-    live: null,
-    status: "wip",
+    live: "https://blogvsn.vercel.app/",
+    status: "completed",
+    path: "/projects/blogvsn",
   },
   {
     id: "04",
@@ -45,6 +49,7 @@ const PROJECTS = [
     github: "https://github.com/SamratVsn",
     live: "https://www.samratparajuli0.com.np",
     status: "completed",
+    path: "/projects/this",
   },
 ];
 
@@ -76,17 +81,22 @@ function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay: index * 0.07 }}
-      className="group relative flex flex-col bg-[#070d1a] border border-slate-800/70 
-                 rounded-xl overflow-hidden cursor-default
+      className="group relative flex flex-col bg-[#070d1a] border border-slate-800/70
+                 rounded-xl overflow-hidden
                  hover:border-[#2DD4BF]/30 hover:bg-[#0a1120]
                  transition-all duration-300"
     >
+      {/* Entire card is a nav link */}
+      <Link to={project.path} className="absolute inset-0 z-10" aria-label={`View ${project.title}`} />
+
+      {/* Hover glow */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-xl"
         style={{ boxShadow: "inset 0 0 40px 0 rgba(45,212,191,0.04)" }}
       />
 
       <div className="flex flex-col flex-1 p-7">
+        {/* Top row: category badge + index */}
         <div className="flex items-center justify-between mb-6">
           <span
             className="font-mono text-[11px] tracking-widest text-[#2DD4BF]
@@ -100,17 +110,20 @@ function ProjectCard({ project, index }) {
           </span>
         </div>
 
+        {/* Title */}
         <h3 className="font-mono text-xl font-semibold text-slate-100 leading-snug mb-3
                        group-hover:text-white transition-colors duration-200">
           {project.title}
           <span className="text-[#2DD4BF] opacity-0 group-hover:opacity-100 transition-opacity duration-200">_</span>
         </h3>
 
+        {/* Description */}
         <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-6
                       group-hover:text-slate-400 transition-colors duration-200">
           {project.description}
         </p>
 
+        {/* Tags */}
         <div className="flex flex-wrap gap-x-3 gap-y-1 mb-6">
           {project.tags.map((tag) => (
             <span key={tag} className="font-mono text-xs text-slate-600">
@@ -119,6 +132,7 @@ function ProjectCard({ project, index }) {
           ))}
         </div>
 
+        {/* Footer row — links sit above the card-level Link via z-20 */}
         <div className="border-t border-slate-800/80 group-hover:border-slate-700/80 transition-colors duration-300 pt-4">
           <div className="flex items-center justify-between">
             <span className="inline-flex items-center gap-1.5">
@@ -131,12 +145,13 @@ function ProjectCard({ project, index }) {
               </span>
             </span>
 
-            <div className="flex items-center gap-4">
+            <div className="relative z-20 flex items-center gap-4">
               {project.github && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-1.5 font-mono text-xs
                              text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200"
                 >
@@ -149,6 +164,7 @@ function ProjectCard({ project, index }) {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-1.5 font-mono text-xs
                              text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200"
                 >
