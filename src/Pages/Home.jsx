@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { motion} from 'framer-motion'
 import Header from '../Components/Header'
-import { FaLinkedin, FaGithub, FaGoogle } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaGoogle, FaInstagram } from 'react-icons/fa'
 import {FaXTwitter} from 'react-icons/fa6'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
+import { i } from 'framer-motion/client'
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -152,7 +153,8 @@ function Home() {
                     { href: "https://www.linkedin.com/in/samratvsn/", icon: FaLinkedin, label: "LinkedIn" },
                     { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
                     { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X" },
-                    { href: "https://developers.google.com/profile/u/samratvsm", icon: FaGoogle, label: "Google" }
+                    { href: "https://www.instagram.com/samratvsn/", icon: FaInstagram, label: "Instagram" },
+                    { href: "https://g.dev/samratdev", icon: FaGoogle, label: "Google" }
                   ].map(({ href, icon: Icon, label }, index) => (
                     <motion.a
                       key={index}

@@ -1,26 +1,51 @@
-import React from 'react'
-import Header from '../Components/Header'
-import { motion } from 'framer-motion'
-import PortfolioImage from '../assets/PortfolioImage.jpg'
-import Footer from '../Components/Footer'
+import React from "react";
+import Header from "../Components/Header";
+import { motion } from "framer-motion";
+import PortfolioImage from "../assets/PortfolioImage.jpg";
+import Footer from "../Components/Footer";
 
 function About() {
   const skills = [
-    { name: "Kotlin", level: "Intermediate", category: "Mobile" },
-    { name: "Android Studio", level: "Proficient", category: "Tools" },
-    { name: "Jetpack Compose", level: "Beginner", category: "Mobile" },
-    { name: "Android Fundamentals", level: "Beginner", category: "Mobile" },
-    { name: "MVVM Architecture", level: "Beginner", category: "Mobile" },
-    { name: "React", level: "Intermediate", category: "Web" },
-    { name: "C Programming", level: "Intermediate", category: "Logic" },
-    { name: "Data Structures & Algorithms", level: "Beginner", category: "Foundations" },
-    { name: "Problem Solving", level: "Intermediate", category: "Foundations" },
-    { name: "Git / GitHub", level: "Familiar", category: "Workflow" },
-    { name: "Basic Debugging", level: "Intermediate", category: "Workflow" },
-    { name: "JavaScript", level: "Intermediate", category: "Web" },
-    { name: "Tailwind CSS", level: "Advanced", category: "Design" },
-    { name: "HTML & CSS", level: "Advanced", category: "Web" },
-    { name: "Figma", level: "Proficient", category: "Design" },
+    { name: "Kotlin", level: "Intermediate", category: "Mobile Development" },
+    {
+      name: "Jetpack Compose",
+      level: "Beginner",
+      category: "Mobile Development",
+    },
+    {
+      name: "Android Studio",
+      level: "Proficient",
+      category: "Development Tools",
+    },
+    {
+      name: "Material Design (Material 3)",
+      level: "Beginner",
+      category: "UI Design",
+    },
+
+    { name: "C Programming", level: "Intermediate", category: "Programming" },
+    {
+      name: "Data Structures & Algorithms",
+      level: "Beginner",
+      category: "Foundations",
+    },
+
+    { name: "Git / GitHub", level: "Familiar", category: "Version Control" },
+    {
+      name: "Debugging & Problem Solving",
+      level: "Intermediate",
+      category: "Workflow",
+    },
+    {
+      name: "Android Activity Lifecycle",
+      level: "Beginner",
+      category: "Mobile Foundations",
+    },
+
+    { name: "HTML & CSS", level: "Advanced", category: "Web Fundamentals" },
+    { name: "JavaScript", level: "Intermediate", category: "Web Fundamentals" },
+
+    { name: "Figma", level: "Proficient", category: "Design Tools" },
   ];
 
   const levelColor = {
@@ -31,6 +56,60 @@ function About() {
     Familiar: "text-slate-400",
   };
 
+  const focuses = [
+    {
+      id: "01",
+      label: "Android Dev",
+      status: "IN_PROGRESS",
+      accent: "#2DD4BF",
+      description: (
+        <>
+          Advancing Android development with{" "}
+          <span className="text-white">Kotlin</span> and{" "}
+          <span className="text-white">Jetpack Compose</span> — currently
+          completing the official Android Basics pathway (Unit 6).
+        </>
+      ),
+      tags: ["Kotlin", "Jetpack Compose", "Android SDK"],
+    },
+    {
+      id: "02",
+      label: "CS Foundations",
+      status: "ONGOING",
+      accent: "#6366F1",
+      description: (
+        <>
+          Strengthening core programming foundations through{" "}
+          <span className="text-white">problem solving</span>,{" "}
+          <span className="text-white">data structures</span>, and practical
+          debugging techniques.
+        </>
+      ),
+      tags: ["DSA", "Algorithms", "Debugging"],
+    },
+    {
+      id: "03",
+      label: "Open Source",
+      status: "ACTIVE",
+      accent: "#F59E0B",
+      description: (
+        <>
+          Building Android projects and refining code through{" "}
+          <span className="text-white">experimentation</span>,{" "}
+          <span className="text-white">iteration</span>, and open-source
+          learning.
+        </>
+      ),
+      tags: ["Projects", "GitHub", "Iteration"],
+    },
+  ];
+
+  const statusColor = {
+    IN_PROGRESS: "#2DD4BF",
+    ONGOING: "#6366F1",
+    ACTIVE: "#F59E0B",
+  };
+
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
       <Header />
@@ -38,7 +117,6 @@ function About() {
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
         {/* Intro Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-
           {/* Image Sidebar */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -77,13 +155,31 @@ function About() {
 
             <div className="space-y-6 text-slate-400 leading-relaxed text-lg font-light">
               <p>
-                Hello. I’m <span className="text-slate-100 font-medium">Samrat Parajuli</span>. I reside at the intersection of logic and aesthetics. Currently a Grade 12 student in Nepal, my focus is directed toward the evolution of mobile and web ecosystems.
+                Hello. I’m{" "}
+                <span className="text-slate-100 font-medium">
+                  Samrat Parajuli
+                </span>
+                . A student from Nepal with a growing interest in how thoughtful
+                code and design shape the digital experiences people interact
+                with every day. My curiosity currently revolves around the
+                evolving landscape of mobile technology.
               </p>
+
               <p>
-                My process involves transforming complex abstract ideas into <span className="text-slate-100 italic">intentional user experiences</span>. Whether I am architecting a React component or diving into the lifecycle of an Android app with <span className="text-slate-100">Kotlin</span>, I prioritize clean code and meaningful design.
+                I spend much of my time exploring Android development with{" "}
+                <span className="text-slate-100">Kotlin</span> and{" "}
+                <span className="text-slate-100">Jetpack Compose</span>. What
+                motivates me most is the process of turning abstract ideas into{" "}
+                <span className="text-slate-100 italic">
+                  intentional user experiences
+                </span>
+                , built through simple architecture and clean, readable code.
               </p>
+
               <p className="text-sm border-l border-[#2DD4BF]/30 pl-6 italic">
-                "I write code not just to build applications, but to create systems that solve real problems and stand the test of time."
+                "I approach development as a craft — continuously learning,
+                refining ideas, and building systems that aim to be simple,
+                useful, and long-lasting."
               </p>
             </div>
           </motion.div>
@@ -96,7 +192,7 @@ function About() {
               Technical Stack
             </h3>
             <span className="text-slate-500 font-mono text-xs">
-            // system_log.v2
+              // system_log.v2
             </span>
           </div>
 
@@ -129,9 +225,7 @@ function About() {
                 {/* Status */}
                 <p className="text-[10px] font-mono mt-2 text-slate-500">
                   STATUS:{" "}
-                  <span className={levelColor[skill.level]}>
-                    {skill.level}
-                  </span>
+                  <span className={levelColor[skill.level]}>{skill.level}</span>
                 </p>
               </motion.div>
             ))}
@@ -140,67 +234,96 @@ function About() {
 
         {/* Current Focus Section */}
         <section className="mt-32">
+          {/* Section Header */}
           <div className="flex justify-between items-end mb-10 border-b border-slate-800 pb-4">
             <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
               Current Focus
             </h3>
             <span className="text-slate-500 font-mono text-xs">
-      // active_processes
+              // active_processes
             </span>
           </div>
 
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="relative bg-[#020617] border border-slate-800 rounded-lg p-6 pl-10"
-            >
-              <span className="absolute left-0 top-0 h-full w-[2px] bg-[#2DD4BF]" />
-              <p className="font-mono text-sm text-slate-300">
-                &gt; Learning Android Development with{" "}
-                <span className="text-slate-100">Jetpack Compose</span>, following the
-                official Android pathway.
-              </p>
-            </motion.div>
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 gap-4">
+            {focuses.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                className="group relative bg-[#020617] border border-slate-800 rounded-lg overflow-hidden
+                       hover:border-slate-600 transition-colors duration-300"
+              >
+                <span
+                  className="absolute top-0 left-0 w-full h-[1px] opacity-60"
+                  style={{ background: item.accent }}
+                />
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.05 }}
-              className="relative bg-[#020617] border border-slate-800 rounded-lg p-6 pl-10"
-            >
-              <span className="absolute left-0 top-0 h-full w-[2px] bg-slate-700" />
-              <p className="font-mono text-sm text-slate-300">
-                &gt; Strengthening fundamentals in{" "}
-                <span className="text-slate-100">problem solving</span> and core data
-                structures through hands-on practice.
-              </p>
-            </motion.div>
+                <div className="flex items-start gap-5 p-6">
+                  <div className="flex flex-col items-center gap-2 pt-0.5 shrink-0">
+                    <span className="font-mono text-xs text-slate-600">
+                      {item.id}
+                    </span>
+                    <span
+                      className="w-[2px] flex-1 min-h-[40px] rounded-full"
+                      style={{ background: item.accent }}
+                    />
+                  </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="relative bg-[#020617] border border-slate-800 rounded-lg p-6 pl-10"
-            >
-              <span className="absolute left-0 top-0 h-full w-[2px] bg-slate-700" />
-              <p className="font-mono text-sm text-slate-300">
-                &gt; Building small projects consistently and documenting learnings
-                through writing and refactoring.
-              </p>
-            </motion.div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
+                      <span
+                        className="font-mono text-xs font-semibold tracking-widest uppercase"
+                        style={{ color: item.accent }}
+                      >
+                        {item.label}
+                      </span>
+                      <span
+                        className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest
+                               border rounded-full px-2.5 py-0.5"
+                        style={{
+                          color: item.accent,
+                          borderColor: `${item.accent}40`,
+                          backgroundColor: `${item.accent}0D`,
+                        }}
+                      >
+                        <span
+                          className="w-1.5 h-1.5 rounded-full animate-pulse"
+                          style={{ background: item.accent }}
+                        />
+                        {item.status}
+                      </span>
+                    </div>
+
+                    <p className="font-mono text-sm text-slate-400 leading-relaxed mb-4">
+                      <span className="text-slate-600 mr-1">&gt;</span>
+                      {item.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="font-mono text-[11px] text-slate-500 border border-slate-800
+                                 rounded px-2 py-0.5 group-hover:border-slate-700 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
-        
       </main>
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default About  
+export default About;

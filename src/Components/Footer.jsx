@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail, Heart, Code, Coffee, ArrowUp, Sparkles } from "lucide-react";
+import { Mail, Heart, Code, Coffee, ArrowUp, Sparkles } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -22,19 +24,19 @@ export default function Footer() {
 
   const socials = [
     {
-      icon: <Github />,
-      href: "https://github.com/SamratVsn",
-      label: "GitHub",
+      icon: <FaLinkedin />,
+      href: "https://www.linkedin.com/in/samratvsn/",
+      label: "LinkedIn",
+    },
+    {
+      icon: <FaXTwitter />,
+      href: "https://x.com/SamratVsn",
+      label: "X",
     },
     {
       icon: <Mail />,
-      href: "mailto:std.samrat068@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=samratvsn@gmail.com",
       label: "Email",
-    },
-    {
-      icon: <Linkedin />,
-      href: "https://www.linkedin.com/in/samratvsn/",
-      label: "LinkedIn",
     },
   ];
 
@@ -67,11 +69,11 @@ export default function Footer() {
                 <Sparkles className="w-5 h-5 text-sky-400" />
               </motion.h3>
               <p className="max-w-sm leading-relaxed text-gray-400">
-                Crafting seamless digital experiences with a focus on clean code and user-centric design.
+                Developing Android apps with modern Kotlin and Jetpack Compose, prioritizing simplicity, performance, and usability.
               </p>
 
               <div className="flex gap-8">
-                {[["5+", "Projects"], ["8+", "Tools"], ["1yr+", "Experience"]].map(([val, label]) => (
+                {[["26+", "Projects"], ["10+", "Tools"], ["2+ yrs", "Experience"]].map(([val, label]) => (
                   <div key={label}>
                     <div className="text-xl font-bold text-white">{val}</div>
                     <div className="text-xs uppercase tracking-wider text-gray-500">{label}</div>
