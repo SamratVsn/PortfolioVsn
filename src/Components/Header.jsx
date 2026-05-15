@@ -27,9 +27,9 @@ export default function SpiritualNavbar() {
 
   const navLinks = [
     { name: "Home", to: "/", icon: <Cpu size={18} /> },
-    { name: "About", to: "/About", icon: <User size={18} /> },
-    { name: "Projects", to: "/Projects", icon: <Code size={18} /> },
-    { name: "Contact", to: "/Contact", icon: <Mail size={18} /> },
+    { name: "About", to: "/about", icon: <User size={18} /> },
+    { name: "Projects", to: "/projects", icon: <Code size={18} /> },
+    { name: "Contact", to: "/contact", icon: <Mail size={18} /> },
   ];
 
   // Animation variants for the staggered list
@@ -143,7 +143,7 @@ export default function SpiritualNavbar() {
               animate="show"
               className="flex flex-col items-center space-y-8 z-10 w-full px-8"
             >
-              {navLinks.map((link, i) => (
+              {navLinks.map((link) => (
                 <motion.div key={link.to} variants={itemVariants} className="w-full max-w-xs">
                   <Link
                     to={link.to}
@@ -183,9 +183,9 @@ export default function SpiritualNavbar() {
               transition={{ delay: 0.6 }}
               className="absolute bottom-10 flex gap-8 z-10"
             >
-              <a href="#" className="text-slate-500 hover:text-[#2DD4BF] transition-colors transform hover:scale-110"><FaGithub size={24} /></a>
-              <a href="#" className="text-slate-500 hover:text-[#2DD4BF] transition-colors transform hover:scale-110"><FaLinkedin size={24} /></a>
-              <a href="mailto:std.samrat068@gmail.com" className="text-slate-500 hover:text-[#2DD4BF] transition-colors transform hover:scale-110"><FaEnvelope size={24} /></a>
+              <a href="https://github.com/SamratVsn" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-500 hover:text-[#2DD4BF] transition-colors transform hover:scale-110"><FaGithub size={24} /></a>
+              <a href="https://www.linkedin.com/in/samratvsn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-slate-500 hover:text-[#2DD4BF] transition-colors transform hover:scale-110"><FaLinkedin size={24} /></a>
+              <a href="mailto:std.samrat068@gmail.com" aria-label="Email" className="text-slate-500 hover:text-[#2DD4BF] transition-colors transform hover:scale-110"><FaEnvelope size={24} /></a>
             </motion.div>
 
             {/* System Status Line */}

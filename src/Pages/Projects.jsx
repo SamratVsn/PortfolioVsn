@@ -12,10 +12,10 @@ const Projects = () => {
     <PageLayout>
       <Routes>
         <Route index element={<ProjectGrid />} />
-        <Route path="/sms" element={<SMS />} />
-        <Route path="/bmsk" element={<BMSK />}/>
-        <Route path="/blogvsn" element={<BlogVsn />} />
-        <Route path="/this" element={<This />} />
+        <Route path="sms" element={<SMS />} />
+        <Route path="bmsk" element={<BMSK />}/>
+        <Route path="blogvsn" element={<BlogVsn />} />
+        <Route path="this" element={<This />} />
       </Routes>
     </PageLayout>
   );

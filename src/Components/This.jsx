@@ -144,8 +144,19 @@ export default function AllioVsn() {
           )}
 
           {activeTab === 'features' && (
-             <div className="grid md:grid-cols-3 gap-6 animate-in fade-in">
-                {/* Feature Cards go here with the same mono-minimalist styling */}
+             <div className="grid md:grid-cols-2 gap-6 animate-in fade-in">
+               {[
+                 { title: "Dynamic Routing", detail: "React Router v7 with nested layouts, catch-all 404, and scroll-to-top on navigation." },
+                 { title: "Framer Motion", detail: "Animated page transitions, scroll-triggered reveals, staggered list animations, and layout animations." },
+                 { title: "Responsive Grid", detail: "Adaptive 1-to-3 column grid system that responds to viewport without media query breakpoints." },
+                 { title: "Dark-Optimized", detail: "Custom slate-based palette designed for reduced eye strain during extended reading sessions." }
+               ].map((feat, i) => (
+                 <div key={i} className="p-6 border border-slate-800 bg-[#070d1f] rounded-xl hover:bg-slate-900/50 transition-colors">
+                   <span className="text-[#2DD4BF] font-mono text-sm mb-2 block">// {String(i + 1).padStart(2, "0")}</span>
+                   <h3 className="text-slate-100 font-bold text-sm mb-2">{feat.title}</h3>
+                   <p className="text-xs text-slate-500 leading-relaxed">{feat.detail}</p>
+                 </div>
+               ))}
              </div>
           )}
         </div>

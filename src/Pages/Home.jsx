@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import Header from '../Components/Header'
 import { FaLinkedin, FaGithub, FaGoogle, FaInstagram } from 'react-icons/fa'
-import {FaXTwitter} from 'react-icons/fa6'
+import { FaXTwitter } from 'react-icons/fa6'
+import { ArrowUpRight, Github as GithubLucide } from 'lucide-react'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
-import { i } from 'framer-motion/client'
+
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -45,6 +47,37 @@ function Home() {
       title: "MVVM Architecture",
       description: "Implementing robust, scalable app architectures for maintainable codebases",
       tag: "Android"
+    }
+  ];
+
+  const featuredProjects = [
+    {
+      id: "01",
+      category: "C_SYSTEM",
+      title: "Student Management System",
+      description: "Console-based CRUD in C with binary file I/O, struct serialization, and direct byte-offset navigation.",
+      tags: ["#c", "#file-handling", "#cli"],
+      github: "https://github.com/SamratVsn/C-codes",
+      path: "/projects/sms"
+    },
+    {
+      id: "02",
+      category: "KOTLIN_CLI",
+      title: "Bank Management System",
+      description: "OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity.",
+      tags: ["#kotlin", "#oop", "#cli"],
+      github: "https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt",
+      path: "/projects/bmsk"
+    },
+    {
+      id: "03",
+      category: "WEBSITE",
+      title: "BlogVsn Platform",
+      description: "Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment.",
+      tags: ["#react", "#oauth", "#api"],
+      github: "https://github.com/SamratVsn/BlogVsn",
+      live: "https://blogvsn.vercel.app/",
+      path: "/projects/blogvsn"
     }
   ];
 
@@ -282,6 +315,96 @@ function Home() {
                   </motion.div>
                 ))}
               </div>
+            </motion.div>
+
+            {/* FEATURED PROJECTS */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="max-w-6xl mx-auto px-6 py-24"
+            >
+              <div className="mb-16">
+                <motion.h2 className="text-slate-100 text-3xl md:text-4xl font-mono tracking-tighter mb-4">
+                  Featured_Projects<span className="text-[#2DD4BF]">_</span>
+                </motion.h2>
+                <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
+                  // A curated selection of work
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-800/50 border border-slate-800 overflow-hidden rounded-2xl">
+                {featuredProjects.map((project, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: index * 0.1 }}
+                    className="group relative bg-[#0F172A] p-8 transition-all duration-500 flex flex-col"
+                  >
+                    <Link to={project.path} className="absolute inset-0 z-10" />
+
+                    {/* Category badge */}
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="font-mono text-[11px] tracking-widest text-[#2DD4BF] border border-[#2DD4BF]/25 bg-[#2DD4BF]/5 px-2.5 py-1 rounded">
+                        {project.category}
+                      </span>
+                      <span className="font-mono text-slate-700 text-xs">{project.id}</span>
+                    </div>
+
+                    <h3 className="font-mono text-xl font-semibold text-slate-100 leading-snug mb-3 group-hover:text-white transition-colors duration-200">
+                      {project.title}
+                      <span className="text-[#2DD4BF] opacity-0 group-hover:opacity-100 transition-opacity duration-200">_</span>
+                    </h3>
+
+                    <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-6 group-hover:text-slate-400 transition-colors duration-200">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 mb-6">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="font-mono text-xs text-slate-600">{tag}</span>
+                      ))}
+                    </div>
+
+                    <div className="border-t border-slate-800/80 group-hover:border-slate-700/80 transition-colors duration-300 pt-4">
+                      <div className="relative z-20 flex items-center gap-4">
+                        {project.github && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer"
+                             onClick={(e) => e.stopPropagation()}
+                             className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200">
+                            <GithubLucide size={13} /> Code
+                          </a>
+                        )}
+                        {project.live && (
+                          <a href={project.live} target="_blank" rel="noopener noreferrer"
+                             onClick={(e) => e.stopPropagation()}
+                             className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200">
+                            <ArrowUpRight size={13} /> Live
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="mt-12 text-center"
+              >
+                <Link
+                  to="/projects"
+                  className="group inline-flex items-center gap-3 px-8 py-4 border border-slate-700/50 rounded-lg font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 transition-all duration-300"
+                >
+                  View All Projects
+                  <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                </Link>
+              </motion.div>
             </motion.div>
 
             <Testimonials />

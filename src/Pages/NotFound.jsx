@@ -112,9 +112,9 @@ const NotFound = () => {
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { name: 'Root', path: '/' },
-              { name: 'Portfolio', path: '/About' },
-              { name: 'Projects', path: '/Projects' },
-              { name: 'Comm_Link', path: '/Contact' }
+              { name: 'About', path: '/about' },
+              { name: 'Projects', path: '/projects' },
+              { name: 'Contact', path: '/contact' }
             ].map((link, idx) => (
               <a
                 key={idx}

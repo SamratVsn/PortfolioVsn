@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { Github, Terminal, Code2, Cpu, ChevronRight } from 'lucide-react'
+import { useState } from 'react'
+import { Github, ChevronRight } from 'lucide-react'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
+import BMSK2 from '../assets/BMSK/BMSK2.png'
 
 function BMSK() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -161,6 +162,25 @@ function BMSK() {
                     </div>
                   </div>
                 )}
+              </div>
+            </div>
+
+            {/* Screenshot gallery */}
+            <div className="space-y-6">
+              <h3 className="font-mono text-xs text-slate-500 tracking-[0.3em] uppercase underline underline-offset-8 decoration-slate-800">Execution_Captures</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { src: BMSK1, label: 'MAIN_INTERFACE', desc: 'Account management menu with CRUD operations.' },
+                  { src: BMSK2, label: 'TRANSACTION_FLOW', desc: 'Deposit and withdrawal logic with validation.' }
+                ].map((s, i) => (
+                  <div key={i} className="group relative border border-slate-800 rounded-lg bg-slate-900 overflow-hidden">
+                    <img src={s.src} alt={s.label} className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-x-0 bottom-0 p-3 bg-slate-900/90 border-t border-slate-800 backdrop-blur-sm">
+                      <p className="text-[10px] font-mono text-[#2DD4BF] font-bold">{s.label}</p>
+                      <p className="text-[9px] font-mono text-slate-500">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

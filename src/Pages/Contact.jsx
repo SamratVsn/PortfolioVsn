@@ -119,17 +119,17 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-1">IDENTIFIER.name</label>
+                      <label htmlFor="contact-name" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-1">IDENTIFIER.name</label>
                       <input 
-                        type="text" name="name" value={formData.name} onChange={handleChange} required 
+                        id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} required 
                         className="w-full bg-[#020617] border border-slate-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#2DD4BF] transition-all"
                         placeholder="Samrat Parajuli"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-1">ENDPOINT.email</label>
+                      <label htmlFor="contact-email" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-1">ENDPOINT.email</label>
                       <input 
-                        type="email" name="email" value={formData.email} onChange={handleChange} required 
+                        id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} required 
                         className="w-full bg-[#020617] border border-slate-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#2DD4BF] transition-all"
                         placeholder="Samrat@example.com"
                       />
@@ -137,9 +137,9 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-1">DATALAYER.message</label>
+                    <label htmlFor="contact-message" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-1">DATALAYER.message</label>
                     <textarea 
-                      name="message" rows="5" value={formData.message} onChange={handleChange} required 
+                      id="contact-message" name="message" rows="5" value={formData.message} onChange={handleChange} required 
                       className="w-full bg-[#020617] border border-slate-800 rounded-lg p-3 text-sm focus:outline-none focus:border-[#2DD4BF] transition-all resize-none"
                       placeholder="Mail details..."
                     />

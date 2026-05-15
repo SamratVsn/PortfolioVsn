@@ -1,7 +1,7 @@
-import React from "react";
 import Header from "../Components/Header";
 import { motion } from "framer-motion";
 import PortfolioImage from "../assets/PortfolioImage.jpg";
+import { Terminal, Code2, PenTool, GitBranch, Monitor } from "lucide-react";
 import Footer from "../Components/Footer";
 
 function About() {
@@ -56,6 +56,37 @@ function About() {
     Familiar: "text-slate-400",
   };
 
+  const levelBarColor = {
+    Beginner: "bg-yellow-500",
+    Intermediate: "bg-blue-500",
+    Proficient: "bg-cyan-500",
+    Advanced: "bg-emerald-500",
+    Familiar: "bg-slate-500",
+  };
+
+  const levelWidth = {
+    Beginner: "w-[25%]",
+    Intermediate: "w-[50%]",
+    Proficient: "w-[75%]",
+    Advanced: "w-[90%]",
+    Familiar: "w-[35%]",
+  };
+
+  const devStack = [
+    { icon: Code2, name: "VS Code", detail: "Web & scripting editor" },
+    { icon: Terminal, name: "Android Studio", detail: "Kotlin & Compose IDE" },
+    { icon: GitBranch, name: "Git / GitHub", detail: "Version control workflow" },
+    { icon: PenTool, name: "Figma", detail: "UI prototypes & design" },
+    { icon: Monitor, name: "Win / Linux", detail: "Dual-boot environment" },
+  ];
+
+  const roadmap = [
+    { quarter: "2025 Q3", title: "Android Basics", detail: "Complete official pathway (Unit 6+), first Compose UI", done: true },
+    { quarter: "2025 Q4", title: "Intermediate Kotlin", detail: "Coroutines, Flow, Room database", done: false },
+    { quarter: "2026 Q1", title: "Build & Publish", detail: "Publish first app on Google Play Store", done: false },
+    { quarter: "2026 Q2", title: "Advanced Concepts", detail: "CI/CD, testing, architecture patterns", done: false },
+  ];
+
   const focuses = [
     {
       id: "01",
@@ -104,12 +135,6 @@ function About() {
     },
   ];
 
-  const statusColor = {
-    IN_PROGRESS: "#2DD4BF",
-    ONGOING: "#6366F1",
-    ACTIVE: "#F59E0B",
-  };
-
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
       <Header />
@@ -129,7 +154,7 @@ function About() {
               <img
                 src={PortfolioImage}
                 alt="Samrat Parajuli"
-                className="relative rounded-2xl transition-all duration-700 border border-slate-800 object-cover w-full aspect-square rayscale-0 lg:grayscale lg:hover:grayscale-0"
+                className="relative rounded-2xl transition-all duration-700 border border-slate-800 object-cover w-full aspect-square grayscale hover:grayscale-0"
               />
               <div className="mt-6 font-mono text-xs tracking-widest uppercase text-slate-500">
                 // Loc: Nepal_27.7172° N
@@ -181,6 +206,26 @@ function About() {
                 refining ideas, and building systems that aim to be simple,
                 useful, and long-lasting."
               </p>
+
+              {/* System Status Dashboard */}
+              <div className="mt-8 p-5 bg-slate-900/40 border border-slate-800 rounded-xl font-mono">
+                <div className="text-[#2DD4BF] text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
+                  <Terminal size={12} /> session_status
+                </div>
+                <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-[11px]">
+                  {[
+                    { label: "STATUS", value: "Student Developer", color: "text-slate-200" },
+                    { label: "FOCUS", value: "Mobile Architecture", color: "text-[#2DD4BF]" },
+                    { label: "LOCALE", value: "Kathmandu, Nepal", color: "text-slate-200" },
+                    { label: "AVAILABILITY", value: "Open to Collab", color: "text-emerald-400" },
+                  ].map((row) => (
+                    <div key={row.label} className="flex items-center gap-3 border-b border-slate-800/50 pb-2">
+                      <span className="text-slate-600 w-24 shrink-0">{row.label}</span>
+                      <span className={`${row.color} font-semibold tracking-wide`}>{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -222,11 +267,53 @@ function About() {
                   {skill.name}
                 </h4>
 
-                {/* Status */}
-                <p className="text-[10px] font-mono mt-2 text-slate-500">
-                  STATUS:{" "}
-                  <span className={levelColor[skill.level]}>{skill.level}</span>
-                </p>
+                {/* Level bar */}
+                <div className="mt-4">
+                  <div className="flex justify-between text-[10px] font-mono mb-1.5">
+                    <span className="text-slate-500">PROFICIENCY</span>
+                    <span className={levelColor[skill.level]}>{skill.level}</span>
+                  </div>
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: "0%" }}
+                      whileInView={{ width: levelWidth[skill.level] }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: index * 0.05 }}
+                      className={`h-full rounded-full ${levelBarColor[skill.level]}`}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Development Stack */}
+        <section className="mt-32">
+          <div className="flex justify-between items-end mb-12 border-b border-slate-800 pb-4">
+            <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
+              Development Stack
+            </h3>
+            <span className="text-slate-500 font-mono text-xs">
+              // daily_drivers
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {devStack.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="group p-5 bg-[#020617] border border-slate-800 rounded-xl hover:border-slate-600 transition-all duration-300"
+              >
+                <div className="p-2.5 bg-slate-900 border border-slate-800 rounded-lg w-fit mb-4 text-[#2DD4BF] group-hover:bg-[#2DD4BF]/10 group-hover:border-[#2DD4BF]/30 transition-all">
+                  <item.icon size={18} />
+                </div>
+                <h4 className="text-slate-100 font-semibold text-sm mb-1">{item.name}</h4>
+                <p className="text-[11px] font-mono text-slate-500">{item.detail}</p>
               </motion.div>
             ))}
           </div>
@@ -317,6 +404,62 @@ function About() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </section>
+        {/* Learning Roadmap */}
+        <section className="mt-32">
+          <div className="flex justify-between items-end mb-12 border-b border-slate-800 pb-4">
+            <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
+              Learning Roadmap
+            </h3>
+            <span className="text-slate-500 font-mono text-xs">
+              // planned_iterations
+            </span>
+          </div>
+
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-slate-800" />
+
+            <div className="space-y-8">
+              {roadmap.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="relative flex gap-6 pl-8"
+                >
+                  {/* Timeline dot */}
+                  <div className={`absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 flex items-center justify-center ${
+                    item.done
+                      ? "border-[#2DD4BF] bg-[#2DD4BF]/20"
+                      : "border-slate-700 bg-[#020617]"
+                  }`}>
+                    {item.done && (
+                      <div className="w-[5px] h-[5px] rounded-full bg-[#2DD4BF]" />
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 bg-[#020617] border border-slate-800 rounded-lg p-5 hover:border-slate-600 transition-colors">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-[10px] font-mono text-[#2DD4BF] uppercase tracking-widest">
+                        {item.quarter}
+                      </span>
+                      {item.done && (
+                        <span className="text-[9px] font-mono text-emerald-500 uppercase tracking-widest border border-emerald-500/30 px-1.5 py-0.5 rounded">
+                          Done
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-slate-100 font-semibold text-sm mb-1">{item.title}</h4>
+                    <p className="text-[12px] font-mono text-slate-500">{item.detail}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
