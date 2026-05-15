@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Github, Terminal, ChevronRight, Activity, 
   Cpu, HardDrive, AlertTriangle, CheckCircle2, 
@@ -199,7 +199,7 @@ const SMS = () => {
               <span className="text-[#2DD4BF] tracking-widest">{selectedImage.label}</span>
               <span className="text-slate-600">CLOSE [ESC]</span>
             </div>
-            <img src={selectedImage.src} alt="Full View" className="w-full border border-slate-800" />
+            <img src={selectedImage.src} alt={selectedImage.label} className="w-full border border-slate-800" />
             <p className="font-mono text-[10px] text-slate-500 italic">{selectedImage.desc}</p>
           </div>
         </div>

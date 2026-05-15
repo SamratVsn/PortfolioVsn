@@ -68,6 +68,7 @@ export default function Testimonials() {
                     src={t.photo}
                     alt={t.author}
                     className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 border border-slate-700 group-hover:border-[#2DD4BF]"
+                    loading="lazy"
                   />
                   {/* Subtle 'online' or 'verified' status dot */}
                   <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#2DD4BF] rounded-full border-2 border-[#0F172A]" />

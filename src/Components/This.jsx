@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   Code2, Palette, Zap, Layout, Sparkles, ExternalLink, 
   Terminal, Layers, Monitor, Share2, Cpu, Globe 

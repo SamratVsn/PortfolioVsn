@@ -16,13 +16,12 @@ export default function SpiritualNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+      return () => { document.body.style.overflow = ""; };
     }
+    document.body.style.overflow = "";
   }, [isOpen]);
 
   const navLinks = [

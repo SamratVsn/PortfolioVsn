@@ -163,6 +163,7 @@ function About() {
                 src={PortfolioImage}
                 alt="Samrat Parajuli"
                 className="relative rounded-2xl transition-all duration-700 border border-slate-800 object-cover w-full aspect-square grayscale hover:grayscale-0"
+                loading="lazy"
               />
               <div className="mt-6 font-mono text-xs tracking-widest uppercase text-slate-500">
                 // Loc: Nepal_27.7172° N

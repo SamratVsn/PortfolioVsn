@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Header from '../Components/Header'
@@ -191,12 +191,13 @@ function Home() {
                     { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X" },
                     { href: "https://www.instagram.com/samratvsn/", icon: FaInstagram, label: "Instagram" },
                     { href: "https://g.dev/samratdev", icon: FaGoogle, label: "Google" }
-                  ].map(({ href, icon: Icon, label }, index) => (
+                  ].map(({ href, icon: Icon, label }) => (
                     <motion.a
-                      key={index}
+                      key={label}
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={label}
                       className="group relative flex items-center justify-center p-2.5"
                       whileHover={{ y: -3 }}>
                       <div className="absolute -bottom-4 w-1 h-1 bg-[#2DD4BF] rounded-full opacity-0 group-hover:opacity-100 transition-all" />

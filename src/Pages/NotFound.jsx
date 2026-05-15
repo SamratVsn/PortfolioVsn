@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import { Home, ArrowLeft, Terminal, AlertTriangle, Cpu } from "lucide-react";
 
@@ -89,6 +89,7 @@ const NotFound = () => {
             href="/"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            aria-label="Return to home page"
             className="group flex items-center gap-3 px-8 py-4 bg-[#2DD4BF] text-black rounded font-mono text-xs font-black uppercase tracking-widest transition-all hover:shadow-[0_0_20px_rgba(45,212,191,0.3)]"
           >
             <Home size={16} /> RETURN_TO_HOME
@@ -121,14 +122,14 @@ const NotFound = () => {
               { name: 'About', path: '/about' },
               { name: 'Projects', path: '/projects' },
               { name: 'Contact', path: '/contact' }
-            ].map((link, idx) => (
-              <a
-                key={idx}
-                href={link.path}
+            ].map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
                 className="px-4 py-2 bg-slate-900/50 border border-slate-800 hover:border-[#2DD4BF]/50 rounded font-mono text-[10px] text-slate-500 hover:text-[#2DD4BF] transition-all"
               >
                 ./{link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </motion.div>

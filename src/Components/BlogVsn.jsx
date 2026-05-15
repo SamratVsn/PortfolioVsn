@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { 
   ExternalLink, Github, Code2, Zap, Lock, Mail, 
   Palette, Cloud, ChevronRight, Activity, Terminal 
@@ -211,7 +211,7 @@ const BlogVsn = () => {
               <span className="text-[#2DD4BF] tracking-widest">{selectedImage.label}</span>
               <span className="text-slate-600">CLOSE [ESC]</span>
             </div>
-            <img src={selectedImage.src} alt="View" className="w-full border border-slate-800 rounded-lg shadow-2xl" />
+            <img src={selectedImage.src} alt={selectedImage.label} className="w-full border border-slate-800 rounded-lg shadow-2xl" />
             <p className="font-mono text-[10px] text-slate-500 text-center italic">{selectedImage.desc}</p>
           </div>
         </div>

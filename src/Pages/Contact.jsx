@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Header from '../Components/Header';
 import SEO from '../Components/SEO';
 import Footer from '../Components/Footer';
@@ -8,36 +8,44 @@ import { MdMarkEmailRead } from "react-icons/md";
 import { Terminal, Send, Activity, ShieldCheck, Globe } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID
+
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const mountedRef = useRef(true);
+  const sentTimerRef = useRef(null);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    return () => { mountedRef.current = false; };
+  }, []);
+
+  const handleChange = useCallback((e) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
 
-    emailjs.send(
-      'service_4caks7t',
-      'template_302eb9i',
-      formData,
-      's_DOKVIFTrfiU-5Rj'
-    )
-    .then(() => {
-      setSending(false);
-      setSent(true);
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setSent(false), 6000);
-    })
-    .catch((err) => {
-      setSending(false);
-      alert(`ERR_CONNECTION_FAILED: Please verify network and try again.`);
-      console.error(err);
-    });
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
+      .then(() => {
+        if (!mountedRef.current) return;
+        setSending(false);
+        setSent(true);
+        setFormData({ name: '', email: '', message: '' });
+        sentTimerRef.current = setTimeout(() => {
+          if (mountedRef.current) setSent(false);
+        }, 6000);
+      })
+      .catch(() => {
+        if (!mountedRef.current) return;
+        setSending(false);
+        alert(`ERR_CONNECTION_FAILED: Please verify network and try again.`);
+      });
   };
 
   const contactInfo = [

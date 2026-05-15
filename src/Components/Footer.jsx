@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Heart, Code, Coffee, ArrowUp, Sparkles } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
@@ -87,10 +88,10 @@ export default function Footer() {
               <ul className="space-y-4">
                 {footerLinks.map((link) => (
                   <li key={link.name}>
-                    <a href={link.path} className="hover:text-sky-400 transition-colors flex items-center gap-2 group">
+                    <Link to={link.path} className="hover:text-sky-400 transition-colors flex items-center gap-2 group">
                       <span className="h-px w-0 group-hover:w-4 bg-sky-400 transition-all duration-300" />
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -129,6 +130,7 @@ export default function Footer() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
             onClick={scrollToTop}
+            aria-label="Scroll to top"
             className="fixed bottom-6 right-6 p-4 rounded-full bg-sky-500 text-white shadow-2xl shadow-sky-500/40 z-[100] hover:bg-sky-400 transition-colors"
           >
             <ArrowUp size={20} />
