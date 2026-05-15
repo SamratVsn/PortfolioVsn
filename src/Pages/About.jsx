@@ -1,4 +1,5 @@
 import Header from "../Components/Header";
+import SEO from "../Components/SEO";
 import { motion } from "framer-motion";
 import PortfolioImage from "../assets/PortfolioImage.jpg";
 import { Terminal, Code2, PenTool, GitBranch, Monitor } from "lucide-react";
@@ -74,17 +75,19 @@ function About() {
 
   const devStack = [
     { icon: Code2, name: "VS Code", detail: "Web & scripting editor" },
-    { icon: Terminal, name: "Android Studio", detail: "Kotlin & Compose IDE" },
+    { icon: Terminal, name: "Android Studio", detail: "App Development" },
     { icon: GitBranch, name: "Git / GitHub", detail: "Version control workflow" },
     { icon: PenTool, name: "Figma", detail: "UI prototypes & design" },
     { icon: Monitor, name: "Win / Linux", detail: "Dual-boot environment" },
+    { icon: Code2, name: "Unity Hub", detail: "Game Development" },
   ];
 
   const roadmap = [
-    { quarter: "2025 Q3", title: "Android Basics", detail: "Complete official pathway (Unit 6+), first Compose UI", done: true },
-    { quarter: "2025 Q4", title: "Intermediate Kotlin", detail: "Coroutines, Flow, Room database", done: false },
-    { quarter: "2026 Q1", title: "Build & Publish", detail: "Publish first app on Google Play Store", done: false },
-    { quarter: "2026 Q2", title: "Advanced Concepts", detail: "CI/CD, testing, architecture patterns", done: false },
+    { period: "Aug 2024", title: "Started C Programming", detail: "Began with C — file handling, structs, and CLI system programming.", done: true },
+    { period: "Jun 2025", title: "Started React", detail: "Built portfolio and BlogVsn platform with React, Framer Motion, Tailwind.", done: true },
+    { period: "Oct 2025", title: "Started Kotlin", detail: "Explored OOP, state management, and CLI apps in Kotlin.", done: true },
+    { period: "Nov 2025", title: "Android Studio", detail: "Set up Android dev environment, began Jetpack Compose basics.", done: true },
+    { period: "May 2026", title: "Exploring Unity", detail: "Experimenting with Unity Hub for cross-platform game development.", done: false },
   ];
 
   const focuses = [
@@ -137,11 +140,16 @@ function About() {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+      <SEO
+        title="About | Samrat Parajuli - Android Developer from Nepal"
+        description="Learn about Samrat Parajuli — a student and software developer from Nepal exploring Android development with Kotlin, Jetpack Compose, and thoughtful system design."
+        ogUrl="https://www.samratparajuli0.com.np/about"
+      />
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
+      <main className="max-w-6xl mx-auto px-6 pt-20 lg:pt-32 pb-20">
         {/* Intro Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           {/* Image Sidebar */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -212,7 +220,7 @@ function About() {
                 <div className="text-[#2DD4BF] text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
                   <Terminal size={12} /> session_status
                 </div>
-                <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-[11px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-[11px]">
                   {[
                     { label: "STATUS", value: "Student Developer", color: "text-slate-200" },
                     { label: "FOCUS", value: "Mobile Architecture", color: "text-[#2DD4BF]" },
@@ -446,7 +454,7 @@ function About() {
                   <div className="flex-1 bg-[#020617] border border-slate-800 rounded-lg p-5 hover:border-slate-600 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-[10px] font-mono text-[#2DD4BF] uppercase tracking-widest">
-                        {item.quarter}
+                        {item.period}
                       </span>
                       {item.done && (
                         <span className="text-[9px] font-mono text-emerald-500 uppercase tracking-widest border border-emerald-500/30 px-1.5 py-0.5 rounded">

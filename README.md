@@ -1,12 +1,72 @@
-# React + Vite
+# devPortfoli0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of [Samrat Parajuli](https://www.samratparajuli0.com.np/) (SamratVsn) — an Android developer and systems engineer from Nepal.
 
-Currently, two official plugins are available:
+Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Layer | Technology |
+|---|---|
+| Framework | React 19 |
+| Build Tool | Vite 7 |
+| Styling | Tailwind CSS 4 |
+| Routing | React Router 7 |
+| Animation | Framer Motion 12 |
+| Icons | Lucide React, React Icons |
+| SEO | react-helmet-async |
+| Email | EmailJS |
+| Deployment | Vercel |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Pages
+
+| Route | Content |
+|---|---|
+| `/` | Landing page with hero, expertise grid, featured projects, testimonials |
+| `/about` | Bio, skills, dev stack, current focus, learning roadmap |
+| `/contact` | Contact form with EmailJS integration |
+| `/projects` | Project grid listing all projects |
+| `/projects/sms` | Student Management System (C, CLI, file I/O) |
+| `/projects/bmsk` | Bank Management System (Kotlin, OOP, CLI) |
+| `/projects/blogvsn` | BlogVsn Platform (React, OAuth, Blogger API) |
+| `/projects/this` | Portfolio meta-project deep dive |
+| `/dev` | Meditative philosophy page |
+| `*` | 404 page with navigation links |
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build
+
+```bash
+npm run build
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Deployment
+
+Deployed on Vercel. The `vercel.json` rewrites all routes to `index.html` for SPA routing.
+
+## SEO
+
+- Per-page meta tags via `react-helmet-async`
+- JSON-LD structured data (Person schema)
+- Open Graph + Twitter Card support
+- Sitemap with all pages
+- Google Search Console verified
+
+## License
+
+MIT

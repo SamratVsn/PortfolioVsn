@@ -4,6 +4,7 @@ import {
   Cpu, HardDrive, AlertTriangle, CheckCircle2, 
   ShieldAlert, Box, Search, Trash2, Edit 
 } from 'lucide-react';
+import SEO from './SEO';
 
 // Assets
 import SMS1 from '../assets/SMS/SMS1.png';
@@ -29,6 +30,11 @@ const SMS = () => {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+      <SEO
+        title="Student Management System | Samrat Parajuli"
+        description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
+        ogUrl="https://www.samratparajuli0.com.np/projects/sms"
+      />
       
       {/* HEADER: METADATA STYLE */}
       <div className="border-b border-slate-800 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">

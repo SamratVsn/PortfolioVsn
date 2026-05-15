@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
             <div className="lg:col-span-2 space-y-6">
               <motion.h3 className="text-3xl font-bold text-white flex items-center gap-2">
                 Samrat <span className="text-sky-400">Vsn</span>

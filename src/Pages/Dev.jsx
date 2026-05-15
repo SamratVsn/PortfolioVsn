@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import SEO from "../Components/SEO";
 
 export default function Dev() {
   const [focusMode, setFocusMode] = useState(false);
@@ -69,6 +70,11 @@ export default function Dev() {
 
   return (
     <div className="min-h-screen bg-black text-zinc-400 relative overflow-hidden">
+      <SEO
+        title="Dev | Samrat Parajuli"
+        description="A meditative space — not everything needs a route. Some things are found. Explore the philosophy of focused development."
+        ogUrl="https://www.samratparajuli0.com.np/dev"
+      />
       {/* Grid */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ${focusMode ? "opacity-0" : "opacity-[0.015]"}`}
@@ -94,14 +100,14 @@ export default function Dev() {
             }`}
           >
             <h1
-              className={`text-5xl md:text-6xl font-light mb-6 leading-tight tracking-tight transition-all duration-1000 ${
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 leading-tight tracking-tight transition-all duration-1000 ${
                 heroHighlighted ? "text-white" : "text-zinc-700"
               }`}
             >
               Not everything needs a route. Some things are found.
             </h1>
             <p
-              className={`text-2xl font-light transition-all duration-1000 ${
+              className={`text-lg sm:text-xl md:text-2xl font-light transition-all duration-1000 ${
                 heroHighlighted ? "text-zinc-400" : "text-zinc-800"
               }`}
             >
@@ -132,7 +138,7 @@ export default function Dev() {
                 // Focus mode: phased reveal
                 <div className="text-center space-y-8">
                   {/* Phase 0+: Sanskrit */}
-                  <div className="text-white text-4xl md:text-5xl leading-relaxed font-light">
+                  <div className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed font-light">
                     व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।
                     <br />
                     बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्॥
@@ -167,7 +173,7 @@ export default function Dev() {
                   onClick={() => setNormalModeRevealed(!normalModeRevealed)}
                 >
                   <div
-                    className={`text-white text-3xl md:text-4xl text-center leading-relaxed font-light transition-opacity duration-500 ${
+                    className={`text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center leading-relaxed font-light transition-opacity duration-500 ${
                       normalModeRevealed ? "opacity-0" : "opacity-100"
                     }`}
                   >

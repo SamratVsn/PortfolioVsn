@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SEO from "../Components/SEO";
 import { Home, ArrowLeft, Terminal, AlertTriangle, Cpu } from "lucide-react";
 
 const NotFound = () => {
@@ -20,6 +21,11 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#020617] text-slate-300 px-4 relative overflow-hidden font-sans">
+      <SEO
+        title="404 Not Found | Samrat Parajuli"
+        description="The requested page could not be found. Return to the homepage or explore other sections of the portfolio."
+        noindex
+      />
       
       {/* 1. ARCHITECTURAL BACKGROUND ELEMENTS */}
       <div className="absolute inset-0 pointer-events-none">
@@ -47,11 +53,11 @@ const NotFound = () => {
             animate="animate"
             className="relative"
           >
-            <h1 className="text-[12rem] sm:text-[14rem] font-mono font-black leading-none tracking-tighter text-slate-100 opacity-90 select-none">
+            <h1 className="text-[5rem] sm:text-[8rem] md:text-[12rem] lg:text-[14rem] font-mono font-black leading-none tracking-tighter text-slate-100 opacity-90 select-none">
               404
             </h1>
             {/* Split color layer for "chromatic aberration" effect */}
-            <h1 className="absolute inset-0 text-[12rem] sm:text-[14rem] font-mono font-black leading-none tracking-tighter text-[#2DD4BF] opacity-20 -translate-x-1 translate-y-1 -z-10">
+            <h1 className="absolute inset-0 text-[5rem] sm:text-[8rem] md:text-[12rem] lg:text-[14rem] font-mono font-black leading-none tracking-tighter text-[#2DD4BF] opacity-20 -translate-x-1 translate-y-1 -z-10">
               404
             </h1>
           </motion.div>

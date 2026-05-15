@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
@@ -61,23 +61,40 @@ export default function SpiritualNavbar() {
           {/* LOGO */}
           <Link 
             to="/" 
-            className="z-[1100] font-mono text-xl font-bold tracking-tighter text-white hover:text-[#2DD4BF] transition-colors"
+            className="z-[1100] flex items-center gap-3 group"
             onClick={() => setIsOpen(false)}
           >
-            SAMRAT<span className="text-[#2DD4BF]">.sys</span>
+            <span className="relative flex items-center">
+              <span className="w-2 h-2 rounded-full bg-[#2DD4BF] shadow-[0_0_8px_#2DD4BF] animate-pulse" />
+              <span className="absolute w-2 h-2 rounded-full bg-[#2DD4BF] animate-ping opacity-40" />
+            </span>
+            <span className="font-mono text-xl font-bold tracking-tighter text-white group-hover:text-[#2DD4BF] transition-colors">
+              SAMRAT<span className="text-[#2DD4BF] group-hover:text-white transition-colors">.sys</span>
+            </span>
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`font-mono text-xs uppercase tracking-widest transition-colors duration-300 flex items-center gap-2 ${
-                  pathname === link.to ? "text-[#2DD4BF]" : "text-slate-400 hover:text-white"
+                className={`relative font-mono text-xs uppercase tracking-widest transition-colors duration-300 flex items-center gap-2 px-4 py-2 rounded-lg ${
+                  pathname === link.to 
+                    ? "text-[#2DD4BF] bg-[#2DD4BF]/5" 
+                    : "text-slate-400 hover:text-white hover:bg-white/5"
                 }`}
               >
+                <span className={pathname === link.to ? "text-[#2DD4BF]" : "text-slate-500"}>
+                  {link.icon}
+                </span>
                 {link.name}
+                {pathname === link.to && (
+                  <motion.div
+                    layoutId="active-nav"
+                    className="absolute -bottom-[18px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#2DD4BF] shadow-[0_0_8px_#2DD4BF]"
+                  />
+                )}
               </Link>
             ))}
           </div>

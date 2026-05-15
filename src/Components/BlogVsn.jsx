@@ -3,6 +3,7 @@ import {
   ExternalLink, Github, Code2, Zap, Lock, Mail, 
   Palette, Cloud, ChevronRight, Activity, Terminal 
 } from 'lucide-react'
+import SEO from './SEO'
 
 // Assets
 import B1 from '../assets/BlogVsn/B1.png'
@@ -33,6 +34,11 @@ const BlogVsn = () => {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+      <SEO
+        title="BlogVsn Platform | Samrat Parajuli"
+        description="Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment. Built by Samrat Parajuli."
+        ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
+      />
       
       {/* 1. TOP NAV / METADATA */}
       <div className="border-b border-slate-800 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
@@ -101,7 +107,7 @@ const BlogVsn = () => {
                   <div className="space-y-6 animate-in fade-in">
                     <p className="text-slate-400 italic">// Cloud-Native Blogging Environment</p>
                     <p>BlogVsn bridges the gap between traditional CMS content and modern SPA performance. By utilizing the <strong>Blogger API v3</strong>, content management remains decoupled from the presentation layer.</p>
-                    <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="p-3 bg-slate-900/50 border border-slate-800 rounded">
                            <div className="text-[#2DD4BF] text-[10px] mb-1 tracking-widest uppercase font-bold">Latency</div>
                            <p className="text-xs">Edge-cached API responses for instantaneous loading.</p>

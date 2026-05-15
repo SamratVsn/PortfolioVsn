@@ -152,8 +152,8 @@ function ProjectCard({ project, index }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 font-mono text-xs
-                             text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 font-mono text-xs
+                             text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200 rounded-md"
                 >
                   <GithubIcon />
                   Code
@@ -165,8 +165,8 @@ function ProjectCard({ project, index }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 font-mono text-xs
-                             text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 font-mono text-xs
+                             text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200 rounded-md"
                 >
                   <ArrowIcon />
                   Live
@@ -187,7 +187,7 @@ export default function ProjectGrid() {
         <p className="font-mono text-xs tracking-[0.25em] text-[#2DD4BF] mb-4 uppercase">
           // repository: build_log_2025
         </p>
-        <h1 className="font-mono text-6xl font-bold text-slate-100 tracking-tight leading-none">
+        <h1 className="font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight leading-none">
           SELF PROJECTS
           <span className="text-[#2DD4BF] animate-pulse">_</span>
         </h1>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Github, ChevronRight } from 'lucide-react'
+import SEO from './SEO'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
 import BMSK2 from '../assets/BMSK/BMSK2.png'
 
@@ -15,6 +16,11 @@ function BMSK() {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans">
+      <SEO
+        title="Bank Management System | Samrat Parajuli"
+        description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
+        ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
+      />
       {/* Header / Breadcrumbs */}
       <div className="border-b border-slate-800 bg-[#020617]/50 backdrop-blur-md sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-6 py-4">
@@ -168,7 +174,7 @@ function BMSK() {
             {/* Screenshot gallery */}
             <div className="space-y-6">
               <h3 className="font-mono text-xs text-slate-500 tracking-[0.3em] uppercase underline underline-offset-8 decoration-slate-800">Execution_Captures</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { src: BMSK1, label: 'MAIN_INTERFACE', desc: 'Account management menu with CRUD operations.' },
                   { src: BMSK2, label: 'TRANSACTION_FLOW', desc: 'Deposit and withdrawal logic with validation.' }

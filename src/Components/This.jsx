@@ -3,6 +3,7 @@ import {
   Code2, Palette, Zap, Layout, Sparkles, ExternalLink, 
   Terminal, Layers, Monitor, Share2, Cpu, Globe 
 } from 'lucide-react'
+import SEO from './SEO'
 
 export default function AllioVsn() {
   const [activeTab, setActiveTab] = useState('about')
@@ -22,6 +23,11 @@ export default function AllioVsn() {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+      <SEO
+        title="Developer Portfolio | Samrat Parajuli"
+        description="This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np."
+        ogUrl="https://www.samratparajuli0.com.np/projects/this"
+      />
       
       {/* 1. Header: System Identification */}
       <div className="border-b border-slate-800 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
@@ -144,7 +150,7 @@ export default function AllioVsn() {
           )}
 
           {activeTab === 'features' && (
-             <div className="grid md:grid-cols-2 gap-6 animate-in fade-in">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in">
                {[
                  { title: "Dynamic Routing", detail: "React Router v7 with nested layouts, catch-all 404, and scroll-to-top on navigation." },
                  { title: "Framer Motion", detail: "Animated page transitions, scroll-triggered reveals, staggered list animations, and layout animations." },

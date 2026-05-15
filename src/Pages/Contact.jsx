@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Components/Header';
+import SEO from '../Components/SEO';
 import Footer from '../Components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaPhone, FaLocationDot, FaSquareGithub } from "react-icons/fa6";
@@ -48,6 +49,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+      <SEO
+        title="Contact | Samrat Parajuli"
+        description="Get in touch with Samrat Parajuli. Reach out via email, phone, or connect on GitHub and LinkedIn for collaboration opportunities."
+        ogUrl="https://www.samratparajuli0.com.np/contact"
+      />
       <Header />
       
       <main className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
@@ -56,7 +62,7 @@ const Contact = () => {
           <div className="flex items-center gap-2 text-[10px] font-mono text-[#2DD4BF] uppercase tracking-[0.3em] mb-3">
             <Activity size={12} className="animate-pulse" /> SYSTEM_CONNECTION_ESTABLISHED
           </div>
-          <h1 className="text-4xl md:text-6xl font-mono font-black text-slate-100 tracking-tighter uppercase">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-mono font-black text-slate-100 tracking-tighter uppercase">
             Get_In_Touch<span className="text-[#2DD4BF] animate-pulse">_</span>
           </h1>
         </div>

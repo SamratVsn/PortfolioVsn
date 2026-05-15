@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Header from '../Components/Header'
+import SEO from '../Components/SEO'
 import { FaLinkedin, FaGithub, FaGoogle, FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { ArrowUpRight, Github as GithubLucide } from 'lucide-react'
@@ -83,6 +84,8 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-[#0F172A] text-slate-100 font-sans">
+      <SEO ogUrl="https://www.samratparajuli0.com.np/" />
+
       {loading ? (
         <motion.div
           className="fixed inset-0 bg-[#0F172A] flex flex-col items-center justify-center z-50"
@@ -145,7 +148,7 @@ function Home() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center relative pb-5"
+                  className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center relative pb-5"
                 >
                   <span className="text-slate-100 font-bold tracking-tight">
                     Samrat Parajuli
@@ -194,7 +197,7 @@ function Home() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative flex items-center justify-center"
+                      className="group relative flex items-center justify-center p-2.5"
                       whileHover={{ y: -3 }}>
                       <div className="absolute -bottom-4 w-1 h-1 bg-[#2DD4BF] rounded-full opacity-0 group-hover:opacity-100 transition-all" />
 
