@@ -24,6 +24,14 @@ export default function SpiritualNavbar() {
     document.body.style.overflow = "";
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
+
   const navLinks = [
     { name: "Home", to: "/", icon: <Cpu size={18} /> },
     { name: "About", to: "/about", icon: <User size={18} /> },
@@ -52,7 +60,7 @@ export default function SpiritualNavbar() {
     <>
       <nav
         className={`fixed top-0 left-0 w-full h-[70px] z-[900] flex items-center transition-all duration-300 ${
-          scrolled ? "bg-[#020617]/80 backdrop-blur-md border-b border-white/5" : "bg-transparent"
+          scrolled ? "bg-[#020617]/80 backdrop-blur-md border-b border-white/5 shadow-[0_1px_30px_rgba(0,0,0,0.4)]" : "bg-transparent"
         }`}
       >
         <div className="w-full max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -78,16 +86,22 @@ export default function SpiritualNavbar() {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`relative font-mono text-xs uppercase tracking-widest transition-colors duration-300 flex items-center gap-2 px-4 py-2 rounded-lg ${
+                className={`group relative font-mono text-xs uppercase tracking-widest transition-colors duration-300 flex items-center gap-2 px-4 py-2 rounded-lg ${
                   pathname === link.to 
                     ? "text-[#2DD4BF] bg-[#2DD4BF]/5" 
                     : "text-slate-400 hover:text-white hover:bg-white/5"
                 }`}
               >
-                <span className={pathname === link.to ? "text-[#2DD4BF]" : "text-slate-500"}>
+                <span className={`transition-colors duration-300 ${
+                  pathname === link.to ? "text-[#2DD4BF]" : "text-slate-500 group-hover:text-[#2DD4BF]"
+                }`}>
                   {link.icon}
                 </span>
                 {link.name}
+
+                {/* Hover underline */}
+                <span className="absolute bottom-0 left-2 right-2 h-px bg-[#2DD4BF]/40 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                
                 {pathname === link.to && (
                   <motion.div
                     layoutId="active-nav"

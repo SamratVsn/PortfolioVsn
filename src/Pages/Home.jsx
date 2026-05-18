@@ -18,6 +18,14 @@ function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > 500);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const details = [
     { label: "FOCUS", value: "Mobile App Development", detail: "Building interfaces that feel natural." },
     { label: "PATH", value: "Learning with Purpose", detail: "Deep diving into learning everything deeply." },
@@ -82,6 +90,21 @@ function Home() {
     }
   ];
 
+  const skillCategories = [
+    {
+      title: "Languages",
+      skills: ["Kotlin", "Java", "C", "Python", "JavaScript"]
+    },
+    {
+      title: "Android",
+      skills: ["Jetpack Compose", "Coroutines & Flow", "MVVM", "Room DB", "Retrofit"]
+    },
+    {
+      title: "Tools & Cloud",
+      skills: ["Git", "Firebase", "Unity", "Android Studio", "Vercel"]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#0F172A] text-slate-100 font-sans">
       <SEO ogUrl="https://www.samratparajuli0.com.np/" />
@@ -141,8 +164,13 @@ function Home() {
         <>
           <Header />
           <div className="pt-[70px] flex flex-col">
-            <div className="min-h-screen flex-1 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8">
-              <div className="min-h-[25vh] items-center justify-center px-4 sm:max-w-6xl mx-auto flex flex-col text-center space-y-6 sm:space-y-8">
+            <div className="relative min-h-screen flex-1 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 overflow-hidden">
+              {/* Background dot grid */}
+              <div className="absolute inset-0 [background-image:radial-gradient(circle,rgba(45,212,191,0.08)_1px,transparent_1px)] [background-size:24px_24px]" />
+              {/* Gradient orb */}
+              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#2DD4BF]/[0.03] rounded-full blur-3xl" />
+
+              <div className="relative z-10 min-h-[25vh] items-center justify-center px-4 sm:max-w-6xl mx-auto flex flex-col text-center space-y-6 sm:space-y-8">
 
                 <motion.h1
                   initial={{ opacity: 0, y: -20 }}
@@ -211,6 +239,23 @@ function Home() {
                   ))}
                 </motion.div>
               </div>
+
+              {/* Scroll indicator */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+              >
+                <motion.div
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <span className="font-mono text-[10px] text-slate-600 uppercase tracking-[0.2em]">Scroll</span>
+                  <div className="w-px h-8 bg-gradient-to-b from-[#2DD4BF]/50 to-transparent" />
+                </motion.div>
+              </motion.div>
             </div>
 
             {/* REPLACEMENT SECTION START */}
@@ -265,6 +310,54 @@ function Home() {
   </div>
 </div>
 {/* REPLACEMENT SECTION END */}
+
+            {/* TOOLCHAIN / SKILLS */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-6xl mx-auto px-6 py-24"
+            >
+              <div className="mb-16">
+                <motion.h2 className="text-slate-100 text-3xl md:text-4xl font-mono tracking-tighter mb-4">
+                  Toolchain<span className="text-[#2DD4BF]">_</span>
+                </motion.h2>
+                <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
+                  // Technologies I work with daily
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {skillCategories.map((category, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 }}
+                    className="group bg-[#0F172A]/40 border border-slate-800/60 rounded-lg p-6 hover:border-slate-700 transition-colors duration-300"
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="font-mono text-xs text-[#2DD4BF] opacity-70 bg-[#2DD4BF]/10 px-2 py-1 rounded">
+                        0{index + 1} // {category.title}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="font-mono text-xs text-slate-400 border border-slate-700/50 px-3 py-1.5 rounded-full hover:border-[#2DD4BF]/30 hover:text-[#2DD4BF] hover:bg-[#2DD4BF]/5 transition-all duration-300 cursor-default"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -414,6 +507,21 @@ function Home() {
             <Testimonials />
             <Footer />
           </div>
+
+          {/* Back to top */}
+          {showBackToTop && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="fixed bottom-8 right-8 z-40 p-3 bg-[#0F172A]/80 border border-slate-700/50 rounded-full text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 backdrop-blur-sm transition-all duration-300"
+              aria-label="Back to top"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 13V3M8 3L3 8M8 3L13 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.button>
+          )}
         </>
       )}
     </div>
