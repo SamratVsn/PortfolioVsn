@@ -2,235 +2,156 @@ import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import { motion } from "framer-motion";
 import PortfolioImage from "../assets/PortfolioImage.jpg";
-import { Terminal, Code2, PenTool, GitBranch, Monitor } from "lucide-react";
+import { Terminal, Code2, PenTool, GitBranch, Cpu, Layers, Radio } from "lucide-react";
 import Footer from "../Components/Footer";
 
 function About() {
-  const skills = [
-    { name: "Kotlin", level: "Intermediate", category: "Mobile Development" },
-    {
-      name: "Jetpack Compose",
-      level: "Beginner",
-      category: "Mobile Development",
-    },
-    {
-      name: "Android Studio",
-      level: "Proficient",
-      category: "Development Tools",
-    },
-    {
-      name: "Material Design (Material 3)",
-      level: "Beginner",
-      category: "UI Design",
-    },
-
-    { name: "C Programming", level: "Intermediate", category: "Programming" },
-    {
-      name: "Data Structures & Algorithms",
-      level: "Beginner",
-      category: "Foundations",
-    },
-
-    { name: "Git / GitHub", level: "Familiar", category: "Version Control" },
-    {
-      name: "Debugging & Problem Solving",
-      level: "Intermediate",
-      category: "Workflow",
-    },
-    {
-      name: "Android Activity Lifecycle",
-      level: "Beginner",
-      category: "Mobile Foundations",
-    },
-
-    { name: "HTML & CSS", level: "Advanced", category: "Web Fundamentals" },
-    { name: "JavaScript", level: "Intermediate", category: "Web Fundamentals" },
-
-    { name: "Figma", level: "Proficient", category: "Design Tools" },
+  const skillsMatrix = [
+    { name: "Kotlin Core", status: "STABLE", category: "Mobile Development", runtime: "JVM / Native" },
+    { name: "Jetpack Compose", status: "INITIALIZING", category: "Mobile Development", runtime: "UI Toolkit" },
+    { name: "Android Studio IDE", status: "OPTIMIZED", category: "Development Tools", runtime: "Internal" },
+    { name: "Material Design 3", status: "INITIALIZING", category: "UI Design", runtime: "Layout Engine" },
+    { name: "C Programming", status: "STABLE", category: "Low-Level Programming", runtime: "Native POSIX" },
+    { name: "Data Structures & Algos", status: "INITIALIZING", category: "Computer Science", runtime: "Logic Core" },
+    { name: "Git / Version Control", status: "STABLE", category: "Workflow Automation", runtime: "Distributed" },
+    { name: "Debugging & Profiling", status: "STABLE", category: "Workflow Automation", runtime: "Analysis" },
+    { name: "Android Lifecycle Architecture", status: "INITIALIZING", category: "Mobile Development", runtime: "OS Hook" },
+    { name: "HTML5 & CSS3 Architecture", status: "OPTIMIZED", category: "Web Fundamentals", runtime: "Render Tree" },
+    { name: "JavaScript / ES6+", status: "STABLE", category: "Web Fundamentals", runtime: "V8 Engine" },
+    { name: "Figma Prototyping", status: "OPTIMIZED", category: "Design Tools", runtime: "Vector Canvas" },
   ];
 
-  const levelColor = {
-    Beginner: "text-yellow-400",
-    Intermediate: "text-blue-400",
-    Advanced: "text-emerald-400",
-    Proficient: "text-cyan-400",
-    Familiar: "text-slate-400",
+  const statusStyleMap = {
+    INITIALIZING: { text: "text-amber-400 bg-amber-500/5 border-amber-500/20", dot: "bg-amber-400" },
+    STABLE: { text: "text-[#2DD4BF] bg-[#2DD4BF]/5 border-[#2DD4BF]/10", dot: "bg-[#2DD4BF]" },
+    OPTIMIZED: { text: "text-emerald-400 bg-emerald-500/5 border-emerald-500/20", dot: "bg-emerald-400" },
   };
 
-  const levelBarColor = {
-    Beginner: "bg-yellow-500",
-    Intermediate: "bg-blue-500",
-    Proficient: "bg-cyan-500",
-    Advanced: "bg-emerald-500",
-    Familiar: "bg-slate-500",
-  };
-
-  const levelWidth = {
-    Beginner: "w-[25%]",
-    Intermediate: "w-[50%]",
-    Proficient: "w-[75%]",
-    Advanced: "w-[90%]",
-    Familiar: "w-[35%]",
-  };
-
-  const devStack = [
-    { icon: Code2, name: "VS Code", detail: "Web & scripting editor" },
-    { icon: Terminal, name: "Android Studio", detail: "App Development" },
-    { icon: GitBranch, name: "Git / GitHub", detail: "Version control workflow" },
-    { icon: PenTool, name: "Figma", detail: "UI prototypes & design" },
-    { icon: Monitor, name: "Win / Linux", detail: "Dual-boot environment" },
-    { icon: Code2, name: "Unity Hub", detail: "Game Development" },
+  const toolchainDrivers = [
+    { icon: Terminal, name: "Android Studio", detail: "Primary mobile IDE" },
+    { icon: Code2, name: "VS Code Core", detail: "Scripting & web environments" },
+    { icon: GitBranch, name: "Git Control Engine", detail: "Branching isolation & history tracking" },
+    { icon: PenTool, name: "Figma Workspace", detail: "UX mapping & interaction vectors" },
+    { icon: Cpu, name: "Unity Engine", detail: "Cross-platform runtime compilation" },
   ];
 
-  const roadmap = [
-    { period: "Aug 2024", title: "Started C Programming", detail: "Began with C — file handling, structs, and CLI system programming.", done: true },
-    { period: "Jun 2025", title: "Started React", detail: "Built portfolio and BlogVsn platform with React, Framer Motion, Tailwind.", done: true },
-    { period: "Oct 2025", title: "Started Kotlin", detail: "Explored OOP, state management, and CLI apps in Kotlin.", done: true },
-    { period: "Nov 2025", title: "Android Studio", detail: "Set up Android dev environment, began Jetpack Compose basics.", done: true },
-    { period: "May 2026", title: "Exploring Unity", detail: "Experimenting with Unity Hub for cross-platform game development.", done: false },
+  const operationalLog = [
+    { target: "AUG 2024", phase: "COMPILED", event: "Initialized C Environments", descriptiveLog: "Parsed native paradigms, basic pointer spaces, binary structures, and custom stream operations." },
+    { target: "JUN 2025", phase: "COMPILED", event: "Assembled Web Frameworks", descriptiveLog: "Assembled reactive platform trees; engineered BlogVsn aggregator using OAuth secure protocols." },
+    { target: "OCT 2025", phase: "COMPILED", event: "Adopted Kotlin Runtime", descriptiveLog: "Integrated strict object patterns, memory configurations, and low-level terminal interfaces." },
+    { target: "NOV 2025", phase: "COMPILED", event: "Configured Mobile Platforms", descriptiveLog: "Worked with Android Studio; structured baseline declarative interface layers using Jetpack Compose components." },
+    { target: "MAY 2026", phase: "ACTIVE", event: "Android Lifecycle Optimization", descriptiveLog: "Deep diving into runtime thread telemetry, Activity recreation states, and non-volatile cache structures." },
   ];
 
-  const focuses = [
+  const operationalProcesses = [
     {
       id: "01",
-      label: "Android Dev",
-      status: "IN_PROGRESS",
-      accent: "#2DD4BF",
-      description: (
-        <>
-          Advancing Android development with{" "}
-          <span className="text-white">Kotlin</span> and{" "}
-          <span className="text-white">Jetpack Compose</span> — currently
-          completing the official Android Basics pathway (Unit 6).
-        </>
-      ),
-      tags: ["Kotlin", "Jetpack Compose", "Android SDK"],
+      coreDomain: "Android Platform Architecture",
+      condition: "STAGED_RUNNING",
+      tint: "#2DD4BF",
+      logDetail: "Deepening knowledge of declarative UI rendering pipelines via Jetpack Compose. Currently optimizing structural state mutations and analyzing Activity lifecycles to handle process death gracefully.",
+      frameworks: ["Kotlin Native", "Jetpack Compose", "Lifecycle Architecture"],
     },
     {
       id: "02",
-      label: "CS Foundations",
-      status: "ONGOING",
-      accent: "#6366F1",
-      description: (
-        <>
-          Strengthening core programming foundations through{" "}
-          <span className="text-white">problem solving</span>,{" "}
-          <span className="text-white">data structures</span>, and practical
-          debugging techniques.
-        </>
-      ),
-      tags: ["DSA", "Algorithms", "Debugging"],
+      coreDomain: "Computer Science Infrastructure",
+      condition: "MAINTAINING",
+      tint: "#6366F1",
+      logDetail: "Solidifying core algorithmic systems, safe memory tracking paradigms, and data structure complexity targets to keep software execution completely overhead-free.",
+      frameworks: ["Algorithms Analysis", "Memory Assertions", "Deterministic Logic"],
     },
     {
       id: "03",
-      label: "Open Source",
-      status: "ACTIVE",
-      accent: "#F59E0B",
-      description: (
-        <>
-          Building Android projects and refining code through{" "}
-          <span className="text-white">experimentation</span>,{" "}
-          <span className="text-white">iteration</span>, and open-source
-          learning.
-        </>
-      ),
-      tags: ["Projects", "GitHub", "Iteration"],
+      coreDomain: "Distributed Source Systems",
+      condition: "PIPELINE_ACTIVE",
+      tint: "#F59E0B",
+      logDetail: "Maintaining modular open-source repositories. Shipping structural revisions and isolated testing setups through automated local environments.",
+      frameworks: ["Git Shell Workflow", "Repository Branching", "Modular Deployments"],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
       <SEO
-        title="About | Samrat Parajuli - Android Developer from Nepal"
-        description="Learn about Samrat Parajuli — a student and software developer from Nepal exploring Android development with Kotlin, Jetpack Compose, and thoughtful system design."
+        title="About | Samrat Parajuli - Systems & Mobile Engineer"
+        description="Profile specifications for Samrat Parajuli: Student systems engineer specializing in native Android runtimes, reactive software flows, and clean decoupled architectures."
         ogUrl="https://www.samratparajuli0.com.np/about"
       />
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 pt-20 lg:pt-32 pb-20">
-        {/* Intro Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          {/* Image Sidebar */}
+      <main className="max-w-6xl mx-auto px-6 pt-24 lg:pt-32 pb-20">
+        
+        {/* OPERATOR DATA LAYER */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          
+          {/* HARDWARE OVERLAY SIDEBAR */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="lg:col-span-4"
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#2DD4BF] to-cyan-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+              <div className="absolute -inset-px bg-gradient-to-b from-[#2DD4BF]/20 to-transparent rounded-lg opacity-40" />
               <img
                 src={PortfolioImage}
-                alt="Samrat Parajuli"
-                className="relative rounded-2xl transition-all duration-700 border border-slate-800 object-cover w-full aspect-square grayscale hover:grayscale-0"
+                alt="Samrat Parajuli Hardware Profile"
+                className="relative rounded-lg border border-slate-900 object-cover w-full aspect-square grayscale contrast-125 hover:grayscale-0 transition-all duration-500"
                 loading="lazy"
               />
-              <div className="mt-6 font-mono text-xs tracking-widest uppercase text-slate-500">
-                // Loc: Nepal_27.7172° N
+              <div className="mt-4 font-mono text-[10px] tracking-[0.25em] text-slate-600 uppercase flex justify-between items-center px-1">
+                <span>// NODE_LOC_NEPAL</span>
+                <span>27.7172° N, 85.3240° E</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Biography Content */}
+          {/* SYSTEM BIOGRAPHY */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 space-y-8"
+            transition={{ delay: 0.1 }}
+            className="lg:col-span-8 space-y-6"
           >
             <div>
-              <h2 className="text-slate-100 text-4xl md:text-5xl font-mono tracking-tighter mb-2">
-                The Creative One<span className="text-[#2DD4BF]">_</span>
+              <h2 className="text-white text-3xl font-mono font-bold tracking-tight mb-1">
+                OPERATOR_SPECIFICATION<span className="text-[#2DD4BF]">_</span>
               </h2>
-              <p className="text-[#2DD4BF] font-mono text-sm uppercase tracking-[0.2em]">
-                Student & Software Developer
+              <p className="text-[#2DD4BF] font-mono text-xs uppercase tracking-[0.3em]">
+                Mobile App Development & Programming
               </p>
             </div>
 
-            <div className="space-y-6 text-slate-400 leading-relaxed text-lg font-light">
+            <div className="space-y-4 text-slate-400 font-sans text-sm leading-relaxed">
               <p>
-                Hello. I’m{" "}
-                <span className="text-slate-100 font-medium">
-                  Samrat Parajuli
-                </span>
-                . A student from Nepal with a growing interest in how thoughtful
-                code and design shape the digital experiences people interact
-                with every day. My curiosity currently revolves around the
-                evolving landscape of mobile technology.
+                I am <span className="text-slate-100 font-semibold">Samrat Parajuli</span>, a mobile software developer based in Nepal. I focus my development routines around structural code mechanics, native component lifecycles, and performance profiles governing target mobile systems.
               </p>
 
               <p>
-                I spend much of my time exploring Android development with{" "}
-                <span className="text-slate-100">Kotlin</span> and{" "}
-                <span className="text-slate-100">Jetpack Compose</span>. What
-                motivates me most is the process of turning abstract ideas into{" "}
-                <span className="text-slate-100 italic">
-                  intentional user experiences
-                </span>
-                , built through simple architecture and clean, readable code.
+                My active runtime processing is centered heavily around building native Android frameworks using <span className="text-white font-mono text-xs border border-slate-900 bg-slate-950 px-1.5 py-0.5 rounded">Kotlin</span> and <span className="text-white font-mono text-xs border border-slate-900 bg-slate-950 px-1.5 py-0.5 rounded">Jetpack Compose UI</span>. I approach app architecture as a rigorous craft, focusing on decoupling application logic, optimizing activity execution chains, and keeping memory configurations tight and responsive.
               </p>
 
-              <p className="text-sm border-l border-[#2DD4BF]/30 pl-6 italic">
-                "I approach development as a craft — continuously learning,
-                refining ideas, and building systems that aim to be simple,
-                useful, and long-lasting."
-              </p>
+              <div className="text-[11px] font-mono border-l border-[#2DD4BF]/30 bg-[#2DD4BF]/[0.02] p-4 text-slate-400 leading-relaxed rounded-r border-y border-r border-slate-900">
+                <span className="text-[#2DD4BF] font-bold block mb-1">{"// PRINCIPLE_STATEMENT"}</span>
+                "Software development functions best when isolated down to pure intentionality. The objective is to deploy applications that operate with minimal complexity, highly transparent data architectures, and prolonged structural lifecycle stability."
+              </div>
 
-              {/* System Status Dashboard */}
-              <div className="mt-8 p-5 bg-slate-900/40 border border-slate-800 rounded-xl font-mono">
-                <div className="text-[#2DD4BF] text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2 border-b border-slate-800 pb-3">
-                  <Terminal size={12} /> session_status
+              {/* LIVE CONSOLE PARAMETERS */}
+              <div className="p-4 bg-slate-950/60 border border-slate-900 rounded font-mono text-[11px]">
+                <div className="text-slate-600 text-[9px] uppercase tracking-[0.2em] mb-3 flex items-center gap-2 border-b border-slate-900 pb-2">
+                  <Terminal size={10} className="text-[#2DD4BF]" /> Core_Environment_Variables
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-[11px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
                   {[
-                    { label: "STATUS", value: "Student Developer", color: "text-slate-200" },
-                    { label: "FOCUS", value: "Mobile Architecture", color: "text-[#2DD4BF]" },
-                    { label: "LOCALE", value: "Kathmandu, Nepal", color: "text-slate-200" },
-                    { label: "AVAILABILITY", value: "Open to Collab", color: "text-emerald-400" },
+                    { key: "COMPILER_TYPE", value: "Student / Developer Component", color: "text-slate-300" },
+                    { key: "FOCUS_TARGET", value: "Mobile Stack / System Design", color: "text-[#2DD4BF]" },
+                    { key: "HOST_LOCALE", value: "Kathmandu, NP Workspace", color: "text-slate-300" },
+                    { key: "LINK_AVAIL", value: "Available For Global Collab", color: "text-emerald-400" },
                   ].map((row) => (
-                    <div key={row.label} className="flex items-center gap-3 border-b border-slate-800/50 pb-2">
-                      <span className="text-slate-600 w-24 shrink-0">{row.label}</span>
-                      <span className={`${row.color} font-semibold tracking-wide`}>{row.value}</span>
+                    <div key={row.key} className="flex justify-between items-center border-b border-slate-900 pb-1">
+                      <span className="text-slate-600 tracking-tighter text-[10px]">{row.key}</span>
+                      <span className={`${row.color} font-bold`}>{row.value}</span>
                     </div>
                   ))}
                 </div>
@@ -239,235 +160,188 @@ function About() {
           </motion.div>
         </div>
 
-        {/* Skills Section */}
-        <section className="mt-40">
-          <div className="flex justify-between items-end mb-12 border-b border-slate-800 pb-4">
-            <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
-              Technical Stack
+        {/* RE-ENGINEERED CAPABILITY MATRIX */}
+        <section className="mt-28">
+          <div className="flex justify-between items-end mb-8 border-b border-slate-900 pb-3">
+            <h3 className="text-slate-200 text-lg font-mono tracking-tight font-bold">
+              Subsystem_Capability_Matrix<span className="text-[#2DD4BF]">_</span>
             </h3>
-            <span className="text-slate-500 font-mono text-xs">
-              // system_log.v2
-            </span>
+            <span className="text-slate-600 font-mono text-[10px] tracking-widest uppercase">// compiled_assets_v2</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-800 border border-slate-800 rounded-lg overflow-hidden">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative bg-[#020617] p-8 pl-10 group"
-              >
-                {/* Signal Rail */}
-                <span className="absolute left-0 top-0 h-full w-[2px] bg-slate-800 group-hover:bg-[#2DD4BF] transition-colors" />
-
-                {/* Header */}
-                <div className="flex justify-between items-start mb-4">
-                  <span className="text-[10px] font-mono px-2 py-0.5 border border-slate-700 rounded text-[#2DD4BF] uppercase">
-                    {skill.category}
-                  </span>
-                  <span className="text-[10px] font-mono text-slate-600">
-                    ID:{String(index).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* Skill Name */}
-                <h4 className="text-slate-100 font-semibold text-lg">
-                  {skill.name}
-                </h4>
-
-                {/* Level bar */}
-                <div className="mt-4">
-                  <div className="flex justify-between text-[10px] font-mono mb-1.5">
-                    <span className="text-slate-500">PROFICIENCY</span>
-                    <span className={levelColor[skill.level]}>{skill.level}</span>
-                  </div>
-                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: "0%" }}
-                      whileInView={{ width: levelWidth[skill.level] }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: index * 0.05 }}
-                      className={`h-full rounded-full ${levelBarColor[skill.level]}`}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Development Stack */}
-        <section className="mt-32">
-          <div className="flex justify-between items-end mb-12 border-b border-slate-800 pb-4">
-            <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
-              Development Stack
-            </h3>
-            <span className="text-slate-500 font-mono text-xs">
-              // daily_drivers
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {devStack.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
-                className="group p-5 bg-[#020617] border border-slate-800 rounded-xl hover:border-slate-600 transition-all duration-300"
-              >
-                <div className="p-2.5 bg-slate-900 border border-slate-800 rounded-lg w-fit mb-4 text-[#2DD4BF] group-hover:bg-[#2DD4BF]/10 group-hover:border-[#2DD4BF]/30 transition-all">
-                  <item.icon size={18} />
-                </div>
-                <h4 className="text-slate-100 font-semibold text-sm mb-1">{item.name}</h4>
-                <p className="text-[11px] font-mono text-slate-500">{item.detail}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Current Focus Section */}
-        <section className="mt-32">
-          {/* Section Header */}
-          <div className="flex justify-between items-end mb-10 border-b border-slate-800 pb-4">
-            <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
-              Current Focus
-            </h3>
-            <span className="text-slate-500 font-mono text-xs">
-              // active_processes
-            </span>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 gap-4">
-            {focuses.map((item, i) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="group relative bg-[#020617] border border-slate-800 rounded-lg overflow-hidden
-                       hover:border-slate-600 transition-colors duration-300"
-              >
-                <span
-                  className="absolute top-0 left-0 w-full h-[1px] opacity-60"
-                  style={{ background: item.accent }}
-                />
-
-                <div className="flex items-start gap-5 p-6">
-                  <div className="flex flex-col items-center gap-2 pt-0.5 shrink-0">
-                    <span className="font-mono text-xs text-slate-600">
-                      {item.id}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-900 border border-slate-900 rounded overflow-hidden">
+            {skillsMatrix.map((skill, index) => {
+              const statusTheme = statusStyleMap[skill.status];
+              return (
+                <div
+                  key={index}
+                  className="bg-[#020617] p-5 relative group hover:bg-slate-950/40 transition-colors"
+                >
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-[9px] font-mono px-2 py-0.5 border border-slate-900 rounded text-slate-500 uppercase font-bold tracking-tight">
+                      {skill.category}
                     </span>
-                    <span
-                      className="w-[2px] flex-1 min-h-[40px] rounded-full"
-                      style={{ background: item.accent }}
+                    <span className="text-[9px] font-mono text-slate-700 font-bold">
+                      0x{index.toString(16).toUpperCase().padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  <h4 className="text-slate-200 font-mono text-xs font-bold tracking-tight mb-3 group-hover:text-[#2DD4BF] transition-colors">
+                    {skill.name}
+                  </h4>
+
+                  <div className="flex justify-between items-center pt-2 border-t border-slate-900/60 font-mono text-[9px]">
+                    <span className="text-slate-600 uppercase tracking-tighter">RUNTIME: {skill.runtime}</span>
+                    <div className={`inline-flex items-center gap-1.5 px-2 py-0.5 border rounded uppercase tracking-widest font-bold ${statusTheme.text}`}>
+                      <span className={`w-1 h-1 rounded-full ${statusTheme.dot}`} />
+                      {skill.status}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* OPERATIONAL HARDWARE LOG */}
+        <section className="mt-24">
+          <div className="flex justify-between items-end mb-8 border-b border-slate-900 pb-3">
+            <h3 className="text-slate-200 text-lg font-mono tracking-tight font-bold">
+              Hardware_Toolchain_Drivers<span className="text-[#2DD4BF]">_</span>
+            </h3>
+            <span className="text-slate-600 font-mono text-[10px] tracking-widest uppercase">// core_utilities</span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {toolchainDrivers.map((item, i) => (
+              <div
+                key={i}
+                className="group p-4 bg-slate-950/20 border border-slate-900 rounded hover:border-slate-800 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="p-2 border border-slate-900 bg-slate-950 rounded text-slate-500 group-hover:text-[#2DD4BF] group-hover:border-[#2DD4BF]/20 w-fit mb-3 transition-colors">
+                    <item.icon size={14} />
+                  </div>
+                  <h4 className="text-slate-200 font-mono text-xs font-bold tracking-tight mb-1">{item.name}</h4>
+                </div>
+                <p className="text-[10px] font-mono text-slate-600 leading-snug pt-2 border-t border-slate-900/40 group-hover:text-slate-500 transition-colors">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* RUNTIME TARGET CONTROLLERS */}
+        <section className="mt-24">
+          <div className="flex justify-between items-end mb-8 border-b border-slate-900 pb-3">
+            <h3 className="text-slate-200 text-lg font-mono tracking-tight font-bold">
+              Active_Runtime_Processes<span className="text-[#2DD4BF]">_</span>
+            </h3>
+            <span className="text-slate-600 font-mono text-[10px] tracking-widest uppercase">// thread_allocation</span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3">
+            {operationalProcesses.map((item) => (
+              <div
+                key={item.id}
+                className="relative bg-slate-950/20 border border-slate-900 rounded overflow-hidden hover:border-slate-800 transition-colors duration-300"
+              >
+                <div className="flex items-start gap-5 p-5">
+                  <div className="flex flex-col items-center gap-1.5 pt-0.5 shrink-0">
+                    <span className="font-mono text-[10px] font-bold text-slate-700">
+                      ID_{item.id}
+                    </span>
+                    <div 
+                      className="w-px flex-1 min-h-[45px] rounded-full opacity-30" 
+                      style={{ backgroundColor: item.tint }}
                     />
                   </div>
 
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
-                      <span
-                        className="font-mono text-xs font-semibold tracking-widest uppercase"
-                        style={{ color: item.accent }}
-                      >
-                        {item.label}
+                  <div className="flex-1 min-w-0 font-mono">
+                    <div className="flex items-center justify-between mb-2 gap-3 flex-wrap">
+                      <span className="text-xs font-bold tracking-wider uppercase text-white">
+                        {item.coreDomain}
                       </span>
-                      <span
-                        className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest
-                               border rounded-full px-2.5 py-0.5"
+                      <span 
+                        className="inline-flex items-center gap-1.5 text-[9px] font-bold tracking-widest border rounded px-2 py-0.5"
                         style={{
-                          color: item.accent,
-                          borderColor: `${item.accent}40`,
-                          backgroundColor: `${item.accent}0D`,
+                          color: item.tint,
+                          borderColor: `${item.tint}30`,
+                          backgroundColor: `${item.tint}05`,
                         }}
                       >
-                        <span
-                          className="w-1.5 h-1.5 rounded-full animate-pulse"
-                          style={{ background: item.accent }}
-                        />
-                        {item.status}
+                        <span className="w-1 h-1 rounded-full animate-ping" style={{ backgroundColor: item.tint }} />
+                        {item.condition}
                       </span>
                     </div>
 
-                    <p className="font-mono text-sm text-slate-400 leading-relaxed mb-4">
-                      <span className="text-slate-600 mr-1">&gt;</span>
-                      {item.description}
+                    <p className="text-xs text-slate-500 leading-relaxed mb-3 font-sans">
+                      <span className="text-slate-700 font-mono font-bold mr-1.5">&gt;</span>
+                      {item.logDetail}
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
-                      {item.tags.map((tag) => (
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.frameworks.map((framework) => (
                         <span
-                          key={tag}
-                          className="font-mono text-[11px] text-slate-500 border border-slate-800
-                                 rounded px-2 py-0.5 group-hover:border-slate-700 transition-colors"
+                          key={framework}
+                          className="text-[10px] text-slate-600 border border-slate-900 bg-slate-950 px-2 py-0.5 rounded"
                         >
-                          {tag}
+                          {framework}
                         </span>
                       ))}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
-        {/* Learning Roadmap */}
-        <section className="mt-32">
-          <div className="flex justify-between items-end mb-12 border-b border-slate-800 pb-4">
-            <h3 className="text-slate-100 text-2xl font-mono tracking-tighter">
-              Learning Roadmap
+
+        {/* RESTRUCTURED COMPILED LIFECYCLE CHRONOLOGY */}
+        <section className="mt-24">
+          <div className="flex justify-between items-end mb-8 border-b border-slate-900 pb-3">
+            <h3 className="text-slate-200 text-lg font-mono tracking-tight font-bold">
+              Compiled_Lifecycle_Log<span className="text-[#2DD4BF]">_</span>
             </h3>
-            <span className="text-slate-500 font-mono text-xs">
-              // planned_iterations
-            </span>
+            <span className="text-slate-600 font-mono text-[10px] tracking-widest uppercase">// system_iterations</span>
           </div>
 
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[7px] top-2 bottom-2 w-px bg-slate-800" />
+            <div className="absolute left-1.5 top-2 bottom-2 w-px bg-slate-900" />
 
-            <div className="space-y-8">
-              {roadmap.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="relative flex gap-6 pl-8"
-                >
-                  {/* Timeline dot */}
-                  <div className={`absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 flex items-center justify-center ${
-                    item.done
-                      ? "border-[#2DD4BF] bg-[#2DD4BF]/20"
-                      : "border-slate-700 bg-[#020617]"
-                  }`}>
-                    {item.done && (
-                      <div className="w-[5px] h-[5px] rounded-full bg-[#2DD4BF]" />
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 bg-[#020617] border border-slate-800 rounded-lg p-5 hover:border-slate-600 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[10px] font-mono text-[#2DD4BF] uppercase tracking-widest">
-                        {item.period}
-                      </span>
-                      {item.done && (
-                        <span className="text-[9px] font-mono text-emerald-500 uppercase tracking-widest border border-emerald-500/30 px-1.5 py-0.5 rounded">
-                          Done
-                        </span>
-                      )}
+            <div className="space-y-4">
+              {operationalLog.map((logItem, i) => {
+                const isActiveLog = logItem.phase === "ACTIVE";
+                return (
+                  <div key={i} className="relative flex gap-6 pl-6">
+                    <div className={`absolute left-0 top-2.5 w-3 h-3 rounded-sm border flex items-center justify-center rotate-45 ${
+                      isActiveLog 
+                        ? "border-[#2DD4BF] bg-[#2DD4BF]/10 shadow-[0_0_8px_rgba(45,212,191,0.3)]" 
+                        : "border-slate-800 bg-slate-950"
+                    }`}>
+                      {isActiveLog && <div className="w-1 h-1 bg-[#2DD4BF]" />}
                     </div>
-                    <h4 className="text-slate-100 font-semibold text-sm mb-1">{item.title}</h4>
-                    <p className="text-[12px] font-mono text-slate-500">{item.detail}</p>
+
+                    <div className="flex-1 bg-slate-950/10 border border-slate-900 rounded p-4 hover:border-slate-800 transition-colors font-mono">
+                      <div className="flex items-center gap-2.5 mb-1.5">
+                        <span className="text-[10px] font-bold text-[#2DD4BF] tracking-wider">
+                          [{logItem.target}]
+                        </span>
+                        <span className={`text-[9px] font-bold tracking-widest border px-1.5 py-0.2 rounded uppercase ${
+                          isActiveLog 
+                            ? "border-amber-500/30 text-amber-400 bg-amber-500/5" 
+                            : "border-slate-800 text-slate-600"
+                        }`}>
+                          {isActiveLog ? "STAGE_RUNNING" : "LOG_COMPILED"}
+                        </span>
+                      </div>
+                      <h4 className="text-slate-200 text-xs font-bold tracking-tight mb-1">{logItem.event}</h4>
+                      <p className="text-[11px] font-sans text-slate-500 leading-relaxed">{logItem.descriptiveLog}</p>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

@@ -5,213 +5,207 @@ import Header from '../Components/Header'
 import SEO from '../Components/SEO'
 import { FaLinkedin, FaGithub, FaGoogle, FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
-import { ArrowUpRight, Github as GithubLucide } from 'lucide-react'
+import { ArrowUpRight, Github as GithubLucide, Terminal, Cpu, HardDrive, Layers } from 'lucide-react'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
 
-
 function Home() {
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => setShowBackToTop(window.scrollY > 500);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const details = [
-    { label: "FOCUS", value: "Mobile App Development", detail: "Building interfaces that feel natural." },
-    { label: "PATH", value: "Learning with Purpose", detail: "Deep diving into learning everything deeply." },
-    { label: "MIND", value: "Spiritual Tech", detail: "Merging logic with mindful & calm execution." }
+  const systemParameters = [
+    { label: "FOCUS", value: "Mobile Architecture", detail: "Structuring native engines using Kotlin & Jetpack Compose." },
+    { label: "STACK", value: "Reactive & Modular", detail: "Isolating business logic with multi-module clean codebases." },
+    { label: "MIND", value: "Spiritual Tech", detail: "Merging deterministic logic with mindful, calm execution." }
   ];
 
-  const services = [
+  const expertiseMatrix = [
     {
       id: "01",
-      title: "Android Development",
-      description: "Building native mobile experiences with Kotlin and Jetpack Compose",
-      tag: "Android"
+      title: "Native Android Craft",
+      description: "Assembling declarative runtime interfaces with modern Kotlin, Jetpack Compose, and material UI pipelines.",
+      tag: "UI_ENGINE",
+      icon: <Cpu size={16} />
     },
     {
       id: "02",
-      title: "Problem Solving",
-      description: "Tackling complex challenges with clean, efficient code and innovative solutions",
-      tag: "Logic"
+      title: "Asynchronous Pipelines",
+      description: "Managing non-blocking concurrency, custom schedulers, and reactive structural data via Coroutines & Flow.",
+      tag: "ASYNC_CORE",
+      icon: <Terminal size={16} />
     },
     {
       id: "03",
-      title: "Interactive Design",
-      description: "Creating intentional, intuitive interfaces that prioritize user harmony",
-      tag: "UI/UX"
+      title: "Local State Engines",
+      description: "Engineering resilient caching systems and transaction isolation schemes using Room DB and DataStore.",
+      tag: "STORAGE_SYS",
+      icon: <HardDrive size={16} />
     },
     {
       id: "04",
-      title: "MVVM Architecture",
-      description: "Implementing robust, scalable app architectures for maintainable codebases",
-      tag: "Android"
+      title: "Clean Architecture",
+      description: "Enforcing clean separation of concerns using isolated Domain layers and Hilt for Dependency Injection.",
+      tag: "INFRASTRUCTURE",
+      icon: <Layers size={16} />
     }
   ];
 
   const featuredProjects = [
     {
       id: "01",
-      category: "C_SYSTEM",
-      title: "Student Management System",
-      description: "Console-based CRUD in C with binary file I/O, struct serialization, and direct byte-offset navigation.",
-      tags: ["#c", "#file-handling", "#cli"],
+      category: "C_SYSTEMS",
+      title: "Student Management Kernel",
+      description: "Low-overhead console engine built in pure C utilizing binary I/O, strict struct serialization, and target byte-offset random file navigation access.",
+      tags: ["#C", "#Binary-IO", "#Memory-Mapping"],
       github: "https://github.com/SamratVsn/C-codes",
       path: "/projects/sms"
     },
     {
       id: "02",
-      category: "KOTLIN_CLI",
-      title: "Bank Management System",
-      description: "OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity.",
-      tags: ["#kotlin", "#oop", "#cli"],
+      category: "KOTLIN_RUNTIME",
+      title: "Encapsulated Banking Core",
+      description: "OOP-driven ledger environment tracking financial transaction isolation, cryptographically secure UUID-mapped identities, and strict mathematical state mutations.",
+      tags: ["#Kotlin", "#OOP-Encapsulation", "#CLI-Engine"],
       github: "https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt",
       path: "/projects/bmsk"
     },
     {
       id: "03",
-      category: "WEBSITE",
-      title: "BlogVsn Platform",
-      description: "Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment.",
-      tags: ["#react", "#oauth", "#api"],
+      category: "CLOUD_INTERFACE",
+      title: "BlogVsn Edge Aggregator",
+      description: "High-performance interface aggregating network requests through Google OAuth 2.0 protocol and Blogger API v3, optimized with global edge-caching mechanics.",
+      tags: ["#React", "#OAuth-Security", "#REST-API"],
       github: "https://github.com/SamratVsn/BlogVsn",
       live: "https://blogvsn.vercel.app/",
       path: "/projects/blogvsn"
     }
   ];
 
-  const skillCategories = [
+  const toolchainCategories = [
     {
-      title: "Languages",
-      skills: ["Kotlin", "Java", "C", "Python", "JavaScript"]
+      title: "Runtime Environments",
+      skills: ["Kotlin", "Java", "C Programming", "Python", "JavaScript / ES6+"]
     },
     {
-      title: "Android",
-      skills: ["Jetpack Compose", "Coroutines & Flow", "MVVM", "Room DB", "Retrofit"]
+      title: "Android Architecture Stack",
+      skills: ["Jetpack Compose", "Coroutines & Flow", "Clean Architecture", "Room Cache", "Retrofit Engine"]
     },
     {
-      title: "Tools & Cloud",
-      skills: ["Git", "Firebase", "Unity", "Android Studio", "Vercel"]
+      title: "Infrastructure & Tools",
+      skills: ["Git Control", "Firebase Gateway", "Android Studio IDE", "Unity Engine", "Vercel Deployments"]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-slate-100 font-sans">
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
       <SEO ogUrl="https://www.samratparajuli0.com.np/" />
 
       {loading ? (
         <motion.div
-          className="fixed inset-0 bg-[#0F172A] flex flex-col items-center justify-center z-50"
+          className="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-50 font-mono"
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.6 }}
         >
-          {/* The Iris: A soft, breathing glow instead of a spin */}
           <div className="relative flex items-center justify-center">
             <motion.div
-              className="absolute w-12 h-12 bg-[#2DD4BF]/20 rounded-full blur-xl"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="absolute w-16 h-16 bg-[#2DD4BF]/10 rounded-full blur-xl"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.5, 0.2] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             />
-            <motion.div
-              className="w-2 h-2 bg-[#2DD4BF] rounded-full shadow-[0_0_15px_#2DD4BF]"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            />
+            <div className="w-2 h-2 bg-[#2DD4BF] rounded-full shadow-[0_0_15px_#2DD4BF]" />
           </div>
 
-          <div className="mt-12 text-center">
-            <motion.h1
-              className="text-slate-100 text-xl font-mono tracking-[0.3em] uppercase"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5 }}
-            >
-              Initializing
-            </motion.h1>
-
-            <motion.div
-              className="mt-2 h-[1px] bg-slate-800 w-48 overflow-hidden relative mx-auto"
-            >
+          <div className="mt-8 text-center">
+            <h1 className="text-slate-400 text-xs tracking-[0.4em] uppercase animate-pulse">
+              [SYSTEM_INITIALIZE]
+            </h1>
+            <div className="mt-3 h-[1px] bg-slate-900 w-40 overflow-hidden relative mx-auto">
               <motion.div
                 className="absolute inset-0 bg-[#2DD4BF]"
                 initial={{ x: "-100%" }}
                 animate={{ x: "0%" }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
               />
-            </motion.div>
-
-            <motion.p
-              className="text-slate-500 mt-4 font-mono text-[10px] uppercase tracking-widest"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ repeat: Infinity, duration: 2, times: [0, 0.5, 1] }}
-            >
-              Preparing the space
-            </motion.p>
+            </div>
           </div>
         </motion.div>
       ) : (
         <>
           <Header />
-          <div className="pt-[70px] flex flex-col">
-            <div className="relative min-h-screen flex-1 flex flex-col items-center justify-center px-3 sm:px-4 md:px-6 py-4 sm:py-6 md:py-8 overflow-hidden">
-              {/* Background dot grid */}
-              <div className="absolute inset-0 [background-image:radial-gradient(circle,rgba(45,212,191,0.08)_1px,transparent_1px)] [background-size:24px_24px]" />
-              {/* Gradient orb */}
-              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#2DD4BF]/[0.03] rounded-full blur-3xl" />
+          <div className="pt-[65px] flex flex-col">
+            
+            {/* HERO MODULE */}
+            <div className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 overflow-hidden border-b border-slate-900">
+              <div className="absolute inset-0 [background-image:radial-gradient(circle,rgba(45,212,191,0.04)_1px,transparent_1px)] [background-size:32px_32px]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2DD4BF]/[0.02] rounded-full blur-[160px] pointer-events-none" />
 
-              <div className="relative z-10 min-h-[25vh] items-center justify-center px-4 sm:max-w-6xl mx-auto flex flex-col text-center space-y-6 sm:space-y-8">
+              <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
+                
+                <div className="inline-flex items-center gap-2 border border-[#2DD4BF]/20 bg-[#2DD4BF]/5 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-widest text-[#2DD4BF]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] animate-ping" />
+                  Operator//Samrat_Vsn
+                </div>
 
                 <motion.h1
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center relative pb-5"
+                  transition={{ duration: 0.6 }}
+                  className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white"
                 >
-                  <span className="text-slate-100 font-bold tracking-tight">
-                    Samrat Parajuli
-                  </span>
-
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.7, duration: 0.9 }}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#2DD4BF] rounded-full shadow-[0_0_15px_rgba(45,212,191,0.4)]"
-                  />
+                  Samrat Parajuli
                 </motion.h1>
 
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.9, duration: 1 }}
-                  className="w-full max-w-2xl border-l border-slate-800 pl-6 py-4 my-8"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="w-full max-w-2xl border-x border-slate-900 bg-slate-950/30 backdrop-blur-sm p-6 rounded-xl"
                 >
-                  <p className="text-base md:text-lg text-slate-400 font-mono leading-relaxed">
-                    <span className="text-slate-100 italic">"Seeker of knowledge, builder of systems."</span>
+                  <p className="text-sm md:text-base text-slate-400 font-mono leading-relaxed">
+                    <span className="text-slate-300 italic">"Seeker of knowledge, builder of systems."</span>
                     <br /><br />
-                    Hi! I'm a developer from Nepal focused on
-                    <span className="text-[#2DD4BF]"> mobile architecture </span>
-                    and <span className="text-[#2DD4BF]"> user-centric design</span>.
-                    I view coding as a craft—a continuous journey of learning and sharing
-                    what I discover along the way.
+                    Application Developer based in Nepal specialized in architecting deterministic, performant <span className="text-[#2DD4BF]">mobile network platforms</span> and scalable data configurations. Leaving zero operational waste between clean infrastructure layouts.
                   </p>
                 </motion.div>
 
+                {/* HIGH-INTENT TARGET CALL TO ACTIONS */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="flex flex-col sm:flex-row items-center gap-4 font-mono w-full justify-center"
+                >
+                  <Link 
+                    to="/projects" 
+                    className="w-full sm:w-auto text-center bg-[#2DD4BF] hover:bg-[#20ba1a] text-[#020617] font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded transition-all shadow-[0_0_20px_rgba(45,212,191,0.2)] hover:shadow-[0_0_25px_rgba(45,212,191,0.4)]"
+                  >
+                    [Execute_Project_Scan]
+                  </Link>
+                  <Link 
+                    to="/contact" 
+                    className="w-full sm:w-auto text-center bg-slate-950 hover:bg-slate-900 border border-slate-800 text-slate-400 hover:text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded transition-all"
+                  >
+                    //Establish_Link
+                  </Link>
+                </motion.div>
+
+                {/* NETWORK DEPLOYMENT NODES */}
                 <motion.div
-                  className="flex items-center gap-8 pt-6"
+                  className="flex items-center gap-6 pt-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1.5 }}
+                  transition={{ delay: 0.4 }}
                 >
                   {[
                     { href: "https://www.linkedin.com/in/samratvsn/", icon: FaLinkedin, label: "LinkedIn" },
@@ -220,304 +214,231 @@ function Home() {
                     { href: "https://www.instagram.com/samratvsn/", icon: FaInstagram, label: "Instagram" },
                     { href: "https://g.dev/samratdev", icon: FaGoogle, label: "Google" }
                   ].map(({ href, icon: Icon, label }) => (
-                    <motion.a
+                    <a
                       key={label}
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="group relative flex items-center justify-center p-2.5"
-                      whileHover={{ y: -3 }}>
-                      <div className="absolute -bottom-4 w-1 h-1 bg-[#2DD4BF] rounded-full opacity-0 group-hover:opacity-100 transition-all" />
-
-                      <Icon className="text-xl md:text-2xl text-slate-500 group-hover:text-slate-100 transition-colors duration-300" />
-
-                      <span className="absolute -top-10 scale-0 group-hover:scale-100 transition-all font-mono text-[10px] tracking-tighter text-[#2DD4BF] uppercase">
+                      className="group relative flex items-center justify-center p-2"
+                    >
+                      <Icon className="text-lg text-slate-600 group-hover:text-[#2DD4BF] transition-colors duration-300" />
+                      <span className="absolute -top-8 scale-0 group-hover:scale-100 transition-all font-mono text-[9px] tracking-tighter text-[#2DD4BF] uppercase bg-slate-950 border border-slate-900 px-1.5 py-0.5 rounded">
                         {label}
                       </span>
-                    </motion.a>
+                    </a>
                   ))}
                 </motion.div>
               </div>
 
-              {/* Scroll indicator */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.5 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-              >
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                  className="flex flex-col items-center gap-2"
-                >
-                  <span className="font-mono text-[10px] text-slate-600 uppercase tracking-[0.2em]">Scroll</span>
-                  <div className="w-px h-8 bg-gradient-to-b from-[#2DD4BF]/50 to-transparent" />
-                </motion.div>
-              </motion.div>
+              {/* RADIAL TELEMETRY FEED */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-40">
+                <span className="font-mono text-[9px] text-slate-600 uppercase tracking-[0.3em]">Telemetry_Scroll</span>
+                <div className="w-px h-6 bg-gradient-to-b from-[#2DD4BF] to-transparent mt-2 animate-bounce" />
+              </div>
             </div>
 
-            {/* REPLACEMENT SECTION START */}
-<div className="max-w-6xl mx-auto mt-24 px-6 mb-24">
-  {/* Section Label */}
-  <div className="flex items-center gap-2 mb-8 opacity-50">
-    <div className="h-px w-8 bg-[#2DD4BF]" />
-    <span className="font-mono text-xs text-[#2DD4BF] uppercase tracking-widest">
-      System_Parameters
-    </span>
-  </div>
+            {/* SYSTEM PARAMETERS MODULE */}
+            <div className="max-w-6xl w-full mx-auto mt-24 px-6 mb-12">
+              <div className="flex items-center gap-3 mb-10 opacity-60">
+                <div className="h-px w-6 bg-[#2DD4BF]" />
+                <span className="font-mono text-xs text-[#2DD4BF] uppercase tracking-widest">System_Parameters</span>
+              </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-    {details.map((item, index) => (
-      <motion.div
-        key={index}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.2 }}
-        className="group relative bg-[#0F172A]/40 border border-slate-800/60 p-6 rounded-lg overflow-hidden hover:border-slate-700 transition-colors duration-300"
-      >
-        {/* Hover Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Top Accent Line */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {systemParameters.map((item, index) => (
+                  <div
+                    key={index}
+                    className="group relative bg-slate-950/20 border border-slate-900 p-6 rounded-lg overflow-hidden hover:border-slate-800 transition-all duration-300"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex flex-col h-full justify-between space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="font-mono text-[10px] text-[#2DD4BF] bg-[#2DD4BF]/5 border border-[#2DD4BF]/10 px-2 py-0.5 rounded">
+                          SYS_CONFIG_0{index + 1}
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-700 uppercase">{item.label}</span>
+                      </div>
+                      <div>
+                        <h3 className="text-base text-slate-200 font-bold font-mono mb-2 group-hover:text-[#2DD4BF] transition-colors">
+                          {item.value}
+                        </h3>
+                        <p className="text-slate-500 text-xs leading-relaxed font-mono">
+                          {item.detail}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        <div className="relative z-10 flex flex-col h-full justify-between">
-          <div className="flex justify-between items-start mb-4">
-            <span className="font-mono text-xs text-[#2DD4BF] opacity-70 bg-[#2DD4BF]/10 px-2 py-1 rounded">
-              0{index + 1} // {item.label}
-            </span>
-            <span className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
-          </div>
+            {/* CORE EXPERTISE MATRIX */}
+            <div className="max-w-6xl w-full mx-auto px-6 py-20">
+              <div className="mb-14">
+                <h2 className="text-slate-100 text-2xl md:text-3xl font-mono tracking-tight mb-2">
+                  Architecture_Expertise<span className="text-[#2DD4BF]">_</span>
+                </h2>
+                <p className="text-slate-600 font-mono text-xs uppercase tracking-widest">
+                  // Core domains mapped to low-overhead functional logic
+                </p>
+              </div>
 
-          <div>
-            <h3 className="text-xl text-slate-100 font-bold font-mono tracking-tight mb-2 group-hover:text-[#2DD4BF] transition-colors duration-300">
-              {item.value}
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed border-l-2 border-slate-800 pl-3 group-hover:border-[#2DD4BF]/50 transition-colors duration-300">
-              {item.detail}
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    ))}
-  </div>
-</div>
-{/* REPLACEMENT SECTION END */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-900 border border-slate-900 overflow-hidden rounded-xl">
+                {expertiseMatrix.map((service, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#020617] p-8 md:p-10 transition-all duration-300 group relative hover:bg-slate-950/40"
+                  >
+                    <div className="absolute top-6 right-6 flex items-center gap-2 text-slate-600 group-hover:text-[#2DD4BF] transition-colors">
+                      <span className="font-mono text-[10px] tracking-widest">{service.tag}</span>
+                      {service.icon}
+                    </div>
 
-            {/* TOOLCHAIN / SKILLS */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="max-w-6xl mx-auto px-6 py-24"
-            >
-              <div className="mb-16">
-                <motion.h2 className="text-slate-100 text-3xl md:text-4xl font-mono tracking-tighter mb-4">
-                  Toolchain<span className="text-[#2DD4BF]">_</span>
-                </motion.h2>
-                <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
-                  // Technologies I work with daily
+                    <div className="flex flex-col space-y-3">
+                      <span className="text-[#2DD4BF]/50 font-mono text-xs">
+                        MODULE_IDX_{service.id}
+                      </span>
+                      <h3 className="text-lg font-bold text-slate-200 group-hover:text-white transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-slate-500 text-xs font-mono leading-relaxed max-w-xl group-hover:text-slate-400 transition-colors">
+                        {service.description}
+                      </p>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2DD4BF]/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* SKILLS TOOLCHAIN MODULE */}
+            <div className="max-w-6xl w-full mx-auto px-6 py-20">
+              <div className="mb-14">
+                <h2 className="text-slate-100 text-2xl md:text-3xl font-mono tracking-tight mb-2">
+                  Verified_Toolchain<span className="text-[#2DD4BF]">_</span>
+                </h2>
+                <p className="text-slate-600 font-mono text-xs uppercase tracking-widest">
+                  // Hardware & framework parameters compiled dynamically
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {skillCategories.map((category, index) => (
-                  <motion.div
+                {toolchainCategories.map((category, index) => (
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 }}
-                    className="group bg-[#0F172A]/40 border border-slate-800/60 rounded-lg p-6 hover:border-slate-700 transition-colors duration-300"
+                    className="bg-slate-950/40 border border-slate-900 rounded-lg p-6 hover:border-slate-800 transition-colors duration-300"
                   >
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="font-mono text-xs text-[#2DD4BF] opacity-70 bg-[#2DD4BF]/10 px-2 py-1 rounded">
-                        0{index + 1} // {category.title}
-                      </span>
+                    <div className="mb-5 flex justify-between items-center border-b border-slate-900 pb-3">
+                      <span className="font-mono text-xs text-slate-300 font-bold">{category.title}</span>
+                      <span className="font-mono text-[10px] text-slate-600">CC_0{index + 1}</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="font-mono text-xs text-slate-400 border border-slate-700/50 px-3 py-1.5 rounded-full hover:border-[#2DD4BF]/30 hover:text-[#2DD4BF] hover:bg-[#2DD4BF]/5 transition-all duration-300 cursor-default"
+                          className="font-mono text-[11px] text-slate-400 bg-slate-950 border border-slate-900 px-2.5 py-1 rounded hover:border-[#2DD4BF]/30 hover:text-[#2DD4BF] transition-colors cursor-default"
                         >
                           {skill}
                         </span>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="max-w-6xl mx-auto px-6 py-24"
-            >
-              {/* Header: Solid & Monospace */}
-              <div className="mb-16">
-                <motion.h2
-                  className="text-slate-100 text-3xl md:text-4xl font-mono tracking-tighter mb-4"
-                >
-                  Expertise<span className="text-[#2DD4BF]">_</span>
-                </motion.h2>
-                <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
-      // Merging technical precision with mindful design
+            {/* CURATED SELECTED PROJECTS */}
+            <div className="max-w-6xl w-full mx-auto px-6 py-20">
+              <div className="mb-14">
+                <h2 className="text-slate-100 text-2xl md:text-3xl font-mono tracking-tight mb-2">
+                  Featured_Subsystems<span className="text-[#2DD4BF]">_</span>
+                </h2>
+                <p className="text-slate-600 font-mono text-xs uppercase tracking-widest">
+                  // Curated hardware logs and interface abstractions
                 </p>
               </div>
 
-              {/* Grid: Border-based instead of Box-based */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-800/50 border border-slate-800 overflow-hidden rounded-2xl">
-                {services.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ backgroundColor: "rgba(15, 23, 42, 0.6)" }}
-                    className="bg-[#0F172A] p-8 md:p-12 transition-all duration-500 group relative"
-                  >
-                    {/* Subtle accent corner */}
-                    <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 transition-opacity">
-                      <span className="font-mono text-[#2DD4BF] text-xs tracking-widest uppercase">
-                        {service.tag}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col gap-4">
-                      <span className="text-[#2DD4BF] font-mono text-sm mb-2 opacity-50">
-                        {service.id} //
-                      </span>
-
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-100 group-hover:text-[#2DD4BF] transition-colors duration-300">
-                        {service.title}
-                      </h3>
-
-                      <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-sm">
-                        {service.description}
-                      </p>
-                    </div>
-
-                    {/* The "Glow" - appears only on hover */}
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2DD4BF]/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* FEATURED PROJECTS */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="max-w-6xl mx-auto px-6 py-24"
-            >
-              <div className="mb-16">
-                <motion.h2 className="text-slate-100 text-3xl md:text-4xl font-mono tracking-tighter mb-4">
-                  Featured_Projects<span className="text-[#2DD4BF]">_</span>
-                </motion.h2>
-                <p className="text-slate-500 font-mono text-sm uppercase tracking-widest">
-                  // A curated selection of work
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-800/50 border border-slate-800 overflow-hidden rounded-2xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-900 border border-slate-900 overflow-hidden rounded-xl">
                 {featuredProjects.map((project, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: index * 0.1 }}
-                    className="group relative bg-[#0F172A] p-8 transition-all duration-500 flex flex-col"
+                    className="group relative bg-[#020617] p-8 transition-all duration-300 flex flex-col hover:bg-slate-950/30"
                   >
                     <Link to={project.path} className="absolute inset-0 z-10" />
 
-                    {/* Category badge */}
                     <div className="flex items-center justify-between mb-6">
-                      <span className="font-mono text-[11px] tracking-widest text-[#2DD4BF] border border-[#2DD4BF]/25 bg-[#2DD4BF]/5 px-2.5 py-1 rounded">
+                      <span className="font-mono text-[10px] tracking-widest text-[#2DD4BF] border border-[#2DD4BF]/20 bg-[#2DD4BF]/5 px-2 py-0.5 rounded">
                         {project.category}
                       </span>
-                      <span className="font-mono text-slate-700 text-xs">{project.id}</span>
+                      <span className="font-mono text-slate-700 text-xs">NODE_0{project.id}</span>
                     </div>
 
-                    <h3 className="font-mono text-xl font-semibold text-slate-100 leading-snug mb-3 group-hover:text-white transition-colors duration-200">
+                    <h3 className="font-mono text-base font-bold text-slate-200 leading-snug mb-3 group-hover:text-[#2DD4BF] transition-colors">
                       {project.title}
-                      <span className="text-[#2DD4BF] opacity-0 group-hover:opacity-100 transition-opacity duration-200">_</span>
+                      <span className="text-[#2DD4BF] inline-block animate-pulse ml-1 opacity-0 group-hover:opacity-100">_</span>
                     </h3>
 
-                    <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-6 group-hover:text-slate-400 transition-colors duration-200">
+                    <p className="text-xs font-mono text-slate-500 leading-relaxed flex-1 mb-6 group-hover:text-slate-400 transition-colors">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-x-3 gap-y-1 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="font-mono text-xs text-slate-600">{tag}</span>
+                        <span key={tag} className="font-mono text-[10px] text-slate-600 bg-slate-950 border border-slate-900/40 px-1.5 py-0.5 rounded">
+                          {tag}
+                        </span>
                       ))}
                     </div>
 
-                    <div className="border-t border-slate-800/80 group-hover:border-slate-700/80 transition-colors duration-300 pt-4">
+                    <div className="border-t border-slate-900 pt-4 mt-auto">
                       <div className="relative z-20 flex items-center gap-4">
                         {project.github && (
                           <a href={project.github} target="_blank" rel="noopener noreferrer"
                              onClick={(e) => e.stopPropagation()}
-                             className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200">
-                            <GithubLucide size={13} /> Code
+                             className="inline-flex items-center gap-1.5 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors">
+                            <GithubLucide size={12} /> Source
                           </a>
                         )}
                         {project.live && (
                           <a href={project.live} target="_blank" rel="noopener noreferrer"
                              onClick={(e) => e.stopPropagation()}
-                             className="inline-flex items-center gap-1.5 font-mono text-xs text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200">
-                            <ArrowUpRight size={13} /> Live
+                             className="inline-flex items-center gap-1.5 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors">
+                            <ArrowUpRight size={12} /> Output
                           </a>
                         )}
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="mt-12 text-center"
-              >
+              <div className="mt-12 text-center">
                 <Link
                   to="/projects"
-                  className="group inline-flex items-center gap-3 px-8 py-4 border border-slate-700/50 rounded-lg font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 transition-all duration-300"
+                  className="group inline-flex items-center gap-3 px-6 py-3 border border-slate-900 bg-slate-950/40 rounded font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/20 transition-all"
                 >
-                  View All Projects
-                  <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                  Query Full Directory Index
+                  <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             <Testimonials />
             <Footer />
           </div>
 
-          {/* Back to top */}
+          {/* HAPTIC BACK TO TOP SYSTEM ACTION */}
           {showBackToTop && (
             <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="fixed bottom-8 right-8 z-40 p-3 bg-[#0F172A]/80 border border-slate-700/50 rounded-full text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 backdrop-blur-sm transition-all duration-300"
-              aria-label="Back to top"
+              className="fixed bottom-6 right-6 z-40 p-3 bg-slate-950 border border-slate-900 rounded text-slate-500 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/20 shadow-xl backdrop-blur-md transition-all"
+              aria-label="Reset System Offset"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M8 13V3M8 3L3 8M8 3L13 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </motion.button>
