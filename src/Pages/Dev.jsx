@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../Components/SEO";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
+import BrandLogo from '../assets/Brand-Logo.png';
 
 export default function Dev() {
   const [focusMode, setFocusMode] = useState(false);
@@ -194,6 +195,9 @@ export default function Dev() {
 
   return (
     <div className="min-h-screen bg-[#0F172A] text-slate-100 font-sans relative overflow-hidden">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+      </div>
       <SEO
         title="Dev | Samrat Parajuli"
         description="A meditative space — not everything needs a route. Some things are found. Explore the philosophy of focused development."

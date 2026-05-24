@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 import SEO from '../Components/SEO';
 import Footer from '../Components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
+import BrandLogo from '../assets/Brand-Logo.png';
 import { FaPhone, FaLocationDot, FaSquareGithub } from "react-icons/fa6";
 import { MdMarkEmailRead } from "react-icons/md";
 import { Terminal, Send, Activity, ShieldCheck, Globe, AlertTriangle } from 'lucide-react';
@@ -68,6 +69,9 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+      </div>
       <SEO
         title="Contact | Samrat Parajuli - Terminal Uplink"
         description="Establish communications routing with Samrat Parajuli. Interface access open for project scheduling, architecture analysis, and collaborative programming operations."

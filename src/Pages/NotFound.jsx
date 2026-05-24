@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../Components/SEO";
 import { Home, ArrowLeft, Terminal, AlertTriangle, Cpu } from "lucide-react";
+import BrandLogo from '../assets/Brand-Logo.png';
 
 const NotFound = () => {
   // Glitch animation variants for the 404 text
@@ -21,6 +22,9 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#020617] text-slate-300 px-4 relative overflow-hidden font-sans">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+      </div>
       <SEO
         title="404 Not Found | Samrat Parajuli"
         description="The requested page could not be found. Return to the homepage or explore other sections of the portfolio."

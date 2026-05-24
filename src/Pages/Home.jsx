@@ -8,6 +8,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { ArrowUpRight, Github as GithubLucide, Terminal, Cpu, HardDrive, Layers } from 'lucide-react'
 import Footer from '../Components/Footer'
 import Testimonials from '../Components/Testimonials'
+import BrandLogo from '../assets/Brand-Logo.png'
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -113,20 +114,27 @@ function Home() {
 
       {loading ? (
         <motion.div
-          className="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-50 font-mono"
+          className="fixed inset-0 bg-[#020617] flex flex-col items-center justify-center z-50 font-mono overflow-hidden"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            animate={{ opacity: [0.06, 0.12, 0.06], scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          >
+            <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+          </motion.div>
+
           <div className="relative flex items-center justify-center">
             <motion.div
-              className="absolute w-16 h-16 bg-[#2DD4BF]/10 rounded-full blur-xl"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.5, 0.2] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute w-32 h-32 bg-[#2DD4BF]/10 rounded-full blur-2xl"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.4, 0.15] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             />
-            <div className="w-2 h-2 bg-[#2DD4BF] rounded-full shadow-[0_0_15px_#2DD4BF]" />
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center relative">
             <h1 className="text-slate-400 text-xs tracking-[0.4em] uppercase animate-pulse">
               [SYSTEM_INITIALIZE]
             </h1>
@@ -149,6 +157,9 @@ function Home() {
             <div className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 overflow-hidden border-b border-slate-900">
               <div className="absolute inset-0 [background-image:radial-gradient(circle,rgba(45,212,191,0.04)_1px,transparent_1px)] [background-size:32px_32px]" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2DD4BF]/[0.02] rounded-full blur-[160px] pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
+                <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+              </div>
 
               <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
                 
@@ -239,7 +250,10 @@ function Home() {
             </div>
 
             {/* SYSTEM PARAMETERS MODULE */}
-            <div className="max-w-6xl w-full mx-auto mt-24 px-6 mb-12">
+            <div className="relative max-w-6xl w-full mx-auto mt-24 px-6 mb-12">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+                <img src={BrandLogo} alt="" className="w-72 h-72 object-contain" />
+              </div>
               <div className="flex items-center gap-3 mb-10 opacity-60">
                 <div className="h-px w-6 bg-[#2DD4BF]" />
                 <span className="font-mono text-xs text-[#2DD4BF] uppercase tracking-widest">System_Parameters</span>
@@ -274,7 +288,10 @@ function Home() {
             </div>
 
             {/* CORE EXPERTISE MATRIX */}
-            <div className="max-w-6xl w-full mx-auto px-6 py-20">
+            <div className="relative max-w-6xl w-full mx-auto px-6 py-20">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+                <img src={BrandLogo} alt="" className="w-72 h-72 object-contain" />
+              </div>
               <div className="mb-14">
                 <h2 className="text-slate-100 text-2xl md:text-3xl font-mono tracking-tight mb-2">
                   Architecture_Expertise<span className="text-[#2DD4BF]">_</span>
@@ -313,7 +330,10 @@ function Home() {
             </div>
 
             {/* SKILLS TOOLCHAIN MODULE */}
-            <div className="max-w-6xl w-full mx-auto px-6 py-20">
+            <div className="relative max-w-6xl w-full mx-auto px-6 py-20">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+                <img src={BrandLogo} alt="" className="w-72 h-72 object-contain" />
+              </div>
               <div className="mb-14">
                 <h2 className="text-slate-100 text-2xl md:text-3xl font-mono tracking-tight mb-2">
                   Verified_Toolchain<span className="text-[#2DD4BF]">_</span>
@@ -350,7 +370,10 @@ function Home() {
             </div>
 
             {/* CURATED SELECTED PROJECTS */}
-            <div className="max-w-6xl w-full mx-auto px-6 py-20">
+            <div className="relative max-w-6xl w-full mx-auto px-6 py-20">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+                <img src={BrandLogo} alt="" className="w-72 h-72 object-contain" />
+              </div>
               <div className="mb-14">
                 <h2 className="text-slate-100 text-2xl md:text-3xl font-mono tracking-tight mb-2">
                   Featured_Subsystems<span className="text-[#2DD4BF]">_</span>

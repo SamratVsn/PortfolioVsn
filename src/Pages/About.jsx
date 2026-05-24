@@ -2,6 +2,7 @@ import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import { motion } from "framer-motion";
 import PortfolioImage from "../assets/PortfolioImage.jpg";
+import BrandLogo from '../assets/Brand-Logo.png';
 import { Terminal, Code2, PenTool, GitBranch, Cpu, Layers, Radio } from "lucide-react";
 import Footer from "../Components/Footer";
 
@@ -72,6 +73,9 @@ function About() {
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+      </div>
       <SEO
         title="About | Samrat Parajuli - Systems & Mobile Engineer"
         description="Profile specifications for Samrat Parajuli: Student systems engineer specializing in native Android runtimes, reactive software flows, and clean decoupled architectures."

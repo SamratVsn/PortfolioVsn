@@ -1,9 +1,14 @@
 import Header from '../Components/Header'
+import BrandLogo from '../assets/Brand-Logo.png'
 
 export const PageLayout = ({ children, className = "" }) => {
   return (
     <div className={`min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] relative overflow-x-hidden ${className}`}>
       
+      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+      </div>
+
       {/* Precision Structural Blueprint Mesh */}
       <div 
         className="fixed inset-0 pointer-events-none opacity-[0.015]" 
