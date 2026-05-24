@@ -1,0 +1,58 @@
+const blogs = [
+  {
+    id: "01",
+    slug: "getting-started",
+    title: "Getting Started with Android Development",
+    date: "2026-05-20",
+    excerpt: "A beginner-friendly guide to setting up your first Android project with Kotlin and Jetpack Compose.",
+    tags: ["#Android", "#Kotlin", "#Jetpack-Compose"],
+    content: [
+      { type: "heading", text: "Prerequisites" },
+      { type: "para", text: "Before diving in, ensure you have Android Studio installed and a basic understanding of Kotlin syntax. You'll also need the JDK 17 or higher." },
+      { type: "heading", text: "Creating Your First Project" },
+      { type: "para", text: "Open Android Studio and select 'New Project'. Choose 'Empty Activity' with Jetpack Compose enabled. Name your project and set the minimum SDK to API 24 or higher." },
+      { type: "para", text: "Once the project syncs, you'll see the main activity file. Compose allows you to define UI declaratively using @Composable functions instead of XML layouts." },
+      { type: "code", text: '@Composable\nfun Greeting(name: String) {\n    Text(text = "Hello, $name!")\n}' },
+      { type: "heading", text: "Running the App" },
+      { type: "para", text: "Connect a device or start an emulator, then click Run. Your app will launch with a simple greeting on screen. From here, you can start building out your UI." },
+    ],
+  },
+  {
+    id: "02",
+    slug: "clean-architecture",
+    title: "Clean Architecture in Mobile Apps",
+    date: "2026-05-15",
+    excerpt: "Exploring separation of concerns, domain layers, and dependency injection patterns for scalable Android apps.",
+    tags: ["#Architecture", "#Kotlin", "#Clean-Code"],
+    content: [
+      { type: "heading", text: "What is Clean Architecture?" },
+      { type: "para", text: "Clean Architecture, popularized by Robert C. Martin, emphasizes separating software into layers. Each layer has a specific responsibility, making the system testable, maintainable, and independent of frameworks." },
+      { type: "heading", text: "The Three Layers" },
+      { type: "para", text: "In Android, Clean Architecture typically consists of three layers: data, domain, and presentation. The domain layer sits at the center containing business logic and use cases, with no Android dependencies." },
+      { type: "para", text: "The data layer implements repositories and handles data sources (network, database). The presentation layer contains UI components and ViewModels that communicate with use cases." },
+      { type: "code", text: 'class GetUserUseCase(private val repository: UserRepository) {\n    suspend operator fun invoke(id: String): Result<User> {\n        return repository.getUser(id)\n    }\n}' },
+      { type: "heading", text: "Benefits" },
+      { type: "para", text: "This separation makes your code easier to test, swap implementations, and reason about. It also enforces a unidirectional data flow, reducing bugs and improving predictability." },
+    ],
+  },
+  {
+    id: "03",
+    slug: "coroutines-deep-dive",
+    title: "Kotlin Coroutines: A Deep Dive",
+    date: "2026-05-10",
+    excerpt: "Understanding structured concurrency, coroutine scopes, and flow-based reactive streams in Kotlin.",
+    tags: ["#Kotlin", "#Coroutines", "#Async"],
+    content: [
+      { type: "heading", text: "Why Coroutines?" },
+      { type: "para", text: "Coroutines provide a way to write asynchronous, non-blocking code in a sequential style. They are lightweight threads that can be suspended and resumed without blocking the underlying thread." },
+      { type: "heading", text: "Structured Concurrency" },
+      { type: "para", text: "Kotlin enforces structured concurrency, meaning coroutines are scoped to a lifecycle. When the scope is cancelled, all child coroutines are automatically cancelled. This prevents leaks and ensures predictable behavior." },
+      { type: "code", text: 'viewModelScope.launch {\n    val data = withContext(Dispatchers.IO) {\n        repository.fetchData()\n    }\n    updateUI(data)\n}' },
+      { type: "heading", text: "Flow" },
+      { type: "para", text: "Flow is a cold asynchronous stream that emits multiple values over time. It integrates seamlessly with coroutines and supports operators like map, filter, and catch for declarative data processing." },
+      { type: "code", text: 'fun observeData(): Flow<List<Item>> = flow {\n    while(true) {\n        emit(repository.getItems())\n        delay(5000)\n    }\n}.catch { e -> emit(emptyList()) }' },
+    ],
+  },
+];
+
+export default blogs;

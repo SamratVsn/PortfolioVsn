@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu, Code, Cpu, User, Mail } from "lucide-react";
+import { X, Menu, Code, Cpu, User, Mail, FileText } from "lucide-react";
 
 export default function SystemNavbar() {
   const { pathname } = useLocation();
@@ -33,6 +33,7 @@ export default function SystemNavbar() {
 
   const navLinks = [
     { name: "Home", to: "/", icon: <Cpu size={14} /> },
+    { name: "Blog", to: "/blog", icon: <FileText size={14} /> },
     { name: "About", to: "/about", icon: <User size={14} /> },
     { name: "Projects", to: "/projects", icon: <Code size={14} /> },
     { name: "Contact", to: "/contact", icon: <Mail size={14} /> },
