@@ -23,7 +23,7 @@ function BlogPost() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
       <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
+        <img src={BrandLogo} alt="" className="w-[200px] sm:w-[500px] h-[200px] sm:h-[500px] object-contain" />
       </div>
       <SEO
         title={`${blog.title} | Samrat Parajuli`}
@@ -32,10 +32,10 @@ function BlogPost() {
       />
       <Header />
       <div className="pt-[65px] flex flex-col">
-        <div className="max-w-3xl w-full mx-auto px-6 py-20">
+        <div className="max-w-3xl w-full mx-auto px-4 sm:px-6 py-12 sm:py-20">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors mb-10"
+            className="inline-flex items-center gap-2 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors mb-6 sm:mb-10"
           >
             <ArrowLeft size={12} />
             [Return_To_Blog_Stream]
@@ -70,7 +70,7 @@ function BlogPost() {
               </div>
             </div>
 
-            <div className="border-t border-slate-900 pt-8 space-y-6">
+            <div className="border-t border-slate-900 pt-6 sm:pt-8 space-y-5 sm:space-y-6">
               {blog.content.map((block, i) => {
                 if (block.type === "heading") {
                   return (
@@ -81,7 +81,7 @@ function BlogPost() {
                 }
                 if (block.type === "code") {
                   return (
-                    <pre key={i} className="bg-slate-950 border border-slate-900 rounded-lg p-4 overflow-x-auto">
+                    <pre key={i} className="bg-slate-950 border border-slate-900 rounded-lg p-3 sm:p-4 overflow-x-auto">
                       <code className="text-xs font-mono text-[#2DD4BF] leading-relaxed whitespace-pre">
                         {block.text}
                       </code>
@@ -96,7 +96,7 @@ function BlogPost() {
               })}
             </div>
 
-            <div className="border-t border-slate-900 pt-8 flex justify-between items-center">
+            <div className="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <Link
                 to="/blog"
                 className="inline-flex items-center gap-2 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors"

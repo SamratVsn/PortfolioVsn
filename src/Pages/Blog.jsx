@@ -20,9 +20,9 @@ function Blog() {
       />
       <Header />
       <div className="pt-[65px] flex flex-col">
-        <div className="relative min-h-[40vh] flex flex-col items-center justify-center px-4 border-b border-slate-900">
+        <div className="relative min-h-[30vh] sm:min-h-[40vh] flex flex-col items-center justify-center px-4 border-b border-slate-900">
           <div className="absolute inset-0 [background-image:radial-gradient(circle,rgba(45,212,191,0.04)_1px,transparent_1px)] [background-size:32px_32px]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2DD4BF]/[0.02] rounded-full blur-[160px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#2DD4BF]/[0.02] rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-6">
             <div className="inline-flex items-center gap-2 border border-[#2DD4BF]/20 bg-[#2DD4BF]/5 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-widest text-[#2DD4BF]">
@@ -50,13 +50,13 @@ function Blog() {
           </div>
         </div>
 
-        <div className="max-w-4xl w-full mx-auto px-6 py-20">
+        <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 py-12 sm:py-20">
           {blogs.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-slate-600 font-mono text-sm">No blog posts yet. Check back soon.</p>
             </div>
           ) : (
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4 sm:gap-6">
               {blogs.map((blog, index) => (
                 <motion.div
                   key={blog.id}
@@ -66,7 +66,7 @@ function Blog() {
                 >
                   <Link
                     to={`/blog/${blog.slug}`}
-                    className="group block bg-slate-950/20 border border-slate-900 rounded-lg p-6 hover:border-slate-800 transition-all duration-300"
+                    className="group block bg-slate-950/20 border border-slate-900 rounded-lg p-4 sm:p-6 hover:border-slate-800 transition-all duration-300"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 space-y-3">
