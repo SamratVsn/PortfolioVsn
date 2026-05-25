@@ -38,7 +38,7 @@ export default function AllioVsn() {
             </div>
             <div>
               <h1 className="text-xl font-mono font-bold text-slate-100 tracking-tighter uppercase">
-                PORTFOLIO_ENGINE.v1
+                PORTFOLIO_ENGINE.v2
               </h1>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -180,10 +180,10 @@ export default function AllioVsn() {
           </p>
           <div className="flex justify-center gap-4">
             <a href="/" className="px-8 py-3 bg-slate-100 text-black font-bold font-mono text-xs rounded-lg hover:bg-[#2DD4BF] transition-all">
-              EXPLORE_CORE
+              [Execute_Project_Scan]
             </a>
             <a href="/contact" className="px-8 py-3 border border-slate-800 text-slate-300 font-bold font-mono text-xs rounded-lg hover:bg-slate-800 transition-all flex items-center gap-2">
-              <ExternalLink size={14} /> PING_SERVER
+              <ExternalLink size={14} /> //Establish_Link
             </a>
           </div>
         </div>

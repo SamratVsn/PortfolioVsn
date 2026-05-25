@@ -8,18 +8,18 @@ import Footer from "../Components/Footer";
 
 function About() {
   const skillsMatrix = [
-    { name: "Kotlin Core", status: "STABLE", category: "Mobile Development", runtime: "JVM / Native" },
-    { name: "Jetpack Compose", status: "INITIALIZING", category: "Mobile Development", runtime: "UI Toolkit" },
-    { name: "Android Studio IDE", status: "OPTIMIZED", category: "Development Tools", runtime: "Internal" },
-    { name: "Material Design 3", status: "INITIALIZING", category: "UI Design", runtime: "Layout Engine" },
-    { name: "C Programming", status: "STABLE", category: "Low-Level Programming", runtime: "Native POSIX" },
-    { name: "Data Structures & Algos", status: "INITIALIZING", category: "Computer Science", runtime: "Logic Core" },
-    { name: "Git / Version Control", status: "STABLE", category: "Workflow Automation", runtime: "Distributed" },
-    { name: "Debugging & Profiling", status: "STABLE", category: "Workflow Automation", runtime: "Analysis" },
-    { name: "Android Lifecycle Architecture", status: "INITIALIZING", category: "Mobile Development", runtime: "OS Hook" },
-    { name: "HTML5 & CSS3 Architecture", status: "OPTIMIZED", category: "Web Fundamentals", runtime: "Render Tree" },
-    { name: "JavaScript / ES6+", status: "STABLE", category: "Web Fundamentals", runtime: "V8 Engine" },
-    { name: "Figma Prototyping", status: "OPTIMIZED", category: "Design Tools", runtime: "Vector Canvas" },
+    { name: "Kotlin Core", status: "STABLE", category: "Android Runtime Layer", runtime: "JVM / Native" },
+    { name: "Jetpack Compose", status: "INITIALIZING", category: "Android Runtime Layer", runtime: "Compose Runtime" },
+    { name: "Android Studio IDE", status: "OPTIMIZED", category: "IDE Pipeline Config", runtime: "Studio Build Chain" },
+    { name: "Material Design 3", status: "INITIALIZING", category: "Declarative UI Engine", runtime: "Design Token System" },
+    { name: "C Programming", status: "STABLE", category: "Systems Programming Interface", runtime: "POSIX Abstraction Layer" },
+    { name: "Data Structures & Algos", status: "INITIALIZING", category: "Algorithmic Infrastructure", runtime: "Computational Complexity" },
+    { name: "Git / Version Control", status: "STABLE", category: "Pipeline Orchestration", runtime: "Distributed VCS" },
+    { name: "Debugging & Profiling", status: "STABLE", category: "Pipeline Orchestration", runtime: "Performance Profiler" },
+    { name: "Android Lifecycle Architecture", status: "INITIALIZING", category: "Android Runtime Layer", runtime: "Lifecycle Observer" },
+    { name: "HTML5 & CSS3 Architecture", status: "OPTIMIZED", category: "Browser Render Target", runtime: "CSSOM / Render Pipeline" },
+    { name: "JavaScript / ES6+", status: "STABLE", category: "Browser Render Target", runtime: "JIT Compilation Target" },
+    { name: "Figma Prototyping", status: "OPTIMIZED", category: "UX Compilation Suite", runtime: "Vector Design System" },
   ];
 
   const statusStyleMap = {
@@ -29,11 +29,11 @@ function About() {
   };
 
   const toolchainDrivers = [
-    { icon: Terminal, name: "Android Studio", detail: "Primary mobile IDE" },
-    { icon: Code2, name: "VS Code Core", detail: "Scripting & web environments" },
-    { icon: GitBranch, name: "Git Control Engine", detail: "Branching isolation & history tracking" },
-    { icon: PenTool, name: "Figma Workspace", detail: "UX mapping & interaction vectors" },
-    { icon: Cpu, name: "Unity Engine", detail: "Cross-platform runtime compilation" },
+    { icon: Terminal, name: "Android Studio", detail: "Primary Android compilation IDE with Gradle build orchestration" },
+    { icon: Code2, name: "VS Code Core", detail: "Multi-runtime editor for scripting & web targets" },
+    { icon: GitBranch, name: "Git Control Engine", detail: "Branch isolation, merge conflict resolution & commit history" },
+    { icon: PenTool, name: "Figma Workspace", detail: "UX wireframing, design token extraction & interaction mapping" },
+    { icon: Cpu, name: "Unity Engine", detail: "Cross-platform runtime compilation & asset pipeline" },
   ];
 
   const operationalLog = [
@@ -148,10 +148,10 @@ function About() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
                   {[
-                    { key: "COMPILER_TYPE", value: "Student / Developer Component", color: "text-slate-300" },
+                    { key: "COMPILER_TYPE", value: "Mobile Systems Engineer", color: "text-slate-300" },
                     { key: "FOCUS_TARGET", value: "Mobile Stack / System Design", color: "text-[#2DD4BF]" },
                     { key: "HOST_LOCALE", value: "Kathmandu, NP Workspace", color: "text-slate-300" },
-                    { key: "LINK_AVAIL", value: "Available For Global Collab", color: "text-emerald-400" },
+                    { key: "LINK_AVAIL", value: "Open For Distributed Collab", color: "text-emerald-400" },
                   ].map((row) => (
                     <div key={row.key} className="flex justify-between items-center border-b border-slate-900 pb-1">
                       <span className="text-slate-600 tracking-tighter text-[10px]">{row.key}</span>

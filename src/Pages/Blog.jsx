@@ -45,7 +45,7 @@ function Blog() {
               transition={{ delay: 0.2 }}
               className="text-sm text-slate-500 font-mono max-w-xl"
             >
-              A Space for sharing insights, thoughts & knowledge on Android Development, Kotlin & real world facts
+              Publishing technical log streams on Android runtime architecture, Kotlin internals & systems engineering
             </motion.p>
           </div>
         </div>

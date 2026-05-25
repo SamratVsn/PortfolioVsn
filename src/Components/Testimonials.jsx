@@ -39,7 +39,7 @@ export default function Testimonials() {
             Collective Perspective<span className="text-[#2DD4BF]">_</span>
           </motion.h2>
           <p className="text-slate-500 font-mono text-xs uppercase tracking-widest mt-2">
-            // Feedback from peers and collaborators
+            // Peer-reviewed system validation from network nodes
           </p>
         </div>
 

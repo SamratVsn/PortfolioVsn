@@ -58,10 +58,10 @@ const BlogVsn = () => {
           </div>
           <div className="flex gap-3">
             <a href="https://blogvsn.vercel.app/" target="_blank" className="flex items-center gap-2 px-4 py-2 bg-[#2DD4BF] text-black hover:bg-[#26bba8] rounded font-mono text-xs font-bold transition-all">
-              <ExternalLink size={14} /> LIVE_DEMO
+              <ExternalLink size={14} /> [Launch_Demo]
             </a>
             <a href="https://github.com/SamratVsn/BlogVsn" target="_blank" className="flex items-center gap-2 px-4 py-2 border border-slate-800 hover:bg-slate-800 rounded font-mono text-xs font-bold transition-all">
-              <Github size={14} /> SOURCE
+              <Github size={14} /> [Pull_Source]
             </a>
           </div>
         </div>

@@ -454,7 +454,7 @@ export default function Dev() {
               transition={{ delay: 0.4 }}
             >
               <button className="group inline-flex items-center gap-3 px-8 py-4 border border-slate-700/50 rounded-lg font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 transition-all duration-300 cursor-pointer">
-                --Start Building--
+                [Execute_Focus_Mode]
                 <ArrowUpRight
                   size={14}
                   className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"

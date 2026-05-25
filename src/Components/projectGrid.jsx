@@ -146,7 +146,7 @@ function ProjectCard({ project, index }) {
                 className="inline-flex items-center gap-1.5 px-2.5 py-1.5 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] border border-transparent hover:border-slate-900 hover:bg-slate-950/60 rounded transition-all"
               >
                 <GithubIcon />
-                Source
+                [Pull_Source]
               </a>
             )}
             {project.live && (
@@ -158,7 +158,7 @@ function ProjectCard({ project, index }) {
                 className="inline-flex items-center gap-1.5 px-2.5 py-1.5 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] border border-transparent hover:border-slate-900 hover:bg-slate-950/60 rounded transition-all"
               >
                 <ArrowIcon />
-                Output
+                [Deploy_Build]
               </a>
             )}
           </div>

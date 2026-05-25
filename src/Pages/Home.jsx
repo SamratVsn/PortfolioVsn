@@ -26,9 +26,9 @@ function Home() {
   }, []);
 
   const systemParameters = [
-    { label: "FOCUS", value: "Mobile Architecture", detail: "Structuring native engines using Kotlin & Jetpack Compose." },
-    { label: "STACK", value: "Reactive & Modular", detail: "Isolating business logic with multi-module clean codebases." },
-    { label: "MIND", value: "Spiritual Tech", detail: "Merging deterministic logic with mindful, calm execution." }
+    { label: "FOCUS", value: "Android Runtime Optimization", detail: "Structuring native engine pipelines using Kotlin & Jetpack Compose." },
+    { label: "STACK", value: "Modular Monolith Architecture", detail: "Isolating business logic into multi-module clean codebases with strict dependency boundaries." },
+    { label: "MIND", value: "Deterministic Execution", detail: "Enforcing predictable state flows and strict data lineage tracing across all layers." }
   ];
 
   const expertiseMatrix = [
@@ -421,14 +421,14 @@ function Home() {
                           <a href={project.github} target="_blank" rel="noopener noreferrer"
                              onClick={(e) => e.stopPropagation()}
                              className="inline-flex items-center gap-1.5 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors">
-                            <GithubLucide size={12} /> Source
+                            <GithubLucide size={12} /> [Pull_Source]
                           </a>
                         )}
                         {project.live && (
                           <a href={project.live} target="_blank" rel="noopener noreferrer"
                              onClick={(e) => e.stopPropagation()}
                              className="inline-flex items-center gap-1.5 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors">
-                            <ArrowUpRight size={12} /> Output
+                            <ArrowUpRight size={12} /> [Deploy_Build]
                           </a>
                         )}
                       </div>

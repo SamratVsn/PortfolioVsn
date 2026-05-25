@@ -15,7 +15,7 @@ function BlogPost() {
     return (
       <div className="min-h-screen bg-[#020617] text-slate-300 font-sans flex flex-col items-center justify-center">
         <p className="font-mono text-sm text-slate-500">Blog post not found.</p>
-        <Link to="/blog" className="mt-4 font-mono text-xs text-[#2DD4BF] hover:underline">Back to Blog</Link>
+        <Link to="/blog" className="mt-4 font-mono text-xs text-[#2DD4BF] hover:underline">[Return_To_Blog_Stream]</Link>
       </div>
     )
   }
@@ -38,7 +38,7 @@ function BlogPost() {
             className="inline-flex items-center gap-2 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors mb-10"
           >
             <ArrowLeft size={12} />
-            Back to Blog
+            [Return_To_Blog_Stream]
           </Link>
 
           <motion.div
@@ -102,7 +102,7 @@ function BlogPost() {
                 className="inline-flex items-center gap-2 font-mono text-[11px] text-slate-500 hover:text-[#2DD4BF] transition-colors"
               >
                 <ArrowLeft size={12} />
-                Back to Blog
+                [Return_To_Blog_Stream]
               </Link>
 
               {blogs.length > 1 && (
@@ -113,7 +113,7 @@ function BlogPost() {
                       className="flex items-center gap-1 text-slate-500 hover:text-[#2DD4BF] transition-colors"
                     >
                       <ArrowLeft size={12} />
-                      Prev
+                      [Prev_Entry]
                     </Link>
                   )}
                   {blogs.findIndex((b) => b.slug === slug) < blogs.length - 1 && (
@@ -121,7 +121,7 @@ function BlogPost() {
                       to={`/blog/${blogs[blogs.findIndex((b) => b.slug === slug) + 1].slug}`}
                       className="flex items-center gap-1 text-slate-500 hover:text-[#2DD4BF] transition-colors"
                     >
-                      Next
+                      [Next_Entry]
                       <ArrowUpRight size={12} />
                     </Link>
                   )}
