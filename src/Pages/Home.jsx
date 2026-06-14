@@ -223,7 +223,7 @@ function Home() {
                     { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
                     { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X" },
                     { href: "https://www.instagram.com/samratvsn/", icon: FaInstagram, label: "Instagram" },
-                    { href: "https://g.dev/samratdev", icon: FaGoogle, label: "Google" }
+                    { href: "https://g.dev/samratparajuli", icon: FaGoogle, label: "Google" }
                   ].map(({ href, icon: Icon, label }) => (
                     <a
                       key={label}
