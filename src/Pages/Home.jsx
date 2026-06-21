@@ -142,22 +142,22 @@ function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-slate-400 text-[10px] tracking-[0.14em] uppercase font-medium mb-3">
-                Android Developer · Kathmandu, Nepal
-              </p>
-
               <h1 className="text-7xl sm:text-7xl lg:text-8xl font-bold text-white leading-[1] mb-8 tracking-[-0.03em]">
                 Samrat <br />
                 <span className="text-[#2DD4BF]">Parajuli</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-300 font-medium max-w-sm mb-5 leading-relaxed">
-                Building polished Android experiences with Kotlin and Jetpack Compose.
+                Building polished Android experiences.
               </p>
 
+              
+
               <p className="text-slate-400 leading-relaxed max-w-md mb-10 text-base">
+                From Kathmandu, Nepal.
+                <br />
                 Focused on Android development, open-source learning, and continuously
-                growing toward becoming a professional Android engineer through
+                growing toward becoming a professional Android developer through
                 real-world projects and public learning.
               </p>
 
