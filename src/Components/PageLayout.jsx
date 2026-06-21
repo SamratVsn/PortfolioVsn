@@ -1,31 +1,11 @@
-import Header from '../Components/Header'
-import BrandLogo from '../assets/Brand-Logo.png'
+import Header from './Header'
 
 export const PageLayout = ({ children, className = "" }) => {
   return (
-    <div className={`min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] relative overflow-x-hidden ${className}`}>
-      
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
-      </div>
-
-      {/* Precision Structural Blueprint Mesh */}
-      <div 
-        className="fixed inset-0 pointer-events-none opacity-[0.015]" 
-        style={{ 
-          backgroundImage: `linear-gradient(#2DD4BF 1px, transparent 1px), linear-gradient(90deg, #2DD4BF 1px, transparent 1px)`, 
-          backgroundSize: '32px 32px' 
-        }} 
-      />
-      
-      {/* Peripheral Corner Bracket Accents */}
-      <div className="fixed top-4 left-4 font-mono text-[9px] text-slate-800 pointer-events-none uppercase tracking-widest hidden lg:block">[SYS_V2.0_MK-IV]</div>
-      <div className="fixed top-4 right-4 font-mono text-[9px] text-slate-800 pointer-events-none uppercase tracking-widest hidden lg:block">SYS_LN_001</div>
-
-      <div className="relative z-10 flex flex-col min-h-screen">
+    <div className={`min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden ${className}`}>
+      <div className="flex flex-col min-h-screen">
         <Header />
-        {/* Adjusted padding to cleanly balance our h-[65px] SystemNavbar specification */}
-        <main className="flex-grow pt-[85px] pb-24">
+        <main className="flex-grow pt-[85px] pb-16">
           {children}
         </main>
       </div>

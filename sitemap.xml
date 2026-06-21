@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.samratparajuli0.com.np/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/about</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/projects</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/projects/sms</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/projects/bmsk</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/projects/blogvsn</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/projects/this</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.samratparajuli0.com.np/notes</loc>
+    <lastmod>2026-06-21</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.samratparajuli0.com.np/contact</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.samratparajuli0.com.np/dev</loc>
-    <lastmod>2026-05-15</lastmod>
-    <priority>0.3</priority>
   </url>
 </urlset>
