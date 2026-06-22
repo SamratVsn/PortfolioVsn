@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { 
   ExternalLink, Github, Code2, Zap, Lock, Mail, 
-  Palette, Cloud, ChevronRight, Activity, Terminal 
+  Palette, Cloud, Activity, X
 } from 'lucide-react'
 import SEO from './SEO'
 
@@ -26,10 +26,16 @@ const BlogVsn = () => {
   ]
 
   const screenshots = [
-    { src: B2, label: 'DATA_FEED_INTERACTION', desc: 'Real-time synchronization with Blogger CMS.' },
-    { src: B3, label: 'CONTENT_RENDER_ENGINE', desc: 'Dynamic HTML parsing from API response.' },
-    { src: B4, label: 'AUTH_DASHBOARD', desc: 'Protected route handling for authenticated users.' },
-    { src: B5, label: 'SMTP_GATEWAY', desc: 'EmailJS integration with validation logic.' }
+    { src: B2, label: 'Data Feed', desc: 'Real-time synchronization with Blogger CMS.' },
+    { src: B3, label: 'Content Engine', desc: 'Dynamic HTML parsing from API response.' },
+    { src: B4, label: 'Auth Dashboard', desc: 'Protected route handling for authenticated users.' },
+    { src: B5, label: 'SMTP Gateway', desc: 'EmailJS integration with validation logic.' }
+  ]
+
+  const services = [
+    { name: 'Google OAuth', status: 'Connected' },
+    { name: 'Blogger API', status: 'Healthy' },
+    { name: 'Email Service', status: 'Active' }
   ]
 
   return (
@@ -40,82 +46,119 @@ const BlogVsn = () => {
         ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
       />
       
-      {/* 1. TOP NAV / METADATA */}
-      <div className="border-b border-slate-800 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-slate-900 border border-slate-800 rounded">
-              <Cloud size={20} className="text-[#2DD4BF]" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                <span>Services</span> <ChevronRight size={10} /> <span>Cloud_Integration</span>
-              </div>
-              <h1 className="text-xl font-mono font-bold text-slate-100 uppercase tracking-tighter">
-                BlogVsn.cloud<span className="text-[#2DD4BF]">_</span>
-              </h1>
-            </div>
+      {/* Header */}
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Cloud Integration</p>
+            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
+              BlogVsn <span className="text-[#2DD4BF]">Platform</span>
+            </h1>
           </div>
-          <div className="flex gap-3">
-            <a href="https://blogvsn.vercel.app/" target="_blank" className="flex items-center gap-2 px-4 py-2 bg-[#2DD4BF] text-black hover:bg-[#26bba8] rounded font-mono text-xs font-bold transition-all">
-              <ExternalLink size={14} /> [Launch_Demo]
+          <div className="flex flex-wrap gap-3">
+            <a 
+              href="https://blogvsn.vercel.app/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2.5 bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90 rounded-lg font-semibold text-sm transition-colors"
+            >
+              <ExternalLink size={16} /> Live Demo
             </a>
-            <a href="https://github.com/SamratVsn/BlogVsn" target="_blank" className="flex items-center gap-2 px-4 py-2 border border-slate-800 hover:bg-slate-800 rounded font-mono text-xs font-bold transition-all">
-              <Github size={14} /> [Pull_Source]
+            <a 
+              href="https://github.com/SamratVsn/BlogVsn" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-lg font-semibold text-sm transition-colors"
+            >
+              <Github size={16} /> View Code
             </a>
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* MAIN DOCUMENTATION */}
-          <div className="lg:col-span-8 space-y-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
             
-            {/* HERO PREVIEW */}
-            <div className="group relative rounded-lg overflow-hidden border border-slate-800 bg-black shadow-2xl">
-              <div className="absolute top-0 inset-x-0 h-8 bg-slate-900 border-b border-slate-800 flex items-center px-4 justify-between">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                </div>
-                <span className="text-[10px] font-mono text-slate-600">HTTPS://BLOGVSN.APP</span>
-              </div>
-              <img src={B1} alt="Hero" className="w-full h-auto mt-8 opacity-90 group-hover:opacity-100 transition-opacity" />
+            {/* Hero Image */}
+            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+              <img 
+                src={B1} 
+                alt="BlogVsn Platform" 
+                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity" 
+              />
             </div>
 
-            {/* TABBED INTERFACE */}
-            <div className="bg-[#070d1f] border border-slate-800 rounded-lg overflow-hidden">
-              <div className="flex bg-slate-900/50 border-b border-slate-800 p-1">
+            {/* Intro */}
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+                Cloud-native blogging platform
+              </h2>
+              <p className="text-slate-400 leading-relaxed">
+                BlogVsn bridges the gap between traditional CMS content management and modern single-page application performance. 
+                By utilizing the Blogger API v3, content management remains completely decoupled from the presentation layer, 
+                enabling dynamic, real-time content delivery with edge-cached global distribution.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <div className="p-4 border border-slate-800 rounded-lg bg-slate-900/30">
+                  <p className="text-[#2DD4BF] font-semibold text-sm mb-2">Performance</p>
+                  <p className="text-sm text-slate-400">Edge-cached API responses for instantaneous loading and minimal latency.</p>
+                </div>
+                <div className="p-4 border border-slate-800 rounded-lg bg-slate-900/30">
+                  <p className="text-[#2DD4BF] font-semibold text-sm mb-2">Security</p>
+                  <p className="text-sm text-slate-400">Google Identity Services for zero-knowledge authentication and data protection.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Tabs */}
+            <div>
+              <div className="flex gap-1 mb-8 border-b border-slate-800">
                 {['overview', 'tech', 'challenges'].map(tab => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-2 font-mono text-[10px] uppercase tracking-wider rounded transition-all ${
-                      activeTab === tab ? 'bg-slate-800 text-[#2DD4BF]' : 'text-slate-500 hover:text-slate-300'
+                    className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                      activeTab === tab 
+                        ? 'text-[#2DD4BF] border-[#2DD4BF]' 
+                        : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
-                    {tab}.md
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
                   </button>
                 ))}
               </div>
 
-              <div className="p-8 font-mono text-sm leading-relaxed min-h-[350px]">
+              <div className="min-h-[350px]">
                 {activeTab === 'overview' && (
                   <div className="space-y-6 animate-in fade-in">
-                    <p className="text-slate-400 italic">// Cloud-Native Blogging Environment</p>
-                    <p>BlogVsn bridges the gap between traditional CMS content and modern SPA performance. By utilizing the <strong>Blogger API v3</strong>, content management remains decoupled from the presentation layer.</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="p-3 bg-slate-900/50 border border-slate-800 rounded">
-                           <div className="text-[#2DD4BF] text-[10px] mb-1 tracking-widest uppercase font-bold">Latency</div>
-                           <p className="text-xs">Edge-cached API responses for instantaneous loading.</p>
-                        </div>
-                        <div className="p-3 bg-slate-900/50 border border-slate-800 rounded">
-                           <div className="text-[#2DD4BF] text-[10px] mb-1 tracking-widest uppercase font-bold">Security</div>
-                           <p className="text-xs">Google Identity Services for zero-knowledge auth.</p>
-                        </div>
+                    <p className="text-slate-400 leading-relaxed">
+                      This project demonstrates how to integrate cloud services (Google OAuth, Blogger API) with modern React patterns 
+                      to build a scalable, performant blogging platform. The architecture separates concerns between authentication, 
+                      data fetching, and content rendering.
+                    </p>
+                    <div className="space-y-4">
+                      <h3 className="text-white font-semibold text-sm">Architecture Highlights</h3>
+                      <ul className="space-y-3 text-sm text-slate-400">
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Decoupled CMS integration with Blogger API v3</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>OAuth 2.0 authentication with Google Identity Services</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Edge-cached content delivery via Vercel CDN</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Serverless email integration with EmailJS</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 )}
@@ -123,11 +166,13 @@ const BlogVsn = () => {
                 {activeTab === 'tech' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
                     {techStack.map((t, i) => (
-                      <div key={i} className="flex gap-4 p-4 border border-slate-800 rounded bg-[#020617] group hover:border-[#2DD4BF]/40 transition-all">
-                        <t.icon size={18} className="text-[#2DD4BF] shrink-0" />
-                        <div>
-                          <div className="text-slate-200 text-xs font-bold uppercase">{t.name}</div>
-                          <div className="text-[11px] text-slate-500 mt-1">{t.detail}</div>
+                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                        <div className="flex items-start gap-3">
+                          <t.icon size={20} className="text-[#2DD4BF] mt-1" />
+                          <div>
+                            <h4 className="text-white font-semibold text-sm mb-1">{t.name}</h4>
+                            <p className="text-slate-400 text-sm">{t.detail}</p>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -136,83 +181,144 @@ const BlogVsn = () => {
 
                 {activeTab === 'challenges' && (
                   <div className="space-y-4 animate-in fade-in">
-                    {[
-                      { t: "OAuth Callback Logic", d: "Handled URI redirection for localized development vs production Vercel environments." },
-                      { t: "Token Persistence", d: "Secure session management using local storage encryption." }
-                    ].map((c, i) => (
-                      <div key={i} className="p-4 border-l-2 border-red-900/30 bg-red-950/10 rounded-r-lg">
-                        <div className="text-xs font-bold text-red-200 uppercase mb-1">{c.t}</div>
-                        <p className="text-xs text-slate-500">{c.d}</p>
-                      </div>
-                    ))}
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                      <h4 className="text-amber-200 font-semibold text-sm mb-2">OAuth Callback Logic</h4>
+                      <p className="text-slate-400 text-sm">
+                        Managing URI redirection between local development environment and production Vercel deployment 
+                        required careful configuration of OAuth consent screen and authorized redirect URIs.
+                      </p>
+                    </div>
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                      <h4 className="text-amber-200 font-semibold text-sm mb-2">Token Persistence & Security</h4>
+                      <p className="text-slate-400 text-sm">
+                        Implementing secure session management for OAuth tokens required balancing between local storage 
+                        persistence and security best practices to prevent XSS attacks.
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* SCREENSHOTS GRID */}
+            {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="font-mono text-xs text-slate-500 tracking-[0.3em] uppercase underline underline-offset-8 decoration-slate-800">System_Captures</h3>
+              <h3 className="text-sm font-semibold text-[#2DD4BF] uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 gap-4">
                 {screenshots.map((s, i) => (
-                  <div key={i} onClick={() => setSelectedImage(s)} className="group relative border border-slate-800 rounded-lg bg-slate-900 overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]">
-                    <img src={s.src} alt={s.label} className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-x-0 bottom-0 p-3 bg-slate-900/90 border-t border-slate-800 backdrop-blur-sm">
-                      <p className="text-[10px] font-mono text-[#2DD4BF] font-bold">{s.label}</p>
-                    </div>
+                  <div 
+                    key={i} 
+                    onClick={() => setSelectedImage(s)}
+                    className="group relative border border-slate-800 rounded-lg overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700 transition-colors"
+                  >
+                    <img 
+                      src={s.src} 
+                      alt={s.label} 
+                      className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-[#2DD4BF] transition-colors">
+                      {s.label}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* SIDEBAR */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="p-6 border border-slate-800 bg-[#070d1f] rounded-lg">
-              <h3 className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                <Activity size={14} className="text-[#2DD4BF]" /> API_STATUS
+          {/* Sidebar */}
+          <div className="lg:col-span-1 space-y-6">
+            
+            {/* Service Status */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
+                <Activity size={16} className="text-[#2DD4BF]" />
+                Service Status
               </h3>
-              <div className="space-y-4 font-mono text-[11px]">
-                <div className="flex justify-between border-b border-slate-800/50 pb-2">
-                  <span className="text-slate-500">GOOGLE_OAUTH</span>
-                  <span className="text-green-500">CONNECTED</span>
+              <div className="space-y-4">
+                {services.map((service, i) => (
+                  <div key={i} className="flex items-center justify-between p-3 border border-slate-800 rounded-lg">
+                    <span className="text-sm text-slate-400">{service.name}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-green-500" />
+                      <span className="text-xs text-green-400 font-medium">{service.status}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Architecture */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
+                <Cloud size={16} className="text-[#2DD4BF]" />
+                Data Flow
+              </h3>
+              <div className="space-y-3 text-sm text-slate-400">
+                <div className="flex items-center gap-2">
+                  <span className="text-[#2DD4BF] font-bold">1.</span>
+                  <span>Client makes request</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-800/50 pb-2">
-                  <span className="text-slate-500">BLOGGER_V3</span>
-                  <span className="text-green-500">HEALTHY</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#2DD4BF] font-bold">2.</span>
+                  <span>OAuth verification</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-800/50 pb-2">
-                  <span className="text-slate-500">EMAIL_RELAY</span>
-                  <span className="text-green-500">ACTIVE</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#2DD4BF] font-bold">3.</span>
+                  <span>Fetch from Blogger API</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#2DD4BF] font-bold">4.</span>
+                  <span>Render in React</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 border border-slate-800 bg-[#070d1f] rounded-lg">
-              <h3 className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Terminal size={14} /> CLOUD_ARCHITECTURE
-              </h3>
-              <div className="p-4 bg-slate-950 border border-slate-900 rounded font-mono text-[9px] text-slate-600 leading-loose">
-                 [REQUEST] -&gt; Client <br/>
-                 [AUTH] -&gt;  Google OAuth 2.0 <br/>
-                 [FETCH] -&gt; Blogger REST API <br/>
-                 [RENDER] -&gt; React Virtual DOM <br/>
+            {/* Key Features */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-4">Key Features</h3>
+              <div className="space-y-3 text-sm">
+                {[
+                  'OAuth 2.0 Authentication',
+                  'Real-time Content Sync',
+                  'Email Notifications',
+                  'Protected Routes',
+                  'Edge Caching',
+                  'Responsive Design'
+                ].map((feature, i) => (
+                  <div key={i} className="text-slate-400 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
+                    {feature}
+                  </div>
+                ))}
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* Image Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" onClick={() => setSelectedImage(null)}>
-          <div className="max-w-4xl w-full space-y-4">
-            <div className="flex justify-between items-center font-mono border-b border-slate-800 pb-2 text-xs">
-              <span className="text-[#2DD4BF] tracking-widest">{selectedImage.label}</span>
-              <span className="text-slate-600">CLOSE [ESC]</span>
+        <div 
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" 
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="max-w-3xl w-full space-y-4 animate-in fade-in">
+            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
+              <h3 className="text-white font-semibold">{selectedImage.label}</h3>
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="p-1 hover:bg-slate-800 rounded transition-colors"
+              >
+                <X size={20} className="text-slate-400" />
+              </button>
             </div>
-            <img src={selectedImage.src} alt={selectedImage.label} className="w-full border border-slate-800 rounded-lg shadow-2xl" />
-            <p className="font-mono text-[10px] text-slate-500 text-center italic">{selectedImage.desc}</p>
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.label} 
+              className="w-full border border-slate-800 rounded-lg" 
+            />
+            <p className="text-sm text-slate-400 text-center">{selectedImage.desc}</p>
           </div>
         </div>
       )}

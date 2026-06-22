@@ -101,7 +101,7 @@ function Home() {
         { name: "Android Studio", note: "Primary IDE" },
         { name: "Git & GitHub", note: "Version control" },
         { name: "Firebase", note: "Backend services" },
-        { name: "Postman", note: "API testing" },
+        { name: "Retrofit", note: "API library" },
       ],
     },
     {
@@ -112,7 +112,7 @@ function Home() {
         { name: "C / C++", note: "Low-level foundations" },
         { name: "OOP Design", note: "SOLID principles" },
         { name: "Data Structures", note: "Algorithms & logic" },
-        { name: "Problem Solving", note: "DSA practice" },
+        { name: "Problem Solving", note: "DSA practice / Leetcode" },
       ],
     },
   ]

@@ -1,11 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Header from '../Components/Header';
-import SEO from '../Components/SEO';
-import Footer from '../Components/Footer';
-import { FaPhone, FaLocationDot } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-import { FaGithub } from "react-icons/fa";
+import { Mail, Github, Linkedin, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import emailjs from 'emailjs-com';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
+import SEO from '../Components/SEO';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
@@ -15,7 +13,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-  const [errorLog, setErrorLog] = useState(null);
+  const [error, setError] = useState(null);
   
   const mountedRef = useRef(true);
   const feedbackTimerRef = useRef(null);
@@ -34,7 +32,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
-    setErrorLog(null);
+    setError(null);
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
       .then(() => {
@@ -45,133 +43,248 @@ const Contact = () => {
         
         feedbackTimerRef.current = setTimeout(() => {
           if (mountedRef.current) setSent(false);
-        }, 6000);
+        }, 5000);
       })
       .catch(() => {
         if (!mountedRef.current) return;
         setSending(false);
-        setErrorLog('Something went wrong. Please try again or email me directly.');
+        setError('Message failed to send. Please try again or email directly.');
         
         feedbackTimerRef.current = setTimeout(() => {
-          if (mountedRef.current) setErrorLog(null);
-        }, 6000);
+          if (mountedRef.current) setError(null);
+        }, 5000);
       });
   };
 
-  const contactNodes = [
-    { icon: FaPhone, label: 'Phone', value: '+977 9847313479', link: 'tel:+9779847313479' },
-    { icon: MdEmail, label: 'Email', value: 'samratvsn@gmail.com', link: 'mailto:samratvsn@gmail.com' },
-    { icon: FaLocationDot, label: 'Location', value: 'Kathmandu, Nepal', link: '#' },
-    { icon: FaGithub, label: 'GitHub', value: 'github.com/SamratVsn', link: 'https://github.com/SamratVsn' }
+  const contactLinks = [
+    { 
+      icon: Mail, 
+      label: 'Email', 
+      value: 'samratvsn@gmail.com', 
+      href: 'mailto:samratvsn@gmail.com',
+      desc: 'Best way to reach me'
+    },
+    { 
+      icon: Phone, 
+      label: 'Phone', 
+      value: '+977 9847313479', 
+      href: 'tel:+9779847313479',
+      desc: 'Available for calls'
+    },
+    { 
+      icon: Github, 
+      label: 'GitHub', 
+      value: 'SamratVsn', 
+      href: 'https://github.com/SamratVsn',
+      desc: 'See my work'
+    },
+    { 
+      icon: Linkedin, 
+      label: 'LinkedIn', 
+      value: 'samratvsn', 
+      href: 'https://www.linkedin.com/in/samratvsn/',
+      desc: 'Connect with me'
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
       <SEO
         title="Contact | Samrat Parajuli"
-        description="Get in touch with Samrat Parajuli for collaboration, project inquiries, or Android development opportunities."
+        description="Get in touch with Samrat. I'm always open to discussing projects, collaboration, or new opportunities."
         ogUrl="https://www.samratparajuli0.com.np/contact"
       />
+
       <Header />
-      
-      <main className="max-w-4xl mx-auto px-6 pt-32 pb-20">
-        <div className="mb-12">
-          <h1 className="text-white text-3xl font-bold mb-2 tracking-[-0.02em]">
-            Contact<span className="text-[#2DD4BF]">.</span>
+
+      <main className="max-w-6xl mx-auto px-6 pt-28 pb-20">
+        
+        {/* Hero Section */}
+        <div className="mb-20">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-[-0.03em]">
+            Let's work <br />
+            <span className="text-[#2DD4BF]">together.</span>
           </h1>
-          <p className="text-slate-400 max-w-xl">
-            Get in touch for collaboration, project inquiries, or just to say hello.
+          <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+            Whether you have a project in mind, want to collaborate on something interesting, 
+            or just want to grab a coffee and chat about Android development and tech — I'm here for it. 
+            Reach out and let's see what we can build.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-5 space-y-4">
-              {contactNodes.map((node) => (
-              <a
-                key={node.label}
-                href={node.link}
-                className="flex items-center gap-4 p-4 border border-slate-800/50 rounded-lg hover:border-slate-700/50 transition-colors group"
-              >
-                <div className="text-slate-500 group-hover:text-[#2DD4BF] transition-colors">
-                  <node.icon size={18} />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500">{node.label}</p>
-                  <p className="text-sm text-slate-300 group-hover:text-white transition-colors">{node.value}</p>
-                </div>
-              </a>
-            ))}
-          </div>
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          {/* Left: Contact Information */}
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-6">Direct contact</p>
+              <div className="space-y-3">
+                {contactLinks.slice(0, 2).map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-900/50 transition-colors"
+                  >
+                    <div className="p-2 bg-slate-900 rounded-lg text-[#2DD4BF] group-hover:bg-slate-800 transition-colors mt-1">
+                      <link.icon size={18} />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-white group-hover:text-[#2DD4BF] transition-colors">
+                        {link.label}
+                      </p>
+                      <p className="text-sm text-slate-400">{link.value}</p>
+                      <p className="text-xs text-slate-500 mt-1">{link.desc}</p>
+                    </div>
+                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
+                  </a>
+                ))}
+              </div>
+            </div>
 
-          <div className="md:col-span-7">
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border-t border-slate-800 pt-8">
+              <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-6">Online presence</p>
+              <div className="space-y-3">
+                {contactLinks.slice(2).map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-900/50 transition-colors"
+                  >
+                    <div className="p-2 bg-slate-900 rounded-lg text-[#2DD4BF] group-hover:bg-slate-800 transition-colors mt-1">
+                      <link.icon size={18} />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-white group-hover:text-[#2DD4BF] transition-colors">
+                        {link.label}
+                      </p>
+                      <p className="text-sm text-slate-400">{link.value}</p>
+                      <p className="text-xs text-slate-500 mt-1">{link.desc}</p>
+                    </div>
+                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t border-slate-800 pt-8">
+              <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-4">Location</p>
+              <div className="flex items-start gap-3">
+                <MapPin size={18} className="text-[#2DD4BF] mt-0.5" />
                 <div>
-                  <label htmlFor="contact-name" className="text-xs text-slate-500 mb-1 block">Name</label>
-                  <input 
-                    id="contact-name" 
-                    type="text" 
-                    name="name" 
-                    value={formData.name} 
-                    onChange={handleChange} 
-                    required 
-                    className="w-full bg-slate-900/30 border border-slate-800 rounded px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-[#2DD4BF] transition-colors"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="contact-email" className="text-xs text-slate-500 mb-1 block">Email</label>
-                  <input 
-                    id="contact-email" 
-                    type="email" 
-                    name="email" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    required 
-                    className="w-full bg-slate-900/30 border border-slate-800 rounded px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-[#2DD4BF] transition-colors"
-                    placeholder="your@email.com"
-                  />
+                  <p className="text-white font-semibold">Kathmandu, Nepal</p>
+                  <p className="text-sm text-slate-400">Available for remote & in-person collaboration</p>
                 </div>
               </div>
+            </div>
+          </div>
 
+          {/* Right: Contact Form */}
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="contact-message" className="text-xs text-slate-500 mb-1 block">Message</label>
-                <textarea 
-                  id="contact-message" 
-                  name="message" 
-                  rows="5" 
-                  value={formData.message} 
-                  onChange={handleChange} 
-                  required 
-                  className="w-full bg-slate-900/30 border border-slate-800 rounded px-3 py-2.5 text-sm text-slate-300 focus:outline-none focus:border-[#2DD4BF] transition-colors resize-none leading-relaxed"
-                  placeholder="Your message..."
+                <label htmlFor="name" className="text-sm text-slate-400 font-medium block mb-2">
+                  Your name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Ram, Shyam, Sita..."
+                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF]/20 transition-all text-sm"
                 />
               </div>
 
-              <button 
-                type="submit" 
+              <div>
+                <label htmlFor="email" className="text-sm text-slate-400 font-medium block mb-2">
+                  Your email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="example@email.com"
+                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF]/20 transition-all text-sm"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="text-sm text-slate-400 font-medium block mb-2">
+                  What's on your mind?
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Tell me about your project, idea, or just say hello..."
+                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF]/20 transition-all resize-none text-sm leading-relaxed"
+                />
+              </div>
+
+              <button
+                type="submit"
                 disabled={sending}
-                className={`w-full py-3 rounded font-medium text-sm transition-all ${
-                  sending 
-                  ? 'bg-slate-800 text-slate-500 cursor-not-allowed' 
-                  : 'bg-[#2DD4BF] text-[#020617] hover:opacity-90'
+                className={`w-full py-3.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
+                  sending
+                    ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                    : 'bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90'
                 }`}
               >
                 {sending ? 'Sending...' : 'Send Message'}
+                {!sending && <ArrowUpRight size={16} />}
               </button>
 
+              {/* Success Message */}
               {sent && (
-                <div className="p-3 bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 rounded text-sm text-[#2DD4BF]">
-                  Message sent successfully. I will get back to you soon.
+                <div className="p-4 bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 rounded-lg">
+                  <p className="text-sm text-[#2DD4BF] font-medium">
+                    ✓ Message sent successfully
+                  </p>
+                  <p className="text-xs text-slate-400 mt-1">
+                    I'll get back to you soon. Thanks for reaching out!
+                  </p>
                 </div>
               )}
 
-              {errorLog && (
-                <div className="p-3 bg-red-900/20 border border-red-900/30 rounded text-sm text-red-400">
-                  {errorLog}
+              {/* Error Message */}
+              {error && (
+                <div className="p-4 bg-red-900/10 border border-red-900/30 rounded-lg">
+                  <p className="text-sm text-red-400 font-medium">
+                    ✗ {error}
+                  </p>
+                  <p className="text-xs text-red-300/70 mt-1">
+                    Email me directly at samratvsn@gmail.com instead
+                  </p>
                 </div>
               )}
             </form>
+          </div>
+        </div>
+
+        {/* Bottom CTA Section */}
+        <div className="mt-24 pt-16 border-t border-slate-800">
+          <div className="text-center">
+            <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+              Prefer to reach out directly? My inbox is always open. No form? No problem.
+            </p>
+            <a
+              href="mailto:samratvsn@gmail.com"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900/50 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-300 hover:text-[#2DD4BF] transition-colors font-medium"
+            >
+              <Mail size={16} />
+              Email me directly
+            </a>
           </div>
         </div>
       </main>

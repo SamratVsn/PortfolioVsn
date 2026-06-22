@@ -40,25 +40,31 @@ const milestones = [
   },
   {
     period: "Early 2025",
+    title: "Learned Web Concepts and JavaScript",
+    description:
+      "Learned HTML, CSS, and JavaScript to understand web development basics. Built simple interactive web pages and got familiar with the DOM.",
+  },
+  {
+    period: "Mid 2025",
+    title: "Started Learning Kotlin",
+    description:
+      "Transitioned to Kotlin to prepare for Android development. Explored language features like null safety, coroutines, and extension functions through small projects and exercises.",
+  },
+  {
+    period: "Late 2025",
+    title: "Started Android Development with Compose",
+    description:
+      "Began building Android apps using Jetpack Compose. Learned about composable functions, state management, and UI architecture.",
+  },
+  {
+    period: "Early 2026",
     title: "Completed Android Basics with Compose",
     description:
       "Finished Google's Android Basics with Compose course. Learned Jetpack Compose fundamentals, state management, and Android app structure.",
   },
   {
-    period: "Mid 2025",
-    title: "Built first Kotlin Android projects",
-    description:
-      "Applied Kotlin skills to build CLI applications and Android prototypes. Developed an Encapsulated Banking Core focusing on OOP principles and transaction isolation.",
-  },
-  {
-    period: "Late 2025",
-    title: "Deep dive into Jetpack Compose",
-    description:
-      "Explored advanced Compose concepts: custom layouts, animation APIs, and side-effect management. Began understanding how Compose renders and recomposes UI.",
-  },
-  {
-    period: "2026",
-    title: "Working toward production-quality Android engineering",
+    period: "Mid 2026",
+    title: "Working toward production-quality Android development",
     description:
       "Currently focused on Android architecture patterns, testing strategies, and building production-quality applications. Learning Hilt, Room, and proper error handling.",
     active: true,

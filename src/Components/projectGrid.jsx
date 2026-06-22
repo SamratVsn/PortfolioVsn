@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 
 const PROJECTS = [
   {
@@ -49,58 +50,67 @@ const PROJECTS = [
 function ProjectCard({ project, index }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group relative flex flex-col bg-[#020617] p-6 border border-slate-800/50 rounded-lg hover:border-slate-700/50 transition-all"
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative flex flex-col bg-slate-900/30 border border-slate-800 rounded-lg hover:bg-slate-900/50 hover:border-slate-700 transition-all duration-300"
     >
       <Link to={project.path} className="absolute inset-0 z-10" aria-label={`View project: ${project.title}`} />
 
-      <div className="flex-1">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-xs text-slate-500 font-mono">Project 0{project.id}</span>
+      <div className="flex-1 p-7 sm:p-8">
+        <div className="flex items-start justify-between mb-5">
+          <span className="text-xs text-slate-500 font-medium uppercase tracking-widest">
+            Project {project.id}
+          </span>
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+            <ArrowRight size={16} className="text-[#2DD4BF]" />
+          </div>
         </div>
 
-        <h3 className="text-white font-medium text-lg mb-3 group-hover:text-[#2DD4BF] transition-colors">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-5 group-hover:text-[#2DD4BF] transition-colors">
           {project.title}
         </h3>
 
-        <div className="space-y-2 mb-4 text-sm">
+        <div className="space-y-4 mb-6">
           <div>
-            <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Problem</span>
-            <p className="text-slate-400 leading-relaxed">{project.problem}</p>
+            <span className="text-[11px] text-slate-500 uppercase tracking-widest font-semibold block mb-2">Problem</span>
+            <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
           </div>
           <div>
-            <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">Solution</span>
-            <p className="text-slate-400 leading-relaxed">{project.solution}</p>
+            <span className="text-[11px] text-slate-500 uppercase tracking-widest font-semibold block mb-2">Solution</span>
+            <p className="text-slate-400 text-sm leading-relaxed">{project.solution}</p>
           </div>
           <div>
-            <span className="text-[10px] text-slate-500 uppercase tracking-wider font-medium">What I Learned</span>
-            <p className="text-slate-400 leading-relaxed">{project.learning}</p>
+            <span className="text-[11px] text-slate-500 uppercase tracking-widest font-semibold block mb-2">Learning</span>
+            <p className="text-slate-400 text-sm leading-relaxed">{project.learning}</p>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-[11px] text-slate-500 bg-slate-800/30 px-2 py-0.5 rounded">
+            <span 
+              key={tag} 
+              className="text-xs font-medium text-slate-400 bg-slate-800/50 px-3 py-1.5 rounded border border-slate-800/50 group-hover:border-slate-700 transition-colors"
+            >
               {tag}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="flex items-center gap-3 mt-4 pt-4 border-t border-slate-800/30">
+      <div className="flex items-center gap-4 px-7 sm:px-8 py-5 border-t border-slate-800/50 bg-slate-900/20">
         {project.github && (
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-xs text-slate-500 hover:text-[#2DD4BF] transition-colors flex items-center gap-1"
+            className="text-sm text-slate-500 hover:text-[#2DD4BF] transition-colors flex items-center gap-1.5 relative z-20"
+            title="View source code on GitHub"
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            Source
+            <Github size={14} />
+            <span className="hidden sm:inline">Code</span>
           </a>
         )}
         {project.live && (
@@ -109,12 +119,15 @@ function ProjectCard({ project, index }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-xs text-slate-500 hover:text-[#2DD4BF] transition-colors flex items-center gap-1"
+            className="text-sm text-slate-500 hover:text-[#2DD4BF] transition-colors flex items-center gap-1.5 relative z-20"
+            title="View live project"
           >
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            Live
+            <ExternalLink size={14} />
+            <span className="hidden sm:inline">Live</span>
           </a>
         )}
+        <div className="flex-grow" />
+        <span className="text-xs text-slate-600">View details →</span>
       </div>
     </motion.article>
   );
@@ -123,17 +136,23 @@ function ProjectCard({ project, index }) {
 export default function ProjectGrid() {
   return (
     <section className="max-w-4xl mx-auto px-6">
-      <div className="mb-10">
-        <h1 className="text-white text-3xl font-bold mb-2">
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mb-14"
+      >
+        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-[-0.03em]">
           Projects<span className="text-[#2DD4BF]">.</span>
         </h1>
-        <p className="text-slate-400 text-sm">
-          Real projects that shaped my engineering thinking. Each one presented
-          specific problems that required thoughtful solutions.
+        <p className="text-slate-400 text-base leading-relaxed max-w-2xl">
+          Real projects that shaped my engineering thinking. Each one presented specific 
+          problems that required thoughtful solutions and deep learning.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 gap-5">
+      <div className="grid grid-cols-1 gap-5 sm:gap-6">
         {PROJECTS.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}

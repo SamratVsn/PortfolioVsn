@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Github, ChevronRight } from 'lucide-react'
+import { Github, ArrowUpRight } from 'lucide-react'
 import SEO from './SEO'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
 import BMSK2 from '../assets/BMSK/BMSK2.png'
@@ -9,161 +9,187 @@ function BMSK() {
 
   const specs = [
     { label: "Language", value: "Kotlin 1.9" },
-    { label: "Architecture", value: "OOPS / Structural" },
+    { label: "Architecture", value: "Object-Oriented" },
     { label: "Interface", value: "CLI (Terminal)" },
-    { label: "Storage", value: "In-Memory / Collections" }
+    { label: "Storage", value: "In-Memory Collections" }
+  ];
+
+  const features = [
+    { title: "Account Creation", detail: "Dynamic object instantiation with unique UUIDs." },
+    { title: "Balance Operations", detail: "Atomic deposit/withdraw logic with error handling." },
+    { title: "Data Integrity", detail: "Validation checks for negative inputs and overdrafts." },
+    { title: "Search Engine", detail: "Efficient account retrieval with O(n) complexity." }
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans">
+    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
       <SEO
         title="Bank Management System | Samrat Parajuli"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
       />
-      {/* Header / Breadcrumbs */}
-      <div className="border-b border-slate-800 bg-[#020617]/50 backdrop-blur-md sticky top-0 z-20">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-2">
-            <span>PROJECTS</span> <ChevronRight size={12} />
-            <span className="text-[#2DD4BF]">BMS_KOTLIN.kt</span>
-          </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <h1 className="text-3xl font-mono font-bold text-slate-100 tracking-tighter uppercase">
-                Bank Management System<span className="text-[#2DD4BF]">_</span>
-              </h1>
-            </div>
-            <a
-              href="https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 text-black hover:bg-[#2DD4BF] rounded font-mono text-sm font-bold transition-all"
-            >
-              <Github size={18} />
-              SOURCE_CODE
-            </a>
+      {/* Header */}
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Backend System</p>
+            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
+              Bank Management <span className="text-[#2DD4BF]">System</span>
+            </h1>
           </div>
+          <a
+            href="https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90 rounded-lg font-semibold text-sm transition-colors"
+          >
+            <Github size={16} /> View Code
+          </a>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-          {/* Main Content Area */}
-          <div className="lg:col-span-8 space-y-12">
-            {/* Screenshot with "Terminal Container" look */}
-            <div className="group rounded-lg overflow-hidden border border-slate-800 bg-[#0a0f1e] shadow-2xl">
-              <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/20" />
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20" />
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500/20" />
-              </div>
-              <img src={BMSK1} alt="Bank Management System terminal interface" className="w-full h-auto opacity-90 group-hover:opacity-100 transition-opacity" loading="lazy" />
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
+            
+            {/* Hero Image */}
+            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+              <img 
+                src={BMSK1} 
+                alt="Bank Management System terminal interface" 
+                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer" 
+                loading="lazy"
+              />
             </div>
 
-            {/* IDE-style Navigation */}
-            <div className="border border-slate-800 rounded-lg bg-[#070d1f] overflow-hidden">
-              <div className="flex bg-slate-900 border-b border-slate-800">
-                {['overview', 'features', 'logic', 'system'].map(tab => (
+            {/* Intro */}
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+                Banking system built with Kotlin
+              </h2>
+              <p className="text-slate-400 leading-relaxed">
+                This system demonstrates proficiency in Kotlin's object-oriented paradigm by simulating a core banking 
+                environment where account integrity and state management are prioritized. Built to handle real-time 
+                transaction logic with focus on encapsulation and secure data access.
+              </p>
+            </div>
+
+            {/* Tabs */}
+            <div>
+              <div className="flex gap-1 mb-8 border-b border-slate-800">
+                {['overview', 'features', 'architecture', 'system'].map(tab => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-3 font-mono text-xs uppercase tracking-widest transition-all relative ${activeTab === tab
-                        ? 'bg-[#070d1f] text-[#2DD4BF] border-r border-slate-800'
-                        : 'text-slate-500 hover:text-slate-300 border-r border-slate-800/50'
-                      }`}
+                    className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                      activeTab === tab 
+                        ? 'text-[#2DD4BF] border-[#2DD4BF]' 
+                        : 'text-slate-400 border-transparent hover:text-slate-300'
+                    }`}
                   >
-                    {tab}.md
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
                   </button>
                 ))}
               </div>
 
-              <div className="p-8 font-mono text-sm leading-relaxed min-h-[300px]">
+              <div className="min-h-[400px]">
                 {activeTab === 'overview' && (
-                  <div className="space-y-4 animate-in fade-in duration-500">
-                    <p className="text-slate-400">
-                      <span className="text-[#2DD4BF]"># PROJECT_SUMMARY</span><br />
-                      This system was built to demonstrate proficiency in <span className="text-slate-100">Kotlin's Object-Oriented paradigm</span>. It simulates a core banking environment where account integrity and state management are prioritized.
+                  <div className="space-y-6 animate-in fade-in">
+                    <p className="text-slate-400 leading-relaxed">
+                      This banking simulation demonstrates core principles of object-oriented design in Kotlin. 
+                      The system manages multiple accounts with transaction handling, validation, and state preservation.
                     </p>
-                    <ul className="list-none space-y-2 text-slate-500">
-                      <li>&gt; Built to handle real-time transaction logic.</li>
-                      <li>&gt; Focuses on encapsulation and secure data access.</li>
-                    </ul>
-                  </div>
-                )}
-                {activeTab === 'features' && (
-                  <div className="space-y-6 animate-in fade-in duration-500">
-                    <div className="space-y-2">
-                      <h4 className="text-[#2DD4BF] font-mono text-sm">// FUNCTIONAL_REQUIREMENTS</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {[
-                          { title: "Account Creation", detail: "Dynamic object instantiation with unique UUIDs." },
-                          { title: "Balance Operations", detail: "Atomic deposit/withdraw logic with error handling." },
-                          { title: "Data Integrity", detail: "Validation checks for negative inputs and overdrafts." },
-                          { title: "Search Engine", detail: "O(n) search complexity for account retrieval." }
-                        ].map((feat, i) => (
-                          <div key={i} className="p-4 border border-slate-800 bg-[#020617] rounded">
-                            <span className="text-slate-100 block mb-1">:: {feat.title}</span>
-                            <span className="text-xs text-slate-500">{feat.detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'logic' && (
-                  <div className="space-y-6 animate-in fade-in duration-500">
-                    <div className="bg-slate-950 p-4 border border-slate-800 rounded font-mono text-[13px] text-slate-400">
-                      <p className="text-[#2DD4BF] mb-2">// CORE_CLASS_STRUCTURE</p>
-                      <p><span className="text-purple-400">class</span> <span className="text-yellow-200">Account</span>(</p>
-                      <p className="pl-4"><span className="text-blue-300">val</span> accId: String,</p>
-                      <p className="pl-4"><span className="text-blue-300">var</span> InitialBalance: Double = 0.0,</p>
-                      <p className="pl-4"><span className="text-blue-300">val</span> customer: Customer</p>
-                      <p>)</p>
-                    </div>
                     <div className="space-y-4">
-                      <h4 className="text-[#2DD4BF] font-mono text-sm">// ARCHITECTURAL_CONCEPTS</h4>
+                      <h3 className="text-white font-semibold text-sm">Core Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
-                        <li className="flex gap-3">
-                          <span className="text-[#2DD4BF]">[01]</span>
-                          <span><b className="text-slate-200">Encapsulation:</b> Private state management for balance variables to prevent external corruption.</span>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Real-time transaction processing with validation</span>
                         </li>
-                        <li className="flex gap-3">
-                          <span className="text-[#2DD4BF]">[02]</span>
-                          <span><b className="text-slate-200">Polymorphism:</b> Utilizing interfaces for different account types (Savings vs Current).</span>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Account encapsulation with secure state management</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>UUID-based unique account identification</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Comprehensive error handling for edge cases</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 )}
 
-                {activeTab === 'system' && (
-                  <div className="space-y-6 animate-in fade-in duration-500">
+                {activeTab === 'features' && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
+                    {features.map((feat, i) => (
+                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                        <h4 className="text-white font-semibold text-sm mb-2">{feat.title}</h4>
+                        <p className="text-slate-400 text-sm">{feat.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {activeTab === 'architecture' && (
+                  <div className="space-y-6 animate-in fade-in">
                     <div className="space-y-4">
-                      <h4 className="text-[#2DD4BF] font-mono text-sm">// RUNTIME_ENVIRONMENT</h4>
-                      <div className="space-y-2 font-mono text-xs">
-                        <div className="flex justify-between border-b border-slate-800 py-2">
-                          <span className="text-slate-500">OS_TARGET:</span>
-                          <span className="text-slate-300">JVM / Android Runtime</span>
-                        </div>
-                        <div className="flex justify-between border-b border-slate-800 py-2">
-                          <span className="text-slate-500">COMPILER:</span>
-                          <span className="text-slate-300">kotlinc 1.9.0</span>
-                        </div>
-                        <div className="flex justify-between border-b border-slate-800 py-2">
-                          <span className="text-slate-500">MEMORY_MANAGEMENT:</span>
-                          <span className="text-slate-300">Automatic (GC)</span>
-                        </div>
+                      <h3 className="text-white font-semibold text-sm">Class Structure</h3>
+                      <div className="p-4 bg-slate-950 border border-slate-800 rounded-lg font-mono text-sm text-slate-400 leading-relaxed">
+                        <p><span className="text-purple-400">class</span> <span className="text-cyan-300">Account</span> {`{`}</p>
+                        <p className="ml-4"><span className="text-blue-300">val</span> accId: <span className="text-slate-300">String</span></p>
+                        <p className="ml-4"><span className="text-blue-300">var</span> balance: <span className="text-slate-300">Double</span></p>
+                        <p className="ml-4"><span className="text-blue-300">val</span> customer: <span className="text-slate-300">Customer</span></p>
+                        <p>{`}`}</p>
                       </div>
                     </div>
 
-                    <div className="p-4 bg-red-900/10 border border-red-900/30 rounded">
-                      <h5 className="text-red-400 text-xs font-mono mb-2">KNOWN_LIMITATIONS</h5>
-                      <p className="text-xs text-red-300/70 font-mono">
-                        &gt; Current build uses volatile memory; persistence layer (SQL/File) implementation pending in v2.0.
+                    <div className="space-y-4">
+                      <h3 className="text-white font-semibold text-sm">Design Principles</h3>
+                      <div className="space-y-3">
+                        <div className="p-4 border border-slate-800 rounded-lg">
+                          <p className="text-sm text-white font-semibold mb-2">Encapsulation</p>
+                          <p className="text-sm text-slate-400">Private state management for balance variables to prevent external corruption and ensure data integrity.</p>
+                        </div>
+                        <div className="p-4 border border-slate-800 rounded-lg">
+                          <p className="text-sm text-white font-semibold mb-2">Polymorphism</p>
+                          <p className="text-sm text-slate-400">Interface-based design for different account types (Savings, Current) with specialized behavior.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'system' && (
+                  <div className="space-y-6 animate-in fade-in">
+                    <div className="space-y-4">
+                      <h3 className="text-white font-semibold text-sm">Runtime Environment</h3>
+                      <div className="space-y-3">
+                        {[
+                          { label: 'Platform', value: 'JVM / Android Runtime' },
+                          { label: 'Compiler', value: 'kotlinc 1.9.0' },
+                          { label: 'Memory', value: 'Automatic Garbage Collection' },
+                          { label: 'Build Tool', value: 'Gradle / Maven' }
+                        ].map((item, i) => (
+                          <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
+                            <span className="text-slate-500 text-sm">{item.label}</span>
+                            <span className="text-slate-300 text-sm font-medium">{item.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="p-4 bg-amber-900/10 border border-amber-900/50 rounded-lg">
+                      <p className="text-amber-200 font-semibold text-sm mb-2">Known Limitation</p>
+                      <p className="text-sm text-amber-200/70">
+                        Current implementation uses volatile in-memory storage. Persistence layer (database/file I/O) 
+                        planned for v2.0 release.
                       </p>
                     </div>
                   </div>
@@ -171,19 +197,27 @@ function BMSK() {
               </div>
             </div>
 
-            {/* Screenshot gallery */}
+            {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="font-mono text-xs text-slate-500 tracking-[0.3em] uppercase underline underline-offset-8 decoration-slate-800">Execution_Captures</h3>
+              <h3 className="text-sm font-semibold text-[#2DD4BF] uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { src: BMSK1, label: 'MAIN_INTERFACE', desc: 'Account management menu with CRUD operations.' },
-                  { src: BMSK2, label: 'TRANSACTION_FLOW', desc: 'Deposit and withdrawal logic with validation.' }
+                  { src: BMSK1, label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
+                  { src: BMSK2, label: 'Transaction Flow', desc: 'Deposit and withdrawal logic with validation.' }
                 ].map((s, i) => (
-                  <div key={i} className="group relative border border-slate-800 rounded-lg bg-slate-900 overflow-hidden">
-                    <img src={s.src} alt={s.label} className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-x-0 bottom-0 p-3 bg-slate-900/90 border-t border-slate-800 backdrop-blur-sm">
-                      <p className="text-[10px] font-mono text-[#2DD4BF] font-bold">{s.label}</p>
-                      <p className="text-[9px] font-mono text-slate-500">{s.desc}</p>
+                  <div 
+                    key={i} 
+                    className="group relative border border-slate-800 rounded-lg overflow-hidden bg-slate-900 hover:border-slate-700 transition-colors"
+                  >
+                    <img 
+                      src={s.src} 
+                      alt={s.label} 
+                      className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute bottom-0 inset-x-0 p-4">
+                      <p className="text-sm font-semibold text-slate-100 group-hover:text-[#2DD4BF] transition-colors">{s.label}</p>
+                      <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -191,30 +225,60 @@ function BMSK() {
             </div>
           </div>
 
-          {/* Sidebar Metadata */}
-          <div className="lg:col-span-4 space-y-8">
-            <div className="p-6 border border-slate-800 rounded-lg bg-[#070d1f]">
-              <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6 border-b border-slate-800 pb-2">Technical Specs</h3>
+          {/* Sidebar */}
+          <div className="lg:col-span-1 space-y-6">
+            
+            {/* Specifications */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
               <div className="space-y-4">
-                {specs.map(spec => (
-                  <div key={spec.label} className="flex justify-between items-center">
-                    <span className="text-xs text-slate-500 font-mono">{spec.label}</span>
-                    <span className="text-xs text-[#2DD4BF] font-mono">{spec.value}</span>
+                {specs.map((spec, i) => (
+                  <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
+                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="p-6 border border-slate-800 rounded-lg bg-[#070d1f]">
-              <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">Core Modules</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Account_Auth', 'Transaction_Engine', 'Data_Persistence', 'Validation_Logic'].map(tag => (
-                  <span key={tag} className="text-[10px] font-mono bg-slate-900 text-slate-400 px-2 py-1 rounded border border-slate-800">
-                    {tag}
-                  </span>
+            {/* Key Components */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
+              <div className="space-y-2">
+                {[
+                  'Account Management',
+                  'Transaction Engine',
+                  'Validation Logic',
+                  'Balance Operations',
+                  'Search & Retrieve'
+                ].map((comp, i) => (
+                  <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
+                    {comp}
+                  </div>
                 ))}
               </div>
             </div>
+
+            {/* Stats */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Lines of Code</span>
+                  <span className="text-slate-300 font-medium">~300</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Classes</span>
+                  <span className="text-slate-300 font-medium">4</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Complexity</span>
+                  <span className="text-slate-300 font-medium">Beginner</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { 
-  Github, Terminal, ChevronRight, Activity, 
-  Cpu, HardDrive, AlertTriangle, CheckCircle2, 
-  ShieldAlert, Box, Search, Trash2, Edit 
+  Github, ChevronRight, Activity, 
+  HardDrive, Box, Search, Trash2, Edit, ArrowUpRight, X
 } from 'lucide-react';
 import SEO from './SEO';
 
@@ -20,12 +19,26 @@ const SMS = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const screenshots = [
-    { src: SMS2, label: 'ADD_RECORD_PROCEDURE', desc: 'Validating struct serialization to disk.' },
-    { src: SMS3, label: 'DATABASE_DUMP', desc: 'Iterating through binary stream using fread().' },
-    { src: SMS4, label: 'QUERY_ENGINE', desc: 'Testing fseek() jump logic by Roll No.' },
-    { src: SMS5, label: 'UPDATE_BUFFER', desc: 'Overwriting specific byte offsets in rb+ mode.' },
-    { src: SMS6, label: 'DELETE_REWRITE', desc: 'Temporary file swap logic for record removal.' },
-    { src: SMS7, label: 'INTEGRITY_CHECK', desc: 'Validating file pointers and end-of-file markers.' }
+    { src: SMS2, label: 'Add Record', desc: 'Validating struct serialization to disk.' },
+    { src: SMS3, label: 'Database Dump', desc: 'Iterating through binary stream using fread().' },
+    { src: SMS4, label: 'Query Engine', desc: 'Testing fseek() jump logic by Roll No.' },
+    { src: SMS5, label: 'Update Buffer', desc: 'Overwriting specific byte offsets in rb+ mode.' },
+    { src: SMS6, label: 'Delete Rewrite', desc: 'Temporary file swap logic for record removal.' },
+    { src: SMS7, label: 'Integrity Check', desc: 'Validating file pointers and end-of-file markers.' }
+  ];
+
+  const features = [
+    { icon: Box, title: "Serialization", desc: "Writing struct blocks directly to disk." },
+    { icon: Search, title: "Fseek Navigation", desc: "Direct access to records via byte offsets." },
+    { icon: Trash2, title: "Atomic Delete", desc: "Temporary file swap to ensure data safety." },
+    { icon: Edit, title: "In-Place Edit", desc: "Using rb+ mode for non-destructive updates." }
+  ];
+
+  const specs = [
+    { label: 'Language', value: 'ANSI C / C99' },
+    { label: 'Compiler', value: 'GCC / Clang' },
+    { label: 'I/O Mode', value: 'Unbuffered Binary' },
+    { label: 'Pattern', value: 'Direct Memory Access' }
   ];
 
   return (
@@ -36,87 +49,120 @@ const SMS = () => {
         ogUrl="https://www.samratparajuli0.com.np/projects/sms"
       />
       
-      {/* HEADER: METADATA STYLE */}
-      <div className="border-b border-slate-800 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-slate-900 border border-slate-800 rounded">
-              <Cpu size={20} className="text-[#2DD4BF]" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2 text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                <span>Modules</span> <ChevronRight size={10} /> <span>System_Software</span>
-              </div>
-              <h1 className="text-xl font-mono font-bold text-slate-100 uppercase tracking-tighter">
-                Student_Management.c<span className="text-[#2DD4BF]">_</span>
-              </h1>
-            </div>
+      {/* Header */}
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">System Software</p>
+            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
+              Student Management <span className="text-[#2DD4BF]">System</span>
+            </h1>
           </div>
-          <a href="https://github.com/SamratVsn/C-codes" target="_blank" className="flex items-center gap-2 px-4 py-2 bg-[#2DD4BF] text-black hover:bg-[#26bba8] rounded font-mono text-xs font-bold transition-all">
-            <Github size={16} /> CLONE_REPOSITORY
+          <a 
+            href="https://github.com/SamratVsn/C-codes" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90 rounded-lg font-semibold text-sm transition-colors"
+          >
+            <Github size={16} /> View Code
           </a>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* MAIN DOCUMENTATION */}
-          <div className="lg:col-span-8 space-y-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
             
-            {/* TERMINAL HERO */}
-            <div className="group relative rounded-lg overflow-hidden border border-slate-800 bg-black shadow-2xl">
-              <div className="absolute top-0 inset-x-0 h-8 bg-slate-900 border-b border-slate-800 flex items-center px-4 justify-between">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
-                </div>
-                <span className="text-[10px] font-mono text-slate-600 tracking-widest">STDOUT -- ANSI_C</span>
-              </div>
-              <img src={SMS1} alt="CLI Interface" className="w-full h-auto mt-8 opacity-90 group-hover:opacity-100 transition-opacity cursor-pointer" onClick={() => setSelectedImage({src: SMS1, label: 'Main Menu'})} />
+            {/* Hero Image */}
+            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+              <img 
+                src={SMS1} 
+                alt="CLI Interface" 
+                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer" 
+                onClick={() => setSelectedImage({src: SMS1, label: 'Main Menu', desc: 'Interactive command-line interface'})}
+              />
             </div>
 
-            {/* CONTENT TABS */}
-            <div className="bg-[#070d1f] border border-slate-800 rounded-lg overflow-hidden">
-              <div className="flex bg-slate-900/50 border-b border-slate-800 p-1">
+            {/* Intro */}
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+                Low-level database engine in C
+              </h2>
+              <p className="text-slate-400 leading-relaxed">
+                A high-performance CRUD system that bypasses high-level abstractions to manipulate raw data streams directly. 
+                This project demonstrates deep understanding of file I/O, memory management, and binary serialization using 
+                the C Standard Library.
+              </p>
+              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <p className="text-sm text-slate-300">
+                  <span className="text-[#2DD4BF] font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
+                  flushing to ensure data persistence even in the event of software interrupt.
+                </p>
+              </div>
+            </div>
+
+            {/* Tabs */}
+            <div>
+              <div className="flex gap-1 mb-8 border-b border-slate-800">
                 {['overview', 'features', 'challenges'].map(tab => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-2 font-mono text-[10px] uppercase tracking-wider rounded transition-all ${
-                      activeTab === tab ? 'bg-slate-800 text-[#2DD4BF]' : 'text-slate-500 hover:text-slate-300'
+                    className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                      activeTab === tab 
+                        ? 'text-[#2DD4BF] border-[#2DD4BF]' 
+                        : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
-                    {tab}.log
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
                   </button>
                 ))}
               </div>
 
-              <div className="p-8 font-mono text-sm leading-relaxed min-h-[400px]">
+              <div className="min-h-[300px]">
                 {activeTab === 'overview' && (
-                  <div className="space-y-6 animate-in fade-in duration-300">
-                    <p className="text-slate-500 italic">// High-performance binary CRUD</p>
-                    <p>A low-level implementation of a database engine using the C Standard Library. This project bypasses high-level abstractions to manipulate <span className="text-[#2DD4BF]">raw data streams</span> directly.</p>
-                    <div className="p-4 bg-slate-900/50 border-l-2 border-[#2DD4BF]">
-                      <span className="text-xs text-slate-500">KEY_DESIGN_PATTERN:</span>
-                      <p className="text-slate-300">Synchronous file I/O with manual buffer flushing to ensure data persistence even in the event of software interrupt.</p>
+                  <div className="space-y-6 animate-in fade-in">
+                    <p className="text-slate-400 leading-relaxed">
+                      This project demonstrates a low-level implementation of a database engine using the C Standard Library. 
+                      It showcases how modern databases work under the hood by directly manipulating binary data streams.
+                    </p>
+                    <div className="space-y-4">
+                      <h3 className="text-white font-semibold text-sm">Core Architecture</h3>
+                      <ul className="space-y-3 text-sm text-slate-400">
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Binary file storage with struct serialization</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Direct byte-offset navigation using fseek()</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>Atomic operations with temporary file swapping</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span>In-place updates using rb+ file mode</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 )}
 
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
-                    {[
-                      { icon: Box, t: "Serialization", d: "Writing struct blocks directly to disk." },
-                      { icon: Search, t: "Fseek Navigation", d: "Direct access to records via byte offsets." },
-                      { icon: Trash2, t: "Atomic Delete", d: "Temporary file swap to ensure data safety." },
-                      { icon: Edit, t: "In-Place Edit", d: "Using rb+ mode for non-destructive updates." }
-                    ].map((f, i) => (
-                      <div key={i} className="p-4 border border-slate-800 rounded bg-[#020617]">
-                        <f.icon size={16} className="text-[#2DD4BF] mb-2" />
-                        <div className="text-slate-200 text-xs mb-1 tracking-tighter uppercase font-bold">{f.t}</div>
-                        <p className="text-[11px] text-slate-500">{f.d}</p>
+                    {features.map((f, i) => (
+                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                        <div className="flex items-start gap-3">
+                          <f.icon size={20} className="text-[#2DD4BF] mt-1" />
+                          <div>
+                            <h4 className="text-white font-semibold text-sm mb-1">{f.title}</h4>
+                            <p className="text-slate-400 text-sm">{f.desc}</p>
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -124,83 +170,134 @@ const SMS = () => {
 
                 {activeTab === 'challenges' && (
                   <div className="space-y-6 animate-in fade-in">
-                    <div className="space-y-4">
-                      <div className="flex gap-4 p-4 border border-red-900/20 bg-red-900/5 rounded">
-                        <ShieldAlert className="text-red-500 shrink-0" size={18} />
-                        <div>
-                          <p className="text-xs text-red-200 uppercase font-bold tracking-widest mb-1">Issue: Struct Padding</p>
-                          <p className="text-[11px] text-slate-400">Records became unreadable due to memory alignment differences across architectures.</p>
-                          <code className="text-[10px] text-[#2DD4BF] mt-2 block">Fixed via: #pragma pack(1)</code>
-                        </div>
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                      <h4 className="text-amber-200 font-semibold text-sm mb-2">Struct Padding Issue</h4>
+                      <p className="text-slate-400 text-sm mb-3">
+                        Records became unreadable due to memory alignment differences across architectures.
+                      </p>
+                      <div className="p-3 bg-slate-900 rounded text-xs font-mono text-slate-300">
+                        <span className="text-[#2DD4BF]">Solution:</span> #pragma pack(1)
                       </div>
+                    </div>
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                      <h4 className="text-amber-200 font-semibold text-sm mb-2">File Pointer Management</h4>
+                      <p className="text-slate-400 text-sm">
+                        Managing file pointers across multiple operations required careful tracking to prevent 
+                        data corruption. Implemented validation checks to ensure pointer consistency.
+                      </p>
                     </div>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* IMAGE GALLERY: THE "ENGINEER'S PROOF" */}
+            {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="font-mono text-xs text-slate-500 tracking-[0.3em] uppercase underline underline-offset-8">Execution_Screenshots</h3>
+              <h3 className="text-sm font-semibold text-[#2DD4BF] uppercase tracking-widest">Execution Screenshots</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {screenshots.map((s, i) => (
-                  <div key={i} className="group relative border border-slate-800 rounded bg-slate-900 overflow-hidden cursor-pointer" onClick={() => setSelectedImage(s)}>
-                    <img src={s.src} alt={s.label} className="w-full h-24 object-cover opacity-40 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-0 inset-x-0 p-2 bg-slate-900/90 border-t border-slate-800">
-                      <p className="text-[9px] font-mono text-slate-400 truncate tracking-tighter">{s.label}</p>
-                    </div>
+                  <div 
+                    key={i} 
+                    className="group relative border border-slate-800 rounded overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700 transition-colors"
+                    onClick={() => setSelectedImage(s)}
+                  >
+                    <img 
+                      src={s.src} 
+                      alt={s.label} 
+                      className="w-full h-32 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-[#2DD4BF] transition-colors">
+                      {s.label}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* SIDEBAR STATUS */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="p-6 border border-slate-800 bg-[#070d1f] rounded-lg">
-              <h3 className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                <Activity size={14} className="text-[#2DD4BF]" /> SYSTEM_DIAGNOSTICS
+          {/* Sidebar */}
+          <div className="lg:col-span-1 space-y-6">
+            
+            {/* Specifications */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
+                <Activity size={16} className="text-[#2DD4BF]" />
+                Specifications
               </h3>
-              <div className="space-y-4 font-mono text-[11px]">
-                <div className="flex justify-between border-b border-slate-800/50 pb-2">
-                  <span className="text-slate-500">STANDARD</span>
-                  <span className="text-slate-200">C99 / POSIX</span>
+              <div className="space-y-4">
+                {specs.map((spec, i) => (
+                  <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
+                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Data Structure */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
+                <HardDrive size={16} className="text-[#2DD4BF]" />
+                Data Structure
+              </h3>
+              <div className="p-4 bg-slate-950 border border-slate-900 rounded text-xs font-mono text-slate-400 leading-relaxed space-y-1">
+                <div><span className="text-[#2DD4BF]">struct</span> Student {`{`}</div>
+                <div className="ml-4">
+                  <div><span className="text-slate-500">char</span> name[50];</div>
+                  <div><span className="text-slate-500">int</span> rollNo;</div>
+                  <div><span className="text-slate-500">float</span> gpa;</div>
                 </div>
-                <div className="flex justify-between border-b border-slate-800/50 pb-2">
-                  <span className="text-slate-500">COMPILER</span>
-                  <span className="text-slate-200">GCC / Clang</span>
+                <div>{`}`};</div>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+              <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Lines of Code</span>
+                  <span className="text-slate-300 font-medium">~450</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-800/50 pb-2">
-                  <span className="text-slate-500">IO_MODE</span>
-                  <span className="text-slate-200">Unbuffered Binary</span>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Functions</span>
+                  <span className="text-slate-300 font-medium">8</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Complexity</span>
+                  <span className="text-slate-300 font-medium">Intermediate</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 border border-slate-800 bg-[#070d1f] rounded-lg">
-              <h3 className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                <HardDrive size={14} /> PERSISTENCE_LAYER
-              </h3>
-              <div className="p-4 bg-slate-950 border border-slate-900 rounded font-mono text-[9px] text-slate-500 leading-relaxed">
-                 $ cat data.dat <br/>
-                 [0x00A1] "Samrat" [Roll: 01] <br/>
-                 [0x00D4] "Binary" [Roll: 02]
-              </div>
-            </div>
           </div>
+
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* Image Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" onClick={() => setSelectedImage(null)}>
-          <div className="max-w-4xl w-full space-y-4">
-            <div className="flex justify-between items-center font-mono border-b border-slate-800 pb-2 text-xs">
-              <span className="text-[#2DD4BF] tracking-widest">{selectedImage.label}</span>
-              <span className="text-slate-600">CLOSE [ESC]</span>
+        <div 
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" 
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="max-w-3xl w-full space-y-4 animate-in fade-in">
+            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
+              <h3 className="text-white font-semibold">{selectedImage.label}</h3>
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="p-1 hover:bg-slate-800 rounded transition-colors"
+              >
+                <X size={20} className="text-slate-400" />
+              </button>
             </div>
-            <img src={selectedImage.src} alt={selectedImage.label} className="w-full border border-slate-800" />
-            <p className="font-mono text-[10px] text-slate-500 italic">{selectedImage.desc}</p>
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.label} 
+              className="w-full border border-slate-800 rounded-lg" 
+            />
+            <p className="text-sm text-slate-400">{selectedImage.desc}</p>
           </div>
         </div>
       )}

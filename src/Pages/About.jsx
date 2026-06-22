@@ -53,35 +53,39 @@ const focusItems = [
   {
     title: "Jetpack Compose",
     desc: "Deepening my understanding of Compose internals, custom layouts, and animation APIs.",
-    progress: 72,
+    progress: 100,
   },
   {
     title: "Android Architecture",
     desc: "Studying production-grade patterns — MVVM, Hilt, Room, and proper separation of concerns.",
-    progress: 60,
+    progress: 100,
   },
   {
     title: "Open Source",
-    desc: "Contributing to projects and publishing what I build to grow alongside the community.",
-    progress: 45,
+    desc: "Commiting everything I build to github repositories, contributing to existing projects, and sharing knowledge through writing.",
+    progress: 100,
   },
   {
     title: "Real Projects",
-    desc: "Shipping complete applications that solve actual problems end to end.",
-    progress: 55,
+    desc: "Trying to build and ship real applications, even if small, to apply what I learn and gain practical experience.",
+    progress: 100,
   },
 ];
 
 const stats = [
   { value: "1+", label: "Years building Android" },
-  { value: "3+", label: "Projects shipped" },
-  { value: "2+", label: "Blogs published" },
+  { value: "25+", label: "Github Repositories" },
+  { value: "5+", label: "Skills Learned" },
   { value: "Open", label: "to work", accent: true },
 ];
 
-const stack = ["Kotlin", "Jetpack Compose", "MVVM", "Hilt", "Room", "Coroutines"];
+const stack = ["Kotlin", "Jetpack Compose", "MVVM", "Retrofit", "Room", "Coroutines"];
 
 const journey = [
+  {
+    label: "Early excitement & curiosity",
+    desc: "Fascinated by how software shapes our world. Initial dream was to be a 'Software Engineer' without fully understanding what that meant.",
+  },
   {
     label: "Started with C",
     desc: "Pointers and memory management shaped how I think about performance to this day.",
@@ -158,7 +162,7 @@ export default function About() {
               <div className="inline-flex items-center gap-2 bg-[#2DD4BF]/[0.07] border border-[#2DD4BF]/20 rounded-full px-3 py-1.5 mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
                 <span className="text-[11px] text-[#2DD4BF] font-semibold tracking-wide">
-                  Android Developer · Nepal
+                  Android Developer · SamratVsn
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-[-0.03em] leading-none mb-3">
