@@ -88,7 +88,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF]">
+    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6]">
       <SEO
         title="Contact | Samrat Parajuli"
         description="Get in touch with Samrat. I'm always open to discussing projects, collaboration, or new opportunities."
@@ -103,7 +103,7 @@ const Contact = () => {
         <div className="mb-20">
           <h1 className="text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-[-0.03em]">
             Let's work <br />
-            <span className="text-[#2DD4BF]">together.</span>
+            <span className="text-[#3B82F6]">together.</span>
           </h1>
           <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
             Whether you have a project in mind, want to collaborate on something interesting, 
@@ -126,17 +126,17 @@ const Contact = () => {
                     href={link.href}
                     className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-900/50 transition-colors"
                   >
-                    <div className="p-2 bg-slate-900 rounded-lg text-[#2DD4BF] group-hover:bg-slate-800 transition-colors mt-1">
+                    <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
                       <link.icon size={18} />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-white group-hover:text-[#2DD4BF] transition-colors">
+                      <p className="text-sm font-semibold text-white group-hover:text-[#3B82F6] transition-colors">
                         {link.label}
                       </p>
                       <p className="text-sm text-slate-400">{link.value}</p>
                       <p className="text-xs text-slate-500 mt-1">{link.desc}</p>
                     </div>
-                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
+                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#3B82F6] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
                   </a>
                 ))}
               </div>
@@ -153,17 +153,17 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-900/50 transition-colors"
                   >
-                    <div className="p-2 bg-slate-900 rounded-lg text-[#2DD4BF] group-hover:bg-slate-800 transition-colors mt-1">
+                    <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
                       <link.icon size={18} />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-white group-hover:text-[#2DD4BF] transition-colors">
+                      <p className="text-sm font-semibold text-white group-hover:text-[#3B82F6] transition-colors">
                         {link.label}
                       </p>
                       <p className="text-sm text-slate-400">{link.value}</p>
                       <p className="text-xs text-slate-500 mt-1">{link.desc}</p>
                     </div>
-                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
+                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#3B82F6] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
                   </a>
                 ))}
               </div>
@@ -172,7 +172,7 @@ const Contact = () => {
             <div className="border-t border-slate-800 pt-8">
               <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-4">Location</p>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#2DD4BF] mt-0.5" />
+                <MapPin size={18} className="text-[#3B82F6] mt-0.5" />
                 <div>
                   <p className="text-white font-semibold">Kathmandu, Nepal</p>
                   <p className="text-sm text-slate-400">Available for remote & in-person collaboration</p>
@@ -196,7 +196,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Ram, Shyam, Sita..."
-                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF]/20 transition-all text-sm"
+                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 transition-all text-sm"
                 />
               </div>
 
@@ -212,7 +212,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF]/20 transition-all text-sm"
+                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 transition-all text-sm"
                 />
               </div>
 
@@ -228,7 +228,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project, idea, or just say hello..."
-                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#2DD4BF] focus:ring-1 focus:ring-[#2DD4BF]/20 transition-all resize-none text-sm leading-relaxed"
+                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 transition-all resize-none text-sm leading-relaxed"
                 />
               </div>
 
@@ -238,7 +238,7 @@ const Contact = () => {
                 className={`w-full py-3.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
                   sending
                     ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
-                    : 'bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90'
+                    : 'bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90'
                 }`}
               >
                 {sending ? 'Sending...' : 'Send Message'}
@@ -247,8 +247,8 @@ const Contact = () => {
 
               {/* Success Message */}
               {sent && (
-                <div className="p-4 bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 rounded-lg">
-                  <p className="text-sm text-[#2DD4BF] font-medium">
+                <div className="p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-lg">
+                  <p className="text-sm text-[#3B82F6] font-medium">
                     ✓ Message sent successfully
                   </p>
                   <p className="text-xs text-slate-400 mt-1">
@@ -280,7 +280,7 @@ const Contact = () => {
             </p>
             <a
               href="mailto:samratvsn@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900/50 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-300 hover:text-[#2DD4BF] transition-colors font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900/50 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-300 hover:text-[#3B82F6] transition-colors font-medium"
             >
               <Mail size={16} />
               Email me directly

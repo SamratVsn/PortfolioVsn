@@ -77,14 +77,14 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           >
             <div className="relative w-2.5 h-2.5 shrink-0">
-              <span className="absolute inset-0 rounded-full border border-[#2DD4BF]/25" />
-              <span className="absolute inset-[2px] rounded-full bg-[#2DD4BF]" />
+              <span className="absolute inset-0 rounded-full border border-[#3B82F6]/25" />
+              <span className="absolute inset-[2px] rounded-full bg-[#3B82F6]" />
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-[14px] font-bold tracking-tight text-white group-hover:text-white/90 transition-colors">
                 Samrat
               </span>
-              <span className="text-[8.5px] text-[#2DD4BF] font-semibold tracking-[0.12em] uppercase mt-0.5">
+              <span className="text-[8.5px] text-[#3B82F6] font-semibold tracking-[0.12em] uppercase mt-0.5">
                 Android Dev
               </span>
             </div>
@@ -100,7 +100,7 @@ export default function Header() {
                   to={link.to}
                   className={`relative px-3.5 py-2 text-[13px] font-medium rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "text-[#2DD4BF]"
+                      ? "text-[#3B82F6]"
                       : "text-slate-400 hover:text-white hover:bg-white/[0.04]"
                   }`}
                 >
@@ -108,7 +108,7 @@ export default function Header() {
                   {isActive && (
                     <motion.span
                       layoutId="activeNavIndicator"
-                      className="absolute -bottom-px left-3 right-3 h-[2px] bg-[#2DD4BF] rounded-full"
+                      className="absolute -bottom-px left-3 right-3 h-[2px] bg-[#3B82F6] rounded-full"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -130,7 +130,7 @@ export default function Header() {
             </a>
             <Link
               to="/contact"
-              className="bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#020617] text-[12px] font-bold px-4 py-2 rounded-lg transition-all active:scale-[0.97]"
+              className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] text-[12px] font-bold px-4 py-2 rounded-lg transition-all active:scale-[0.97]"
             >
               Hire me
             </Link>
@@ -149,7 +149,7 @@ export default function Header() {
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex flex-col gap-1 p-1.5 text-slate-400 hover:text-[#2DD4BF] transition-colors"
+              className="flex flex-col gap-1 p-1.5 text-slate-400 hover:text-[#3B82F6] transition-colors"
               aria-label={isOpen ? "Close navigation" : "Open navigation"}
             >
               <AnimatePresence mode="wait">
@@ -184,9 +184,9 @@ export default function Header() {
 
                 {/* Status badge */}
                 <div className="flex justify-center mb-5">
-                  <div className="inline-flex items-center gap-2 bg-[#2DD4BF]/[0.06] border border-[#2DD4BF]/15 rounded-full px-3 py-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
-                    <span className="text-[11px] text-[#2DD4BF] font-semibold tracking-wide">
+                  <div className="inline-flex items-center gap-2 bg-[#3B82F6]/[0.06] border border-[#3B82F6]/15 rounded-full px-3 py-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                    <span className="text-[11px] text-[#3B82F6] font-semibold tracking-wide">
                       Open to opportunities
                     </span>
                   </div>
@@ -208,7 +208,7 @@ export default function Header() {
                           onClick={() => setIsOpen(false)}
                           className={`block text-center px-4 py-2.5 rounded-xl text-[13px] font-medium transition-all border ${
                             isActive
-                              ? "text-[#2DD4BF] bg-[#2DD4BF]/[0.05] border-[#2DD4BF]/12"
+                              ? "text-[#3B82F6] bg-[#3B82F6]/[0.05] border-[#3B82F6]/12"
                               : "text-slate-400 hover:text-white hover:bg-white/[0.03] border-transparent"
                           }`}
                         >
@@ -223,7 +223,7 @@ export default function Header() {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="block text-center bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#020617] text-[13px] font-bold py-2.5 rounded-xl transition-all active:scale-[0.98] mb-6"
+                  className="block text-center bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] text-[13px] font-bold py-2.5 rounded-xl transition-all active:scale-[0.98] mb-6"
                 >
                   Hire me
                 </Link>
@@ -243,7 +243,7 @@ export default function Header() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
-                        className="text-slate-500 hover:text-[#2DD4BF] transition-colors p-1"
+                        className="text-slate-500 hover:text-[#3B82F6] transition-colors p-1"
                       >
                         <social.icon size={17} />
                       </a>

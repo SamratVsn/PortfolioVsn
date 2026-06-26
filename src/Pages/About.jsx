@@ -105,8 +105,8 @@ function SectionHeader({ label, sub }) {
   return (
     <motion.div {...fadeUp}>
       <div className="flex items-center gap-2 mb-3">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]/50" />
-        <span className="w-6 h-px bg-[#2DD4BF]/25" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/50" />
+        <span className="w-6 h-px bg-[#3B82F6]/25" />
       </div>
       <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.025em] mb-1.5">
         {label}
@@ -118,7 +118,7 @@ function SectionHeader({ label, sub }) {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-400 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-slate-400 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO
         title="About | Samrat Parajuli - Android Developer"
         description="Samrat Parajuli is an Android developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications."
@@ -148,7 +148,7 @@ export default function About() {
           >
             {/* Avatar */}
             <div className="relative shrink-0">
-              <div className="absolute -inset-px rounded-2xl border border-[#2DD4BF]/15" />
+              <div className="absolute -inset-px rounded-2xl border border-[#3B82F6]/15" />
               <img
                 src={PortfolioImage}
                 alt="Samrat Parajuli"
@@ -159,9 +159,9 @@ export default function About() {
 
             {/* Bio */}
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 bg-[#2DD4BF]/[0.07] border border-[#2DD4BF]/20 rounded-full px-3 py-1.5 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
-                <span className="text-[11px] text-[#2DD4BF] font-semibold tracking-wide">
+              <div className="inline-flex items-center gap-2 bg-[#3B82F6]/[0.07] border border-[#3B82F6]/20 rounded-full px-3 py-1.5 mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                <span className="text-[11px] text-[#3B82F6] font-semibold tracking-wide">
                   Android Developer · SamratVsn
                 </span>
               </div>
@@ -178,7 +178,7 @@ export default function About() {
             <div className="flex md:flex-col gap-3 shrink-0">
               <Link
                 to="/notes"
-                className="inline-flex items-center gap-2 bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#020617] text-xs font-bold px-5 py-2.5 rounded-xl transition-all active:scale-[0.97]"
+                className="inline-flex items-center gap-2 bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] text-xs font-bold px-5 py-2.5 rounded-xl transition-all active:scale-[0.97]"
               >
                 Notes <ArrowUpRight size={13} />
               </Link>
@@ -207,7 +207,7 @@ export default function About() {
               >
                 <div
                   className={`text-2xl font-bold tracking-tight ${
-                    s.accent ? "text-[#2DD4BF]" : "text-white"
+                    s.accent ? "text-[#3B82F6]" : "text-white"
                   }`}
                 >
                   {s.value}
@@ -243,7 +243,7 @@ export default function About() {
                   <div className="flex flex-col items-center pt-1 gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full shrink-0 ${
-                        step.active ? "bg-[#2DD4BF]" : "bg-slate-700"
+                        step.active ? "bg-[#3B82F6]" : "bg-slate-700"
                       }`}
                     />
                     {i < journey.length - 1 && (
@@ -253,7 +253,7 @@ export default function About() {
                   <div>
                     <p
                       className={`text-[10px] font-bold tracking-[0.08em] uppercase mb-1.5 ${
-                        step.active ? "text-[#2DD4BF]" : "text-slate-600"
+                        step.active ? "text-[#3B82F6]" : "text-slate-600"
                       }`}
                     >
                       {step.label}
@@ -321,9 +321,9 @@ export default function About() {
               <motion.div
                 key={i}
                 {...stagger(i)}
-                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 hover:border-[#2DD4BF]/20 transition-all duration-300 group"
+                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 hover:border-[#3B82F6]/20 transition-all duration-300 group"
               >
-                <p className="text-[10px] font-bold text-[#2DD4BF] tracking-[0.08em] uppercase mb-2">
+                <p className="text-[10px] font-bold text-[#3B82F6] tracking-[0.08em] uppercase mb-2">
                   {item.title}
                 </p>
                 <p className="text-slate-500 text-[12.5px] leading-relaxed mb-3">
@@ -331,7 +331,7 @@ export default function About() {
                 </p>
                 <div className="h-[3px] bg-slate-800/60 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-[#2DD4BF] rounded-full transition-all duration-700"
+                    className="h-full bg-[#3B82F6] rounded-full transition-all duration-700"
                     style={{ width: `${item.progress}%` }}
                   />
                 </div>
@@ -351,9 +351,9 @@ export default function About() {
               <motion.div
                 key={i}
                 {...stagger(i)}
-                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 flex flex-col hover:border-[#2DD4BF]/20 transition-all duration-300"
+                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 flex flex-col hover:border-[#3B82F6]/20 transition-all duration-300"
               >
-                <div className="text-[28px] text-[#2DD4BF]/15 leading-none mb-3 select-none">
+                <div className="text-[28px] text-[#3B82F6]/15 leading-none mb-3 select-none">
                   &ldquo;
                 </div>
                 <p className="text-slate-400 text-[12.5px] leading-relaxed flex-1 mb-5">
@@ -382,9 +382,9 @@ export default function About() {
         <div className="max-w-lg mx-auto text-center">
           <motion.div {...fadeUp}>
             <div className="flex items-center justify-center gap-2 mb-5">
-              <span className="w-6 h-px bg-[#2DD4BF]/25" />
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]/50" />
-              <span className="w-6 h-px bg-[#2DD4BF]/25" />
+              <span className="w-6 h-px bg-[#3B82F6]/25" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/50" />
+              <span className="w-6 h-px bg-[#3B82F6]/25" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.025em] mb-3">
               Let's build something meaningful
@@ -395,7 +395,7 @@ export default function About() {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#020617] font-bold text-sm px-6 py-2.5 rounded-xl transition-all active:scale-[0.97]"
+                className="inline-flex items-center gap-2 bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-bold text-sm px-6 py-2.5 rounded-xl transition-all active:scale-[0.97]"
               >
                 Contact me <ArrowUpRight size={14} />
               </Link>

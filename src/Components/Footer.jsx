@@ -72,14 +72,14 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="relative w-2.5 h-2.5 shrink-0">
-                <span className="absolute inset-0 rounded-full border border-[#2DD4BF]/25" />
-                <span className="absolute inset-[2px] rounded-full bg-[#2DD4BF]" />
+                <span className="absolute inset-0 rounded-full border border-[#3B82F6]/25" />
+                <span className="absolute inset-[2px] rounded-full bg-[#3B82F6]" />
               </div>
               <div>
                 <span className="block text-[14px] font-bold tracking-tight text-white leading-none">
                   Samrat
                 </span>
-                <span className="block text-[8.5px] text-[#2DD4BF] font-semibold tracking-[0.12em] uppercase mt-0.5">
+                <span className="block text-[8.5px] text-[#3B82F6] font-semibold tracking-[0.12em] uppercase mt-0.5">
                   Android Developer
                 </span>
               </div>
@@ -87,9 +87,9 @@ export default function Footer() {
             <p className="text-[11.5px] text-slate-500 leading-relaxed max-w-[190px]">
               Building native Android experiences with clean architecture & modern Kotlin.
             </p>
-            <div className="inline-flex items-center gap-1.5 bg-[#2DD4BF]/[0.07] border border-[#2DD4BF]/20 rounded-full px-2.5 py-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
-              <span className="text-[10px] text-[#2DD4BF] font-semibold tracking-wide">
+            <div className="inline-flex items-center gap-1.5 bg-[#3B82F6]/[0.07] border border-[#3B82F6]/20 rounded-full px-2.5 py-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+              <span className="text-[10px] text-[#3B82F6] font-semibold tracking-wide">
                 Open to work
               </span>
             </div>
@@ -107,7 +107,7 @@ export default function Footer() {
                     to={link.path}
                     className="text-slate-500 hover:text-white transition-colors text-[12.5px] inline-flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-slate-800 group-hover:bg-[#2DD4BF] transition-colors" />
+                    <span className="w-1 h-1 rounded-full bg-slate-800 group-hover:bg-[#3B82F6] transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -126,7 +126,7 @@ export default function Footer() {
                   key={item}
                   className="text-slate-500 text-[12.5px] flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 rounded-full bg-[#2DD4BF]/40 shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-[#3B82F6]/40 shrink-0" />
                   {item}
                 </li>
               ))}
@@ -146,7 +146,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group relative flex items-center justify-center w-10 h-10 rounded-xl border border-slate-800/50 bg-[#0A0F1E] text-slate-500 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/20 transition-all duration-200"
+                  className="group relative flex items-center justify-center w-10 h-10 rounded-xl border border-slate-800/50 bg-[#0A0F1E] text-slate-500 hover:text-[#3B82F6] hover:border-[#3B82F6]/20 transition-all duration-200"
                 >
                   <social.icon size={16} />
                   <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-white bg-slate-800 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
@@ -186,7 +186,7 @@ export default function Footer() {
             transition={{ duration: 0.2 }}
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="fixed bottom-6 right-6 z-40 flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#0A0F1E] border border-slate-800/60 text-slate-500 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/20 transition-all text-[10px] font-medium"
+            className="fixed bottom-6 right-6 z-40 flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#0A0F1E] border border-slate-800/60 text-slate-500 hover:text-[#3B82F6] hover:border-[#3B82F6]/20 transition-all text-[10px] font-medium"
           >
             <ArrowUp size={12} />
             Top

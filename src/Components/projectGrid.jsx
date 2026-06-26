@@ -64,11 +64,11 @@ function ProjectCard({ project, index }) {
             Project {project.id}
           </span>
           <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-            <ArrowRight size={16} className="text-[#2DD4BF]" />
+            <ArrowRight size={16} className="text-[#3B82F6]" />
           </div>
         </div>
 
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-5 group-hover:text-[#2DD4BF] transition-colors">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-5 group-hover:text-[#3B82F6] transition-colors">
           {project.title}
         </h3>
 
@@ -106,7 +106,7 @@ function ProjectCard({ project, index }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-sm text-slate-500 hover:text-[#2DD4BF] transition-colors flex items-center gap-1.5 relative z-20"
+            className="text-sm text-slate-500 hover:text-[#3B82F6] transition-colors flex items-center gap-1.5 relative z-20"
             title="View source code on GitHub"
           >
             <Github size={14} />
@@ -119,7 +119,7 @@ function ProjectCard({ project, index }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="text-sm text-slate-500 hover:text-[#2DD4BF] transition-colors flex items-center gap-1.5 relative z-20"
+            className="text-sm text-slate-500 hover:text-[#3B82F6] transition-colors flex items-center gap-1.5 relative z-20"
             title="View live project"
           >
             <ExternalLink size={14} />
@@ -144,7 +144,7 @@ export default function ProjectGrid() {
         className="mb-14"
       >
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-[-0.03em]">
-          Projects<span className="text-[#2DD4BF]">.</span>
+          Projects<span className="text-[#3B82F6]">.</span>
         </h1>
         <p className="text-slate-400 text-base leading-relaxed max-w-2xl">
           Real projects that shaped my engineering thinking. Each one presented specific 

@@ -22,7 +22,7 @@ export default function AllioVsn() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Developer Portfolio | Samrat Parajuli"
         description="This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np."
@@ -33,7 +33,7 @@ export default function AllioVsn() {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-6 py-6">
           <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-            Portfolio <span className="text-[#2DD4BF]">Engine v2</span>
+            Portfolio <span className="text-[#3B82F6]">Engine v2</span>
           </h1>
           <p className="text-sm text-slate-400 mt-1">Built with React, Tailwind CSS & Vercel Edge</p>
         </div>
@@ -71,7 +71,7 @@ export default function AllioVsn() {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === tab 
-                  ? 'text-[#2DD4BF] border-[#2DD4BF]' 
+                  ? 'text-[#3B82F6] border-[#3B82F6]' 
                   : 'text-slate-400 border-transparent hover:text-slate-300'
               }`}
             >
@@ -86,7 +86,7 @@ export default function AllioVsn() {
           {activeTab === 'about' && (
             <div className="space-y-8 animate-in fade-in">
               <div>
-                <h3 className="text-[#2DD4BF] text-sm font-semibold uppercase tracking-widest mb-4">Design Philosophy</h3>
+                <h3 className="text-[#3B82F6] text-sm font-semibold uppercase tracking-widest mb-4">Design Philosophy</h3>
                 <p className="text-slate-300 leading-relaxed">
                   The core goal was to build a low-friction portfolio experience. By using React State management, 
                   I eliminated unnecessary page refreshes, creating a fluid single-page application feel. 
@@ -96,7 +96,7 @@ export default function AllioVsn() {
               </div>
               
               <div>
-                <h3 className="text-[#2DD4BF] text-sm font-semibold uppercase tracking-widest mb-4">User Experience Flow</h3>
+                <h3 className="text-[#3B82F6] text-sm font-semibold uppercase tracking-widest mb-4">User Experience Flow</h3>
                 <div className="space-y-3">
                   {[
                     { num: '01', text: 'Router Entry Point Initialization' },
@@ -105,7 +105,7 @@ export default function AllioVsn() {
                     { num: '04', text: 'Smooth Transitions & Animations' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <span className="text-[#2DD4BF] font-semibold text-sm">{item.num}</span>
+                      <span className="text-[#3B82F6] font-semibold text-sm">{item.num}</span>
                       <p className="text-slate-400 text-sm pt-0.5">{item.text}</p>
                     </div>
                   ))}
@@ -119,7 +119,7 @@ export default function AllioVsn() {
               {techStack.map((tech, idx) => (
                 <div key={idx} className="p-6 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-slate-900 rounded-lg text-[#2DD4BF]">
+                    <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6]">
                       <tech.icon size={24} />
                     </div>
                     <div>
@@ -141,7 +141,7 @@ export default function AllioVsn() {
                 { title: "Dark-Optimized", detail: "Custom slate palette designed for reduced eye strain during extended reading sessions." }
               ].map((feat, i) => (
                 <div key={i} className="p-6 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
-                  <p className="text-[#2DD4BF] text-xs font-semibold uppercase tracking-widest mb-3">
+                  <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">
                     Feature {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="text-white font-semibold mb-2 text-sm">{feat.title}</h3>
@@ -165,7 +165,7 @@ export default function AllioVsn() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="/" 
-                className="bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 text-sm"
+                className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 text-sm"
               >
                 View Full Source <ArrowUpRight size={15} />
               </a>

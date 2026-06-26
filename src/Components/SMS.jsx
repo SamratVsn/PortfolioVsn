@@ -42,7 +42,7 @@ const SMS = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Student Management System | Samrat Parajuli"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
@@ -55,14 +55,14 @@ const SMS = () => {
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">System Software</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              Student Management <span className="text-[#2DD4BF]">System</span>
+              Student Management <span className="text-[#3B82F6]">System</span>
             </h1>
           </div>
           <a 
             href="https://github.com/SamratVsn/C-codes" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90 rounded-lg font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-colors"
           >
             <Github size={16} /> View Code
           </a>
@@ -97,7 +97,7 @@ const SMS = () => {
               </p>
               <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
                 <p className="text-sm text-slate-300">
-                  <span className="text-[#2DD4BF] font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
+                  <span className="text-[#3B82F6] font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
                   flushing to ensure data persistence even in the event of software interrupt.
                 </p>
               </div>
@@ -112,7 +112,7 @@ const SMS = () => {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab 
-                        ? 'text-[#2DD4BF] border-[#2DD4BF]' 
+                        ? 'text-[#3B82F6] border-[#3B82F6]' 
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -132,19 +132,19 @@ const SMS = () => {
                       <h3 className="text-white font-semibold text-sm">Core Architecture</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>Binary file storage with struct serialization</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>Direct byte-offset navigation using fseek()</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>Atomic operations with temporary file swapping</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>In-place updates using rb+ file mode</span>
                         </li>
                       </ul>
@@ -157,7 +157,7 @@ const SMS = () => {
                     {features.map((f, i) => (
                       <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
                         <div className="flex items-start gap-3">
-                          <f.icon size={20} className="text-[#2DD4BF] mt-1" />
+                          <f.icon size={20} className="text-[#3B82F6] mt-1" />
                           <div>
                             <h4 className="text-white font-semibold text-sm mb-1">{f.title}</h4>
                             <p className="text-slate-400 text-sm">{f.desc}</p>
@@ -176,7 +176,7 @@ const SMS = () => {
                         Records became unreadable due to memory alignment differences across architectures.
                       </p>
                       <div className="p-3 bg-slate-900 rounded text-xs font-mono text-slate-300">
-                        <span className="text-[#2DD4BF]">Solution:</span> #pragma pack(1)
+                        <span className="text-[#3B82F6]">Solution:</span> #pragma pack(1)
                       </div>
                     </div>
                     <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
@@ -193,7 +193,7 @@ const SMS = () => {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#2DD4BF] uppercase tracking-widest">Execution Screenshots</h3>
+              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Execution Screenshots</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {screenshots.map((s, i) => (
                   <div 
@@ -207,7 +207,7 @@ const SMS = () => {
                       className="w-full h-32 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-[#2DD4BF] transition-colors">
+                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-[#3B82F6] transition-colors">
                       {s.label}
                     </p>
                   </div>
@@ -222,7 +222,7 @@ const SMS = () => {
             {/* Specifications */}
             <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
               <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
-                <Activity size={16} className="text-[#2DD4BF]" />
+                <Activity size={16} className="text-[#3B82F6]" />
                 Specifications
               </h3>
               <div className="space-y-4">
@@ -238,11 +238,11 @@ const SMS = () => {
             {/* Data Structure */}
             <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
               <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-                <HardDrive size={16} className="text-[#2DD4BF]" />
+                <HardDrive size={16} className="text-[#3B82F6]" />
                 Data Structure
               </h3>
               <div className="p-4 bg-slate-950 border border-slate-900 rounded text-xs font-mono text-slate-400 leading-relaxed space-y-1">
-                <div><span className="text-[#2DD4BF]">struct</span> Student {`{`}</div>
+                <div><span className="text-[#3B82F6]">struct</span> Student {`{`}</div>
                 <div className="ml-4">
                   <div><span className="text-slate-500">char</span> name[50];</div>
                   <div><span className="text-slate-500">int</span> rollNo;</div>

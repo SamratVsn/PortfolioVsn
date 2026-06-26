@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
 import { ArrowUpRight } from "lucide-react";
+import {Link} from "react-router-dom";
 
 const articles = [
   {
@@ -113,7 +114,7 @@ function Notes() {
   const rest = articles.filter((a) => !a.featured);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO
         title="Notes | Samrat Parajuli"
         description="Learning in public — Android journey, engineering notes, and event reflections by Samrat Parajuli."
@@ -131,7 +132,7 @@ function Notes() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-[-0.02em]">
-            Notes<span className="text-[#2DD4BF]">.</span>
+            Notes<span className="text-[#3B82F6]">.</span>
           </h1>
           <p className="text-slate-400 text-base leading-relaxed max-w-lg">
             Learning in public — Android milestones, engineering thoughts, and
@@ -162,7 +163,7 @@ function Notes() {
                 </div>
               )}
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-[11px] text-[#2DD4BF] font-medium uppercase tracking-wider">
+                <span className="text-[11px] text-[#3B82F6] font-medium uppercase tracking-wider">
                   Featured
                 </span>
                 <span className="text-slate-700">·</span>
@@ -170,13 +171,13 @@ function Notes() {
                 <span className="text-slate-700">·</span>
                 <span className="text-[11px] text-slate-500">{featured.category}</span>
               </div>
-              <h2 className="text-white text-lg sm:text-xl font-semibold mb-2 leading-snug group-hover:text-[#2DD4BF] transition-colors duration-200">
+              <h2 className="text-white text-lg sm:text-xl font-semibold mb-2 leading-snug group-hover:text-[#3B82F6] transition-colors duration-200">
                 {featured.title}
               </h2>
               <p className="text-slate-400 text-sm leading-relaxed mb-4 max-w-prose">
                 {featured.excerpt}
               </p>
-              <span className="inline-flex items-center gap-1.5 text-sm text-slate-500 group-hover:text-[#2DD4BF] transition-colors duration-200">
+              <span className="inline-flex items-center gap-1.5 text-sm text-slate-500 group-hover:text-[#3B82F6] transition-colors duration-200">
                 Read on Medium <ArrowUpRight size={13} />
               </span>
             </a>
@@ -211,7 +212,7 @@ function Notes() {
                       <span className="text-slate-700">·</span>
                       <span className="text-[11px] text-slate-500">{article.date}</span>
                     </div>
-                    <h3 className="text-white font-medium text-sm sm:text-base leading-snug mb-1.5 group-hover:text-[#2DD4BF] transition-colors duration-200">
+                    <h3 className="text-white font-medium text-sm sm:text-base leading-snug mb-1.5 group-hover:text-[#3B82F6] transition-colors duration-200">
                       {article.title}
                     </h3>
                     <p className="text-slate-400 text-sm leading-relaxed line-clamp-2">
@@ -240,7 +241,7 @@ function Notes() {
                 <div className="w-20 sm:w-24 shrink-0 pt-0.5">
                   <span
                     className={`text-xs font-medium tabular-nums ${
-                      item.active ? "text-[#2DD4BF]" : "text-slate-600"
+                      item.active ? "text-[#3B82F6]" : "text-slate-600"
                     }`}
                   >
                     {item.period}
@@ -265,7 +266,7 @@ function Notes() {
                       {item.title}
                     </h3>
                     {item.active && (
-                      <span className="text-[10px] text-[#2DD4BF] border border-[#2DD4BF]/25 px-1.5 py-0.5 rounded uppercase tracking-wider leading-none">
+                      <span className="text-[10px] text-[#3B82F6] border border-[#3B82F6]/25 px-1.5 py-0.5 rounded uppercase tracking-wider leading-none">
                         Now
                       </span>
                     )}
@@ -283,7 +284,7 @@ function Notes() {
 
         {/* ── Engineering Notes ── */}
         <section>
-          <SectionLabel>Engineering notes</SectionLabel>
+          <SectionLabel><Link to = "/dev">Engineering notes</Link></SectionLabel>
           <p className="text-slate-400 text-sm leading-relaxed mb-10 max-w-md">
             Technical writing in progress — drafts on architecture, Compose patterns, and
             lessons from building.

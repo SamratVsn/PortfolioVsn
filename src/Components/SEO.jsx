@@ -1,4 +1,4 @@
-﻿import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 
 const SITE = {
   title: "Samrat Parajuli | Android Systems Engineer & Runtime Architect",

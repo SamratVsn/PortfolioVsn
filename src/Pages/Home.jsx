@@ -4,7 +4,7 @@ import Header from '../Components/Header'
 import SEO from '../Components/SEO'
 import Footer from '../Components/Footer'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaXTwitter, FaGoogle } from 'react-icons/fa6'
 import { ArrowUpRight, Code, BookOpen, Layers } from 'lucide-react'
 
 // ── Shared section heading component ──────────────────────────────────────────
@@ -126,12 +126,12 @@ function Home() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#2DD4BF]/20 selection:text-[#2DD4BF] overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO ogUrl="https://www.samratparajuli0.com.np/" />
       <Header />
 
       {/* ─── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[92vh] flex items-center pt-28 pb-20 px-6">
+      <section className="relative min-h-[92vh] flex items-center pt-30 pb-22 px-6">
         <div className="max-w-4xl mx-auto relative w-full">
           <div className="flex items-center lg:gap-8 relative">
 
@@ -144,7 +144,7 @@ function Home() {
             >
               <h1 className="text-7xl sm:text-7xl lg:text-8xl font-bold text-white leading-[1] mb-8 tracking-[-0.03em]">
                 Samrat <br />
-                <span className="text-[#2DD4BF]">Parajuli</span>
+                <span className="text-[#3B82F6]">Parajuli</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-300 font-medium max-w-sm mb-5 leading-relaxed">
@@ -164,7 +164,7 @@ function Home() {
               <div className="flex flex-wrap items-center gap-3 mb-11">
                 <Link
                   to="/projects"
-                  className="bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 text-sm"
+                  className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 text-sm"
                 >
                   View Projects <ArrowUpRight size={15} />
                 </Link>
@@ -176,7 +176,7 @@ function Home() {
                 </Link>
                 <Link
                   to="/notes"
-                  className="text-slate-500 hover:text-[#2DD4BF] text-sm font-medium transition-colors inline-flex items-center gap-1.5 ml-1"
+                  className="text-slate-500 hover:text-[#3B82F6] text-sm font-medium transition-colors inline-flex items-center gap-1.5 ml-1"
                 >
                   Notes <ArrowUpRight size={13} />
                 </Link>
@@ -187,6 +187,7 @@ function Home() {
                   { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
                   { href: "https://www.linkedin.com/in/samratvsn/", icon: FaLinkedin, label: "LinkedIn" },
                   { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X / Twitter" },
+                  { href: "https://g.dev/samratparajuli", icon: FaGoogle, label: "GoogleDev" },
                 ].map(({ href, icon: Icon, label }) => (
                   <a
                     key={label}
@@ -194,7 +195,7 @@ function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="text-slate-600 hover:text-[#2DD4BF] transition-colors duration-200"
+                    className="text-slate-600 hover:text-[#3B82F6] transition-colors duration-200"
                   >
                     <Icon size={26} />
                   </a>
@@ -227,15 +228,15 @@ function Home() {
                   fontSize="320"
                   letterSpacing="-18"
                   fill="none"
-                  stroke="rgba(45,212,191,0.22)"
+                  stroke="rgba(59, 130, 246, 0.22)"
                   strokeWidth="1.5"
                 >
                   SP
                 </text>
 
                 {/* ── KOTLIN — top-left, into the S ── */}
-                <circle cx="36" cy="64" r="2.5" fill="rgba(45,212,191,0.5)" />
-                <line x1="36" y1="64" x2="80" y2="64" stroke="rgba(45,212,191,0.4)" strokeWidth="0.75" />
+                <circle cx="36" cy="64" r="2.5" fill="rgb(59, 130, 246)" />
+                <line x1="36" y1="64" x2="80" y2="64" stroke="rgb(59, 130, 246)" strokeWidth="0.75" />
                 <text
                   x="86"
                   y="69"
@@ -243,16 +244,16 @@ function Home() {
                   fontWeight="700"
                   fontSize="10"
                   letterSpacing="2.5"
-                  fill="rgba(45,212,191,0.6)"
+                  fill="rgb(59, 130, 246)"
                   textAnchor="start"
                 >
                   KOTLIN
                 </text>
 
                 {/* ── COMPOSE — mid, spanning the gap between S and P ── */}
-                <circle cx="140" cy="186" r="2.5" fill="rgba(45,212,191,0.35)" />
-                <line x1="140" y1="186" x2="220" y2="186" stroke="rgba(45,212,191,0.25)" strokeWidth="0.75" strokeDasharray="4 3" />
-                <circle cx="220" cy="186" r="2.5" fill="rgba(45,212,191,0.35)" />
+                <circle cx="140" cy="186" r="2.5" fill="rgb(59, 130, 246)" />
+                <line x1="140" y1="186" x2="220" y2="186" stroke="rgb(59, 130, 246)" strokeWidth="0.75" strokeDasharray="4 3" />
+                <circle cx="220" cy="186" r="2.5" fill="rgb(59, 130, 246)" />
                 <text
                   x="180"
                   y="180"
@@ -260,15 +261,15 @@ function Home() {
                   fontWeight="700"
                   fontSize="10"
                   letterSpacing="2.5"
-                  fill="rgba(45,212,191,0.5)"
+                  fill="rgb(59, 130, 246)"
                   textAnchor="middle"
                 >
                   COMPOSE
                 </text>
 
                 {/* ── ANDROID — lower-right, into the P bowl ── */}
-                <circle cx="316" cy="290" r="2.5" fill="rgba(45,212,191,0.5)" />
-                <line x1="272" y1="290" x2="316" y2="290" stroke="rgba(45,212,191,0.4)" strokeWidth="0.75" />
+                <circle cx="316" cy="290" r="2.5" fill="rgb(59, 130, 246)" />
+                <line x1="272" y1="290" x2="316" y2="290" stroke="rgb(59, 130, 246)" strokeWidth="0.75" />
                 <text
                   x="266"
                   y="286"
@@ -276,7 +277,7 @@ function Home() {
                   fontWeight="700"
                   fontSize="10"
                   letterSpacing="2.5"
-                  fill="rgba(45,212,191,0.6)"
+                  fill="rgb(59, 130, 246)"
                   textAnchor="end"
                 >
                   ANDROID
@@ -306,7 +307,7 @@ function Home() {
                 key={col.title}
                 className="border border-slate-800/60 rounded-xl p-6 hover:border-slate-700/80 transition-colors duration-200"
               >
-                <div className="p-2 bg-[#2DD4BF]/5 border border-[#2DD4BF]/10 rounded-lg w-fit mb-4 text-[#2DD4BF]">
+                <div className="p-2 bg-[#3B82F6]/5 border border-[#3B82F6]/10 rounded-lg w-fit mb-4 text-[#3B82F6]">
                   <col.icon size={18} />
                 </div>
                 <h3 className="text-white font-semibold text-sm mb-1">{col.title}</h3>
@@ -314,7 +315,7 @@ function Home() {
                 <ul className="space-y-2">
                   {col.items.map(item => (
                     <li key={item.name} className="text-sm flex items-baseline gap-2.5">
-                      <span className="w-2.5 h-px bg-[#2DD4BF]/40 shrink-0 translate-y-[-1px]" />
+                      <span className="w-2.5 h-px bg-[#3B82F6]/40 shrink-0 translate-y-[-1px]" />
                       <span className="text-slate-300">{item.name}</span>
                       <span className="text-slate-600 text-[11px]">{item.note}</span>
                     </li>
@@ -363,7 +364,7 @@ function Home() {
             />
             <Link
               to="/notes"
-              className="hidden sm:inline-flex text-[#2DD4BF] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
+              className="hidden sm:inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
             >
               View all <ArrowUpRight size={13} />
             </Link>
@@ -379,13 +380,13 @@ function Home() {
               <div className="space-y-0">
                 {journeyItems.map((item, i) => (
                   <div key={i} className={`flex gap-6 py-4 ${i < journeyItems.length - 1 ? 'border-b border-slate-800/40' : ''}`}>
-                    <span className={`text-xs font-mono tabular-nums w-10 shrink-0 pt-0.5 ${item.current ? 'text-[#2DD4BF]' : 'text-slate-600'}`}>
+                    <span className={`text-xs font-mono tabular-nums w-10 shrink-0 pt-0.5 ${item.current ? 'text-[#3B82F6]' : 'text-slate-600'}`}>
                       {item.date}
                     </span>
                     <span className={`text-sm leading-snug ${item.current ? 'text-white font-medium' : 'text-slate-400'}`}>
                       {item.title}
                       {item.current && (
-                        <span className="ml-2 text-[10px] text-[#2DD4BF] border border-[#2DD4BF]/25 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle">
+                        <span className="ml-2 text-[10px] text-[#3B82F6] border border-[#3B82F6]/25 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle">
                           Now
                         </span>
                       )}
@@ -416,7 +417,7 @@ function Home() {
             </div>
           </div>
 
-          <Link to="/notes" className="sm:hidden mt-6 inline-flex text-[#2DD4BF] text-sm font-medium items-center gap-1">
+          <Link to="/notes" className="sm:hidden mt-6 inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1">
             View all <ArrowUpRight size={13} />
           </Link>
         </div>
@@ -433,7 +434,7 @@ function Home() {
             />
             <Link
               to="/projects"
-              className="hidden sm:inline-flex text-[#2DD4BF] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
+              className="hidden sm:inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
             >
               View all <ArrowUpRight size={13} />
             </Link>
@@ -449,7 +450,7 @@ function Home() {
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-white font-semibold text-base group-hover:text-[#2DD4BF] transition-colors">
+                      <h3 className="text-white font-semibold text-base group-hover:text-[#3B82F6] transition-colors">
                         {project.title}
                       </h3>
                       <div className="flex flex-wrap gap-1.5">
@@ -482,7 +483,7 @@ function Home() {
                         tabIndex={0}
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.github, '_blank'); }}
                         onKeyDown={(e) => e.key === 'Enter' && window.open(project.github, '_blank')}
-                        className="text-xs text-slate-600 hover:text-[#2DD4BF] transition-colors flex items-center gap-1.5 cursor-pointer"
+                        className="text-xs text-slate-600 hover:text-[#3B82F6] transition-colors flex items-center gap-1.5 cursor-pointer"
                       >
                         <FaGithub size={13} /> Source
                       </span>
@@ -493,7 +494,7 @@ function Home() {
                         tabIndex={0}
                         onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.live, '_blank'); }}
                         onKeyDown={(e) => e.key === 'Enter' && window.open(project.live, '_blank')}
-                        className="text-xs text-slate-600 hover:text-[#2DD4BF] transition-colors flex items-center gap-1.5 cursor-pointer"
+                        className="text-xs text-slate-600 hover:text-[#3B82F6] transition-colors flex items-center gap-1.5 cursor-pointer"
                       >
                         <ArrowUpRight size={13} /> Live
                       </span>
@@ -504,7 +505,7 @@ function Home() {
             ))}
           </div>
 
-          <Link to="/projects" className="sm:hidden mt-6 inline-flex text-[#2DD4BF] text-sm font-medium items-center gap-1">
+          <Link to="/projects" className="sm:hidden mt-6 inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1">
             View all <ArrowUpRight size={13} />
           </Link>
         </div>

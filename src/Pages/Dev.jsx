@@ -1,561 +1,393 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../Components/SEO";
-import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
-import { FaLinkedinIn } from "react-icons/fa";
-import BrandLogo from '../assets/Brand-Logo.png';
+import { ArrowUpRight, X, ArrowLeft } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { BookOpen } from "lucide-react";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    url: "https://github.com/SamratVsn",
+    icon: FaGithub,
+    desc: "Code & projects",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/samratvsn/",
+    icon: FaLinkedin,
+    desc: "Connect professionally",
+  },
+  {
+    name: "Writing",
+    url: "https://medium.com/@samratvsn",
+    icon: BookOpen,
+    desc: "Notes & essays",
+  },
+];
 
 export default function Dev() {
   const [focusMode, setFocusMode] = useState(false);
-  const [phase, setPhase] = useState(0);
-  const [heroHighlighted, setHeroHighlighted] = useState(true);
-  const [normalModeRevealed, setNormalModeRevealed] = useState(false);
-  const [secretRevealed, setSecretRevealed] = useState(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [verseClicked, setVerseClicked] = useState(0);
 
-  const timersRef = useRef([]);
-  const canvasRef = useRef(null);
-  const secretTimeoutRef = useRef(null);
-
-  // Console easter egg
+  // Scroll lock
   useEffect(() => {
-    const s = [
-      "color: #2DD4BF; font-size: 12px; font-weight: bold;",
-      "color: #64748B; font-size: 11px;",
-    ];
-    console.log("%c  ╔══════════════════════════════════╗", s[0]);
-    console.log("%c  ║    ~ you found the hidden path ~   ║", s[1]);
-    console.log("%c  ╠══════════════════════════════════╣", s[0]);
-    console.log("%c  ║  samrat.sys // dev               ║", s[0]);
-    console.log("%c  ║  session: established            ║", s[1]);
-    console.log("%c  ╚══════════════════════════════════╝", s[0]);
-    console.log("%c  \u{1F9D8} seeker of knowledge, builder of systems", "color: #2DD4BF; font-size: 13px;");
-  }, []);
-
-  // Dim hero on load
-  useEffect(() => {
-    const timer = setTimeout(() => setHeroHighlighted(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Phased reveal in focus mode
-  useEffect(() => {
-    if (!focusMode) {
-      setPhase(0);
-      timersRef.current.forEach(clearTimeout);
-      timersRef.current = [];
-      return;
-    }
-
-    timersRef.current.push(setTimeout(() => setPhase(1), 1200));
-    timersRef.current.push(setTimeout(() => setPhase(2), 2400));
-    timersRef.current.push(setTimeout(() => setPhase(3), 3600));
-
+    document.body.style.overflow = focusMode ? "hidden" : "";
     return () => {
-      timersRef.current.forEach(clearTimeout);
-      timersRef.current = [];
+      document.body.style.overflow = "";
     };
   }, [focusMode]);
 
-  // Body scroll lock
+  // Escape exits focus
   useEffect(() => {
-    if (focusMode) {
-      const timer = setTimeout(() => {
-        document.body.style.overflow = "hidden";
-      }, 400);
-      return () => {
-        clearTimeout(timer);
-        document.body.style.overflow = "auto";
-      };
-    }
-  }, [focusMode]);
-
-  // Keyboard easter eggs
-  useEffect(() => {
-    let buffer = "";
     const handler = (e) => {
-      buffer += e.key.toLowerCase();
-      if (buffer.length > 15) buffer = buffer.slice(-15);
-
-      if (buffer.includes("samrat")) {
-        setSecretRevealed("samrat");
-        buffer = "";
-      } else if (buffer.includes("42")) {
-        setSecretRevealed("42");
-        buffer = "";
-      } else if (buffer.includes("bow")) {
-        setSecretRevealed("bow");
-        buffer = "";
-      }
+      if (e.key === "Escape" && focusMode) setFocusMode(false);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, []);
-
-  // Auto-dismiss secret
-  useEffect(() => {
-    if (secretRevealed) {
-      secretTimeoutRef.current = setTimeout(() => setSecretRevealed(null), 4000);
-      return () => clearTimeout(secretTimeoutRef.current);
-    }
-  }, [secretRevealed]);
-
-  // Mouse tracking in focus mode
-  useEffect(() => {
-    if (!focusMode) return;
-    const handler = (e) => setMousePos({ x: e.clientX, y: e.clientY });
-    window.addEventListener("mousemove", handler);
-    return () => window.removeEventListener("mousemove", handler);
   }, [focusMode]);
-
-  // Matrix rain canvas
-  useEffect(() => {
-    if (!focusMode) return;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
-    const fontSize = 12;
-    const columns = Math.ceil(canvas.width / fontSize);
-    const drops = Array(columns).fill(1).map(() => Math.random() * -100);
-
-    let animId;
-    const draw = () => {
-      ctx.fillStyle = "rgba(15, 23, 42, 0.06)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-
-        ctx.fillStyle = `rgba(45, 212, 191, ${0.06 + Math.random() * 0.1})`;
-        ctx.font = `${fontSize}px monospace`;
-        ctx.fillText(char, x, y);
-
-        if (y > canvas.height && Math.random() > 0.98) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-      animId = requestAnimationFrame(draw);
-    };
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    draw();
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [focusMode]);
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/samrat-parajuli-54310732b/",
-      icon: FaLinkedinIn,
-    },
-    {
-      name: "GitHub",
-      url: "https://github.com/SamratVsn",
-      icon: Github,
-    },
-    {
-      name: "Portfolio",
-      url: "https://www.samratparajuli0.com.np/",
-      icon: ExternalLink,
-    },
-  ];
-
-  const getSecretMessage = () => {
-    switch (secretRevealed) {
-      case "samrat":
-        return { emoji: "\u{1F52E}", text: "SamratVsn was here — keep building, seeker." };
-      case "42":
-        return { emoji: "\u{1F30C}", text: "The answer to the ultimate question of life, the universe, and everything." };
-      case "bow":
-        return { emoji: "\u{1F64F}", text: "\u{0928}\u{092E}\u{0938}\u{094D}\u{0924}\u{0947} — the divine in me bows to the divine in you." };
-      default:
-        return null;
-    }
-  };
-
-  const secretMsg = getSecretMessage();
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-slate-100 font-sans relative overflow-hidden">
-      <div className="fixed inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-        <img src={BrandLogo} alt="" className="w-[500px] h-[500px] object-contain" />
-      </div>
+    <div className="min-h-screen bg-[#020617] text-slate-400 relative overflow-hidden selection:bg-[#3B82F6]/20 selection:text-[#3B82F6]">
       <SEO
         title="Dev | Samrat Parajuli"
-        description="A meditative space — not everything needs a route. Some things are found. Explore the philosophy of focused development."
+        description="A verse I return to often. Enter focus mode."
         ogUrl="https://www.samratparajuli0.com.np/dev"
       />
 
-      {/* Dot grid background */}
+      {/* Ambient orb */}
       <div
-        className={`absolute inset-0 transition-opacity duration-1000 pointer-events-none ${
-          focusMode ? "opacity-0" : ""
-        }`}
+        className="pointer-events-none fixed inset-0 z-0"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(45,212,191,0.06) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 60%, rgba(59,130,246,0.055) 0%, transparent 70%)",
         }}
       />
 
-      {/* Gradient orb */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#2DD4BF]/[0.02] rounded-full blur-3xl pointer-events-none" />
-
-      {/* Matrix rain canvas */}
-      {focusMode && (
-        <canvas ref={canvasRef} className="fixed inset-0 z-0 pointer-events-none" />
-      )}
-
-      {/* Mouse glow */}
-      {focusMode && (
-        <div
-          className="fixed pointer-events-none z-[1] w-[400px] h-[400px] rounded-full bg-[#2DD4BF]/[0.04] blur-3xl transition-all duration-500"
-          style={{ left: mousePos.x - 200, top: mousePos.y - 200 }}
-        />
-      )}
-
+      {/* Dot grid */}
       <div
-        className={`max-w-6xl mx-auto px-6 transition-all duration-1000 relative z-10 ${
-          focusMode ? "py-0 flex items-center min-h-screen" : "py-24"
-        }`}
-      >
-        <div className="w-full">
-          {/* Section label */}
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      {/* ── FOCUS MODE OVERLAY ── */}
+      <AnimatePresence>
+        {focusMode && (
           <motion.div
+            key="focus-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className={`flex items-center gap-2 mb-16 transition-all duration-1000 ${
-              focusMode ? "opacity-0 h-0 overflow-hidden mb-0" : "opacity-100"
-            }`}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center px-6"
+            style={{ background: "rgba(2, 6, 23, 0.98)" }}
           >
-            <div className="h-px w-8 bg-[#2DD4BF]" />
-            <span className="font-mono text-xs text-[#2DD4BF] uppercase tracking-widest">
-              dev // hidden_path
-            </span>
-          </motion.div>
-
-          {/* Hero */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className={`transition-all duration-1000 ${
-              focusMode ? "opacity-0 mb-0 h-0 overflow-hidden" : "opacity-100 mb-32"
-            }`}
-          >
-            <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 transition-all duration-1000 ${
-                heroHighlighted ? "text-slate-100" : "text-slate-700"
-              }`}
-            >
-              Not everything needs a route.
-              <br />
-              <span className={`transition-all duration-1000 ${
-                heroHighlighted ? "text-[#2DD4BF]" : "text-slate-700"
-              }`}>
-                Some things are found.
-              </span>
-            </h1>
-            <p
-              className={`text-base md:text-lg font-mono leading-relaxed max-w-2xl transition-all duration-1000 ${
-                heroHighlighted ? "text-slate-400" : "text-slate-800"
-              }`}
-            >
-              You've found the page you were meant to.
-            </p>
-          </motion.div>
-
-          {/* Verse section */}
-          <div className={`transition-all duration-1000 ${focusMode ? "mb-0" : "mb-32"}`}>
+            {/* Soft vignette edges */}
             <div
-              className={`transition-all duration-1000 overflow-hidden ${
-                focusMode ? "opacity-0 mb-0 h-0" : "opacity-100 mb-6"
-              }`}
-            >
-              <div className="flex items-center gap-2 opacity-50">
-                <div className="h-px w-6 bg-[#2DD4BF]" />
-                <span className="font-mono text-[10px] text-[#2DD4BF] uppercase tracking-widest">
-                  verse // gita
-                </span>
-              </div>
-            </div>
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(2,6,23,0.6) 100%)",
+              }}
+            />
 
-            <div
-              className={`relative transition-all duration-1000 ${
-                focusMode ? "" : ""
-              }`}
-            >
-              {focusMode ? (
-                <div className="text-center space-y-10">
-                  {/* Phase 0+: Sanskrit */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="relative text-slate-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed font-light"
-                  >
-                    <div className="absolute inset-0 bg-[#2DD4BF]/[0.03] blur-[80px] rounded-full pointer-events-none" />
-                    <div className="relative">
-                      व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।
-                      <br />
-                      बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्॥
-                    </div>
-                  </motion.div>
-
-                  {/* Phase 1+: English */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      opacity: phase >= 1 ? 1 : 0,
-                      y: phase >= 1 ? 0 : 8,
-                    }}
-                    transition={{ duration: 0.7 }}
-                  >
-                    <p className="text-slate-500 text-base md:text-lg font-mono">
-                      <span className="text-slate-600">// </span>
-                      one-pointed focus vs endless branches
-                    </p>
-                  </motion.div>
-
-                  {/* Phase 2+: Meta */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      opacity: phase >= 2 ? 1 : 0,
-                      y: phase >= 2 ? 0 : 8,
-                    }}
-                    transition={{ duration: 0.7 }}
-                  >
-                    <p className="text-slate-600 text-sm md:text-base font-mono">
-                      build(mode=
-                      <span className="text-[#2DD4BF]">"resolute"</span>)
-                    </p>
-                  </motion.div>
-
-                  {/* Phase 3+: Blinking cursor */}
-                  <motion.div
-                    initial={false}
-                    animate={{ opacity: phase >= 3 ? 1 : 0 }}
-                    transition={{ duration: 0.7 }}
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <span className="w-2 h-5 bg-[#2DD4BF] rounded-sm animate-pulse shadow-[0_0_8px_rgba(45,212,191,0.5)]" />
-                    <span className="text-slate-700 text-[10px] font-mono uppercase tracking-[0.3em]">
-                      session_active
-                    </span>
-                  </motion.div>
-                </div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <div
-                    className="group relative bg-[#0F172A]/40 border border-slate-800/60 rounded-lg p-8 md:p-10 overflow-hidden hover:border-slate-700 transition-all duration-300 cursor-default"
-                    onMouseEnter={() => setNormalModeRevealed(true)}
-                    onMouseLeave={() => setNormalModeRevealed(false)}
-                    onClick={() => {
-                      setNormalModeRevealed(!normalModeRevealed);
-                      setVerseClicked((c) => c + 1);
-                      if (verseClicked >= 4) {
-                        setSecretRevealed("bow");
-                        setVerseClicked(0);
-                      }
-                    }}
-                  >
-                    {/* Hover gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                    {/* Top accent line */}
-                    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 pointer-events-none" />
-
-                    <div className="relative z-10">
-                      {/* Verse header */}
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="font-mono text-xs text-[#2DD4BF] opacity-70 bg-[#2DD4BF]/10 px-2 py-1 rounded">
-                          01 // भगवद गीता
-                        </span>
-                        <span className="text-slate-600 group-hover:text-[#2DD4BF] transition-colors">
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                            <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </span>
-                      </div>
-
-                      <div className="relative min-h-[120px]">
-                        {/* Sanskrit verse */}
-                        <div
-                          className={`transition-all duration-500 ${
-                            normalModeRevealed ? "opacity-0 scale-95" : "opacity-100 scale-100"
-                          }`}
-                        >
-                          <p className="text-slate-100 text-xl sm:text-2xl md:text-3xl text-center leading-relaxed font-light">
-                            व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।
-                            <br />
-                            बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्॥
-                          </p>
-                        </div>
-
-                        {/* English translation */}
-                        <div
-                          className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
-                            normalModeRevealed ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                          }`}
-                        >
-                          <p className="text-slate-300 text-center text-lg md:text-xl leading-relaxed font-light max-w-3xl">
-                            Those who are resolute and focused have one-pointed intellect,
-                            <br />
-                            while the indecisive have scattered, endless thoughts.
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Hover hint */}
-                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-slate-700 text-[10px] font-mono tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        hover / tap to reveal
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </div>
-
-          {/* Trigger button */}
-          <div
-            onClick={() => setFocusMode(true)}
-            className={`text-center transition-all duration-1000 ${
-              focusMode
-                ? "opacity-0 mb-0 h-0 overflow-hidden pointer-events-none"
-                : "opacity-100 mb-32"
-            }`}
-          >
+            {/* Central ambient glow — breathes with the text */}
             <motion.div
+              className="absolute pointer-events-none"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              style={{
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "700px",
+                height: "500px",
+                background:
+                  "radial-gradient(ellipse at center, rgba(59,130,246,0.06) 0%, transparent 65%)",
+              }}
+            />
+
+            {/* Exit button */}
+            <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+              onClick={() => setFocusMode(false)}
+              aria-label="Exit focus mode"
+              className="absolute top-7 right-7 flex items-center gap-2 text-slate-700 hover:text-slate-300 transition-colors duration-300 text-xs tracking-widest uppercase group"
             >
-              <button className="group inline-flex items-center gap-3 px-8 py-4 border border-slate-700/50 rounded-lg font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 transition-all duration-300 cursor-pointer">
-                [Execute_Focus_Mode]
-                <ArrowUpRight
-                  size={14}
-                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
-                />
-              </button>
-            </motion.div>
-          </div>
-
-          {/* Social links */}
-          <div
-            className={`transition-all duration-1000 ${
-              focusMode ? "opacity-0 mb-0 h-0 overflow-hidden" : "opacity-100 mb-32"
-            }`}
-          >
-            <div className="flex items-center gap-2 mb-8 opacity-50">
-              <div className="h-px w-6 bg-[#2DD4BF]" />
-              <span className="font-mono text-[10px] text-[#2DD4BF] uppercase tracking-widest">
-                paths
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[10px]">
+                Exit
               </span>
-            </div>
+              <X size={15} />
+            </motion.button>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-800/50 border border-slate-800 overflow-hidden rounded-2xl">
-              {socialLinks.map((link, index) => {
-                const Icon = link.icon;
-                return (
-                  <a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative bg-[#0F172A] p-8 transition-all duration-500 flex items-center justify-between hover:bg-[#0F172A]/60"
-                  >
-                    <div className="flex items-center gap-3">
-                      <Icon className="w-4 h-4 text-slate-600 group-hover:text-[#2DD4BF] transition-colors duration-300" />
-                      <span className="text-slate-500 group-hover:text-slate-100 transition-colors duration-300 font-mono text-sm">
-                        {link.name}
-                      </span>
-                    </div>
-                    <ArrowUpRight
-                      size={14}
-                      className="text-slate-700 group-hover:text-[#2DD4BF] transition-colors duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                    />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
+            {/* Verse content — enters as one composed unit */}
+            <motion.div
+              className="relative max-w-2xl w-full text-center"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {/* Sanskrit verse */}
+              <p className="text-slate-100 text-2xl sm:text-3xl md:text-[2.15rem] leading-[1.75] font-light tracking-wide mb-10">
+                व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।
+                <br />
+                बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्॥
+              </p>
 
-          {/* Footer */}
-          <div
-            className={`border-t border-slate-800 pt-12 transition-all duration-1000 ${
-              focusMode ? "opacity-0 h-0 overflow-hidden" : "opacity-100"
-            }`}
-          >
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="text-slate-600 text-xs font-mono">
-                <span className="text-slate-500">exit</span> 200
+              {/* Divider */}
+              <div
+                className="w-10 h-px mx-auto mb-10"
+                style={{ background: "rgba(59,130,246,0.25)" }}
+              />
+
+              {/* Translation */}
+              <div className="space-y-3 mb-12">
+                <p className="text-slate-400 text-base sm:text-lg leading-relaxed font-light">
+                  Those who are resolute and focused have one-pointed intellect,
+                  <br className="hidden sm:block" />
+                  while the indecisive have scattered, endless thoughts.
+                </p>
+                <p
+                  className="text-xs tracking-[0.14em] uppercase"
+                  style={{ color: "rgba(59,130,246,0.4)" }}
+                >
+                  Bhagavad Gita · 2.41
+                </p>
               </div>
-              <div className="text-slate-600 text-xs font-mono">
-                May your path be resolute.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Exit overlay */}
-      {focusMode && (
-        <div
-          onClick={() => setFocusMode(false)}
-          className="fixed inset-0 z-30 cursor-pointer"
-        >
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none flex flex-col items-center gap-2">
-            <div className="w-px h-8 bg-gradient-to-b from-[#2DD4BF]/30 to-transparent" />
-            <div className="text-slate-700 text-[10px] font-mono animate-pulse uppercase tracking-[0.2em]">
-              click to resume
-            </div>
-          </div>
-        </div>
-      )}
+              {/* Closing line */}
+              <p
+                className="text-sm italic"
+                style={{ color: "rgba(148,163,184,0.28)" }}
+              >
+                Deep work begins with undivided attention.
+              </p>
+            </motion.div>
 
-      {/* Secret toast */}
-      <AnimatePresence>
-        {secretRevealed && secretMsg && (
-          <motion.div
-            key={secretRevealed}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
-          >
-            <div className="bg-[#0F172A]/90 border border-slate-700/50 backdrop-blur-md px-6 py-4 rounded-lg shadow-xl">
-              <div className="flex items-center gap-3">
-                <span className="text-xl">{secretMsg.emoji}</span>
-                <p className="text-slate-300 text-sm font-mono">{secretMsg.text}</p>
-              </div>
-            </div>
+            {/* Esc hint */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.25 }}
+              transition={{ delay: 2, duration: 1 }}
+              className="absolute bottom-8 text-[10px] text-slate-700 tracking-[0.2em] uppercase"
+            >
+              Esc to exit
+            </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* ── NORMAL PAGE ── */}
+      <div className="relative z-10 max-w-xl mx-auto px-6 pt-20 pb-28">
+
+        {/* Top nav row: back home + page label */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center justify-between mb-16"
+        >
+          {/* Back to home */}
+          <a
+            href="/"
+            className="group flex items-center gap-2 text-slate-600 hover:text-slate-300 transition-colors duration-250"
+          >
+            <ArrowLeft
+              size={13}
+              className="group-hover:-translate-x-0.5 transition-transform duration-200"
+              style={{ color: "rgba(59,130,246,0.55)" }}
+            />
+            <span className="text-[11px] tracking-[0.12em] uppercase">Home</span>
+          </a>
+
+          {/* Page label */}
+          <div className="flex items-center gap-3">
+            <span
+              className="block w-5 h-px"
+              style={{ background: "#3B82F6", opacity: 0.4 }}
+            />
+            <span className="text-[10px] text-slate-600 uppercase tracking-[0.15em]">
+              dev
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Verse card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.05 }}
+          className="mb-10 relative group"
+        >
+          {/* Card top-edge glow — sharpens on hover */}
+          <div
+            className="absolute -inset-px rounded-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% -10%, rgba(59,130,246,0.11) 0%, transparent 55%)",
+            }}
+          />
+
+          <div
+            className="relative rounded-2xl p-7 sm:p-10"
+            style={{
+              background: "rgba(8, 13, 28, 0.75)",
+              border: "0.5px solid rgba(59,130,246,0.11)",
+              backdropFilter: "blur(10px)",
+            }}
+          >
+            {/* Eyebrow */}
+            <p
+              className="text-[10px] uppercase tracking-[0.15em] mb-8"
+              style={{ color: "rgba(59,130,246,0.5)" }}
+            >
+              A verse I return to often
+            </p>
+
+            {/* Sanskrit */}
+            <p className="text-slate-100 text-xl sm:text-2xl leading-[1.8] font-light mb-8 tracking-wide">
+              व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।
+              <br />
+              बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्॥
+            </p>
+
+            {/* Divider */}
+            <div
+              className="w-8 h-px mb-7"
+              style={{ background: "rgba(59,130,246,0.18)" }}
+            />
+
+            {/* Translation */}
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-5">
+              Those who are resolute and focused have one-pointed intellect,
+              while the indecisive have scattered, endless thoughts.
+            </p>
+
+            {/* Source + Focus button — same line */}
+            <div className="flex items-center justify-between">
+              <p
+                className="text-[11px] tracking-[0.1em]"
+                style={{ color: "rgba(59,130,246,0.4)" }}
+              >
+                Bhagavad Gita · 2.41
+              </p>
+
+              <button
+                onClick={() => setFocusMode(true)}
+                className="group/focus flex items-center gap-2 text-slate-600 hover:text-slate-200 transition-all duration-300"
+              >
+                <span className="text-[11px] tracking-[0.1em] uppercase">Focus</span>
+                <ArrowUpRight
+                  size={11}
+                  className="opacity-50 group-hover/focus:opacity-100 group-hover/focus:translate-x-0.5 group-hover/focus:-translate-y-0.5 transition-all duration-200"
+                  style={{ color: "#3B82F6" }}
+                />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Divider between card and links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mb-10"
+          style={{
+            height: "1px",
+            background:
+              "linear-gradient(to right, transparent, rgba(59,130,246,0.1) 40%, rgba(59,130,246,0.1) 60%, transparent)",
+          }}
+        />
+
+        {/* Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-16"
+        >
+          <p
+            className="text-[10px] uppercase tracking-[0.14em] mb-5"
+            style={{ color: "rgba(148,163,184,0.25)" }}
+          >
+            Find me
+          </p>
+
+          <div className="space-y-0">
+            {socialLinks.map((link, i) => {
+              const Icon = link.icon;
+              return (
+                <motion.a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, x: -6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.35 + i * 0.07 }}
+                  className="group flex items-center justify-between py-4 border-b transition-colors duration-200"
+                  style={{ borderColor: "rgba(148,163,184,0.07)" }}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <Icon
+                      size={14}
+                      style={{ color: "rgba(148,163,184,0.3)" }}
+                      className="group-hover:text-slate-400 transition-colors duration-200"
+                    />
+                    <span
+                      className="text-sm transition-colors duration-200 group-hover:text-slate-100"
+                      style={{ color: "rgba(148,163,184,0.55)" }}
+                    >
+                      {link.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className="text-xs transition-colors duration-200 group-hover:text-slate-500"
+                      style={{ color: "rgba(148,163,184,0.2)" }}
+                    >
+                      {link.desc}
+                    </span>
+                    <ArrowUpRight
+                      size={11}
+                      className="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                      style={{ color: "#3B82F6" }}
+                    />
+                  </div>
+                </motion.a>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Sign-off */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="space-y-1.5"
+        >
+          <p
+            className="text-sm italic leading-relaxed"
+            style={{ color: "rgba(148,163,184,0.3)" }}
+          >
+            Discipline compounds.
+          </p>
+          <p
+            className="text-xs tracking-wide"
+            style={{ color: "rgba(148,163,184,0.16)" }}
+          >
+            — Samrat
+          </p>
+        </motion.div>
+      </div>
     </div>
   );
 }

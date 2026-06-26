@@ -22,7 +22,7 @@ function BMSK() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#2DD4BF]/30">
+    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Bank Management System | Samrat Parajuli"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
@@ -35,14 +35,14 @@ function BMSK() {
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Backend System</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              Bank Management <span className="text-[#2DD4BF]">System</span>
+              Bank Management <span className="text-[#3B82F6]">System</span>
             </h1>
           </div>
           <a
             href="https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#2DD4BF] text-[#020617] hover:bg-[#2DD4BF]/90 rounded-lg font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-colors"
           >
             <Github size={16} /> View Code
           </a>
@@ -86,7 +86,7 @@ function BMSK() {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab 
-                        ? 'text-[#2DD4BF] border-[#2DD4BF]' 
+                        ? 'text-[#3B82F6] border-[#3B82F6]' 
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -106,19 +106,19 @@ function BMSK() {
                       <h3 className="text-white font-semibold text-sm">Core Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>Real-time transaction processing with validation</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>Account encapsulation with secure state management</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>UUID-based unique account identification</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#2DD4BF] font-bold">→</span>
+                          <span className="text-[#3B82F6] font-bold">→</span>
                           <span>Comprehensive error handling for edge cases</span>
                         </li>
                       </ul>
@@ -199,7 +199,7 @@ function BMSK() {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#2DD4BF] uppercase tracking-widest">Screenshots</h3>
+              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { src: BMSK1, label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
@@ -216,7 +216,7 @@ function BMSK() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-0 inset-x-0 p-4">
-                      <p className="text-sm font-semibold text-slate-100 group-hover:text-[#2DD4BF] transition-colors">{s.label}</p>
+                      <p className="text-sm font-semibold text-slate-100 group-hover:text-[#3B82F6] transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
                   </div>
@@ -253,7 +253,7 @@ function BMSK() {
                   'Search & Retrieve'
                 ].map((comp, i) => (
                   <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
                     {comp}
                   </div>
                 ))}
