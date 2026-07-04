@@ -7,7 +7,7 @@ import SEO from '../Components/SEO';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -41,7 +41,7 @@ const Contact = () => {
     if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
 
     const payload = { ...formDataRef.current, time: new Date().toLocaleString() };
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, USER_ID)
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, PUBLIC_KEY)
       .then(() => {
         if (!mountedRef.current) return;
         setSending(false);
