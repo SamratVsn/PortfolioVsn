@@ -5,9 +5,9 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import SEO from '../Components/SEO';
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
