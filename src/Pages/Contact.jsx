@@ -17,6 +17,11 @@ const Contact = () => {
   
   const mountedRef = useRef(true);
   const feedbackTimerRef = useRef(null);
+  const formDataRef = useRef(formData);
+
+  useEffect(() => {
+    formDataRef.current = formData;
+  }, [formData]);
 
   useEffect(() => {
     return () => {
@@ -29,33 +34,37 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     setSending(true);
     setError(null);
+    if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
 
-    const payload = { ...formData, time: new Date().toLocaleString() };
+    const payload = { ...formDataRef.current, time: new Date().toLocaleString() };
     emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, USER_ID)
       .then(() => {
         if (!mountedRef.current) return;
         setSending(false);
         setSent(true);
         setFormData({ name: '', email: '', message: '' });
-        
+
+        if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
         feedbackTimerRef.current = setTimeout(() => {
           if (mountedRef.current) setSent(false);
         }, 5000);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('EmailJS error:', err);
         if (!mountedRef.current) return;
         setSending(false);
         setError('Message failed to send. Please try again or email directly.');
-        
+
+        if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
         feedbackTimerRef.current = setTimeout(() => {
           if (mountedRef.current) setError(null);
         }, 5000);
       });
-  };
+  }, []);
 
   const contactLinks = [
     { 
