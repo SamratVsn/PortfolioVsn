@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Mail, Github, Linkedin, Phone, MapPin, ArrowUpRight } from 'lucide-react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import SEO from '../Components/SEO';
@@ -34,7 +34,8 @@ const Contact = () => {
     setSending(true);
     setError(null);
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
+    const payload = { ...formData, time: new Date().toLocaleString() };
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, USER_ID)
       .then(() => {
         if (!mountedRef.current) return;
         setSending(false);
