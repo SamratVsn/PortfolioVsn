@@ -41,7 +41,7 @@ const Contact = () => {
     if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
 
     const payload = { ...formDataRef.current, time: new Date().toLocaleString() };
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, PUBLIC_KEY)
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, payload, { publicKey: PUBLIC_KEY })
       .then(() => {
         if (!mountedRef.current) return;
         setSending(false);
