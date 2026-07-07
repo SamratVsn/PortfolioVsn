@@ -5,6 +5,7 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import SEO from '../Components/SEO';
 
+// Environment variables for EmailJS
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
