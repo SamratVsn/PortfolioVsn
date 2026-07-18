@@ -1,0 +1,38 @@
+# Samrat Parajuli (SamratVsn)
+
+> Android Developer based in Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, and clean mobile architecture. Building native Android applications with a focus on clean code, intuitive UI/UX, and modern reactive interfaces.
+
+## About
+
+- **Name:** Samrat Parajuli
+- **Handle:** SamratVsn
+- **Role:** Android Developer
+- **Location:** Kathmandu, Nepal
+- **Email:** samratvsn@gmail.com
+- **Focus:** Native Android app development, clean architecture, and high-performance UI/UX systems
+
+## Tech Stack
+
+- **Language:** Kotlin, Java, C
+- **UI Toolkit:** Jetpack Compose, Material Design 3
+- **Architecture:** MVVM, Clean Architecture
+- **Async:** Coroutines, Flow
+- **Tools:** Android Studio
+- **Also familiar with:** JavaScript, HTML, CSS, Git/GitHub
+
+## Core Projects
+
+- **[devPortfoli0](https://github.com/SamratVsn/devPortfoli0)** — Featured project; developer portfolio codebase.
+- **[Kathmandu](https://github.com/SamratVsn/Kathmandu)** — A "MyCity" themed Android app centered on Kathmandu, built in Kotlin.
+- **[Cupcake](https://github.com/SamratVsn/Cupcake)** — Android app implementing ViewModel and App Navigation (Android Basics series), built in Kotlin.
+- **[PortfolioVsn](https://github.com/SamratVsn/PortfolioVsn)** — Earlier developer portfolio, built with JavaScript.
+- **[Kotlin-Beginner-Codes](https://github.com/SamratVsn/Kotlin-Beginner-Codes)** — Collection of beginner Kotlin projects and exercises.
+- **[C-codes](https://github.com/SamratVsn/C-codes)** — Collection of C programming projects.
+
+## Primary Links
+
+- **Portfolio:** https://www.samratparajuli0.com.np/
+- **GitHub:** https://github.com/SamratVsn
+- **LinkedIn:** https://linkedin.com/in/samratvsn
+- **Medium:** https://medium.com/@samratvsn
+- **X (Twitter):** https://x.com/SamratVsn
