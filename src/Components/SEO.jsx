@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async'
 
 const SITE = {
-  title: "Samrat Parajuli | Android Systems Engineer & Runtime Architect",
-  description: "SamratVsn portfolio: Native Android systems engineer specializing in Kotlin runtime optimization, Jetpack Compose UI pipelines, Clean Architecture dependency maps, and deterministic mobile infrastructure.",
+  title: "Samrat Parajuli | Android App Developer",
+  description: "Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal. Crafting native experiences with Kotlin, Jetpack Compose, and clean architecture.",
   url: "https://www.samratparajuli0.com.np/",
-  image: "https://www.samratparajuli0.com.np/og-image.svg",
+  image: "https://www.samratparajuli0.com.np/assets/Profile-CvYRjMvO.jpg",
   twitter: "@SamratVsn",
-}
+};
 
 export default function SEO({ title, description, ogTitle, ogDescription, ogImage, ogUrl, noindex }) {
   const t = title || SITE.title
