@@ -16,7 +16,7 @@ const articles = [
     tags: ["learning-in-public", "events", "nepal"],
     image:
       "https://miro.medium.com/v2/resize:fill:640:360/1*KYyjeb2V91OfcgoM3iITlw.jpeg",
-    featured: true,
+    featured: false,
   },
   {
     title: "A Random Networking Session turned fruitful",
@@ -30,6 +30,30 @@ const articles = [
       "https://miro.medium.com/v2/resize:fill:640:360/0*KTTKhNk5OK8HZPlJ",
     featured: false,
   },
+  {
+  title: "Time to Learn",
+  excerpt:
+    "Why waiting for the perfect time to start learning holds more people back than a lack of talent or resources.",
+  url: "https://medium.com/@samratvsn/time-to-learn-0dd1697f2db3?sharedUserId=samratvsn",
+  date: "Jul 29, 2026",
+  category: "Learning",
+  tags: ["learning", "productivity", "mindset"],
+  image:
+    "https://miro.medium.com/v2/resize:fit:720/format:webp/0*peSb3OxLzdAtY7dm", 
+  featured: true,
+},
+{
+  title: "How I Built a Productivity App from Scratch",
+  excerpt:
+    "The design decisions, architecture, and thought process behind building Viram, a platform focused on reducing digital addiction.",
+  url: "https://medium.com/@samratvsn/how-i-built-a-productivity-app-from-scratch-9620eed54d57",
+  date: "Jul 30, 2026",
+  category: "Development",
+  tags: ["android", "productivity", "software-development"],
+  image:
+    "https://miro.medium.com/v2/resize:fit:720/format:webp/1*4hlT3BiQs6MJpCIKBSWDDw.png",
+  featured: false,
+},
 ];
 
 const milestones = [
