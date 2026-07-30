@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const SITE = {
-  title: "Samrat Parajuli | Android App Developer",
+  title: "Samrat Parajuli (SamratVsn) | Android App Developer",
   description: "Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal. Crafting native experiences with Kotlin, Jetpack Compose, and clean architecture.",
   url: "https://www.samratparajuli0.com.np/",
   image: "https://www.samratparajuli0.com.np/assets/Profile-CvYRjMvO.jpg",
