@@ -5,7 +5,7 @@ import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter, FaGoogle } from "react-icons/fa6";
-import { ArrowUpRight, Code, BookOpen, Layers } from "lucide-react";
+import { Code, ArrowUpRight, Cpu, BookOpen, Layers } from "lucide-react";
 
 // ── Shared section heading component ──────────────────────────────────────────
 function SectionHeader({ eyebrow, title, subtitle }) {
@@ -95,52 +95,52 @@ function Home() {
   ];
 
   const expertise = [
-    {
-      icon: Code,
-      title: "Android Development",
-      desc: "Building modern Android apps with the latest tools and patterns.",
-      items: [
-        { name: "Kotlin", note: "Primary language" },
-        { name: "Jetpack Compose", note: "Declarative UI" },
-        { name: "MVVM", note: "Architecture pattern" },
-        { name: "Navigation Compose", note: "Screen routing" },
-        { name: "Coroutines & Flow", note: "Async & streams" },
-      ],
-    },
-    {
-      icon: BookOpen,
-      title: "Currently Learning",
-      desc: "Actively deepening my expertise in production-grade Android.",
-      items: [
-        { name: "Advanced Compose", note: "Animations & layouts" },
-        { name: "Android Testing", note: "JUnit, Espresso" },
-        { name: "Clean Architecture", note: "Production patterns" },
-        { name: "Hilt DI", note: "Dependency injection" },
-      ],
-    },
-    {
-      icon: Layers,
-      title: "Tools & Platforms",
-      desc: "Everyday tools that power my development workflow.",
-      items: [
-        { name: "Android Studio", note: "Primary IDE" },
-        { name: "Git & GitHub", note: "Version control" },
-        { name: "Firebase", note: "Backend services" },
-        { name: "Retrofit", note: "API library" },
-      ],
-    },
-    {
-      icon: Code,
-      title: "Core Fundamentals",
-      desc: "Foundational skills that support everything I build.",
-      items: [
-        { name: "C / C++", note: "Low-level foundations" },
-        { name: "OOP Design", note: "SOLID principles" },
-        { name: "Data Structures", note: "Algorithms & logic" },
-        { name: "Problem Solving", note: "DSA practice / Leetcode" },
-      ],
-    },
-  ];
+  {
+    icon: Code,
+    title: "Android Development",
+    desc: "Building modern, reactive Android apps using Kotlin and Jetpack Compose.",
+    items: [
+      { name: "Kotlin", note: "Primary Language" },
+      { name: "Jetpack Compose", note: "Declarative UI" },
+      { name: "MVVM Architecture", note: "Clean separation" },
+      { name: "Coroutines & Flow", note: "Asynchronous programming" },
+      { name: "Navigation Compose", note: "App routing" },
+    ],
+  },
+  {
+    icon: BookOpen,
+    title: "Currently Leveling Up",
+    desc: "Expanding knowledge into enterprise-grade Android patterns and testing.",
+    items: [
+      { name: "Advanced Compose", note: "Custom layouts & animations" },
+      { name: "Hilt / Dagger", note: "Dependency injection" },
+      { name: "Clean Architecture", note: "Scalable codebase structure" },
+      { name: "Android Testing", note: "JUnit & Espresso" },
+    ],
+  },
+  {
+    icon: Layers,
+    title: "Tools & Ecosystem",
+    desc: "Key libraries and environments that power my development workflow.",
+    items: [
+      { name: "Android Studio", note: "Primary IDE" },
+      { name: "Git & GitHub", note: "Version control & CI/CD" },
+      { name: "Firebase", note: "Auth, Firestore & Analytics" },
+      { name: "Retrofit", note: "REST API integration" },
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "Core Engineering",
+    desc: "Solid foundational knowledge behind writing efficient code.",
+    items: [
+      { name: "C / C++", note: "Low-level concepts" },
+      { name: "OOP & SOLID", note: "Maintainable code design" },
+      { name: "Data Structures", note: "Algorithmic thinking" },
+      { name: "Problem Solving", note: "LeetCode & DSA practice" },
+    ],
+  },
+];
 
   const philosophy = [
     {
