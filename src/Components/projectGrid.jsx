@@ -4,6 +4,16 @@ import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 
 const PROJECTS = [
   {
+    id: "00",
+    title: "ToDo Vsn App",
+    problem: "I wanted a lightweight task manager and a real project to apply modern Android architecture.",
+    solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, swipe-to-delete, and type-safe navigation.",
+    learning: "Learned clean layering between UI, domain, and data, plus reactive state handling with StateFlow and Coroutines.",
+    tags: ["Kotlin", "Jetpack Compose", "Room"],
+    github: "https://github.com/SamratVsn/ToDo",
+    path: "/projects/todo"
+  },
+  {
     id: "01",
     title: "Student Management System",
     problem: "I needed a way to store and manage student records persistently without using a database.",

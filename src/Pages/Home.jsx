@@ -29,6 +29,18 @@ function SectionHeader({ eyebrow, title, subtitle }) {
 function Home() {
   const featuredProjects = [
     {
+      title: "ToDo Vsn App",
+      problem:
+        "I wanted a distraction-free task manager and a real project to apply modern Android architecture.",
+      solution:
+        "Built a Jetpack Compose app in Kotlin with MVVM + Repository architecture, Room persistence, swipe-to-delete, and type-safe navigation.",
+      learning:
+        "Learned how to separate presentation, domain, and data layers cleanly, and how reactive state with StateFlow drives a Compose UI.",
+      tags: ["Kotlin", "Jetpack Compose", "Room"],
+      github: "https://github.com/SamratVsn/ToDo",
+      path: "/projects/todo",
+    },
+    {
       title: "Student Management System",
       problem:
         "I needed a way to store and manage student records persistently without using a database.",
