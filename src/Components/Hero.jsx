@@ -330,7 +330,7 @@ function StatsRow() {
 
 export default function Hero() {
   return (
-    <section className="relative flex items-center px-5 xs:px-6 sm:px-6 pt-20 sm:pt-28 pb-10 sm:pb-14 lg:py-28 overflow-hidden bg-[#020617]">
+    <section className="relative flex items-center lg:w-full px-5 xs:px-6 sm:px-6 pt-20 sm:pt-28 pb-10 sm:pb-14 lg:mb-20 lg:pb-20 lg:py-28 overflow-hidden bg-[#020617]">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
