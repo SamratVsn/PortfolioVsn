@@ -85,7 +85,7 @@ export default function Header() {
                 Samrat
               </span>
               <span className="text-[8.5px] text-[#3B82F6] font-semibold tracking-[0.12em] uppercase mt-0.5">
-                Android Dev
+                Android Developer
               </span>
             </div>
           </Link>

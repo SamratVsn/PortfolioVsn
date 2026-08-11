@@ -6,6 +6,7 @@ import Footer from "../Components/Footer";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter, FaGoogle } from "react-icons/fa6";
 import { Code, ArrowUpRight, Cpu, BookOpen, Layers } from "lucide-react";
+import Hero from "../Components/Hero";
 
 // ── Shared section heading component ──────────────────────────────────────────
 function SectionHeader({ eyebrow, title, subtitle }) {
@@ -361,93 +362,7 @@ function Home() {
     <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO ogUrl="https://www.samratparajuli0.com.np/" />
       <Header />
-      <section
-        className="relative min-h-[80vh] flex items-center px-6 py-34 overflow-hidden bg-[#020617]"
-      >
-        
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(60% 50% at 20% 30%, rgba(201,162,75,0.05) 0%, rgba(201,162,75,0) 60%), radial-gradient(50% 45% at 85% 70%, rgba(143,127,232,0.06) 0%, rgba(143,127,232,0) 60%)",
-          }}
-        />
-
-        <div className="max-w-5xl mx-auto w-full relative">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
-            {/* left content */}
-            <motion.div
-              className="flex-1 min-w-0 text-center lg:text-left"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <p className="text-[11px] font-medium tracking-[0.14em] text-slate-600 mb-6">
-                KATHMANDU, NEPAL
-              </p>
-
-              <h1
-                className="text-6xl sm:text-7xl lg:text-[5.5rem] leading-[1.03] font-semibold text-white mb-6 tracking-[-0.02em]"
-                style={{ fontFamily: "'Fraunces', ui-serif, Georgia, serif" }}
-              >
-                Samrat
-                <br />
-                <span className="italic font-normal text-[#3B82F6]">
-                  Parajuli
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-400 font-normal max-w-md mx-auto lg:mx-0 mb-12 leading-relaxed">
-                Focused on modern Android development with Kotlin & Jetpack Compose—building in public and learning through real-world software craft.
-              </p>
-
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-14">
-                <Link
-                  to="/projects"
-                  className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-bold px-7 py-3 rounded-lg transition-all active:scale-[0.97] inline-flex items-center gap-2 text-sm"
-                >
-                  View Projects <ArrowUpRight size={15} />
-                </Link>
-                <Link
-                  to="/notes"
-                  className="border border-slate-800/60 hover:border-slate-700 text-slate-400 hover:text-white font-medium px-7 py-3 rounded-lg transition-all hover:bg-white/[0.03] inline-flex items-center gap-2 text-sm"
-                >
-                  Read Blogs
-                </Link>
-              </div>
-
-              <div className="flex items-center justify-center lg:justify-start gap-6">
-                {socials.map(({ href, icon: Icon, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="text-[#565B66] hover:text-[#3B82F6] transition-colors duration-200"
-                  >
-                    <Icon size={19} strokeWidth={1.6} />
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* right graphic */}
-            <motion.div
-              className="shrink-0"
-              initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            >
-              <OrbitGraphic />
-            </motion.div>
-          </div>
-        </div>
-
-        <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,400&display=swap');
-      `}</style>
-      </section>
+      <Hero />
 
       {/* ─── EXPERTISE ─────────────────────────────────────────────────────── */}
       <section className="py-24 px-6 border-t border-slate-800/40">
