@@ -130,7 +130,7 @@ export default function Header() {
             </a>
             <Link
               to="/contact"
-              className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] text-[12px] font-bold px-4 py-2 rounded-lg transition-all active:scale-[0.97]"
+              className="bg-[#3393FF] hover:bg-[#3B82F6]/90 text-[#020617] text-[12px] font-bold px-4 py-2 rounded-lg transition-all active:scale-[0.97]"
             >
               Hire me
             </Link>

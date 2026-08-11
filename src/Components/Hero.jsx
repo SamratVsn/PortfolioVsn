@@ -42,9 +42,9 @@ const socials = [
 
 const taskItems = [
   { label: "Learn Jetpack Compose", done: true },
-  { label: "Build Movie App", done: true },
-  { label: "Write Tech Blog", done: false },
-  { label: "Improve UI/UX", done: false },
+  { label: "Build Mobile Apps", done: true },
+  { label: "Learning & Improving day by day", done: false },
+  { label: "Attending Tech Events", done: false },
 ];
 
 function AndroidMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
@@ -113,7 +113,7 @@ function CodeCard({ compact = false }) {
         <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
         {!compact && (
           <span className="ml-1 text-[9px] text-slate-600 font-mono">
-            Greeting.kt
+            Greetings.kt
           </span>
         )}
       </div>
@@ -405,7 +405,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-7 lg:mb-8">
               <Link
                 to="/projects"
-                className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-bold px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg transition-all active:scale-[0.97] inline-flex items-center gap-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
+                className="bg-[#3B82F6] hover:bg-[#3393FF]/90 text-[#020617] font-bold px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg transition-all active:scale-[0.97] inline-flex items-center gap-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6]"
               >
                 View Projects <ArrowUpRight size={15} />
               </Link>
