@@ -4,7 +4,7 @@ import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 
 const PROJECTS = [
   {
-    id: "00",
+    id: " 0 ! 0 ",
     title: "ToDo Vsn App",
     problem: "I wanted a lightweight task manager and a real project to apply modern Android architecture.",
     solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, swipe-to-delete, and type-safe navigation.",
