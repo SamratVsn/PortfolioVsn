@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
+import BackgroundFX from "../Components/BackgroundFX";
+import SectionHeading from "../Components/SectionHeading";
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import PortfolioImage from "../assets/Profile.jpg";
@@ -73,8 +75,8 @@ const focusItems = [
 ];
 
 const stats = [
-  { value: "1+", label: "Years building Android" },
-  { value: "25+", label: "Github Repositories" },
+  { value: "1+", label: "Years of building Android" },
+  { value: "40+", label: "Github Repositories" },
   { value: "5+", label: "Skills Learned" },
   { value: "Open", label: "to work", accent: true },
 ];
@@ -101,21 +103,6 @@ const journey = [
   },
 ];
 
-function SectionHeader({ label, sub }) {
-  return (
-    <motion.div {...fadeUp}>
-      <div className="flex items-center gap-2 mb-3">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/50" />
-        <span className="w-6 h-px bg-[#3B82F6]/25" />
-      </div>
-      <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.025em] mb-1.5">
-        {label}
-      </h2>
-      <p className="text-slate-500 text-sm mb-8">{sub}</p>
-    </motion.div>
-  );
-}
-
 export default function About() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-400 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
@@ -128,6 +115,7 @@ export default function About() {
 
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-16 px-6">
+        <BackgroundFX />
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -203,7 +191,7 @@ export default function About() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-4 text-center"
+                className="bg-[#0A0F1E] border border-slate-800/60 rounded-xl p-4 text-center hover:border-[#3B82F6]/20 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div
                   className={`text-2xl font-bold tracking-tight ${
@@ -222,7 +210,7 @@ export default function About() {
       {/* ── MY STORY ── */}
       <section className="py-20 px-6 border-t border-slate-800/30">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader label="My story" sub="How I got here and what keeps me going." />
+          <SectionHeading animated title="My story" subtitle="How I got here and what keeps me going." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Timeline */}
@@ -231,7 +219,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5"
+              className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 hover:border-slate-700/80 transition-colors duration-300"
             >
               {journey.map((step, i) => (
                 <div
@@ -272,7 +260,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.08 }}
-              className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 flex flex-col gap-5"
+              className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 flex flex-col gap-5 hover:border-slate-700/80 transition-colors duration-300"
             >
               <div>
                 <p className="text-[10px] font-bold text-slate-600 tracking-[0.08em] uppercase mb-3">
@@ -314,14 +302,14 @@ export default function About() {
       {/* ── CURRENT FOCUS ── */}
       <section className="py-20 px-6 border-t border-slate-800/30">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader label="Current focus" sub="What I am actively learning and building toward." />
+          <SectionHeading animated title="Current focus" subtitle="What I am actively learning and building toward." />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {focusItems.map((item, i) => (
               <motion.div
                 key={i}
                 {...stagger(i)}
-                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 hover:border-[#3B82F6]/20 transition-all duration-300 group"
+                className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 hover:border-[#3B82F6]/25 hover:-translate-y-1 shadow-[0_0_28px_-14px_rgba(59,130,246,0.3)] transition-all duration-300 group"
               >
                 <p className="text-[10px] font-bold text-[#3B82F6] tracking-[0.08em] uppercase mb-2">
                   {item.title}
@@ -344,14 +332,14 @@ export default function About() {
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 px-6 border-t border-slate-800/30">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader label="What others say" sub="Perspectives from collaborators, peers, and friends." />
+          <SectionHeading animated title="What others say" subtitle="Perspectives from collaborators, peers, and friends." />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
                 {...stagger(i)}
-                className="bg-[#0A0F1E] border border-slate-800/50 rounded-xl p-5 flex flex-col hover:border-[#3B82F6]/20 transition-all duration-300"
+                className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 flex flex-col hover:border-[#3B82F6]/25 hover:-translate-y-1 shadow-[0_0_28px_-14px_rgba(59,130,246,0.3)] transition-all duration-300"
               >
                 <div className="text-[28px] text-[#3B82F6]/15 leading-none mb-3 select-none">
                   &ldquo;
@@ -403,7 +391,7 @@ export default function About() {
                 href="https://www.linkedin.com/in/samratvsn/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-slate-800/60 text-slate-400 hover:text-white hover:border-slate-700 text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03]"
+                className="inline-flex items-center gap-2 border border-slate-800/60 text-slate-400 hover:text-white hover:border-slate-700 text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03] active:scale-[0.97]"
               >
                 <FaLinkedin size={15} /> LinkedIn
               </a>
@@ -411,7 +399,7 @@ export default function About() {
                 href="https://github.com/SamratVsn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-slate-800/60 text-slate-400 hover:text-white hover:border-slate-700 text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03]"
+                className="inline-flex items-center gap-2 border border-slate-800/60 text-slate-400 hover:text-white hover:border-slate-700 text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03] active:scale-[0.97]"
               >
                 <FaGithub size={15} /> GitHub
               </a>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../Components/SEO";
 import { ArrowUpRight, X, ArrowLeft } from "lucide-react";

@@ -42,7 +42,7 @@ function BMSK() {
             href="https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -56,7 +56,7 @@ function BMSK() {
           <div className="lg:col-span-2 space-y-12">
             
             {/* Hero Image */}
-            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <img 
                 src={BMSK1} 
                 alt="Bank Management System terminal interface" 
@@ -129,7 +129,7 @@ function BMSK() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <h4 className="text-white font-semibold text-sm mb-2">{feat.title}</h4>
                         <p className="text-slate-400 text-sm">{feat.detail}</p>
                       </div>
@@ -141,7 +141,7 @@ function BMSK() {
                   <div className="space-y-6 animate-in fade-in">
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm">Class Structure</h3>
-                      <div className="p-4 bg-slate-950 border border-slate-800 rounded-lg font-mono text-sm text-slate-400 leading-relaxed">
+                      <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p><span className="text-purple-400">class</span> <span className="text-cyan-300">Account</span> {`{`}</p>
                         <p className="ml-4"><span className="text-blue-300">val</span> accId: <span className="text-slate-300">String</span></p>
                         <p className="ml-4"><span className="text-blue-300">var</span> balance: <span className="text-slate-300">Double</span></p>
@@ -153,11 +153,11 @@ function BMSK() {
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm">Design Principles</h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-2">Encapsulation</p>
                           <p className="text-sm text-slate-400">Private state management for balance variables to prevent external corruption and ensure data integrity.</p>
                         </div>
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-2">Polymorphism</p>
                           <p className="text-sm text-slate-400">Interface-based design for different account types (Savings, Current) with specialized behavior.</p>
                         </div>
@@ -177,7 +177,7 @@ function BMSK() {
                           { label: 'Memory', value: 'Automatic Garbage Collection' },
                           { label: 'Build Tool', value: 'Gradle / Maven' }
                         ].map((item, i) => (
-                          <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
+                          <div key={i} className="flex justify-between p-3 border border-slate-800/70 rounded-xl bg-[#0A101F]/50">
                             <span className="text-slate-500 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
@@ -185,7 +185,7 @@ function BMSK() {
                       </div>
                     </div>
 
-                    <div className="p-4 bg-amber-900/10 border border-amber-900/50 rounded-lg">
+                    <div className="p-4 bg-amber-900/10 border border-amber-900/50 rounded-xl">
                       <p className="text-amber-200 font-semibold text-sm mb-2">Known Limitation</p>
                       <p className="text-sm text-amber-200/70">
                         Current implementation uses volatile in-memory storage. Persistence layer (database/file I/O) 
@@ -207,7 +207,7 @@ function BMSK() {
                 ].map((s, i) => (
                   <div 
                     key={i} 
-                    className="group relative border border-slate-800 rounded-lg overflow-hidden bg-slate-900 hover:border-slate-700 transition-colors"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
                   >
                     <img 
                       src={s.src} 
@@ -229,7 +229,7 @@ function BMSK() {
           <div className="lg:col-span-1 space-y-6">
             
             {/* Specifications */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
@@ -242,7 +242,7 @@ function BMSK() {
             </div>
 
             {/* Key Components */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
               <div className="space-y-2">
                 {[
@@ -261,7 +261,7 @@ function BMSK() {
             </div>
 
             {/* Stats */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">

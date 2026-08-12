@@ -60,7 +60,7 @@ const BlogVsn = () => {
               href="https://blogvsn.vercel.app/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-colors"
+              className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
             >
               <ExternalLink size={16} /> Live Demo
             </a>
@@ -68,7 +68,7 @@ const BlogVsn = () => {
               href="https://github.com/SamratVsn/BlogVsn" 
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-lg font-semibold text-sm transition-colors"
+              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
             >
               <Github size={16} /> View Code
             </a>
@@ -83,7 +83,7 @@ const BlogVsn = () => {
           <div className="lg:col-span-2 space-y-12">
             
             {/* Hero Image */}
-            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <img 
                 src={B1} 
                 alt="BlogVsn Platform" 
@@ -102,11 +102,11 @@ const BlogVsn = () => {
                 enabling dynamic, real-time content delivery with edge-cached global distribution.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                <div className="p-4 border border-slate-800 rounded-lg bg-slate-900/30">
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
                   <p className="text-[#3B82F6] font-semibold text-sm mb-2">Performance</p>
                   <p className="text-sm text-slate-400">Edge-cached API responses for instantaneous loading and minimal latency.</p>
                 </div>
-                <div className="p-4 border border-slate-800 rounded-lg bg-slate-900/30">
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
                   <p className="text-[#3B82F6] font-semibold text-sm mb-2">Security</p>
                   <p className="text-sm text-slate-400">Google Identity Services for zero-knowledge authentication and data protection.</p>
                 </div>
@@ -166,7 +166,7 @@ const BlogVsn = () => {
                 {activeTab === 'tech' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
                     {techStack.map((t, i) => (
-                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
                           <t.icon size={20} className="text-[#3B82F6] mt-1" />
                           <div>
@@ -181,14 +181,14 @@ const BlogVsn = () => {
 
                 {activeTab === 'challenges' && (
                   <div className="space-y-4 animate-in fade-in">
-                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
                       <h4 className="text-amber-200 font-semibold text-sm mb-2">OAuth Callback Logic</h4>
                       <p className="text-slate-400 text-sm">
                         Managing URI redirection between local development environment and production Vercel deployment 
                         required careful configuration of OAuth consent screen and authorized redirect URIs.
                       </p>
                     </div>
-                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
                       <h4 className="text-amber-200 font-semibold text-sm mb-2">Token Persistence & Security</h4>
                       <p className="text-slate-400 text-sm">
                         Implementing secure session management for OAuth tokens required balancing between local storage 
@@ -208,7 +208,7 @@ const BlogVsn = () => {
                   <div 
                     key={i} 
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800 rounded-lg overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700 transition-colors"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
                   >
                     <img 
                       src={s.src} 
@@ -229,14 +229,14 @@ const BlogVsn = () => {
           <div className="lg:col-span-1 space-y-6">
             
             {/* Service Status */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
                 <Activity size={16} className="text-[#3B82F6]" />
                 Service Status
               </h3>
               <div className="space-y-4">
                 {services.map((service, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 border border-slate-800 rounded-lg">
+                  <div key={i} className="flex items-center justify-between p-3 border border-slate-800/70 rounded-xl bg-[#0A101F]/50">
                     <span className="text-sm text-slate-400">{service.name}</span>
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-green-500" />
@@ -248,7 +248,7 @@ const BlogVsn = () => {
             </div>
 
             {/* Architecture */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
                 <Cloud size={16} className="text-[#3B82F6]" />
                 Data Flow
@@ -274,7 +274,7 @@ const BlogVsn = () => {
             </div>
 
             {/* Key Features */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Key Features</h3>
               <div className="space-y-3 text-sm">
                 {[

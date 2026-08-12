@@ -4,8 +4,8 @@ import emailjs from '@emailjs/browser';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import SEO from '../Components/SEO';
+import BackgroundFX from '../Components/BackgroundFX';
 
-// Environment variables for EmailJS
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -99,7 +99,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6]">
+    <div className="relative min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO
         title="Contact | Samrat Parajuli"
         description="Get in touch with Samrat. I'm always open to discussing projects, collaboration, or new opportunities."
@@ -107,8 +107,9 @@ const Contact = () => {
       />
 
       <Header />
+      <BackgroundFX />
 
-      <main className="max-w-6xl mx-auto px-6 pt-28 pb-20">
+      <main className="relative max-w-6xl mx-auto px-6 pt-28 pb-20">
         
         {/* Hero Section */}
         <div className="mb-20">
@@ -135,7 +136,7 @@ const Contact = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-900/50 transition-colors"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.3)] transition-all duration-200"
                   >
                     <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
                       <link.icon size={18} />
@@ -162,7 +163,7 @@ const Contact = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start gap-4 p-4 rounded-lg hover:bg-slate-900/50 transition-colors"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.3)] transition-all duration-200"
                   >
                     <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
                       <link.icon size={18} />
@@ -207,7 +208,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Ram, Shyam, Sita..."
-                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 transition-all text-sm"
+                  className="w-full bg-[#0A101F]/60 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 focus:shadow-[0_0_24px_-10px_rgba(59,130,246,0.35)] transition-all text-sm"
                 />
               </div>
 
@@ -223,7 +224,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 transition-all text-sm"
+                  className="w-full bg-[#0A101F]/60 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 focus:shadow-[0_0_24px_-10px_rgba(59,130,246,0.35)] transition-all text-sm"
                 />
               </div>
 
@@ -239,7 +240,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project, idea, or just say hello..."
-                  className="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 transition-all resize-none text-sm leading-relaxed"
+                  className="w-full bg-[#0A101F]/60 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 focus:shadow-[0_0_24px_-10px_rgba(59,130,246,0.35)] transition-all resize-none text-sm leading-relaxed"
                 />
               </div>
 
@@ -249,7 +250,7 @@ const Contact = () => {
                 className={`w-full py-3.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
                   sending
                     ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
-                    : 'bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90'
+                    : 'bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 active:scale-[0.97]'
                 }`}
               >
                 {sending ? 'Sending...' : 'Send Message'}

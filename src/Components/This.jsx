@@ -54,7 +54,7 @@ export default function AllioVsn() {
         {/* Metrics Grid */}
         <div className="grid grid-cols-3 gap-4 mb-20">
           {metrics.map((m, i) => (
-            <div key={i} className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+            <div key={i} className="p-4 bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/70 rounded-xl shadow-[0_0_24px_-14px_rgba(59,130,246,0.25)]">
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-medium">
                 {m.label}
               </p>
@@ -117,7 +117,7 @@ export default function AllioVsn() {
           {activeTab === 'tech' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in">
               {techStack.map((tech, idx) => (
-                <div key={idx} className="p-6 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                <div key={idx} className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex items-start gap-4">
                     <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6]">
                       <tech.icon size={24} />
@@ -140,7 +140,7 @@ export default function AllioVsn() {
                 { title: "Responsive Design", detail: "Adaptive grid system that responds seamlessly to all viewports without explicit media queries." },
                 { title: "Dark-Optimized", detail: "Custom slate palette designed for reduced eye strain during extended reading sessions." }
               ].map((feat, i) => (
-                <div key={i} className="p-6 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                <div key={i} className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                   <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">
                     Feature {String(i + 1).padStart(2, "0")}
                   </p>
@@ -165,13 +165,13 @@ export default function AllioVsn() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="/" 
-                className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 text-sm"
+                className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
               >
                 View Full Source <ArrowUpRight size={15} />
               </a>
               <a 
                 href="/contact" 
-                className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white font-medium px-6 py-2.5 rounded-lg transition-colors inline-flex items-center gap-2 text-sm"
+                className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white font-medium px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
               >
                 Get in Touch
               </a>

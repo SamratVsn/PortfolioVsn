@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
+import BackgroundFX from "../Components/BackgroundFX";
 import { ArrowUpRight } from "lucide-react";
 import {Link} from "react-router-dom";
 
@@ -138,15 +139,16 @@ function Notes() {
   const rest = articles.filter((a) => !a.featured);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO
         title="Notes | Samrat Parajuli"
         description="Learning in public — Android journey, engineering notes, and event reflections by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/notes"
       />
       <Header />
+      <BackgroundFX />
 
-      <main className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+      <main className="relative max-w-3xl mx-auto px-6 pt-32 pb-24">
 
         {/* ── Page header ── */}
         <motion.div
@@ -155,6 +157,13 @@ function Notes() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
+          <div className="flex items-center gap-2 mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/60" />
+            <span className="w-6 h-px bg-[#3B82F6]/30" />
+            <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium">
+              Learning in public
+            </span>
+          </div>
           <h1 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-[-0.02em]">
             Notes<span className="text-[#3B82F6]">.</span>
           </h1>
@@ -177,11 +186,11 @@ function Notes() {
               className="group block mb-10"
             >
               {featured.image && (
-                <div className="w-full aspect-[2/1] sm:aspect-[3/1] rounded-lg overflow-hidden mb-5 bg-slate-800/30">
+                <div className="w-full aspect-[2/1] sm:aspect-[3/1] rounded-xl overflow-hidden mb-5 border border-slate-800/60 bg-slate-800/30 shadow-[0_0_28px_-12px_rgba(59,130,246,0.25)]">
                   <img
                     src={featured.image}
                     alt=""
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
                     loading="lazy"
                   />
                 </div>
@@ -219,16 +228,16 @@ function Notes() {
                   className="group flex gap-6 sm:gap-8 items-start"
                 >
                   {article.image && (
-                    <div className="hidden sm:block w-24 h-16 rounded-md overflow-hidden shrink-0 bg-slate-800/30">
+                    <div className="hidden sm:block w-24 h-16 rounded-lg overflow-hidden shrink-0 bg-slate-800/30 border border-slate-800/60">
                       <img
                         src={article.image}
                         alt=""
-                        className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                        className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-[1.05] transition-all duration-300"
                         loading="lazy"
                       />
                     </div>
                   )}
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 group-hover:translate-x-0.5 transition-transform duration-200">
                     <div className="flex items-center gap-2.5 mb-1.5">
                       <span className="text-[11px] text-slate-500 uppercase tracking-wider">
                         {article.category}

@@ -62,7 +62,7 @@ const SMS = () => {
             href="https://github.com/SamratVsn/C-codes" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -76,7 +76,7 @@ const SMS = () => {
           <div className="lg:col-span-2 space-y-12">
             
             {/* Hero Image */}
-            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <img 
                 src={SMS1} 
                 alt="CLI Interface" 
@@ -95,7 +95,7 @@ const SMS = () => {
                 This project demonstrates deep understanding of file I/O, memory management, and binary serialization using 
                 the C Standard Library.
               </p>
-              <div className="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+              <div className="p-4 bg-[#0A101F]/60 border border-slate-800/70 rounded-xl">
                 <p className="text-sm text-slate-300">
                   <span className="text-[#3B82F6] font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
                   flushing to ensure data persistence even in the event of software interrupt.
@@ -155,7 +155,7 @@ const SMS = () => {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
                     {features.map((f, i) => (
-                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
                           <f.icon size={20} className="text-[#3B82F6] mt-1" />
                           <div>
@@ -170,16 +170,16 @@ const SMS = () => {
 
                 {activeTab === 'challenges' && (
                   <div className="space-y-6 animate-in fade-in">
-                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
                       <h4 className="text-amber-200 font-semibold text-sm mb-2">Struct Padding Issue</h4>
                       <p className="text-slate-400 text-sm mb-3">
                         Records became unreadable due to memory alignment differences across architectures.
                       </p>
-                      <div className="p-3 bg-slate-900 rounded text-xs font-mono text-slate-300">
+                      <div className="p-3 bg-slate-900/80 rounded-lg text-xs font-mono text-slate-300">
                         <span className="text-[#3B82F6]">Solution:</span> #pragma pack(1)
                       </div>
                     </div>
-                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-lg">
+                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
                       <h4 className="text-amber-200 font-semibold text-sm mb-2">File Pointer Management</h4>
                       <p className="text-slate-400 text-sm">
                         Managing file pointers across multiple operations required careful tracking to prevent 
@@ -198,7 +198,7 @@ const SMS = () => {
                 {screenshots.map((s, i) => (
                   <div 
                     key={i} 
-                    className="group relative border border-slate-800 rounded overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700 transition-colors"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
                     onClick={() => setSelectedImage(s)}
                   >
                     <img 
@@ -220,7 +220,7 @@ const SMS = () => {
           <div className="lg:col-span-1 space-y-6">
             
             {/* Specifications */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
                 <Activity size={16} className="text-[#3B82F6]" />
                 Specifications
@@ -236,12 +236,12 @@ const SMS = () => {
             </div>
 
             {/* Data Structure */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
                 <HardDrive size={16} className="text-[#3B82F6]" />
                 Data Structure
               </h3>
-              <div className="p-4 bg-slate-950 border border-slate-900 rounded text-xs font-mono text-slate-400 leading-relaxed space-y-1">
+              <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl text-xs font-mono text-slate-400 leading-relaxed space-y-1">
                 <div><span className="text-[#3B82F6]">struct</span> Student {`{`}</div>
                 <div className="ml-4">
                   <div><span className="text-slate-500">char</span> name[50];</div>
@@ -253,7 +253,7 @@ const SMS = () => {
             </div>
 
             {/* Stats */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">

@@ -64,7 +64,7 @@ function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative flex flex-col bg-slate-900/30 border border-slate-800 rounded-lg hover:bg-slate-900/50 hover:border-slate-700 transition-all duration-300"
+      className="group relative flex flex-col rounded-xl border border-slate-800/70 bg-[#0A101F]/80 backdrop-blur-xl shadow-[0_0_28px_-12px_rgba(59,130,246,0.25)] hover:-translate-y-1 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.4)] hover:border-slate-700/80 transition-all duration-300"
     >
       <Link to={project.path} className="absolute inset-0 z-10" aria-label={`View project: ${project.title}`} />
 
@@ -98,18 +98,22 @@ function ProjectCard({ project, index }) {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span 
-              key={tag} 
-              className="text-xs font-medium text-slate-400 bg-slate-800/50 px-3 py-1.5 rounded border border-slate-800/50 group-hover:border-slate-700 transition-colors"
+          {project.tags.map((tag, i) => (
+            <span
+              key={tag}
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 bg-white/[0.02] border border-slate-800/70 px-3 py-1 rounded-md group-hover:border-slate-700/80 transition-colors"
             >
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][i % 3] }}
+              />
               {tag}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="flex items-center gap-4 px-7 sm:px-8 py-5 border-t border-slate-800/50 bg-slate-900/20">
+      <div className="flex items-center gap-4 px-7 sm:px-8 py-5 border-t border-slate-800/50 bg-[#0A101F]/60 rounded-b-xl">
         {project.github && (
           <a
             href={project.github}
@@ -137,7 +141,7 @@ function ProjectCard({ project, index }) {
           </a>
         )}
         <div className="flex-grow" />
-        <span className="text-xs text-slate-600">View details →</span>
+        <span className="text-xs text-slate-600 group-hover:text-[#3B82F6] transition-colors">View details →</span>
       </div>
     </motion.article>
   );
@@ -153,6 +157,13 @@ export default function ProjectGrid() {
         transition={{ duration: 0.5 }}
         className="mb-14"
       >
+        <div className="flex items-center gap-2 mb-5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/60" />
+          <span className="w-6 h-px bg-[#3B82F6]/30" />
+          <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium">
+            Work
+          </span>
+        </div>
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-[-0.03em]">
           Projects<span className="text-[#3B82F6]">.</span>
         </h1>

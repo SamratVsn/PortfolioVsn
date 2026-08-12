@@ -3,29 +3,11 @@ import { motion } from "framer-motion";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter, FaGoogle } from "react-icons/fa6";
+import BackgroundFX from "../Components/BackgroundFX";
+import SectionHeading from "../Components/SectionHeading";
+import { FaGithub } from "react-icons/fa";
 import { Code, ArrowUpRight, Cpu, BookOpen, Layers } from "lucide-react";
 import Hero from "../Components/Hero";
-
-// ── Shared section heading component ──────────────────────────────────────────
-function SectionHeader({ eyebrow, title, subtitle }) {
-  return (
-    <div className="mb-10">
-      <p className="text-[11px] uppercase tracking-[0.14em] text-slate-600 font-medium mb-3">
-        {eyebrow}
-      </p>
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-[-0.02em]">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
-          {subtitle}
-        </p>
-      )}
-    </div>
-  );
-}
 
 function Home() {
   const featuredProjects = [
@@ -175,21 +157,6 @@ function Home() {
     {
       title: "Focus on user experience",
       desc: "Good engineering serves the user. Performance, polish, and reliability matter more than implementation cleverness.",
-    },
-  ];
-
-  const socials = [
-    { href: "https://github.com/SamratVsn", icon: FaGithub, label: "GitHub" },
-    {
-      href: "https://www.linkedin.com/in/samratvsn/",
-      icon: FaLinkedin,
-      label: "LinkedIn",
-    },
-    { href: "https://x.com/SamratVsn", icon: FaXTwitter, label: "X / Twitter" },
-    {
-      href: "https://g.dev/samratparajuli",
-      icon: FaGoogle,
-      label: "GoogleDev",
     },
   ];
 
@@ -365,21 +332,26 @@ function Home() {
       <Hero />
 
       {/* ─── EXPERTISE ─────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 border-t border-slate-800/40">
-        <div className="max-w-5xl mx-auto">
-          <SectionHeader
+      <section className="relative py-24 px-6 border-t border-slate-800/40">
+        <BackgroundFX />
+        <div className="relative max-w-5xl mx-auto">
+          <SectionHeading animated
             eyebrow="Skills"
             title="Core Expertise"
             subtitle="Technologies and concepts I work with daily."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {expertise.map((col) => (
-              <div
+            {expertise.map((col, i) => (
+              <motion.div
                 key={col.title}
-                className="border border-slate-800/60 rounded-xl p-6 hover:border-slate-700/80 transition-colors duration-200"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.45, delay: (i % 2) * 0.08 }}
+                className="group border border-slate-800/70 rounded-xl p-6 bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-12px_rgba(59,130,246,0.2)] hover:-translate-y-1 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.35)] hover:border-slate-700/80 transition-all duration-300"
               >
-                <div className="p-2 bg-[#3B82F6]/5 border border-[#3B82F6]/10 rounded-lg w-fit mb-4 text-[#3B82F6]">
+                <div className="p-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/15 rounded-lg w-fit mb-4 text-[#3B82F6] group-hover:bg-[#3B82F6]/15 transition-colors duration-300">
                   <col.icon size={18} />
                 </div>
                 <h3 className="text-white font-semibold text-sm mb-1">
@@ -402,16 +374,17 @@ function Home() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* ─── PHILOSOPHY ────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 border-t border-slate-800/40">
-        <div className="max-w-4xl mx-auto">
-          <SectionHeader
+      <section className="relative py-24 px-6 border-t border-slate-800/40">
+        <BackgroundFX gridOpacity={0.02} />
+        <div className="relative max-w-4xl mx-auto">
+          <SectionHeading animated
             eyebrow="Approach"
             title="How I Build Software"
             subtitle="Principles that guide my engineering decisions."
@@ -420,9 +393,9 @@ function Home() {
           {/* Two-column text list — different from the card grid in Expertise */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
             {philosophy.map((item, i) => (
-              <div key={i} className="group">
+              <div key={i} className="group rounded-lg p-3 -m-3 hover:bg-white/[0.02] transition-colors duration-200">
                 <div className="flex items-center gap-2.5 mb-2">
-                  <span className="text-[11px] tabular-nums text-slate-700 font-mono">
+                  <span className="text-[11px] tabular-nums text-slate-700 font-mono group-hover:text-[#3B82F6] transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="text-white font-medium text-sm">
@@ -439,10 +412,11 @@ function Home() {
       </section>
 
       {/* ─── NOTES ─────────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 border-t border-slate-800/40">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-24 px-6 border-t border-slate-800/40">
+        <BackgroundFX gridOpacity={0.02} />
+        <div className="relative max-w-4xl mx-auto">
           <div className="flex items-end justify-between mb-10">
-            <SectionHeader
+            <SectionHeading animated
               eyebrow="Notes"
               title="Notes"
               subtitle="Android journey timeline and engineering notes."
@@ -457,8 +431,8 @@ function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Journey — table layout, distinct from cards */}
-            <div>
-              <p className="text-xs uppercase tracking-[0.12em] text-slate-600 font-medium mb-5">
+            <div className="rounded-xl border border-slate-800/60 bg-[#0A101F]/60 backdrop-blur-xl p-6">
+              <p className="text-xs uppercase tracking-[0.12em] text-slate-500 font-medium mb-2">
                 Android Journey
               </p>
               <div className="space-y-0">
@@ -488,21 +462,21 @@ function Home() {
             </div>
 
             {/* Engineering notes — simple list */}
-            <div>
-              <p className="text-xs uppercase tracking-[0.12em] text-slate-600 font-medium mb-5">
+            <div className="rounded-xl border border-slate-800/60 bg-[#0A101F]/60 backdrop-blur-xl p-6">
+              <p className="text-xs uppercase tracking-[0.12em] text-slate-500 font-medium mb-2">
                 Engineering Notes
               </p>
               <div className="space-y-0">
                 {notePreviews.map((note, i) => (
                   <div
                     key={i}
-                    className={`py-4 ${i < notePreviews.length - 1 ? "border-b border-slate-800/40" : ""}`}
+                    className={`py-4 group cursor-default ${i < notePreviews.length - 1 ? "border-b border-slate-800/40" : ""}`}
                   >
                     <div className="flex items-start justify-between gap-3 mb-1">
-                      <h4 className="text-slate-300 text-sm font-medium leading-snug">
+                      <h4 className="text-slate-300 text-sm font-medium leading-snug group-hover:text-white transition-colors duration-200">
                         {note.title}
                       </h4>
-                      <span className="shrink-0 text-[10px] text-slate-700 border border-slate-800 px-1.5 py-0.5 rounded uppercase tracking-wider whitespace-nowrap">
+                      <span className="shrink-0 text-[10px] text-slate-600 border border-slate-800 px-1.5 py-0.5 rounded uppercase tracking-wider whitespace-nowrap">
                         Soon
                       </span>
                     </div>
@@ -525,10 +499,11 @@ function Home() {
       </section>
 
       {/* ─── FEATURED PROJECTS ─────────────────────────────────────────────── */}
-      <section className="py-24 px-6 border-t border-slate-800/40">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-24 px-6 border-t border-slate-800/40">
+        <BackgroundFX />
+        <div className="relative max-w-4xl mx-auto">
           <div className="flex items-end justify-between mb-10">
-            <SectionHeader
+            <SectionHeading animated
               eyebrow="Work"
               title="Projects"
               subtitle="Real projects that shaped my engineering thinking."
@@ -543,10 +518,16 @@ function Home() {
 
           <div className="space-y-4">
             {featuredProjects.map((project, i) => (
-              <Link
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.45, delay: (i % 2) * 0.08 }}
+              >
+              <Link
                 to={project.path}
-                className="group block border border-slate-800/60 rounded-xl p-6 hover:border-slate-700/80 transition-colors duration-200"
+                className="group block border border-slate-800/70 rounded-xl p-6 bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-12px_rgba(59,130,246,0.2)] hover:-translate-y-1 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.35)] hover:border-slate-700/80 transition-all duration-300"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   <div className="flex-1 min-w-0">
@@ -555,11 +536,15 @@ function Home() {
                         {project.title}
                       </h3>
                       <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag) => (
+                        {project.tags.map((tag, idx) => (
                           <span
                             key={tag}
-                            className="text-[10px] text-slate-600 bg-slate-800/40 px-2 py-0.5 rounded font-medium"
+                            className="inline-flex items-center gap-1 text-[10px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
                           >
+                            <span
+                              className="w-1 h-1 rounded-full"
+                              style={{ backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][idx % 3] }}
+                            />
                             {tag}
                           </span>
                         ))}
@@ -624,6 +609,7 @@ function Home() {
                   </div>
                 </div>
               </Link>
+              </motion.div>
             ))}
           </div>
 

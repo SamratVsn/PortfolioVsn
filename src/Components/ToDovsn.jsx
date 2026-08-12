@@ -87,7 +87,7 @@ function ToDoVsn() {
             href="https://github.com/SamratVsn/ToDo"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -101,7 +101,7 @@ function ToDoVsn() {
           <div className="lg:col-span-2 space-y-12">
 
             {/* Hero Image */}
-            <div className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <img
                 src={ToDoApp}
                 alt="To-Do Vsn app"
@@ -123,11 +123,11 @@ function ToDoVsn() {
                 performance.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                <div className="p-4 border border-slate-800 rounded-lg bg-slate-900/30">
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
                   <p className="text-[#3B82F6] font-semibold text-sm mb-2">Single Activity</p>
                   <p className="text-sm text-slate-400">Entire navigation handled within one MainActivity using Navigation Compose.</p>
                 </div>
-                <div className="p-4 border border-slate-800 rounded-lg bg-slate-900/30">
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
                   <p className="text-[#3B82F6] font-semibold text-sm mb-2">Reactive State</p>
                   <p className="text-sm text-slate-400">StateFlow and mutableStateOf drive UI recomposition as task data changes.</p>
                 </div>
@@ -195,7 +195,7 @@ function ToDoVsn() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
                           <feat.icon size={20} className="text-[#3B82F6] mt-0.5 shrink-0" />
                           <div>
@@ -215,15 +215,15 @@ function ToDoVsn() {
                         <Layers size={16} className="text-[#3B82F6]" /> Layered Architecture
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-1">Presentation Layer</p>
                           <p className="text-sm text-slate-400">Jetpack Compose screens and ViewModels handle UI state and user interactions.</p>
                         </div>
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-1">Domain Layer</p>
                           <p className="text-sm text-slate-400">Repository interfaces abstract the data sources from the UI.</p>
                         </div>
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-1">Data Layer</p>
                           <p className="text-sm text-slate-400">Room Database implementation, DAOs, and entities handle persistence.</p>
                         </div>
@@ -234,7 +234,7 @@ function ToDoVsn() {
                       <h3 className="text-white font-semibold text-sm flex items-center gap-2">
                         <FolderTree size={16} className="text-[#3B82F6]" /> Project Structure
                       </h3>
-                      <div className="p-4 bg-slate-950 border border-slate-800 rounded-lg font-mono text-sm text-slate-400 leading-relaxed">
+                      <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Entities, DAOs, Database, Repository</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
@@ -250,11 +250,11 @@ function ToDoVsn() {
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm">Design Principles</h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-2">MVVM + Repository Pattern</p>
                           <p className="text-sm text-slate-400">Presentation, domain (repository interfaces), and data (Room DAOs/entities) layers stay cleanly separated.</p>
                         </div>
-                        <div className="p-4 border border-slate-800 rounded-lg">
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                           <p className="text-sm text-white font-semibold mb-2">Single Activity Architecture</p>
                           <p className="text-sm text-slate-400">All navigation flows through one MainActivity, keeping the app lightweight and predictable.</p>
                         </div>
@@ -317,7 +317,7 @@ function ToDoVsn() {
                   <div
                     key={i}
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800 rounded-lg overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700 transition-colors"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
                   >
                     <img
                       src={s.src}
@@ -339,7 +339,7 @@ function ToDoVsn() {
           <div className="lg:col-span-1 space-y-6">
 
             {/* Specifications */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
@@ -352,7 +352,7 @@ function ToDoVsn() {
             </div>
 
             {/* Key Components */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
               <div className="space-y-2">
                 {[
@@ -372,7 +372,7 @@ function ToDoVsn() {
             </div>
 
             {/* Stack */}
-            <div className="p-6 border border-slate-800 rounded-lg bg-slate-900/30">
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'Navigation Compose', 'ViewModel', 'Coroutines', 'KSP', 'AndroidX'].map((tech, i) => (
@@ -388,7 +388,7 @@ function ToDoVsn() {
               href="https://github.com/SamratVsn/ToDo"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 border border-slate-800 rounded-lg bg-slate-900/30 hover:border-[#3B82F6]/50 transition-colors group"
+              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
               <ArrowUpRight size={16} className="text-slate-500 group-hover:text-[#3B82F6] transition-colors" />
