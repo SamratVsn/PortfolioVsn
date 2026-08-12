@@ -55,30 +55,25 @@ const focusItems = [
   {
     title: "Jetpack Compose",
     desc: "Deepening my understanding of Compose internals, custom layouts, and animation APIs.",
-    progress: 100,
   },
   {
     title: "Android Architecture",
     desc: "Studying production-grade patterns — MVVM, Hilt, Room, and proper separation of concerns.",
-    progress: 100,
   },
   {
     title: "Open Source",
     desc: "Commiting everything I build to github repositories, contributing to existing projects, and sharing knowledge through writing.",
-    progress: 100,
   },
   {
     title: "Real Projects",
     desc: "Trying to build and ship real applications, even if small, to apply what I learn and gain practical experience.",
-    progress: 100,
   },
 ];
 
 const stats = [
   { value: "1+", label: "Years of building Android" },
-  { value: "40+", label: "Github Repositories" },
-  { value: "5+", label: "Skills Learned" },
-  { value: "Open", label: "to work", accent: true },
+  { value: "40+", label: "GitHub Repositories" },
+  { value: "4+", label: "Published Articles" },
 ];
 
 const stack = ["Kotlin", "Jetpack Compose", "MVVM", "Retrofit", "Room", "Coroutines"];
@@ -116,16 +111,16 @@ export default function About() {
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-16 px-6">
         <BackgroundFX />
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: [
-              "linear-gradient(rgba(45,212,191,0.5) 1px, transparent 1px)",
-              "linear-gradient(90deg, rgba(45,212,191,0.5) 1px, transparent 1px)",
-            ].join(", "),
-            backgroundSize: "64px 64px",
-          }}
-        />
+          <div
+            className="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style={{
+              backgroundImage: [
+                "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px)",
+                "linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
+              ].join(", "),
+              backgroundSize: "64px 64px",
+            }}
+          />
 
         <div className="max-w-4xl mx-auto relative">
           <motion.div
@@ -186,18 +181,14 @@ export default function About() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-8"
           >
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-[#0A0F1E] border border-slate-800/60 rounded-xl p-4 text-center hover:border-[#3B82F6]/20 hover:-translate-y-0.5 transition-all duration-300"
+                className="bg-[#0A0F1E] border border-slate-800/60 rounded-xl p-4 text-center hover:border-[#3B82F6]/20 transition-colors duration-300"
               >
-                <div
-                  className={`text-2xl font-bold tracking-tight ${
-                    s.accent ? "text-[#3B82F6]" : "text-white"
-                  }`}
-                >
+                <div className="text-2xl font-bold tracking-tight text-white">
                   {s.value}
                 </div>
                 <div className="text-[11px] text-slate-500 mt-1">{s.label}</div>
@@ -309,20 +300,14 @@ export default function About() {
               <motion.div
                 key={i}
                 {...stagger(i)}
-                className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 hover:border-[#3B82F6]/25 hover:-translate-y-1 shadow-[0_0_28px_-14px_rgba(59,130,246,0.3)] transition-all duration-300 group"
+                className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 hover:border-[#3B82F6]/25 transition-colors duration-300 group"
               >
                 <p className="text-[10px] font-bold text-[#3B82F6] tracking-[0.08em] uppercase mb-2">
                   {item.title}
                 </p>
-                <p className="text-slate-500 text-[12.5px] leading-relaxed mb-3">
+                <p className="text-slate-500 text-[12.5px] leading-relaxed">
                   {item.desc}
                 </p>
-                <div className="h-[3px] bg-slate-800/60 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[#3B82F6] rounded-full transition-all duration-700"
-                    style={{ width: `${item.progress}%` }}
-                  />
-                </div>
               </motion.div>
             ))}
           </div>
@@ -339,7 +324,7 @@ export default function About() {
               <motion.div
                 key={i}
                 {...stagger(i)}
-                className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 flex flex-col hover:border-[#3B82F6]/25 hover:-translate-y-1 shadow-[0_0_28px_-14px_rgba(59,130,246,0.3)] transition-all duration-300"
+                className="bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/60 rounded-xl p-5 flex flex-col hover:border-[#3B82F6]/25 transition-colors duration-300"
               >
                 <div className="text-[28px] text-[#3B82F6]/15 leading-none mb-3 select-none">
                   &ldquo;

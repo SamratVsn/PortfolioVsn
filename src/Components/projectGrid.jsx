@@ -64,7 +64,7 @@ function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative flex flex-col rounded-xl border border-slate-800/70 bg-[#0A101F]/80 backdrop-blur-xl shadow-[0_0_28px_-12px_rgba(59,130,246,0.25)] hover:-translate-y-1 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.4)] hover:border-slate-700/80 transition-all duration-300"
+      className="group relative flex flex-col rounded-xl border border-slate-800/70 bg-[#0A101F]/80 backdrop-blur-xl hover:border-slate-700/80 transition-colors duration-300"
     >
       <Link to={project.path} className="absolute inset-0 z-10" aria-label={`View project: ${project.title}`} />
 

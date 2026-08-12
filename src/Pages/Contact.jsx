@@ -136,7 +136,7 @@ const Contact = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.3)] transition-all duration-200"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 transition-colors duration-200"
                   >
                     <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
                       <link.icon size={18} />
@@ -163,7 +163,7 @@ const Contact = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.3)] transition-all duration-200"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 transition-colors duration-200"
                   >
                     <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
                       <link.icon size={18} />

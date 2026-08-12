@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { 
-  Code2, Palette, Zap, Layout, Sparkles, ExternalLink, 
-  Terminal, Layers, Monitor, Share2, Cpu, Globe, ArrowUpRight
+  Code2, Palette, Zap, Layout, ArrowUpRight
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import SEO from './SEO'
 
-export default function AllioVsn() {
+export default function This() {
   const [activeTab, setActiveTab] = useState('about')
 
   const techStack = [
@@ -13,12 +13,6 @@ export default function AllioVsn() {
     { icon: Palette, name: 'Tailwind CSS', detail: 'Design tokens & Utility-first styling' },
     { icon: Layout, name: 'React Router', detail: 'Dynamic SPAs with client-side routing' },
     { icon: Zap, name: 'Vercel Edge', detail: 'Global distribution & CI/CD deployment' }
-  ]
-
-  const metrics = [
-    { label: 'Uptime', value: '99.9%', icon: Globe },
-    { label: 'Latency', value: 'Minimal', icon: Zap },
-    { label: 'Responsivity', value: '100%', icon: Monitor }
   ]
 
   return (
@@ -30,7 +24,7 @@ export default function AllioVsn() {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6">
           <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
             Portfolio <span className="text-[#3B82F6]">Engine v2</span>
@@ -49,18 +43,6 @@ export default function AllioVsn() {
           <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
             A fast, responsive, and beautifully designed portfolio website that showcases projects and work. Built to demonstrate modern React patterns and optimal performance.
           </p>
-        </div>
-
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-3 gap-4 mb-20">
-          {metrics.map((m, i) => (
-            <div key={i} className="p-4 bg-[#0A101F]/70 backdrop-blur-xl border border-slate-800/70 rounded-xl shadow-[0_0_24px_-14px_rgba(59,130,246,0.25)]">
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-medium">
-                {m.label}
-              </p>
-              <p className="text-2xl font-bold text-white">{m.value}</p>
-            </div>
-          ))}
         </div>
 
         {/* Tabs */}
@@ -84,7 +66,7 @@ export default function AllioVsn() {
         <div className="min-h-[400px]">
           
           {activeTab === 'about' && (
-            <div className="space-y-8 animate-in fade-in">
+            <div className="space-y-8">
               <div>
                 <h3 className="text-[#3B82F6] text-sm font-semibold uppercase tracking-widest mb-4">Design Philosophy</h3>
                 <p className="text-slate-300 leading-relaxed">
@@ -115,7 +97,7 @@ export default function AllioVsn() {
           )}
 
           {activeTab === 'tech' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {techStack.map((tech, idx) => (
                 <div key={idx} className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex items-start gap-4">
@@ -133,7 +115,7 @@ export default function AllioVsn() {
           )}
 
           {activeTab === 'features' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 { title: "Dynamic Routing", detail: "React Router with nested layouts, catch-all 404 handling, and automatic scroll-to-top on navigation." },
                 { title: "Framer Motion", detail: "Animated page transitions, scroll-triggered reveals, staggered animations, and smooth layout shifts." },
@@ -164,17 +146,19 @@ export default function AllioVsn() {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
-                href="/" 
+                href="https://github.com/SamratVsn/devPortfoli0"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
               >
                 View Full Source <ArrowUpRight size={15} />
               </a>
-              <a 
-                href="/contact" 
+              <Link 
+                to="/contact"
                 className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white font-medium px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
               >
                 Get in Touch
-              </a>
+              </Link>
             </div>
           </div>
         </div>

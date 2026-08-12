@@ -75,7 +75,7 @@ function ToDoVsn() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Android App</p>
@@ -154,7 +154,7 @@ function ToDoVsn() {
 
               <div className="min-h-[400px]">
                 {activeTab === 'overview' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <p className="text-slate-400 leading-relaxed">
                       This app demonstrates a full mobile CRUD workflow: creating, editing, completing, and
                       deleting tasks — all backed by a local Room database with reactive state handling
@@ -193,7 +193,7 @@ function ToDoVsn() {
                 )}
 
                 {activeTab === 'features' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
                       <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
@@ -209,7 +209,7 @@ function ToDoVsn() {
                 )}
 
                 {activeTab === 'architecture' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm flex items-center gap-2">
                         <Layers size={16} className="text-[#3B82F6]" /> Layered Architecture
@@ -264,7 +264,7 @@ function ToDoVsn() {
                 )}
 
                 {activeTab === 'system' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm flex items-center gap-2">
                         <Cpu size={16} className="text-[#3B82F6]" /> Runtime Environment
@@ -404,7 +404,7 @@ function ToDoVsn() {
           className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="max-w-3xl w-full space-y-4 animate-in fade-in">
+          <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
               <h3 className="text-white font-semibold">{selectedImage.label}</h3>
               <button

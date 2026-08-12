@@ -50,7 +50,7 @@ const SMS = () => {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">System Software</p>
@@ -123,7 +123,7 @@ const SMS = () => {
 
               <div className="min-h-[300px]">
                 {activeTab === 'overview' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <p className="text-slate-400 leading-relaxed">
                       This project demonstrates a low-level implementation of a database engine using the C Standard Library. 
                       It showcases how modern databases work under the hood by directly manipulating binary data streams.
@@ -153,7 +153,7 @@ const SMS = () => {
                 )}
 
                 {activeTab === 'features' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((f, i) => (
                       <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
@@ -169,7 +169,7 @@ const SMS = () => {
                 )}
 
                 {activeTab === 'challenges' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
                       <h4 className="text-amber-200 font-semibold text-sm mb-2">Struct Padding Issue</h4>
                       <p className="text-slate-400 text-sm mb-3">
@@ -282,7 +282,7 @@ const SMS = () => {
           className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" 
           onClick={() => setSelectedImage(null)}
         >
-          <div className="max-w-3xl w-full space-y-4 animate-in fade-in">
+          <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
               <h3 className="text-white font-semibold">{selectedImage.label}</h3>
               <button 

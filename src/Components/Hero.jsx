@@ -365,7 +365,6 @@ export default function Hero() {
 
             <h1
               className="text-[2.1rem] xs:text-[2.5rem] sm:text-5xl lg:text-[3.75rem] leading-[1.06] font-semibold text-white mb-4 tracking-[-0.02em]"
-              style={{ fontFamily: "'Fraunces', ui-serif, Georgia, serif" }}
             >
               <span className="whitespace-nowrap">
                 Hi, I'm{" "}
@@ -449,10 +448,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,400&display=swap');
-      `}</style>
     </section>
   );
 }

@@ -4,7 +4,6 @@ import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
 import BackgroundFX from "../Components/BackgroundFX";
 import { ArrowUpRight } from "lucide-react";
-import {Link} from "react-router-dom";
 
 const articles = [
   {
@@ -317,7 +316,7 @@ function Notes() {
 
         {/* ── Engineering Notes ── */}
         <section>
-          <SectionLabel><Link to = "/dev">Engineering notes</Link></SectionLabel>
+          <SectionLabel>Engineering notes</SectionLabel>
           <p className="text-slate-400 text-sm leading-relaxed mb-10 max-w-md">
             Technical writing in progress — drafts on architecture, Compose patterns, and
             lessons from building.
@@ -340,9 +339,6 @@ function Notes() {
                       {note.description}
                     </p>
                   </div>
-                  <span className="shrink-0 mt-0.5 text-[10px] text-slate-600 border border-slate-800 px-2 py-0.5 rounded uppercase tracking-wider whitespace-nowrap">
-                    Soon
-                  </span>
                 </div>
               </div>
             ))}

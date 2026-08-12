@@ -182,16 +182,6 @@ export default function Header() {
             <div className="bg-[#020617]/98 backdrop-blur-xl border-b border-slate-800/40 pt-[72px] pb-6 px-5">
               <div className="max-w-sm mx-auto">
 
-                {/* Status badge */}
-                <div className="flex justify-center mb-5">
-                  <div className="inline-flex items-center gap-2 bg-[#3B82F6]/[0.06] border border-[#3B82F6]/15 rounded-full px-3 py-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
-                    <span className="text-[11px] text-[#3B82F6] font-semibold tracking-wide">
-                      Open to opportunities
-                    </span>
-                  </div>
-                </div>
-
                 {/* Nav links */}
                 <nav className="flex flex-col gap-1 mb-5">
                   {navLinks.map((link, i) => {

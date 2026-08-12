@@ -160,171 +160,6 @@ function Home() {
     },
   ];
 
-  const nodes = [
-    { label: "Kotlin", angle: -90, radius: 108 },
-    { label: "Compose", angle: 30, radius: 108 },
-    { label: "Android", angle: 150, radius: 108 },
-  ];
-
-  function OrbitGraphic() {
-    const size = 380;
-    const c = size / 2;
-
-    return (
-      <div
-        className="relative shrink-0 select-none"
-        style={{ width: size, height: size }}
-        aria-hidden="true"
-      >
-        {/* ambient glows */}
-        <div
-          className="absolute rounded-full blur-3xl"
-          style={{
-            width: 260,
-            height: 260,
-            left: c - 130,
-            top: c - 130,
-            background:
-              "radial-gradient(circle, rgba(201,162,75,0.16) 0%, rgba(201,162,75,0) 70%)",
-          }}
-        />
-        <div
-          className="absolute rounded-full blur-3xl"
-          style={{
-            width: 220,
-            height: 220,
-            left: c - 110 + 40,
-            top: c - 110 - 30,
-            background:
-              "radial-gradient(circle, rgba(143,127,232,0.14) 0%, rgba(143,127,232,0) 70%)",
-          }}
-        />
-
-        {/* breathing core */}
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: 34,
-            height: 34,
-            left: c - 17,
-            top: c - 17,
-            background:
-              "radial-gradient(circle, rgba(224, 242, 254, 0.9) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(56, 189, 248, 0) 100%)",
-          }}
-          animate={{ scale: [1, 1.35, 1], opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: 8,
-            height: 8,
-            left: c - 4,
-            top: c - 4,
-            background: "#F0F9FF",
-            boxShadow: "0 0 10px rgba(56, 189, 248, 0.5)",
-          }}
-        />
-
-        {/* Mandala rings */}
-        <svg
-          width={size}
-          height={size}
-          viewBox={`0 0 ${size} ${size}`}
-          className="absolute inset-0"
-          fill="none"
-        >
-          <circle
-            cx={c}
-            cy={c}
-            r={70}
-            stroke="rgba(56, 189, 248, 0.12)"
-            strokeWidth="1"
-          />
-          <circle
-            cx={c}
-            cy={c}
-            r={150}
-            stroke="rgba(14, 165, 233, 0.1)"
-            strokeWidth="1"
-          />
-        </svg>
-
-        {/* rotating orbit ring with nodes */}
-        <motion.svg
-          width={size}
-          height={size}
-          viewBox={`0 0 ${size} ${size}`}
-          className="absolute inset-0"
-          fill="none"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-        >
-          <circle
-            cx={c}
-            cy={c}
-            r={108}
-            stroke="rgba(201,162,75,0.35)"
-            strokeWidth="1"
-            strokeDasharray="1 7"
-            strokeLinecap="round"
-          />
-          {nodes.map(({ angle, radius }, i) => {
-            const rad = (angle * Math.PI) / 180;
-            const x = c + radius * Math.cos(rad);
-            const y = c + radius * Math.sin(rad);
-            return (
-              <g key={i}>
-                <line
-                  x1={c}
-                  y1={c}
-                  x2={x}
-                  y2={y}
-                  stroke="rgba(201,162,75,0.14)"
-                  strokeWidth="0.75"
-                />
-                <circle cx={x} cy={y} r={4} fill="#00F0FF" />
-                <circle
-                  cx={x}
-                  cy={y}
-                  r={9}
-                  stroke="rgba(0,240,255,0.4)"
-                  strokeWidth="0.75"
-                />
-              </g>
-            );
-          })}
-        </motion.svg>
-
-        {/* counter-rotating labels, kept upright */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-        >
-          {nodes.map(({ label, angle, radius }, i) => {
-            const rad = (angle * Math.PI) / 180;
-            const x = c + radius * Math.cos(rad);
-            const y = c + radius * Math.sin(rad);
-            return (
-              <span
-                key={i}
-                className="absolute text-[10px] font-medium tracking-[0.2em] text-[#EDEAE3] whitespace-nowrap"
-                style={{
-                  left: x,
-                  top: y,
-                  transform: "translate(-50%, 14px)",
-                }}
-              >
-                {label.toUpperCase()}
-              </span>
-            );
-          })}
-        </motion.div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO ogUrl="https://www.samratparajuli0.com.np/" />
@@ -349,7 +184,7 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.45, delay: (i % 2) * 0.08 }}
-                className="group border border-slate-800/70 rounded-xl p-6 bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-12px_rgba(59,130,246,0.2)] hover:-translate-y-1 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.35)] hover:border-slate-700/80 transition-all duration-300"
+                className="group border border-slate-800/70 rounded-xl p-6 bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors duration-300"
               >
                 <div className="p-2.5 bg-[#3B82F6]/10 border border-[#3B82F6]/15 rounded-lg w-fit mb-4 text-[#3B82F6] group-hover:bg-[#3B82F6]/15 transition-colors duration-300">
                   <col.icon size={18} />
@@ -476,9 +311,6 @@ function Home() {
                       <h4 className="text-slate-300 text-sm font-medium leading-snug group-hover:text-white transition-colors duration-200">
                         {note.title}
                       </h4>
-                      <span className="shrink-0 text-[10px] text-slate-600 border border-slate-800 px-1.5 py-0.5 rounded uppercase tracking-wider whitespace-nowrap">
-                        Soon
-                      </span>
                     </div>
                     <p className="text-slate-500 text-xs leading-relaxed">
                       {note.desc}
@@ -527,7 +359,7 @@ function Home() {
               >
               <Link
                 to={project.path}
-                className="group block border border-slate-800/70 rounded-xl p-6 bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-12px_rgba(59,130,246,0.2)] hover:-translate-y-1 hover:shadow-[0_0_36px_-10px_rgba(59,130,246,0.35)] hover:border-slate-700/80 transition-all duration-300"
+                className="group block border border-slate-800/70 rounded-xl p-6 bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors duration-300"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   <div className="flex-1 min-w-0">

@@ -30,7 +30,7 @@ function BMSK() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Backend System</p>
@@ -97,7 +97,7 @@ function BMSK() {
 
               <div className="min-h-[400px]">
                 {activeTab === 'overview' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <p className="text-slate-400 leading-relaxed">
                       This banking simulation demonstrates core principles of object-oriented design in Kotlin. 
                       The system manages multiple accounts with transaction handling, validation, and state preservation.
@@ -127,7 +127,7 @@ function BMSK() {
                 )}
 
                 {activeTab === 'features' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
                       <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <h4 className="text-white font-semibold text-sm mb-2">{feat.title}</h4>
@@ -138,7 +138,7 @@ function BMSK() {
                 )}
 
                 {activeTab === 'architecture' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm">Class Structure</h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
@@ -167,7 +167,7 @@ function BMSK() {
                 )}
 
                 {activeTab === 'system' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm">Runtime Environment</h3>
                       <div className="space-y-3">

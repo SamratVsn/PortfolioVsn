@@ -57,8 +57,8 @@ export default function Footer() {
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
           backgroundImage: [
-            "linear-gradient(rgba(45,212,191,0.5) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(45,212,191,0.5) 1px, transparent 1px)",
+            "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px)",
+            "linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
           ].join(", "),
           backgroundSize: "64px 64px",
         }}
@@ -87,12 +87,6 @@ export default function Footer() {
             <p className="text-[11.5px] text-slate-500 leading-relaxed max-w-[190px]">
               Building native Android experiences with clean architecture & modern Kotlin.
             </p>
-            <div className="inline-flex items-center gap-1.5 bg-[#3B82F6]/[0.07] border border-[#3B82F6]/20 rounded-full px-2.5 py-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
-              <span className="text-[10px] text-[#3B82F6] font-semibold tracking-wide">
-                Open to work
-              </span>
-            </div>
           </div>
 
           {/* COL 2 — NAVIGATION */}

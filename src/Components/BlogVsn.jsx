@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { 
   ExternalLink, Github, Code2, Zap, Lock, Mail, 
-  Palette, Cloud, Activity, X
+  Palette, Cloud, X
 } from 'lucide-react'
 import SEO from './SEO'
 
@@ -32,12 +32,6 @@ const BlogVsn = () => {
     { src: B5, label: 'SMTP Gateway', desc: 'EmailJS integration with validation logic.' }
   ]
 
-  const services = [
-    { name: 'Google OAuth', status: 'Connected' },
-    { name: 'Blogger API', status: 'Healthy' },
-    { name: 'Email Service', status: 'Active' }
-  ]
-
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
@@ -47,7 +41,7 @@ const BlogVsn = () => {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md sticky top-0 z-30">
+      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Cloud Integration</p>
@@ -133,7 +127,7 @@ const BlogVsn = () => {
 
               <div className="min-h-[350px]">
                 {activeTab === 'overview' && (
-                  <div className="space-y-6 animate-in fade-in">
+                  <div className="space-y-6">
                     <p className="text-slate-400 leading-relaxed">
                       This project demonstrates how to integrate cloud services (Google OAuth, Blogger API) with modern React patterns 
                       to build a scalable, performant blogging platform. The architecture separates concerns between authentication, 
@@ -164,7 +158,7 @@ const BlogVsn = () => {
                 )}
 
                 {activeTab === 'tech' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {techStack.map((t, i) => (
                       <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
@@ -180,7 +174,7 @@ const BlogVsn = () => {
                 )}
 
                 {activeTab === 'challenges' && (
-                  <div className="space-y-4 animate-in fade-in">
+                  <div className="space-y-4">
                     <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
                       <h4 className="text-amber-200 font-semibold text-sm mb-2">OAuth Callback Logic</h4>
                       <p className="text-slate-400 text-sm">
@@ -228,25 +222,6 @@ const BlogVsn = () => {
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-6">
             
-            {/* Service Status */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
-                <Activity size={16} className="text-[#3B82F6]" />
-                Service Status
-              </h3>
-              <div className="space-y-4">
-                {services.map((service, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 border border-slate-800/70 rounded-xl bg-[#0A101F]/50">
-                    <span className="text-sm text-slate-400">{service.name}</span>
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-green-500" />
-                      <span className="text-xs text-green-400 font-medium">{service.status}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Architecture */}
             <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
@@ -303,7 +278,7 @@ const BlogVsn = () => {
           className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" 
           onClick={() => setSelectedImage(null)}
         >
-          <div className="max-w-3xl w-full space-y-4 animate-in fade-in">
+          <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
               <h3 className="text-white font-semibold">{selectedImage.label}</h3>
               <button 
