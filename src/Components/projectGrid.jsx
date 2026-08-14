@@ -55,6 +55,16 @@ const PROJECTS = [
     live: "https://www.samratparajuli0.com.np",
     path: "/projects/this"
   },
+  {
+    id: "05",
+    title: "The Movie App",
+    problem: "I wanted to build a real-world Android app that talks to a live REST API and handles real user data.",
+    solution: "Built a Jetpack Compose app in Kotlin using the TMDB API, with movie browsing, search, details, profile, and DataStore-backed settings.",
+    learning: "Learned client-server architecture end to end — Retrofit networking, Kotlinx Serialization, reactive state with Coroutines & Flow, and MVVM with manual DI.",
+    tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
+    github: "https://github.com/SamratVsn/TheMovie",
+    path: "/projects/themovie"
+  },
 ];
 
 function ProjectCard({ project, index }) {
