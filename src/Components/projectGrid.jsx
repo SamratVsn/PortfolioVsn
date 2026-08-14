@@ -15,6 +15,26 @@ const PROJECTS = [
   },
   {
     id: "01",
+    title: "The Movie App",
+    problem: "I wanted to build a real-world Android app that talks to a live REST API and handles real user data.",
+    solution: "Built a Jetpack Compose app in Kotlin using the TMDB API, with movie browsing, search, details, profile, and DataStore-backed settings.",
+    learning: "Learned client-server architecture end to end — Retrofit networking, Kotlinx Serialization, reactive state with Coroutines & Flow, and MVVM with manual DI.",
+    tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
+    github: "https://github.com/SamratVsn/TheMovie",
+    path: "/projects/themovie"
+  },
+  {
+    id: "02",
+    title: "Juice Tracker",
+    problem: "I wanted to explore how Jetpack Compose integrates with traditional Android Views while building something useful.",
+    solution: "Built a Kotlin app that logs juice combinations, details, and ratings using Room for local persistence and a UI that mixes Compose with RecyclerView.",
+    learning: "Learned Compose-View interoperability, Room database integration, and reactive state with StateFlow inside an MVVM structure.",
+    tags: ["Kotlin", "Compose + Views", "Room"],
+    github: "https://github.com/SamratVsn/Juicetracker",
+    path: "/projects/juicetracker"
+  },
+  {
+    id: "03",
     title: "Student Management System",
     problem: "I needed a way to store and manage student records persistently without using a database.",
     solution: "Built a program in C that saves data directly to a file and lets you add, search, update, and delete records.",
@@ -24,7 +44,7 @@ const PROJECTS = [
     path: "/projects/sms"
   },
   {
-    id: "02",
+    id: "04",
     title: "Bank Account Manager",
     problem: "I wanted to understand how banking applications handle accounts and transactions securely.",
     solution: "Created a Kotlin program with account creation, deposits, withdrawals, and balance checks — all with proper error handling.",
@@ -34,7 +54,7 @@ const PROJECTS = [
     path: "/projects/bmsk"
   },
   {
-    id: "03",
+    id: "05",
     title: "BlogVsn Platform",
     problem: "I wanted a fast blog site where content is managed separately from the frontend.",
     solution: "Connected a React website to Google's Blogger API so I can write posts in Blogger and have them appear on the site automatically.",
@@ -45,7 +65,7 @@ const PROJECTS = [
     path: "/projects/blogvsn"
   },
   {
-    id: "04",
+    id: "06",
     title: "Portfolio Website",
     problem: "I needed a portfolio that looks professional and shows who I am without feeling generic.",
     solution: "Built this site with React and Tailwind CSS, focusing on clean design and clear storytelling about my work.",
@@ -54,16 +74,6 @@ const PROJECTS = [
     github: "https://github.com/SamratVsn",
     live: "https://www.samratparajuli0.com.np",
     path: "/projects/this"
-  },
-  {
-    id: "05",
-    title: "The Movie App",
-    problem: "I wanted to build a real-world Android app that talks to a live REST API and handles real user data.",
-    solution: "Built a Jetpack Compose app in Kotlin using the TMDB API, with movie browsing, search, details, profile, and DataStore-backed settings.",
-    learning: "Learned client-server architecture end to end — Retrofit networking, Kotlinx Serialization, reactive state with Coroutines & Flow, and MVVM with manual DI.",
-    tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
-    github: "https://github.com/SamratVsn/TheMovie",
-    path: "/projects/themovie"
   },
 ];
 

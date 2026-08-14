@@ -24,6 +24,30 @@ function Home() {
       path: "/projects/todo",
     },
     {
+      title: "The Movie App",
+      problem:
+        "I wanted to build a real-world Android app that talks to a live REST API and handles real user data.",
+      solution:
+        "Built a Jetpack Compose app in Kotlin using the TMDB API, with movie browsing, search, details, profile, and DataStore-backed settings.",
+      learning:
+        "Learned client-server architecture end to end — Retrofit networking, Kotlinx Serialization, reactive state with Coroutines & Flow, and MVVM with manual DI.",
+      tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
+      github: "https://github.com/SamratVsn/TheMovie",
+      path: "/projects/themovie",
+    },
+    {
+      title: "Juice Tracker",
+      problem:
+        "I wanted to explore how Jetpack Compose integrates with traditional Android Views while building something useful.",
+      solution:
+        "Built a Kotlin app that logs juice combinations, details, and ratings using Room for local persistence and a UI that mixes Compose with RecyclerView.",
+      learning:
+        "Learned Compose-View interoperability, Room database integration, and reactive state with StateFlow inside an MVVM structure.",
+      tags: ["Kotlin", "Compose + Views", "Room"],
+      github: "https://github.com/SamratVsn/Juicetracker",
+      path: "/projects/juicetracker",
+    },
+    {
       title: "Student Management System",
       problem:
         "I needed a way to store and manage student records persistently without using a database.",
@@ -60,18 +84,6 @@ function Home() {
       github: "https://github.com/SamratVsn/BlogVsn",
       live: "https://blogvsn.vercel.app/",
       path: "/projects/blogvsn",
-    },
-    {
-      title: "The Movie App",
-      problem:
-        "I wanted to build a real-world Android app that talks to a live REST API and handles real user data.",
-      solution:
-        "Built a Jetpack Compose app in Kotlin using the TMDB API, with movie browsing, search, details, profile, and DataStore-backed settings.",
-      learning:
-        "Learned client-server architecture end to end — Retrofit networking, Kotlinx Serialization, reactive state with Coroutines & Flow, and MVVM with manual DI.",
-      tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
-      github: "https://github.com/SamratVsn/TheMovie",
-      path: "/projects/themovie",
     },
   ];
 
@@ -258,7 +270,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ─── NOTES ─────────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 border-t border-slate-800/40">
         <BackgroundFX gridOpacity={0.02} />
         <div className="relative max-w-4xl mx-auto">
