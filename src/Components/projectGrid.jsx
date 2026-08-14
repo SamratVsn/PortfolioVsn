@@ -35,6 +35,16 @@ const PROJECTS = [
   },
   {
     id: "03",
+    title: "Kathmandu My-City App",
+    problem: "I wanted to build a real app that showcases my city and completes the Android Basics with Compose course.",
+    solution: "Built a Jetpack Compose recommendation app featuring Kathmandu's special places, temples, shops, and tourist destinations with MVVM and Navigation Compose.",
+    learning: "Practiced Material 3 theming, ViewModel-backed state preservation across rotations, and adaptive layouts for different screen sizes.",
+    tags: ["Kotlin", "Jetpack Compose", "Material 3"],
+    github: "https://github.com/SamratVsn/Kathmandu",
+    path: "/projects/kathmandu"
+  },
+  {
+    id: "04",
     title: "Student Management System",
     problem: "I needed a way to store and manage student records persistently without using a database.",
     solution: "Built a program in C that saves data directly to a file and lets you add, search, update, and delete records.",
@@ -44,7 +54,7 @@ const PROJECTS = [
     path: "/projects/sms"
   },
   {
-    id: "04",
+    id: "05",
     title: "Bank Account Manager",
     problem: "I wanted to understand how banking applications handle accounts and transactions securely.",
     solution: "Created a Kotlin program with account creation, deposits, withdrawals, and balance checks — all with proper error handling.",
@@ -54,7 +64,7 @@ const PROJECTS = [
     path: "/projects/bmsk"
   },
   {
-    id: "05",
+    id: "06",
     title: "BlogVsn Platform",
     problem: "I wanted a fast blog site where content is managed separately from the frontend.",
     solution: "Connected a React website to Google's Blogger API so I can write posts in Blogger and have them appear on the site automatically.",
@@ -65,7 +75,7 @@ const PROJECTS = [
     path: "/projects/blogvsn"
   },
   {
-    id: "06",
+    id: "07",
     title: "Portfolio Website",
     problem: "I needed a portfolio that looks professional and shows who I am without feeling generic.",
     solution: "Built this site with React and Tailwind CSS, focusing on clean design and clear storytelling about my work.",

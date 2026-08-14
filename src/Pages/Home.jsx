@@ -48,6 +48,18 @@ function Home() {
       path: "/projects/juicetracker",
     },
     {
+      title: "Kathmandu My-City App",
+      problem:
+        "I wanted to build a real app that showcases my city and completes the Android Basics with Compose course.",
+      solution:
+        "Built a Jetpack Compose recommendation app featuring Kathmandu's special places, temples, shops, and tourist destinations with MVVM and Navigation Compose.",
+      learning:
+        "Practiced Material 3 theming, ViewModel-backed state preservation across rotations, and adaptive layouts for different screen sizes.",
+      tags: ["Kotlin", "Jetpack Compose", "Material 3"],
+      github: "https://github.com/SamratVsn/Kathmandu",
+      path: "/projects/kathmandu",
+    },
+    {
       title: "Bank Account Manager",
       problem:
         "I wanted to understand how banking applications handle accounts and transactions securely.",

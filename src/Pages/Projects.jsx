@@ -10,6 +10,7 @@ import This from '../Components/This'
 import ToDo from '../Components/ToDovsn'
 import TheMovie from '../Components/TheMovie'
 import JuiceTracker from '../Components/JuiceTracker'
+import Kathmandu from '../Components/Kathmandu'
 
 const Projects = () => {
   return (
@@ -17,7 +18,7 @@ const Projects = () => {
       <Routes>
         <Route index element={<><SEO
           title="Projects | Samrat Parajuli - Portfolio"
-          description="Explore projects by Samrat Parajuli: ToDo Vsn App (Kotlin & Jetpack Compose), The Movie App (TMDB API), Juice Tracker (Room & Compose Interop), Student Management System (C), BlogVsn Platform (React), and more."
+          description="Explore projects by Samrat Parajuli: ToDo Vsn App, The Movie App (TMDB API), Juice Tracker, Kathmandu My-City App, Student Management System (C), BlogVsn Platform (React), and more."
           ogUrl="https://www.samratparajuli0.com.np/projects"
         /><ProjectGrid /></>} />
         <Route path="todo" element={<ToDo />} />
@@ -27,6 +28,7 @@ const Projects = () => {
         <Route path="this" element={<This />} />
         <Route path="themovie" element={<TheMovie />} />
         <Route path="juicetracker" element={<JuiceTracker />} />
+        <Route path="kathmandu" element={<Kathmandu />} />
       </Routes>
     </PageLayout>
   );
