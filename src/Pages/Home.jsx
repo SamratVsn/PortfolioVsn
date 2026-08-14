@@ -48,18 +48,6 @@ function Home() {
       path: "/projects/juicetracker",
     },
     {
-      title: "Student Management System",
-      problem:
-        "I needed a way to store and manage student records persistently without using a database.",
-      solution:
-        "Built a program in C that saves data directly to a file and lets you add, search, update, and delete records.",
-      learning:
-        "Learned how files work at a low level — reading and writing data byte by byte, and keeping data safe even if the program crashes.",
-      tags: ["C", "Binary I/O", "CLI"],
-      github: "https://github.com/SamratVsn/C-codes",
-      path: "/projects/sms",
-    },
-    {
       title: "Bank Account Manager",
       problem:
         "I wanted to understand how banking applications handle accounts and transactions securely.",
@@ -73,17 +61,16 @@ function Home() {
       path: "/projects/bmsk",
     },
     {
-      title: "BlogVsn Platform",
+      title: "Student Management System",
       problem:
-        "I wanted a fast blog site where content is managed separately from the frontend.",
+        "I needed a way to store and manage student records persistently without using a database.",
       solution:
-        "Connected a React website to Google's Blogger API so I can write posts in Blogger and have them appear on the site automatically.",
+        "Built a program in C that saves data directly to a file and lets you add, search, update, and delete records.",
       learning:
-        "Learned how OAuth authentication works, how to fetch data from REST APIs, and how to deploy with edge caching for speed.",
-      tags: ["React", "OAuth", "REST API"],
-      github: "https://github.com/SamratVsn/BlogVsn",
-      live: "https://blogvsn.vercel.app/",
-      path: "/projects/blogvsn",
+        "Learned how files work at a low level — reading and writing data byte by byte, and keeping data safe even if the program crashes.",
+      tags: ["C", "Binary I/O", "CLI"],
+      github: "https://github.com/SamratVsn/C-codes",
+      path: "/projects/sms",
     },
   ];
 
