@@ -366,10 +366,10 @@ export default function Hero() {
             <h1
               className="text-[2.1rem] xs:text-[2.5rem] sm:text-5xl lg:text-[3.75rem] leading-[1.06] font-semibold text-white mb-4 tracking-[-0.02em]"
             >
-              <span className="whitespace-nowrap">
+              <span>
                 Hi, I'm{" "}
-                <span className="italic font-normal text-[#3B82F6]">
-                  Samrat
+                <span className="italic font-normal text-[#3B82F6] whitespace-nowrap">
+                  Samrat Parajuli
                 </span>
               </span>
 
@@ -382,8 +382,9 @@ export default function Hero() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-400 max-w-md mx-auto lg:mx-0 mb-6 leading-relaxed">
-              I build modern, clean and scalable Android apps with Kotlin &
-              Jetpack Compose — learning in public, one commit at a time.
+              Also known as SamratVsn, I build modern, clean and scalable Android
+              apps with Kotlin & Jetpack Compose. I'm based in Kathmandu, Nepal —
+              learning in public, one commit at a time.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5 mb-7">

@@ -69,7 +69,7 @@ function ToDoVsn() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="To-Do Vsn App | Samrat Parajuli"
+        title="To-Do Vsn App | SamratVsn"
         description="Modern task management Android app built with Kotlin & Jetpack Compose, following MVVM + Repository architecture with Room persistence and type-safe Navigation Compose. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
       />

@@ -47,7 +47,7 @@ function JuiceTracker() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Juice Tracker | Samrat Parajuli"
+        title="Juice Tracker | SamratVsn"
         description="Native Android app for tracking juice combinations, details, and ratings — built with Kotlin, MVVM, Room, and Jetpack Compose + XML View interoperability. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/juicetracker"
       />

@@ -1,5 +1,18 @@
 {
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/projects/todo", "destination": "/projects/todo.html" },
+    { "source": "/projects/themovie", "destination": "/projects/themovie.html" },
+    { "source": "/projects/juicetracker", "destination": "/projects/juicetracker.html" },
+    { "source": "/projects/kathmandu", "destination": "/projects/kathmandu.html" },
+    { "source": "/projects/sms", "destination": "/projects/sms.html" },
+    { "source": "/projects/bmsk", "destination": "/projects/bmsk.html" },
+    { "source": "/projects/blogvsn", "destination": "/projects/blogvsn.html" },
+    { "source": "/projects/this", "destination": "/projects/this.html" },
+    { "source": "/notes", "destination": "/notes.html" }
   ]
 }

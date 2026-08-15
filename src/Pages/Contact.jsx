@@ -101,8 +101,8 @@ const Contact = () => {
   return (
     <div className="relative min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO
-        title="Contact | Samrat Parajuli"
-        description="Get in touch with Samrat. I'm always open to discussing projects, collaboration, or new opportunities."
+        title="Contact Samrat Parajuli | Android Developer"
+        description="Get in touch with Samrat Parajuli (SamratVsn), an Android developer based in Nepal — open to projects, collaboration, and new opportunities."
         ogUrl="https://www.samratparajuli0.com.np/contact"
       />
 

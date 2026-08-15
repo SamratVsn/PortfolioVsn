@@ -17,7 +17,7 @@ const Projects = () => {
     <PageLayout>
       <Routes>
         <Route index element={<><SEO
-          title="Projects | Samrat Parajuli - Portfolio"
+          title="Projects | SamratVsn"
           description="Explore projects by Samrat Parajuli: ToDo Vsn App, The Movie App (TMDB API), Juice Tracker, Kathmandu My-City App, Student Management System (C), BlogVsn Platform (React), and more."
           ogUrl="https://www.samratparajuli0.com.np/projects"
         /><ProjectGrid /></>} />

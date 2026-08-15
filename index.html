@@ -1,106 +1,35 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
+    <!-- ── Site-wide (route-agnostic) head — never replaced by prerender ── -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- ── Primary SEO ─────────────────────────────────────────── -->
-    <title>Samrat Parajuli (SamratVsn) | Android App Developer</title>
-    <meta
-      name="title"
-      content="Samrat Parajuli (SamratVsn) | Android App Developer"
-    />
-    <meta
-      name="description"
-      content="Portfolio of Samrat Parajuli (SamratVsn), an Android Developer based in Nepal specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems."
-    />
-    <meta
-      name="keywords"
-      content="SamratVsn, Samrat Parajuli, Android Developer Nepal, Kotlin Developer, Jetpack Compose, Mobile Architect, Samrat.sys, Android Studio, MVVM, Coroutines, Samrat Parajuli Nepal, Samrat Parajuli Android, Developer Samrat Parajuli, SamratVsn"
-    />
-    <meta name="author" content="Samrat Parajuli" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#020617" />
-
-    <!-- ── Canonical ──────────────────────────────────────────── -->
-    <link rel="canonical" href="https://www.samratparajuli0.com.np/" />
-
-    <!-- ── Favicons ───────────────────────────────────────────── -->
     <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
-
-    <!-- ── Open Graph ─────────────────────────────────────────── -->
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Samrat Parajuli" />
-    <meta property="og:url" content="https://www.samratparajuli0.com.np/" />
-    <meta
-      property="og:title"
-      content="Samrat Parajuli (SamratVsn) | Android App Developer"
-    />
-    <meta
-      property="og:description"
-      content="Android Developer based in Nepal specializing in Kotlin and Jetpack Compose. Building the future of mobile systems."
-    />
-    <!--
-      Generate a 1200×630 PNG/JPG for the OG image — SVGs are often
-      rejected by social crawlers (Facebook, LinkedIn, Slack, etc.)
-    -->
-    <meta
-      property="og:image"
-      content="https://www.samratparajuli0.com.np/Profile.jpg"
-    />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta
-      property="og:image:alt"
-      content="Samrat Parajuli (SamratVsn) — Android App Developer"
-    />
-
-    <!-- ── Twitter / X Card ───────────────────────────────────── -->
-    <!--
-      Twitter uses name="" not property="" for its meta tags.
-      Using property="" still works but name="" is the spec-correct form.
-    -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@SamratVsn" />
-    <!-- add your handle if you have one -->
-    <meta name="twitter:creator" content="@SamratVsn" />
-    <meta name="twitter:url" content="https://www.samratparajuli0.com.np/" />
-    <meta
-      name="twitter:title"
-      content="Samrat Parajuli (SamratVsn) | Android App Developer"
-    />
-    <meta
-      name="twitter:description"
-      content="Android App Developer based in Nepal specializing in Kotlin and Jetpack Compose. Building the future of mobile systems."
-    />
-    <meta
-      name="twitter:image"
-      content="https://www.samratparajuli0.com.np/Profile.jpg"
-    />
-    <meta
-      name="twitter:image:alt"
-      content="Samrat Parajuli (SamratVsn) — Android App Developer"
-    />
+    <meta name="theme-color" content="#020617" />
 
     <!-- ── Google Search Console verification ────────────────── -->
     <meta name="google-site-verification" content="google2e0ee218d053ef6b" />
+
+    <!-- ── Site-wide Open Graph / Twitter base ─────────────────── -->
+    <meta property="og:site_name" content="Samrat Parajuli" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:site" content="@SamratVsn" />
+    <meta name="twitter:creator" content="@SamratVsn" />
 
     <!-- ── Structured Data (JSON-LD) ──────────────────────────── -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://www.samratparajuli0.com.np/#person",
         "name": "Samrat Parajuli",
         "alternateName": "SamratVsn",
         "description": "Android Developer based in Nepal specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems.",
         "url": "https://www.samratparajuli0.com.np/",
         "image": "https://www.samratparajuli0.com.np/Profile.jpg",
         "jobTitle": "Android App Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Freelance / Independent"
-        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kathmandu",
@@ -108,8 +37,10 @@
         },
         "sameAs": [
           "https://github.com/SamratVsn",
-          "https://linkedin.com/in/samratvsn",
+          "https://www.linkedin.com/in/samratvsn/",
           "https://g.dev/samratparajuli",
+          "https://x.com/SamratVsn",
+          "https://medium.com/@samratvsn",
           "https://facebook.com/samratvsn"
         ],
         "knowsAbout": [
@@ -127,11 +58,70 @@
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://www.samratparajuli0.com.np/#website",
         "name": "Samrat Parajuli",
         "alternateName": "SamratVsn",
-        "url": "https://www.samratparajuli0.com.np/"
+        "url": "https://www.samratparajuli0.com.np/",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://www.samratparajuli0.com.np/#person"
+        }
       }
     </script>
+
+    <!-- ROUTE_SEO_START -->
+    <!-- ── Per-route SEO (replaced by prerender for each route) ── -->
+    <title>Samrat Parajuli (SamratVsn) | Android App Developer</title>
+    <meta
+      name="title"
+      content="Samrat Parajuli (SamratVsn) | Android App Developer"
+    />
+    <meta
+      name="description"
+      content="Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.samratparajuli0.com.np/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.samratparajuli0.com.np/" />
+    <meta
+      property="og:title"
+      content="Samrat Parajuli (SamratVsn) | Android App Developer"
+    />
+    <meta
+      property="og:description"
+      content="Android Developer based in Nepal specializing in Kotlin and Jetpack Compose. Building the future of mobile systems."
+    />
+    <meta
+      property="og:image"
+      content="https://www.samratparajuli0.com.np/Profile.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta
+      property="og:image:alt"
+      content="Samrat Parajuli (SamratVsn) — Android App Developer"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.samratparajuli0.com.np/" />
+    <meta
+      name="twitter:title"
+      content="Samrat Parajuli (SamratVsn) | Android App Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Android App Developer based in Nepal specializing in Kotlin and Jetpack Compose. Building the future of mobile systems."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.samratparajuli0.com.np/Profile.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Samrat Parajuli (SamratVsn) — Android App Developer"
+    />
+    <!-- ROUTE_SEO_END -->
   </head>
   <body style="background-color: #020617">
     <div id="root"></div>

@@ -77,7 +77,7 @@ export default function Footer() {
               </div>
               <div>
                 <span className="block text-[14px] font-bold tracking-tight text-white leading-none">
-                  Samrat
+                  Samrat Parajuli
                 </span>
                 <span className="block text-[8.5px] text-[#3B82F6] font-semibold tracking-[0.12em] uppercase mt-0.5">
                   Android Developer

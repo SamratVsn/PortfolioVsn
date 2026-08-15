@@ -82,7 +82,7 @@ export default function Header() {
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-[14px] font-bold tracking-tight text-white group-hover:text-white/90 transition-colors">
-                Samrat
+                Samrat Parajuli
               </span>
               <span className="text-[8.5px] text-[#3B82F6] font-semibold tracking-[0.12em] uppercase mt-0.5">
                 Android Developer

@@ -140,7 +140,7 @@ function Notes() {
   return (
     <div className="relative min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO
-        title="Notes | Samrat Parajuli"
+        title="Notes | SamratVsn"
         description="Learning in public — Android journey, engineering notes, and event reflections by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/notes"
       />

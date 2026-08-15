@@ -69,7 +69,7 @@ function TheMovie() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="The Movie App | Samrat Parajuli"
+        title="The Movie App | SamratVsn"
         description="Native Android movie app built with Kotlin & Jetpack Compose using the TMDB API — with search, movie details, profile, and DataStore-backed settings. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/themovie"
       />

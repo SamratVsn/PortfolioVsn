@@ -1,41 +1,32 @@
 import { Helmet } from 'react-helmet-async'
+import { SITE, resolveSEO, collectSEO } from './seoHead'
 
-const SITE = {
-  title: "Samrat Parajuli (SamratVsn) | Android App Developer",
-  description: "Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal. Crafting native experiences with Kotlin, Jetpack Compose, and clean architecture.",
-  url: "https://www.samratparajuli0.com.np/",
-  image: "https://www.samratparajuli0.com.np/Profile.jpg",
-  twitter: "@SamratVsn",
-};
-
-export default function SEO({ title, description, ogTitle, ogDescription, ogImage, ogUrl, noindex }) {
-  const t = title || SITE.title
-  const d = description || SITE.description
-  const ot = ogTitle || t
-  const od = ogDescription || d
-  const oi = ogImage || SITE.image
-  const ou = ogUrl || SITE.url
-  const canonical = ogUrl || SITE.url
+export default function SEO(props) {
+  if (typeof window === 'undefined') collectSEO(props)
+  const r = resolveSEO(props)
 
   return (
     <Helmet>
-      <title>{t}</title>
-      <meta name="title" content={t} />
-      <meta name="description" content={d} />
-      <link rel="canonical" href={canonical} />
-
-      {noindex && <meta name="robots" content="noindex, follow" />}
+      <title>{r.t}</title>
+      <meta name="title" content={r.t} />
+      <meta name="description" content={r.d} />
+      <meta name="robots" content={r.noindex ? "noindex, follow" : "index, follow"} />
+      <link rel="canonical" href={r.canonical} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={ot} />
-      <meta property="og:description" content={od} />
-      <meta property="og:image" content={oi} />
-      <meta property="og:url" content={ou} />
+      <meta property="og:title" content={r.ot} />
+      <meta property="og:description" content={r.od} />
+      <meta property="og:image" content={r.oi} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:alt" content={SITE.imageAlt} />
+      <meta property="og:url" content={r.ou} />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={ot} />
-      <meta name="twitter:description" content={od} />
-      <meta name="twitter:image" content={oi} />
+      <meta name="twitter:title" content={r.ot} />
+      <meta name="twitter:description" content={r.od} />
+      <meta name="twitter:image" content={r.oi} />
+      <meta name="twitter:image:alt" content={SITE.imageAlt} />
+      <meta name="twitter:url" content={r.ou} />
     </Helmet>
   )
 }

@@ -24,7 +24,7 @@ function BMSK() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Bank Management System | Samrat Parajuli"
+        title="Bank Management System | SamratVsn"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
       />

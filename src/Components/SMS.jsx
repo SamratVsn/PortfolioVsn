@@ -44,7 +44,7 @@ const SMS = () => {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Student Management System | Samrat Parajuli"
+        title="Student Management System | SamratVsn"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/sms"
       />

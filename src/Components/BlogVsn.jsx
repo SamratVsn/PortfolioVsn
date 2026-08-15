@@ -35,7 +35,7 @@ const BlogVsn = () => {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="BlogVsn Platform | Samrat Parajuli"
+        title="BlogVsn Platform | SamratVsn"
         description="Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
       />
