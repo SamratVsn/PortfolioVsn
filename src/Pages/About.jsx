@@ -122,7 +122,7 @@ export default function About() {
             }}
           />
 
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-4xl mx-auto relative xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ export default function About() {
 
       {/* ── MY STORY ── */}
       <section className="py-20 px-6 border-t border-slate-800/30">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
           <SectionHeading animated title="My story" subtitle="How I got here and what keeps me going." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -292,7 +292,7 @@ export default function About() {
 
       {/* ── CURRENT FOCUS ── */}
       <section className="py-20 px-6 border-t border-slate-800/30">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
           <SectionHeading animated title="Current focus" subtitle="What I am actively learning and building toward." />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -316,7 +316,7 @@ export default function About() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-20 px-6 border-t border-slate-800/30">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
           <SectionHeading animated title="What others say" subtitle="Perspectives from collaborators, peers, and friends." />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

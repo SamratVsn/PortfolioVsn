@@ -179,7 +179,7 @@ function ProjectCard({ project, index }) {
 
 export default function ProjectGrid() {
   return (
-    <section className="max-w-4xl mx-auto px-6">
+    <section className="max-w-4xl mx-auto px-6 xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ export default function ProjectGrid() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-5 sm:gap-6">
+      <div className="grid grid-cols-1 2xl:grid-cols-2 gap-5 sm:gap-6">
         {PROJECTS.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}

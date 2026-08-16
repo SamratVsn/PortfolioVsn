@@ -109,7 +109,7 @@ const Contact = () => {
       <Header />
       <BackgroundFX />
 
-      <main className="relative max-w-6xl mx-auto px-6 pt-28 pb-20">
+      <main className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         
         {/* Hero Section */}
         <div className="mb-20">

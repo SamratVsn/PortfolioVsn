@@ -192,14 +192,14 @@ function Home() {
       {/* ─── EXPERTISE ─────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 border-t border-slate-800/40">
         <BackgroundFX />
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem]">
           <SectionHeading animated
             eyebrow="Skills"
             title="Core Expertise"
             subtitle="Technologies and concepts I work with daily."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-4">
             {expertise.map((col, i) => (
               <motion.div
                 key={col.title}
@@ -241,7 +241,7 @@ function Home() {
       {/* ─── PHILOSOPHY ────────────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 border-t border-slate-800/40">
         <BackgroundFX gridOpacity={0.02} />
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto xl:max-w-5xl">
           <SectionHeading animated
             eyebrow="Approach"
             title="How I Build Software"
@@ -271,7 +271,7 @@ function Home() {
 
       <section className="relative py-24 px-6 border-t border-slate-800/40">
         <BackgroundFX gridOpacity={0.02} />
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
           <div className="flex items-end justify-between mb-10">
             <SectionHeading animated
               eyebrow="Notes"
@@ -355,7 +355,7 @@ function Home() {
       {/* ─── FEATURED PROJECTS ─────────────────────────────────────────────── */}
       <section className="relative py-24 px-6 border-t border-slate-800/40">
         <BackgroundFX />
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
           <div className="flex items-end justify-between mb-10">
             <SectionHeading animated
               eyebrow="Work"

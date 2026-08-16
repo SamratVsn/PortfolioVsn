@@ -209,7 +209,7 @@ function DesktopHeroVisual() {
       <img
         src={HeroImage}
         alt="Full portrait of Samrat Parajuli, Android app developer"
-        className="relative z-10 block w-[340px] sm:w-[390px] lg:w-[420px] xl:w-[460px] h-auto object-contain"
+        className="relative z-10 block w-[340px] sm:w-[390px] lg:w-[420px] xl:w-[460px] 2xl:w-[520px] min-[1920px]:w-[560px] h-auto object-contain"
       />
 
       {/* code card — hugs the top-right corner, above the head */}
@@ -347,11 +347,11 @@ export default function Hero() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto w-full relative">
-        <div className="flex flex-col lg:flex-row lg:items-end gap-10 sm:gap-12 lg:gap-6">
+      <div className="max-w-6xl mx-auto w-full relative xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 sm:gap-12 lg:gap-0">
           {/* ── content: badge → headline → copy → pills → CTAs → stats, then (mobile only) the full portrait, then proof points/socials ── */}
           <motion.div
-            className="lg:basis-[58%] min-w-0 w-full text-center lg:text-left"
+            className="lg:basis-[57%] xl:basis-[55%] 2xl:basis-[54%] min-[1920px]:basis-[52%] min-w-0 w-full text-center lg:text-left"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -440,7 +440,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="hidden lg:flex lg:basis-[42%] shrink-0 w-full justify-center items-center"
+            className="hidden lg:flex lg:basis-[41%] xl:basis-[41%] 2xl:basis-[40%] min-[1920px]:basis-[40%] shrink-0 w-full justify-center items-center"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}

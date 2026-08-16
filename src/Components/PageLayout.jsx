@@ -16,7 +16,7 @@ export const PageLayout = ({ children, className = "" }) => {
         
         {/* Footer divider (optional) */}
         <footer className="border-t border-slate-800/30">
-          <div className="max-w-6xl mx-auto px-6 py-12 text-center text-sm text-slate-500">
+          <div className="max-w-6xl mx-auto px-6 py-12 text-center text-sm text-slate-500 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
             <p>Built with React, Tailwind CSS & Framer Motion</p>
           </div>
         </footer>

@@ -68,7 +68,7 @@ export default function Header() {
             : "h-16 bg-[#020617]/60 backdrop-blur-sm"
         }`}
       >
-        <div className="w-full max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div className="w-full max-w-7xl mx-auto px-6 flex justify-between items-center 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
 
           {/* BRAND */}
           <Link

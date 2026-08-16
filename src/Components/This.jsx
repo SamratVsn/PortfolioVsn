@@ -25,7 +25,7 @@ export default function This() {
       
       {/* Header */}
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="max-w-6xl mx-auto px-6 py-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
             Portfolio <span className="text-[#3B82F6]">Engine v2</span>
           </h1>
@@ -33,7 +33,7 @@ export default function This() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-16">
+      <div className="max-w-4xl mx-auto px-6 py-16 xl:max-w-5xl 2xl:max-w-6xl">
         
         {/* Hero Section */}
         <div className="mb-20">

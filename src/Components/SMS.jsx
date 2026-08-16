@@ -51,7 +51,7 @@ const SMS = () => {
       
       {/* Header */}
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">System Software</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
@@ -69,7 +69,7 @@ const SMS = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Main Content */}
