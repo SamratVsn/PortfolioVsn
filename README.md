@@ -1,4 +1,4 @@
-# devPortfoli0
+# PortfolioVsn
 
 Personal portfolio of [Samrat Parajuli](https://www.samratparajuli0.com.np/) (SamratVsn) — an Android developer and systems engineer from Nepal.
 
