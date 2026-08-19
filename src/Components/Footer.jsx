@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { ArrowUp, BookOpen } from "lucide-react";
+import { BookOpen } from "lucide-react";
 
 const focusItems = [
   "Jetpack Compose",
@@ -39,15 +37,6 @@ const socials = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [showTop, setShowTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowTop(window.scrollY > 400);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <footer className="relative bg-[#020617] border-t border-slate-800/40 overflow-hidden">
@@ -170,23 +159,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── BACK TO TOP ── */}
-      <AnimatePresence>
-        {showTop && (
-          <motion.button
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.2 }}
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            className="fixed bottom-6 right-6 z-40 flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#0A0F1E] border border-slate-800/60 text-slate-500 hover:text-[#3B82F6] hover:border-[#3B82F6]/20 transition-all text-[10px] font-medium"
-          >
-            <ArrowUp size={12} />
-            Top
-          </motion.button>
-        )}
-      </AnimatePresence>
     </footer>
   );
 }
