@@ -16,13 +16,9 @@ import {
   BookOpen,
 } from "lucide-react";
 import Hero from "../Components/Hero";
-
-import ToDoHome from "../assets/ToDo/Home.png";
-import ToDoAdd from "../assets/ToDo/Add.png";
-import MovieHome from "../assets/TheMovie/Home.png";
-import MovieSearch from "../assets/TheMovie/Search.png";
+import ToDoVsn from "../assets/ToDo/ToDoVsn.png";
+import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from "../assets/BlogVsn/B1.png";
-import BlogVsnB2 from "../assets/BlogVsn/B2.png";
 import SMS1 from "../assets/SMS/SMS1.png";
 import Retrofit from "../assets/retrofit.webp";
 import Room from "../assets/Room.webp";
@@ -36,7 +32,7 @@ const expertise = [
     title: "Android Development",
     desc: "Building modern, reactive Android apps with Kotlin and Jetpack Compose.",
     tags: ["Kotlin", "Jetpack Compose", "Material 3", "Coroutines & Flow"],
-    screenshots: [MovieHome, ToDoHome],
+    screenshots: [MoviePoster, ToDoVsn],
   },
   {
     icon: Layers,
@@ -63,7 +59,7 @@ const featuredProjects = [
     tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
     github: "https://github.com/SamratVsn/TheMovie",
     path: "/projects/themovie",
-    screenshot: MovieHome,
+    screenshot: MoviePoster,
   },
   {
     title: "ToDo Vsn App",
@@ -72,7 +68,7 @@ const featuredProjects = [
     tags: ["Kotlin", "Jetpack Compose", "Room"],
     github: "https://github.com/SamratVsn/ToDo",
     path: "/projects/todo",
-    screenshot: ToDoHome,
+    screenshot: ToDoVsn,
   },
   {
     title: "Juice Tracker",

@@ -2,16 +2,16 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
-import ToDoHome from '../assets/ToDo/Home.png';
-import MovieHome from '../assets/TheMovie/Home.png';
-import MovieSearch from '../assets/TheMovie/Search.png';
+import ToDoVsn from "../assets/ToDo/ToDoVsn.png";
+import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from '../assets/BlogVsn/B1.png';
-import BlogVsnB2 from '../assets/BlogVsn/B2.png';
+import SMS1 from '../assets/SMS/SMS1.png';
 
 const screenshots = {
-  '/projects/todo': ToDoHome,
-  '/projects/themovie': MovieHome,
+  '/projects/todo': ToDoVsn,
+  '/projects/themovie': MoviePoster,
   '/projects/blogvsn': BlogVsnB1,
+  '/projects/sms': SMS1,
 };
 
 const PROJECTS = [

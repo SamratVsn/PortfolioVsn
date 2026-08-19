@@ -48,13 +48,6 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                aria-label="Back to top"
-                className="w-8 h-8 rounded-lg border border-white/[0.06] bg-surface/60 flex items-center justify-center text-slate-500 hover:text-accent hover:border-accent/20 transition-all duration-200"
-              >
-                <ArrowUp size={14} />
-              </button>
             </div>
           </div>
 
