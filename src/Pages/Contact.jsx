@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Mail, Github, Linkedin, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, ArrowUpRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -16,7 +16,7 @@ const Contact = () => {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
-  
+
   const mountedRef = useRef(true);
   const feedbackTimerRef = useRef(null);
   const formDataRef = useRef(formData);
@@ -68,39 +68,8 @@ const Contact = () => {
       });
   }, []);
 
-  const contactLinks = [
-    { 
-      icon: Mail, 
-      label: 'Email', 
-      value: 'samratvsn@gmail.com', 
-      href: 'mailto:samratvsn@gmail.com',
-      desc: 'Best way to reach me'
-    },
-    { 
-      icon: Phone, 
-      label: 'Phone', 
-      value: '+977 9847313479', 
-      href: 'tel:+9779847313479',
-      desc: 'Available for calls'
-    },
-    { 
-      icon: Github, 
-      label: 'GitHub', 
-      value: 'SamratVsn', 
-      href: 'https://github.com/SamratVsn',
-      desc: 'See my work'
-    },
-    { 
-      icon: Linkedin, 
-      label: 'LinkedIn', 
-      value: 'samratvsn', 
-      href: 'https://www.linkedin.com/in/samratvsn/',
-      desc: 'Connect with me'
-    },
-  ];
-
   return (
-    <div className="relative min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
+    <div className="relative min-h-screen bg-canvas text-slate-300 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
       <SEO
         title="Contact Samrat Parajuli | Android Developer"
         description="Get in touch with Samrat Parajuli (SamratVsn), an Android developer based in Nepal — open to projects, collaboration, and new opportunities."
@@ -111,94 +80,92 @@ const Contact = () => {
       <BackgroundFX />
 
       <main className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        
-        {/* Hero Section */}
-        <div className="mb-20">
-          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-[-0.03em]">
-            Let's work <br />
-            <span className="text-[#3B82F6]">together.</span>
-          </h1>
-          <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
-            Whether you have a project in mind, want to collaborate on something interesting, 
-            or just want to grab a coffee and chat about Android development and tech — I'm here for it. 
-            Reach out and let's see what we can build.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
-          {/* Left: Contact Information */}
-          <div className="space-y-8">
+          {/* LEFT — Contact Info (2 cols) */}
+          <div className="lg:col-span-2 space-y-10">
             <div>
-              <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-6">Direct contact</p>
-              <div className="space-y-3">
-                {contactLinks.slice(0, 2).map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 transition-colors duration-200"
-                  >
-                    <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
-                      <link.icon size={18} />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-semibold text-white group-hover:text-[#3B82F6] transition-colors">
-                        {link.label}
-                      </p>
-                      <p className="text-sm text-slate-400">{link.value}</p>
-                      <p className="text-xs text-slate-500 mt-1">{link.desc}</p>
-                    </div>
-                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#3B82F6] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
-                  </a>
-                ))}
-              </div>
+              <p className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70 mb-5">
+                01 · Contact
+              </p>
+              <h1 className="text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-[-0.03em] mb-4">
+                Let&apos;s work together.
+              </h1>
+              <p className="text-[15px] text-slate-400 leading-relaxed max-w-md">
+                Whether you have a project in mind, want to collaborate on something interesting,
+                or just want to chat about Android development and tech — I&apos;m here for it.
+                Reach out and let&apos;s see what we can build.
+              </p>
             </div>
 
-            <div className="border-t border-slate-800 pt-8">
-              <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-6">Online presence</p>
-              <div className="space-y-3">
-                {contactLinks.slice(2).map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-transparent hover:border-slate-800/70 hover:bg-[#0A101F]/60 transition-colors duration-200"
-                  >
-                    <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6] group-hover:bg-slate-800 transition-colors mt-1">
-                      <link.icon size={18} />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-semibold text-white group-hover:text-[#3B82F6] transition-colors">
-                        {link.label}
-                      </p>
-                      <p className="text-sm text-slate-400">{link.value}</p>
-                      <p className="text-xs text-slate-500 mt-1">{link.desc}</p>
-                    </div>
-                    <ArrowUpRight size={16} className="text-slate-600 group-hover:text-[#3B82F6] transition-colors opacity-0 group-hover:opacity-100 mt-1" />
-                  </a>
-                ))}
-              </div>
+            <div className="space-y-4">
+              <a
+                href="mailto:samratvsn@gmail.com"
+                className="group flex items-start gap-4 p-4 rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-200"
+              >
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors mt-0.5">
+                  <Mail size={18} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-1">Email</p>
+                  <p className="text-sm text-white group-hover:text-accent transition-colors font-medium truncate">samratvsn@gmail.com</p>
+                  <p className="text-xs text-slate-500 mt-1">Best way to reach me</p>
+                </div>
+                <ArrowUpRight size={16} className="text-slate-600 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+              </a>
+
+              <a
+                href="https://github.com/SamratVsn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-4 p-4 rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-200"
+              >
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors mt-0.5">
+                  <Github size={18} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-1">GitHub</p>
+                  <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">github.com/SamratVsn</p>
+                  <p className="text-xs text-slate-500 mt-1">See my work</p>
+                </div>
+                <ArrowUpRight size={16} className="text-slate-600 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/samratvsn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-4 p-4 rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-200"
+              >
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors mt-0.5">
+                  <Linkedin size={18} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-1">LinkedIn</p>
+                  <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">linkedin.com/in/samratvsn</p>
+                  <p className="text-xs text-slate-500 mt-1">Connect with me</p>
+                </div>
+                <ArrowUpRight size={16} className="text-slate-600 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+              </a>
             </div>
 
-            <div className="border-t border-slate-800 pt-8">
-              <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-4">Location</p>
+            <div className="pt-2">
+              <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-3">Location</p>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#3B82F6] mt-0.5" />
+                <MapPin size={18} className="text-accent mt-0.5" />
                 <div>
-                  <p className="text-white font-semibold">Kathmandu, Nepal</p>
-                  <p className="text-sm text-slate-400">Available for remote & in-person collaboration</p>
+                  <p className="text-white font-semibold text-sm">Kathmandu, Nepal</p>
+                  <p className="text-xs text-slate-400 mt-0.5">Available for remote &amp; in-person collaboration</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+          {/* RIGHT — Contact Form (3 cols) */}
+          <div className="lg:mt-40 sm:mt-10 lg:col-span-3">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="text-sm text-slate-400 font-medium block mb-2">
+                <label htmlFor="name" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 block mb-2">
                   Your name
                 </label>
                 <input
@@ -209,12 +176,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Ram, Shyam, Sita..."
-                  className="w-full bg-[#0A101F]/60 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 focus:shadow-[0_0_24px_-10px_rgba(59,130,246,0.35)] transition-all text-sm"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="text-sm text-slate-400 font-medium block mb-2">
+                <label htmlFor="email" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 block mb-2">
                   Your email
                 </label>
                 <input
@@ -225,13 +192,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-[#0A101F]/60 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 focus:shadow-[0_0_24px_-10px_rgba(59,130,246,0.35)] transition-all text-sm"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="text-sm text-slate-400 font-medium block mb-2">
-                  What's on your mind?
+                <label htmlFor="message" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 block mb-2">
+                  What&apos;s on your mind?
                 </label>
                 <textarea
                   id="message"
@@ -241,38 +208,36 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project, idea, or just say hello..."
-                  className="w-full bg-[#0A101F]/60 border border-slate-800 rounded-lg px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]/20 focus:shadow-[0_0_24px_-10px_rgba(59,130,246,0.35)] transition-all resize-none text-sm leading-relaxed"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all resize-none text-sm leading-relaxed"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={sending}
-                className={`w-full py-3.5 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
+                className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
                   sending
-                    ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
-                    : 'bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 active:scale-[0.97]'
+                    ? 'bg-surface text-slate-500 cursor-not-allowed border border-white/[0.05]'
+                    : 'bg-accent text-white hover:bg-accent/90 active:scale-[0.97]'
                 }`}
               >
                 {sending ? 'Sending...' : 'Send Message'}
                 {!sending && <ArrowUpRight size={16} />}
               </button>
 
-              {/* Success Message */}
               {sent && (
-                <div className="p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-lg">
-                  <p className="text-sm text-[#3B82F6] font-medium">
+                <div className="p-4 bg-accent/10 border border-accent/30 rounded-xl">
+                  <p className="text-sm text-accent font-medium">
                     ✓ Message sent successfully
                   </p>
                   <p className="text-xs text-slate-400 mt-1">
-                    I'll get back to you soon. Thanks for reaching out!
+                    I&apos;ll get back to you soon. Thanks for reaching out!
                   </p>
                 </div>
               )}
 
-              {/* Error Message */}
               {error && (
-                <div className="p-4 bg-red-900/10 border border-red-900/30 rounded-lg">
+                <div className="p-4 bg-red-900/10 border border-red-900/30 rounded-xl">
                   <p className="text-sm text-red-400 font-medium">
                     ✗ {error}
                   </p>
@@ -285,15 +250,15 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="mt-24 pt-16 border-t border-slate-800">
+        {/* Bottom CTA */}
+        <div className="mt-24 pt-16 border-t border-white/[0.05]">
           <div className="text-center">
             <p className="text-slate-400 mb-6 max-w-xl mx-auto">
               Prefer to reach out directly? My inbox is always open. No form? No problem.
             </p>
             <a
               href="mailto:samratvsn@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900/50 border border-slate-800 hover:border-slate-700 rounded-lg text-slate-300 hover:text-[#3B82F6] transition-colors font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-surface/60 border border-white/[0.05] backdrop-blur-md hover:border-accent/20 rounded-xl text-slate-300 hover:text-accent transition-colors font-medium"
             >
               <Mail size={16} />
               Email me directly

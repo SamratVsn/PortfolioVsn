@@ -169,7 +169,7 @@ export default function Notes() {
       : nonFeatured.filter((a) => a.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
+    <div className="min-h-screen bg-canvas text-slate-300 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
       <SEO
         title="Notes | SamratVsn"
         description="Learning in public — Android journey, engineering notes, and event reflections by Samrat Parajuli."
@@ -201,13 +201,12 @@ export default function Notes() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* section label */}
           <div className="flex items-center gap-2.5 mb-5">
-            <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#3B82F6]/70">
+            <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
               03
             </span>
-            <span className="w-8 h-px bg-[#3B82F6]/25" />
-            <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-slate-600">
+            <span className="w-8 h-px bg-accent/25" />
+            <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
               Notes
             </span>
           </div>
@@ -222,13 +221,13 @@ export default function Notes() {
 
           {/* currently learning */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-slate-600 mr-1">
+            <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-600 mr-1">
               Currently learning
             </span>
             {learningTopics.map((topic) => (
               <span
                 key={topic}
-                className="text-[10px] text-slate-500 bg-[#0A101F]/60 border border-slate-800/50 rounded-md px-2 py-1"
+                className="text-[10px] font-mono text-slate-500 bg-surface/60 border border-white/[0.05] backdrop-blur-md rounded-md px-2 py-1"
               >
                 {topic}
               </span>
@@ -245,7 +244,7 @@ export default function Notes() {
               href={featured.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block border border-slate-800/40 rounded-xl overflow-hidden hover:border-slate-700/60 transition-colors duration-300"
+              className="group block border border-white/[0.05] rounded-2xl overflow-hidden bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-300"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* image */}
@@ -264,19 +263,19 @@ export default function Notes() {
                 <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2.5 mb-3">
-                      <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#3B82F6]/80">
+                      <span className="text-[10px] font-mono font-bold tracking-[0.1em] uppercase text-accent/80">
                         Featured
                       </span>
                       <span className="w-1 h-1 rounded-full bg-slate-700" />
-                      <span className="text-[11px] text-slate-500">
+                      <span className="text-[11px] font-mono text-slate-500">
                         {featured.date}
                       </span>
                       <span className="w-1 h-1 rounded-full bg-slate-700" />
-                      <span className="text-[11px] text-slate-500">
+                      <span className="text-[11px] font-mono text-slate-500">
                         {featured.category}
                       </span>
                     </div>
-                    <h2 className="text-white text-lg sm:text-xl font-semibold mb-2 leading-snug group-hover:text-[#3B82F6] transition-colors duration-200">
+                    <h2 className="text-white text-lg sm:text-xl font-semibold mb-2 leading-snug group-hover:text-accent transition-colors duration-200">
                       {featured.title}
                     </h2>
                     <p className="text-slate-400 text-sm leading-relaxed max-w-prose">
@@ -284,18 +283,18 @@ export default function Notes() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-slate-800/30">
+                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.05]">
                     <div className="flex flex-wrap gap-1.5">
                       {featured.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[9px] text-slate-500 bg-slate-900/60 border border-slate-800/50 rounded px-2 py-0.5 uppercase tracking-wider"
+                          className="text-[9px] font-mono text-slate-500 bg-surface/60 border border-white/[0.05] rounded px-2 py-0.5 uppercase tracking-wider"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <span className="inline-flex items-center gap-1.5 text-[13px] text-slate-500 group-hover:text-[#3B82F6] transition-colors duration-200 shrink-0 ml-4">
+                    <span className="inline-flex items-center gap-1.5 text-[13px] text-slate-500 group-hover:text-accent transition-colors duration-200 shrink-0 ml-4">
                       Read <ArrowUpRight size={13} />
                     </span>
                   </div>
@@ -314,9 +313,9 @@ export default function Notes() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`text-[11px] font-medium tracking-wide px-3 py-1.5 rounded-lg transition-all duration-200 ${
+                className={`text-[11px] font-mono font-medium tracking-wide px-3 py-1.5 rounded-lg transition-all duration-200 ${
                   activeCategory === cat
-                    ? "text-[#3B82F6] bg-[#3B82F6]/[0.08] border border-[#3B82F6]/20"
+                    ? "text-accent bg-accent/[0.08] border border-accent/20"
                     : "text-slate-500 hover:text-slate-300 hover:bg-white/[0.03] border border-transparent"
                 }`}
               >
@@ -330,7 +329,7 @@ export default function Notes() {
             NOTE LIST
             ═══════════════════════════════════════════════════════════════════ */}
         <section className="mb-16">
-          <div className="border-t border-slate-800/50">
+          <div className="border-t border-white/[0.05]">
             {filtered.map((article, i) => (
               <motion.a
                 key={article.url}
@@ -338,25 +337,25 @@ export default function Notes() {
                 href={article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-5 sm:gap-8 py-6 border-b border-slate-800/40 hover:bg-white/[0.01] transition-colors duration-200 -mx-3 px-3 rounded-lg"
+                className="group flex items-start gap-5 sm:gap-8 py-6 border-b border-white/[0.05] hover:bg-white/[0.01] transition-colors duration-200 -mx-3 px-3 rounded-lg"
               >
                 {/* date */}
                 <div className="w-16 sm:w-20 shrink-0 pt-0.5">
-                  <span className="text-[11px] text-slate-600 font-medium tabular-nums uppercase tracking-wider">
+                  <span className="text-[11px] font-mono text-slate-600 font-medium tabular-nums uppercase tracking-wider">
                     {article.date}
                   </span>
                 </div>
 
                 {/* content */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-white font-medium text-[15px] sm:text-base leading-snug mb-1.5 group-hover:text-[#3B82F6] transition-colors duration-200">
+                  <h3 className="text-white font-medium text-[15px] sm:text-base leading-snug mb-1.5 group-hover:text-accent transition-colors duration-200">
                     {article.title}
                   </h3>
                   <p className="text-slate-500 text-[13px] leading-relaxed line-clamp-2 mb-3">
                     {article.excerpt}
                   </p>
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-medium tracking-wider uppercase text-[#3B82F6]/60">
+                    <span className="text-[10px] font-mono font-medium tracking-wider uppercase text-accent/60">
                       {article.category}
                     </span>
                     <span className="w-1 h-1 rounded-full bg-slate-700" />
@@ -364,7 +363,7 @@ export default function Notes() {
                       {article.tags.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
-                          className="text-[9px] text-slate-600 bg-slate-900/40 border border-slate-800/40 rounded px-1.5 py-0.5"
+                          className="text-[9px] font-mono text-slate-600 bg-surface/40 border border-white/[0.05] rounded px-1.5 py-0.5"
                         >
                           {tag}
                         </span>
@@ -374,7 +373,7 @@ export default function Notes() {
                 </div>
 
                 {/* arrow */}
-                <div className="shrink-0 pt-1 text-slate-700 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 transition-all duration-200">
+                <div className="shrink-0 pt-1 text-slate-700 group-hover:text-accent group-hover:translate-x-0.5 transition-all duration-200">
                   <ArrowRight size={15} />
                 </div>
               </motion.a>
@@ -392,14 +391,13 @@ export default function Notes() {
             ANDROID JOURNEY
             ═══════════════════════════════════════════════════════════════════ */}
         <section className="mb-16">
-          {/* section label */}
           <motion.div {...fadeUp} className="mb-8">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#3B82F6]/70">
+              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 02
               </span>
-              <span className="w-8 h-px bg-[#3B82F6]/25" />
-              <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="w-8 h-px bg-accent/25" />
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
                 Journey
               </span>
             </div>
@@ -432,8 +430,8 @@ export default function Notes() {
                   <span
                     className={`w-[11px] h-[11px] rounded-full border-2 transition-colors duration-300 ${
                       item.active
-                        ? "bg-[#3B82F6] border-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.4)]"
-                        : "bg-[#020617] border-slate-600 group-hover:border-slate-500"
+                        ? "bg-accent border-accent shadow-[0_0_8px_rgba(59,130,246,0.4)]"
+                        : "bg-canvas border-slate-600 group-hover:border-slate-500"
                     }`}
                   />
                 </div>
@@ -442,14 +440,14 @@ export default function Notes() {
                 <div className="pb-7 pt-0.5">
                   <div className="flex items-center gap-3 mb-1">
                     <span
-                      className={`text-[11px] font-medium tabular-nums ${
-                        item.active ? "text-[#3B82F6]" : "text-slate-600"
+                      className={`text-[11px] font-mono font-medium tabular-nums ${
+                        item.active ? "text-accent" : "text-slate-600"
                       }`}
                     >
                       {item.period}
                     </span>
                     {item.active && (
-                      <span className="text-[9px] text-[#3B82F6] border border-[#3B82F6]/25 px-1.5 py-0.5 rounded uppercase tracking-wider leading-none font-medium">
+                      <span className="text-[9px] font-mono text-accent border border-accent/25 px-1.5 py-0.5 rounded uppercase tracking-wider leading-none font-medium">
                         Now
                       </span>
                     )}
@@ -474,14 +472,13 @@ export default function Notes() {
             ENGINEERING NOTES (DRAFTS)
             ═══════════════════════════════════════════════════════════════════ */}
         <section className="mb-16">
-          {/* section label */}
           <motion.div {...fadeUp} className="mb-8">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#3B82F6]/70">
+              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 04
               </span>
-              <span className="w-8 h-px bg-[#3B82F6]/25" />
-              <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="w-8 h-px bg-accent/25" />
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
                 In Progress
               </span>
             </div>
@@ -494,14 +491,14 @@ export default function Notes() {
             </p>
           </motion.div>
 
-          <div className="border border-slate-800/40 rounded-xl overflow-hidden">
+          <div className="border border-white/[0.05] rounded-2xl overflow-hidden bg-surface/60 backdrop-blur-md">
             {notePreviews.map((note, i) => (
               <motion.div
                 key={i}
                 {...stagger(i)}
                 className={`flex items-start gap-4 px-5 sm:px-6 py-4 sm:py-5 ${
                   i < notePreviews.length - 1
-                    ? "border-b border-slate-800/30"
+                    ? "border-b border-white/[0.05]"
                     : ""
                 }`}
               >
@@ -519,7 +516,7 @@ export default function Notes() {
                   </p>
                 </div>
 
-                <span className="text-[9px] font-medium tracking-wider uppercase text-slate-600 shrink-0 pt-1">
+                <span className="text-[9px] font-mono font-medium tracking-wider uppercase text-slate-600 shrink-0 pt-1">
                   Draft
                 </span>
               </motion.div>
@@ -530,7 +527,7 @@ export default function Notes() {
         {/* ═══════════════════════════════════════════════════════════════════
             FOOTER CTA
             ═══════════════════════════════════════════════════════════════════ */}
-        <motion.section {...fadeUp} className="pt-8 border-t border-slate-800/30">
+        <motion.section {...fadeUp} className="pt-8 border-t border-white/[0.05]">
           <div className="text-center">
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-[-0.02em] mb-3">
               Still learning.
@@ -541,7 +538,7 @@ export default function Notes() {
             </p>
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-[#3B82F6] transition-colors duration-200 font-medium"
+              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-accent transition-colors duration-200 font-medium"
             >
               About my journey <ArrowUpRight size={14} />
             </Link>

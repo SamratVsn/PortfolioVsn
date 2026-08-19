@@ -23,6 +23,7 @@ import MovieHome from "../assets/TheMovie/Home.png";
 import MovieSearch from "../assets/TheMovie/Search.png";
 import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import BlogVsnB2 from "../assets/BlogVsn/B2.png";
+import SMS1 from "../assets/SMS/SMS1.png";
 import Retrofit from "../assets/retrofit.webp";
 import Room from "../assets/Room.webp";
 import JetpackCompose from "../assets/Jetpack.webp";
@@ -106,6 +107,7 @@ const featuredProjects = [
     tags: ["C", "Binary I/O", "CLI"],
     github: "https://github.com/SamratVsn/C-codes",
     path: "/projects/sms",
+    screenshot: SMS1,
   },
 ];
 
@@ -505,6 +507,17 @@ function Home() {
                       className="text-slate-600 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
+                  {featuredProjects[5].screenshot && (
+                      <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
+                        <img
+                          src={featuredProjects[5].screenshot}
+                          alt={`${featuredProjects[5].title} screenshot`}
+                          className="w-full h-32 sm:h-36 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
+                      </div>
+                    )}
                   <h3 className="text-white font-semibold text-lg sm:text-xl group-hover:text-[#3B82F6] transition-colors mb-3">
                     {featuredProjects[5].title}
                   </h3>

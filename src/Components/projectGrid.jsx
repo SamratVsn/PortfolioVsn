@@ -1,6 +1,18 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Github, ExternalLink, ArrowRight } from 'lucide-react';
+import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
+
+import ToDoHome from '../assets/ToDo/Home.png';
+import MovieHome from '../assets/TheMovie/Home.png';
+import MovieSearch from '../assets/TheMovie/Search.png';
+import BlogVsnB1 from '../assets/BlogVsn/B1.png';
+import BlogVsnB2 from '../assets/BlogVsn/B2.png';
+
+const screenshots = {
+  '/projects/todo': ToDoHome,
+  '/projects/themovie': MovieHome,
+  '/projects/blogvsn': BlogVsnB1,
+};
 
 const PROJECTS = [
   {
@@ -87,91 +99,133 @@ const PROJECTS = [
   },
 ];
 
+const TAG_DOT_COLORS = ["#7F52FF", "#3DDC84", "#4285F4"];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay: i * 0.08,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+};
+
+const headerVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
 function ProjectCard({ project, index }) {
+  const screenshot = screenshots[project.path];
+  const showImage = Boolean(screenshot);
+  const number = String(index).padStart(2, '0');
+
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative flex flex-col rounded-xl border border-slate-800/70 bg-[#0A101F]/80 backdrop-blur-xl hover:border-slate-700/80 transition-colors duration-300"
+      custom={index}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      className="group relative flex flex-col rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-all duration-300 overflow-hidden"
     >
-      <Link to={project.path} className="absolute inset-0 z-10" aria-label={`View project: ${project.title}`} />
+      <Link
+        to={project.path}
+        className="absolute inset-0 z-10"
+        aria-label={`View project: ${project.title}`}
+      />
 
-      <div className="flex-1 p-7 sm:p-8">
-        <div className="flex items-start justify-between mb-5">
-          <span className="text-xs text-slate-500 font-medium uppercase tracking-widest">
-            Project {project.id}
+      {showImage ? (
+        <div className="relative h-48 sm:h-56 overflow-hidden">
+          <img
+            src={screenshot}
+            alt={`${project.title} screenshot`}
+            className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
+          <span className="absolute top-4 left-5 font-mono text-[11px] text-slate-500 uppercase tracking-widest">
+            {number}
           </span>
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-            <ArrowRight size={16} className="text-[#3B82F6]" />
-          </div>
         </div>
+      ) : (
+        <div className="relative h-48 sm:h-56 flex items-center justify-center bg-gradient-to-br from-surface/80 to-surface/30 border-b border-white/[0.04]">
+          <span className="font-mono text-[64px] sm:text-[80px] font-bold text-white/[0.03] select-none leading-none">
+            {number}
+          </span>
+          <span className="absolute top-4 left-5 font-mono text-[11px] text-slate-500 uppercase tracking-widest">
+            {number}
+          </span>
+          <span className="absolute bottom-4 right-5 font-mono text-[10px] text-slate-600 uppercase tracking-widest">
+            {project.tags[0]}
+          </span>
+        </div>
+      )}
 
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-5 group-hover:text-[#3B82F6] transition-colors">
+      <div className="flex-1 flex flex-col p-6 sm:p-7">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 group-hover:text-accent transition-colors duration-300 pr-6">
           {project.title}
         </h3>
 
-        <div className="space-y-4 mb-6">
-          <div>
-            <span className="text-[11px] text-slate-500 uppercase tracking-widest font-semibold block mb-2">Problem</span>
-            <p className="text-slate-400 text-sm leading-relaxed">{project.problem}</p>
-          </div>
-          <div>
-            <span className="text-[11px] text-slate-500 uppercase tracking-widest font-semibold block mb-2">Solution</span>
-            <p className="text-slate-400 text-sm leading-relaxed">{project.solution}</p>
-          </div>
-          <div>
-            <span className="text-[11px] text-slate-500 uppercase tracking-widest font-semibold block mb-2">Learning</span>
-            <p className="text-slate-400 text-sm leading-relaxed">{project.learning}</p>
-          </div>
-        </div>
+        <p className="text-slate-400 text-sm leading-relaxed mb-5 line-clamp-3">
+          {project.solution}
+        </p>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {project.tags.map((tag, i) => (
             <span
               key={tag}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 bg-white/[0.02] border border-slate-800/70 px-3 py-1 rounded-md group-hover:border-slate-700/80 transition-colors"
+              className="inline-flex items-center gap-1.5 text-[10px] text-slate-400 bg-white/[0.02] border border-white/[0.04] px-2.5 py-1 rounded-full transition-colors duration-300 group-hover:border-white/[0.08]"
             >
               <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][i % 3] }}
+                className="w-1 h-1 rounded-full shrink-0"
+                style={{ backgroundColor: TAG_DOT_COLORS[i % 3] }}
               />
               {tag}
             </span>
           ))}
         </div>
-      </div>
 
-      <div className="flex items-center gap-4 px-7 sm:px-8 py-5 border-t border-slate-800/50 bg-[#0A101F]/60 rounded-b-xl">
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="text-sm text-slate-500 hover:text-[#3B82F6] transition-colors flex items-center gap-1.5 relative z-20"
-            title="View source code on GitHub"
-          >
-            <Github size={14} />
-            <span className="hidden sm:inline">Code</span>
-          </a>
-        )}
-        {project.live && (
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="text-sm text-slate-500 hover:text-[#3B82F6] transition-colors flex items-center gap-1.5 relative z-20"
-            title="View live project"
-          >
-            <ExternalLink size={14} />
-            <span className="hidden sm:inline">Live</span>
-          </a>
-        )}
-        <div className="flex-grow" />
-        <span className="text-xs text-slate-600 group-hover:text-[#3B82F6] transition-colors">View details →</span>
+        <div className="mt-auto flex items-center gap-3 pt-4 border-t border-white/[0.04]">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-slate-500 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20"
+              title="View source code on GitHub"
+            >
+              <Github size={14} />
+              <span className="text-xs hidden sm:inline">Code</span>
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-slate-500 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20"
+              title="View live project"
+            >
+              <ExternalLink size={14} />
+              <span className="text-xs hidden sm:inline">Live</span>
+            </a>
+          )}
+          <div className="flex-grow" />
+          <span className="text-xs text-slate-600 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
+            View details
+            <ArrowUpRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
+        </div>
       </div>
     </motion.article>
   );
@@ -179,34 +233,36 @@ function ProjectCard({ project, index }) {
 
 export default function ProjectGrid() {
   return (
-    <section className="max-w-4xl mx-auto px-6 xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl">
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mb-14"
-      >
-        <div className="flex items-center gap-2 mb-5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]/60" />
-          <span className="w-6 h-px bg-[#3B82F6]/30" />
-          <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium">
-            Work
-          </span>
-        </div>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-[-0.03em]">
-          Projects<span className="text-[#3B82F6]">.</span>
-        </h1>
-        <p className="text-slate-400 text-base leading-relaxed max-w-2xl">
-          Real projects that shaped my engineering thinking. Each one presented specific 
-          problems that required thoughtful solutions and deep learning.
-        </p>
-      </motion.div>
+    <section className="bg-canvas">
+      <div className="max-w-5xl mx-auto px-6 lg:max-w-6xl xl:max-w-7xl">
+        <motion.div
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-14"
+        >
+          <div className="flex items-center gap-2 mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
+            <span className="w-6 h-px bg-accent/30" />
+            <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium">
+              Work
+            </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-[-0.03em]">
+            Projects<span className="text-accent">.</span>
+          </h2>
+          <p className="text-slate-400 text-base leading-relaxed max-w-2xl">
+            Real projects that shaped my engineering thinking. Each one presented
+            specific problems that required thoughtful solutions and deep learning.
+          </p>
+        </motion.div>
 
-      <div className="grid grid-cols-1 2xl:grid-cols-2 gap-5 sm:gap-6">
-        {PROJECTS.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 pb-24">
+          {PROJECTS.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   );
