@@ -4,6 +4,7 @@ import {
   HardDrive, Box, Search, Trash2, Edit, ArrowUpRight, X
 } from 'lucide-react';
 import SEO from './SEO';
+import BottomNav from './BottomNav';
 
 // Assets
 import SMS1 from '../assets/SMS/SMS1.png';
@@ -301,6 +302,7 @@ const SMS = () => {
           </div>
         </div>
       )}
+      <BottomNav />
     </div>
   );
 };

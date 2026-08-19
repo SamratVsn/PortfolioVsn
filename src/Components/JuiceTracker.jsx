@@ -14,6 +14,7 @@ import {
   Boxes
 } from 'lucide-react'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 
 function JuiceTracker() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -337,6 +338,7 @@ function JuiceTracker() {
           </div>
         </div>
       </div>
+      <BottomNav />
     </div>
   )
 }

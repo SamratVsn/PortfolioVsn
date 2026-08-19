@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Github, ArrowUpRight } from 'lucide-react'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
 import BMSK2 from '../assets/BMSK/BMSK2.png'
 
@@ -282,6 +283,7 @@ function BMSK() {
           </div>
         </div>
       </div>
+      <BottomNav />
     </div>
   )
 }

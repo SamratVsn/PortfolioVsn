@@ -15,6 +15,7 @@ import {
   LayoutGrid
 } from 'lucide-react'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 
 function Kathmandu() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -342,6 +343,7 @@ function Kathmandu() {
           </div>
         </div>
       </div>
+      <BottomNav />
     </div>
   )
 }

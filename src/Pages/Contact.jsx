@@ -3,6 +3,7 @@ import { Mail, Github, Linkedin, Phone, MapPin, ArrowUpRight } from 'lucide-reac
 import emailjs from '@emailjs/browser';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import BottomNav from '../Components/BottomNav';
 import SEO from '../Components/SEO';
 import BackgroundFX from '../Components/BackgroundFX';
 
@@ -302,6 +303,7 @@ const Contact = () => {
       </main>
 
       <Footer />
+      <BottomNav />
     </div>
   );
 };

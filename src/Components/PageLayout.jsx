@@ -1,5 +1,6 @@
 import Header from './Header'
 import BackgroundFX from './BackgroundFX'
+import BottomNav from './BottomNav'
 
 export const PageLayout = ({ children, className = "" }) => {
   return (
@@ -21,6 +22,7 @@ export const PageLayout = ({ children, className = "" }) => {
           </div>
         </footer>
       </div>
+      <BottomNav />
     </div>
   );
 };

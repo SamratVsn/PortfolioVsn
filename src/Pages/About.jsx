@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
+import BottomNav from "../Components/BottomNav";
 import BackgroundFX from "../Components/BackgroundFX";
 import {
   ArrowUpRight,
@@ -654,6 +655,7 @@ export default function About() {
       </section>
 
       <Footer />
+      <BottomNav />
     </div>
   );
 }

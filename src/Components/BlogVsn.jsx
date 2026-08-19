@@ -4,6 +4,7 @@ import {
   Palette, Cloud, X
 } from 'lucide-react'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 
 // Assets
 import B1 from '../assets/BlogVsn/B1.png'
@@ -297,6 +298,7 @@ const BlogVsn = () => {
           </div>
         </div>
       )}
+      <BottomNav />
     </div>
   )
 }

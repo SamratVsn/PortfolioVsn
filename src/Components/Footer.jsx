@@ -1,23 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { BookOpen } from "lucide-react";
-
-const focusItems = [
-  "Jetpack Compose",
-  "Android Architecture",
-  "Testing",
-  "Open Source",
-  "Learning in Public",
-];
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Projects", path: "/projects" },
-  { name: "Notes", path: "/notes" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-];
+import { ArrowUp } from "lucide-react";
 
 const socials = [
   { icon: FaGithub, href: "https://github.com/SamratVsn", label: "GitHub" },
@@ -26,102 +10,81 @@ const socials = [
     href: "https://www.linkedin.com/in/samratvsn/",
     label: "LinkedIn",
   },
-  {
-    icon: BookOpen,
-    href: "https://medium.com/@samratvsn",
-    label: "Medium",
-  },
-  { icon: FaXTwitter, href: "https://x.com/SamratVsn", label: "X" },
   { icon: MdEmail, href: "mailto:samratvsn@gmail.com", label: "Email" },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="relative bg-[#020617] border-t border-slate-800/40 overflow-hidden">
+    <footer className="relative border-t border-slate-800/40 bg-[#020617]">
+      <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <div className="py-10 sm:py-12">
+          {/* Desktop: two-column layout */}
+          <div className="hidden sm:flex items-start justify-between">
+            {/* Left */}
+            <div>
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className="relative w-2 h-2 shrink-0">
+                  <span className="absolute inset-0 rounded-full border border-[#3B82F6]/25" />
+                  <span className="absolute inset-[2px] rounded-full bg-[#3B82F6]" />
+                </div>
+                <span className="text-[13px] font-bold tracking-tight text-white">
+                  Samrat Parajuli
+                </span>
+              </div>
+              <p className="text-[12px] text-slate-500 leading-relaxed max-w-[260px]">
+                Learning in public, one commit at a time.
+              </p>
+            </div>
 
-      {/* subtle grid texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: [
-            "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
-          ].join(", "),
-          backgroundSize: "64px 64px",
-        }}
-      />
+            {/* Right */}
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-slate-500 hover:text-[#3B82F6] transition-colors text-[13px] inline-flex items-center gap-1.5"
+                  >
+                    <social.icon size={14} />
+                    <span className="hidden lg:inline">{social.label}</span>
+                  </a>
+                ))}
+              </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        {/* ── GRID ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-10 pb-10">
+              <button
+                onClick={scrollToTop}
+                aria-label="Back to top"
+                className="w-8 h-8 rounded-lg border border-slate-800/60 bg-[#0A101F]/60 flex items-center justify-center text-slate-500 hover:text-[#3B82F6] hover:border-[#3B82F6]/20 transition-all duration-200"
+              >
+                <ArrowUp size={14} />
+              </button>
+            </div>
+          </div>
 
-          {/* COL 1 — BRAND */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="relative w-2.5 h-2.5 shrink-0">
+          {/* Mobile: centered layout */}
+          <div className="sm:hidden text-center">
+            <div className="flex items-center justify-center gap-2.5 mb-2">
+              <div className="relative w-2 h-2 shrink-0">
                 <span className="absolute inset-0 rounded-full border border-[#3B82F6]/25" />
                 <span className="absolute inset-[2px] rounded-full bg-[#3B82F6]" />
               </div>
-              <div>
-                <span className="block text-[14px] font-bold tracking-tight text-white leading-none">
-                  Samrat Parajuli
-                </span>
-                <span className="block text-[8.5px] text-[#3B82F6] font-semibold tracking-[0.12em] uppercase mt-0.5">
-                  Android Developer
-                </span>
-              </div>
+              <span className="text-[13px] font-bold tracking-tight text-white">
+                Samrat Parajuli
+              </span>
             </div>
-            <p className="text-[11.5px] text-slate-500 leading-relaxed max-w-[190px]">
-              Building native Android experiences with clean architecture & modern Kotlin.
+            <p className="text-[11px] text-slate-500 mb-4">
+              Learning in public, one commit at a time.
             </p>
-          </div>
-
-          {/* COL 2 — NAVIGATION */}
-          <div>
-            <p className="text-[10px] font-bold text-slate-600 tracking-[0.1em] uppercase mb-4">
-              Navigation
-            </p>
-            <ul className="space-y-2.5">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-slate-500 hover:text-white transition-colors text-[12.5px] inline-flex items-center gap-2 group"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-slate-800 group-hover:bg-[#3B82F6] transition-colors" />
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* COL 3 — CURRENT FOCUS */}
-          <div>
-            <p className="text-[10px] font-bold text-slate-600 tracking-[0.1em] uppercase mb-4">
-              Current focus
-            </p>
-            <ul className="space-y-2.5">
-              {focusItems.map((item) => (
-                <li
-                  key={item}
-                  className="text-slate-500 text-[12.5px] flex items-center gap-2"
-                >
-                  <span className="w-1 h-1 rounded-full bg-[#3B82F6]/40 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* COL 4 — CONNECT */}
-          <div>
-            <p className="text-[10px] font-bold text-slate-600 tracking-[0.1em] uppercase mb-4">
-              Connect
-            </p>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="flex items-center justify-center gap-5 mb-4">
               {socials.map((social) => (
                 <a
                   key={social.label}
@@ -129,36 +92,29 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group relative flex items-center justify-center w-10 h-10 rounded-xl border border-slate-800/50 bg-[#0A0F1E] text-slate-500 hover:text-[#3B82F6] hover:border-[#3B82F6]/20 transition-all duration-200"
+                  className="text-slate-500 hover:text-[#3B82F6] transition-colors"
                 >
-                  <social.icon size={16} />
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-white bg-slate-800 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                    {social.label}
-                  </span>
+                  <social.icon size={15} />
                 </a>
               ))}
             </div>
+            <button
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              className="w-7 h-7 rounded-lg border border-slate-800/60 bg-[#0A101F]/60 inline-flex items-center justify-center text-slate-500 hover:text-[#3B82F6] transition-all duration-200"
+            >
+              <ArrowUp size={13} />
+            </button>
           </div>
         </div>
 
-        {/* ── BOTTOM BAR ── */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 py-5 border-t border-slate-800/30">
-          <p className="text-[11px] text-slate-600">
-            &copy; {currentYear} Samrat Parajuli &mdash; Built with curiosity, driven by discipline.
+        {/* Bottom bar */}
+        <div className="py-4 border-t border-slate-800/30 text-center">
+          <p className="text-[10px] text-slate-600">
+            &copy; {currentYear} Samrat Parajuli
           </p>
-          <div className="flex items-center gap-2 flex-wrap justify-center">
-            {["Kotlin", "Jetpack Compose", "Continuous Learning"].map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] text-slate-600 bg-slate-900/60 border border-slate-800/50 rounded-md px-2 py-1"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
-
     </footer>
   );
 }

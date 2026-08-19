@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
+import BottomNav from "../Components/BottomNav";
 import BackgroundFX from "../Components/BackgroundFX";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 
@@ -550,6 +551,7 @@ export default function Notes() {
       </main>
 
       <Footer />
+      <BottomNav />
     </div>
   );
 }

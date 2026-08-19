@@ -16,6 +16,7 @@ import {
   X
 } from 'lucide-react'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 import MovieHome from '../assets/TheMovie/Home.png'
 import MovieSearch from '../assets/TheMovie/Search.png'
 import MovieDetails from '../assets/TheMovie/Details.png'
@@ -428,6 +429,7 @@ function TheMovie() {
           </div>
         </div>
       )}
+      <BottomNav />
     </div>
   )
 }

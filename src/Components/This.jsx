@@ -4,6 +4,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 
 export default function This() {
   const [activeTab, setActiveTab] = useState('about')
@@ -164,6 +165,7 @@ export default function This() {
         </div>
 
       </div>
+      <BottomNav />
     </div>
   )
 }

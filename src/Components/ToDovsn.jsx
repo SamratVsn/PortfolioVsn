@@ -16,6 +16,7 @@ import {
   X
 } from 'lucide-react'
 import SEO from './SEO'
+import BottomNav from './BottomNav'
 import ToDoHome from '../assets/ToDo/Home.png'
 import ToDoAdd from '../assets/ToDo/Add.png'
 import ToDoEdit from '../assets/ToDo/Edit.png'
@@ -423,6 +424,7 @@ function ToDoVsn() {
           </div>
         </div>
       )}
+      <BottomNav />
     </div>
   )
 }
