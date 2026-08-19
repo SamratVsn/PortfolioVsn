@@ -6,12 +6,20 @@ import ToDoVsn from "../assets/ToDo/ToDoVsn.png";
 import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from '../assets/BlogVsn/B1.png';
 import SMS1 from '../assets/SMS/SMS1.png';
+import Portfolio from "../assets/Profile.jpg"
+import BMSK from '../assets/BMSK/BMSK1.png'
+import Kathmandu from '../assets/KathmanduPoster.jpeg'
+import JuicePoster from '../assets/JuicePoster.jpeg'
 
 const screenshots = {
   '/projects/todo': ToDoVsn,
   '/projects/themovie': MoviePoster,
   '/projects/blogvsn': BlogVsnB1,
   '/projects/sms': SMS1,
+  '/projects/this': Portfolio,
+  '/projects/bmsk': BMSK,
+  '/projects/kathmandu': Kathmandu,
+  '/projects/juicetracker': JuicePoster,
 };
 
 const PROJECTS = [

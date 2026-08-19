@@ -20,6 +20,8 @@ import ToDoVsn from "../assets/ToDo/ToDoVsn.png";
 import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import SMS1 from "../assets/SMS/SMS1.png";
+import JuicePoster from "../assets/JuicePoster.jpeg";
+import KathmanduPoster from "../assets/KathmanduPoster.jpeg";
 import Retrofit from "../assets/retrofit.webp";
 import Room from "../assets/Room.webp";
 import JetpackCompose from "../assets/Jetpack.webp";
@@ -55,7 +57,7 @@ const featuredProjects = [
   {
     title: "The Movie App",
     description:
-      "A Jetpack Compose app that browses, searches, and explores movies using the TMDB API — with profiles, settings, and offline-ready data caching.",
+      "A Jetpack Compose app that browses, searches, and explores movies using the TMDB API — with movie profiles, personal watchlists, search with debounce, and offline-ready data caching backed by DataStore preferences.",
     tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
     github: "https://github.com/SamratVsn/TheMovie",
     path: "/projects/themovie",
@@ -77,6 +79,7 @@ const featuredProjects = [
     tags: ["Kotlin", "Compose + Views", "Room"],
     github: "https://github.com/SamratVsn/Juicetracker",
     path: "/projects/juicetracker",
+    screenshot: JuicePoster,
   },
   {
     title: "BlogVsn Platform",
@@ -95,11 +98,12 @@ const featuredProjects = [
     tags: ["Kotlin", "Jetpack Compose", "Material 3"],
     github: "https://github.com/SamratVsn/Kathmandu",
     path: "/projects/kathmandu",
+    screenshot: KathmanduPoster,
   },
   {
     title: "Student Management System",
     description:
-      "A C program handling persistent student records through binary file I/O — add, search, update, and delete.",
+      "A C program handling persistent student records through binary file I/O — add, search, update, and delete operations with raw byte-level file access, structured record formatting, and crash-safe data integrity.",
     tags: ["C", "Binary I/O", "CLI"],
     github: "https://github.com/SamratVsn/C-codes",
     path: "/projects/sms",
@@ -349,6 +353,9 @@ function Home() {
                       </span>
                     ))}
                   </div>
+                  <p className="text-slate-500 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
+                    <span className="text-[#3B82F6] font-medium">Key takeaway:</span> Client-server architecture, Kotlinx Serialization, and reactive state with Coroutines & Flow.
+                  </p>
                 </div>
               </Link>
             </motion.div>
@@ -493,6 +500,17 @@ function Home() {
                 to={featuredProjects[5].path}
                 className="block h-full border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl overflow-hidden hover:border-[#3B82F6]/30 transition-all duration-300"
               >
+                {featuredProjects[5].screenshot && (
+                    <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
+                      <img
+                        src={featuredProjects[5].screenshot}
+                        alt={`${featuredProjects[5].title} screenshot`}
+                        className="w-full h-48 sm:h-56 lg:h-64 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
+                    </div>
+                  )}
                 <div className="p-6 sm:p-8">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[10px] text-slate-500 font-medium uppercase tracking-widest">
@@ -503,17 +521,6 @@ function Home() {
                       className="text-slate-600 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
-                  {featuredProjects[5].screenshot && (
-                      <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
-                        <img
-                          src={featuredProjects[5].screenshot}
-                          alt={`${featuredProjects[5].title} screenshot`}
-                          className="w-full h-32 sm:h-36 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
-                      </div>
-                    )}
                   <h3 className="text-white font-semibold text-lg sm:text-xl group-hover:text-[#3B82F6] transition-colors mb-3">
                     {featuredProjects[5].title}
                   </h3>
@@ -536,6 +543,9 @@ function Home() {
                       </span>
                     ))}
                   </div>
+                  <p className="text-slate-500 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
+                    <span className="text-[#3B82F6] font-medium">Key takeaway:</span> Low-level file handling, binary record formatting, and building reliable data persistence without a database.
+                  </p>
                 </div>
               </Link>
             </motion.div>
