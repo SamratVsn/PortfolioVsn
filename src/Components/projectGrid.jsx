@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
-import ToDoVsn from "../assets/ToDo/ToDoVsn.png";
+import Tasks from "../assets/ToDo/Tasks.png";
 import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from '../assets/BlogVsn/B1.png';
 import SMS1 from '../assets/SMS/SMS1.png';
@@ -12,7 +12,7 @@ import Kathmandu from '../assets/KathmanduPoster.jpeg'
 import JuicePoster from '../assets/JuicePoster.jpeg'
 
 const screenshots = {
-  '/projects/todo': ToDoVsn,
+  '/projects/todo': Tasks,
   '/projects/themovie': MoviePoster,
   '/projects/blogvsn': BlogVsnB1,
   '/projects/sms': SMS1,
@@ -25,7 +25,7 @@ const screenshots = {
 const PROJECTS = [
   {
     id: " 0 ! 0 ",
-    title: "ToDo Vsn App",
+    title: "Tasks",
     problem: "I wanted a lightweight task manager and a real project to apply modern Android architecture.",
     solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, swipe-to-delete, and type-safe navigation.",
     learning: "Learned clean layering between UI, domain, and data, plus reactive state handling with StateFlow and Coroutines.",

@@ -7,7 +7,7 @@ import SMS from '../Components/SMS'
 import BMSK from '../Components/BMSK'
 import BlogVsn from '../Components/BlogVsn'
 import This from '../Components/This'
-import ToDo from '../Components/ToDovsn'
+import Tasks from '../Components/Tasks'
 import TheMovie from '../Components/TheMovie'
 import JuiceTracker from '../Components/JuiceTracker'
 import Kathmandu from '../Components/Kathmandu'
@@ -18,10 +18,10 @@ const Projects = () => {
       <Routes>
         <Route index element={<><SEO
           title="Projects | SamratVsn"
-          description="Explore projects by Samrat Parajuli: ToDo Vsn App, The Movie App (TMDB API), Juice Tracker, Kathmandu My-City App, Student Management System (C), BlogVsn Platform (React), and more."
+          description="Explore projects by Samrat Parajuli: Tasks App, The Movie App (TMDB API), Juice Tracker, Kathmandu My-City App, Student Management System (C), BlogVsn Platform (React), and more."
           ogUrl="https://www.samratparajuli0.com.np/projects"
         /><ProjectGrid /></>} />
-        <Route path="todo" element={<ToDo />} />
+        <Route path="todo" element={<Tasks />} />
         <Route path="sms" element={<SMS />} />
         <Route path="bmsk" element={<BMSK />}/>
         <Route path="blogvsn" element={<BlogVsn />} />

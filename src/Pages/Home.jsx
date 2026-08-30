@@ -16,7 +16,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import Hero from "../Components/Hero";
-import ToDoVsn from "../assets/ToDo/ToDoVsn.png";
+import Tasks from "../assets/ToDo/Tasks.png";
 import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import SMS1 from "../assets/SMS/SMS1.png";
@@ -34,7 +34,7 @@ const expertise = [
     title: "Android Development",
     desc: "Building modern, reactive Android apps with Kotlin and Jetpack Compose.",
     tags: ["Kotlin", "Jetpack Compose", "Material 3", "Coroutines & Flow"],
-    screenshots: [MoviePoster, ToDoVsn],
+    screenshots: [MoviePoster, Tasks],
   },
   {
     icon: Layers,
@@ -64,13 +64,13 @@ const featuredProjects = [
     screenshot: MoviePoster,
   },
   {
-    title: "ToDo Vsn App",
+    title: "Tasks",
     description:
       "A distraction-free task manager built with MVVM, Room persistence, and type-safe Compose navigation.",
     tags: ["Kotlin", "Jetpack Compose", "Room"],
     github: "https://github.com/SamratVsn/ToDo",
     path: "/projects/todo",
-    screenshot: ToDoVsn,
+    screenshot: Tasks,
   },
   {
     title: "Juice Tracker",
