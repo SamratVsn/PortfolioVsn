@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 
-import Tasks from "../assets/ToDo/Tasks.png";
+import Tasks from "../assets/ToDo/Home.png";
 import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from '../assets/BlogVsn/B1.png';
 import SMS1 from '../assets/SMS/SMS1.png';

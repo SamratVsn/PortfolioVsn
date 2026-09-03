@@ -3,29 +3,33 @@ import {
   Github,
   ArrowUpRight,
   CheckCircle2,
-  MoveHorizontal,
-  BarChart3,
-  Palette,
+  Search,
+  Timer,
   User,
-  Database,
+  Palette,
   Navigation,
+  Bell,
+  Database,
   Layers,
   FolderTree,
   Cpu,
   Download,
-  Timer,
-  Bell,
-  X
+  X,
+  Tag,
+  BarChart3,
+  Settings,
+  ListTodo
 } from 'lucide-react'
 import SEO from './SEO'
 import BottomNav from './BottomNav'
 import ToDoHome from '../assets/ToDo/Home.png'
 import ToDoAdd from '../assets/ToDo/Add.png'
-import ToDoEdit from '../assets/ToDo/Edit.png'
 import ToDoDetails from '../assets/ToDo/Details.png'
-import ToDoInfo from '../assets/ToDo/Info.png'
-import ToDoEmpty from '../assets/ToDo/Empty.png'
-import ToDoApp from '../assets/ToDo/Tasks.png'
+import ToDoFocus from '../assets/ToDo/Focus.png'
+import ToDoCategories from '../assets/ToDo/Categories.png'
+import ToDoProfile from '../assets/ToDo/Profile.png'
+import ToDoSettings from '../assets/ToDo/Settings.png'
+import ToDoApp from '../assets/ToDo/Home.png'
 
 const RELEASE_URL = "https://github.com/SamratVsn/ToDo/releases/latest/download/app-release.apk"
 const REPO_URL = "https://github.com/SamratVsn/ToDo"
@@ -35,77 +39,82 @@ function Tasks() {
   const [selectedImage, setSelectedImage] = useState(null)
 
   const specs = [
-    { label: "Version", value: "1.1.0" },
-    { label: "Language", value: "Kotlin — Coroutines & Flow" },
+    { label: "Min SDK", value: "24 (Android 7.0)" },
+    { label: "Target SDK", value: "37 (Android 15)" },
+    { label: "Language", value: "Kotlin 2.2.10" },
     { label: "UI Framework", value: "Jetpack Compose" },
     { label: "Design System", value: "Material Design 3 (M3)" },
     { label: "Database", value: "Room (SQLite)" },
     { label: "Preferences", value: "Jetpack DataStore" },
     { label: "Architecture", value: "MVVM + Repository" },
     { label: "Navigation", value: "Navigation Compose (ToDoNavHost)" },
-    { label: "Dependency Injection", value: "Hilt / AppContainer" }
+    { label: "DI", value: "Hilt / AppContainer" },
+    { label: "Build", value: "Gradle 9.3.1" }
   ]
 
   const features = [
-    { icon: CheckCircle2, title: "Intuitive Task Management", detail: 'Effortlessly create, edit, and organize daily tasks with a polished Material 3 interface.' },
-    { icon: Layers, title: "Smart Grouping", detail: 'Tasks are automatically categorized into "Active" and "Completed" sections, keeping your workspace clean.' },
-    { icon: BarChart3, title: "Persistent Lifetime Stats", detail: 'Track your long-term productivity with a persistent "Total Tasks Created" counter that stays accurate even after you delete old tasks.' },
-    { icon: MoveHorizontal, title: "Advanced Swipe Gestures", detail: 'Quickly manage your list with intuitive "Swipe-to-Delete" functionality and smooth animations.' },
-    { icon: Timer, title: "Focus Sessions", detail: "A built-in Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) to boost deep-work productivity." },
-    { icon: Bell, title: "Smart Reminders", detail: "Toggleable notifications help keep you on track so important tasks never slip through the cracks." },
-    { icon: Palette, title: "Dynamic Theming", detail: "Support for System Default, Light, and a specialized \"Deep Sea\" Dark Mode with a theme-adaptive UI that stays readable and beautiful in any lighting." },
-    { icon: User, title: "Customizable Profile", detail: "Personalized experience with editable display names, motivational bios, and real-time stats like Total Tasks, Completed, and Today's Wins." },
-    { icon: Database, title: "Robust Data Management", detail: "Reset your progress or securely delete all data with proper confirmation dialogs." },
-    { icon: Navigation, title: "Premium Navigation", detail: "A unique floating bottom navigation bar with an elevated Floating Action Button for quick task entry." }
+    { icon: ListTodo, title: "Task Management", detail: "Effortlessly create, edit, and delete tasks with a clean UI designed for productivity." },
+    { icon: Search, title: "Search & Filter", detail: "Quickly locate tasks with global search and dedicated category-based filtering." },
+    { icon: Timer, title: "Focus Sessions", detail: "Integrated Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) and a beefy UI for better visibility." },
+    { icon: User, title: "Personalized Profile", detail: "Track your progress with real-time statistics — All-time Created, Completed, and Today's Wins — along with motivational bios." },
+    { icon: Palette, title: "Dynamic Theming", detail: "Support for System Default, Light Mode, and a specialized \"Deep Sea\" Dark Mode with a theme-adaptive UI." },
+    { icon: Navigation, title: "Custom Navigation", detail: "A unique floating navigation bar with an elevated Floating Action Button (FAB) for quick task entry." },
+    { icon: Bell, title: "Smart Reminders", detail: "Toggleable notifications to help you stay on track so important tasks never slip through the cracks." },
+    { icon: Tag, title: "Category Management", detail: "Pre-populated default categories (Study, Work, etc.) with the ability to add and safely delete custom ones." },
+    { icon: Database, title: "Data Management", detail: "Robust options to reset your progress or securely delete all data with confirmation dialogs." },
+    { icon: Layers, title: "Persistent Storage", detail: "Powered by Room Database for local task persistence and DataStore for user preferences." },
+    { icon: BarChart3, title: "Polished UI/UX", detail: "Custom animations, gradient backgrounds, and refined Material 3 components for a premium feel." }
   ]
 
   const screenshots = [
-    { src: ToDoEmpty, label: 'Empty State', desc: 'Elegant placeholder when no tasks exist.' },
-    { src: ToDoAdd, label: 'Add Task', desc: 'Creating a new task entry.' },
-    { src: ToDoEdit, label: 'Edit Task', desc: 'Updating task details in place.' },
-    { src: ToDoDetails, label: 'Task Details', desc: 'Full description and status view.' },
-    { src: ToDoInfo, label: 'About Screen', desc: 'Developer info and tech stack.' },
-    { src: ToDoHome, label: 'Home / Tasks', desc: 'Main task list with swipe-to-delete.' }
+    { src: ToDoHome, label: 'Home', desc: 'Main task list with swipe-to-delete and smart grouping.' },
+    { src: ToDoFocus, label: 'Focus', desc: 'Pomodoro-style timer with customizable durations.' },
+    { src: ToDoCategories, label: 'Categories', desc: 'Organize tasks with pre-built and custom categories.' },
+    { src: ToDoProfile, label: 'Profile', desc: 'Real-time stats and personalized motivation.' },
+    { src: ToDoSettings, label: 'Settings', desc: 'Theme, reminders, and data management options.' },
+    { src: ToDoAdd, label: 'Add Task', desc: 'Creating a new task entry with category selection.' },
+    { src: ToDoDetails, label: 'Task Details', desc: 'Full description and status view.' }
   ]
 
   const layers = [
-    { name: "Presentation Layer", detail: "State-driven UI using StateFlow and ViewModel to maintain a single source of truth." },
-    { name: "Domain Layer", detail: "Clean repository interfaces that abstract data sources." },
-    { name: "Data Layer", detail: "Local persistence powered by Room for tasks and DataStore for user preferences." },
-    { name: "Navigation Layer", detail: "A centralized ToDoNavHost manages the full app flow within a Single Activity using type-safe Navigation Compose." }
+    { name: "Presentation Layer", detail: "UI Screens (Home, Focus, Category, Profile, Settings) and their respective ViewModels." },
+    { name: "Domain Layer", detail: "Business logic and data abstraction through Repositories." },
+    { name: "Data Layer", detail: "Room DAOs, Entities, and Preferences DataStore implementation." },
+    { name: "Navigation Layer", detail: "Centralized ToDoNavHost managing the app flow within a Single Activity." }
   ]
 
-  const whatsNew = [
-    { title: "Focus Sessions", detail: "A Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) now lives right in the app to boost deep-work productivity." },
-    { title: "Smart Reminders", detail: "Toggleable notifications help you stay on track so important tasks never slip through the cracks." },
-    { title: "Robust Data Management", detail: "New settings to reset progress or wipe all data with secure confirmation dialogs." },
-    { title: "Rebranded Identity", detail: 'Transitioned from "ToDo Vsn" to the more concise "Tasks".' },
-    { title: "Enhanced Navigation Bar", detail: "Upgraded to a floating, elevated design with a dedicated FAB for quick task entry and premium shadow effects." },
-    { title: "Deep Sea Dark Mode", detail: "Re-engineered the specialized \"Deep Sea\" dark theme for perfect contrast and a polished look." }
+  const roadmap = [
+    { title: "Cloud Sync", detail: "Firebase integration for multi-device synchronization." },
+    { title: "Custom Tags", detail: "Create personal labels for better task organization." },
+    { title: "Interactive Widgets", detail: "Access your tasks directly from the home screen." },
+    { title: "Detailed Analytics", detail: "Visual charts for weekly and monthly productivity trends." }
   ]
 
   const libraries = [
-    { name: 'Jetpack Compose', purpose: 'Declarative UI framework' },
+    { name: 'Jetpack Compose', purpose: 'Declarative UI toolkit' },
     { name: 'Material Design 3', purpose: 'Modern, customizable components' },
-    { name: 'Room (androidx.room)', purpose: 'SQLite object mapping for tasks' },
+    { name: 'Room Database', purpose: 'Local SQLite for task persistence' },
     { name: 'Jetpack DataStore', purpose: 'Type-safe preferences storage' },
-    { name: 'Navigation Compose', purpose: 'Type-safe in-app routing (ToDoNavHost)' },
-    { name: 'Coroutines & Flow', purpose: 'Async operations & reactive state' },
-    { name: 'Hilt', purpose: 'Dependency injection' }
+    { name: 'Navigation Compose', purpose: 'Type-safe in-app routing' },
+    { name: 'Coroutines & Flow', purpose: 'Async ops & reactive state' },
+    { name: 'ViewModel', purpose: 'Lifecycle-aware state management' },
+    { name: 'SplashScreen API', purpose: 'Professional app launch' },
+    { name: 'Hilt / AppContainer', purpose: 'Dependency injection' }
   ]
 
   const developer = [
     { label: 'Developer', value: 'Samrat Parajuli' },
     { label: 'GitHub', value: 'github.com/SamratVsn', href: 'https://github.com/SamratVsn' },
     { label: 'Portfolio', value: 'samratparajuli0.com.np', href: 'https://www.samratparajuli0.com.np' },
-    { label: 'Tech Interests', value: 'Android Development, Jetpack Compose, Modern UI/UX' }
+    { label: 'LinkedIn', value: 'Samrat Parajuli', href: 'https://linkedin.com/in/samratvsn' },
+    { label: 'License', value: 'MIT License' }
   ]
 
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Tasks | SamratVsn"
-        description="Tasks is a premium, productivity-focused task manager for Android built with Kotlin & Jetpack Compose — MVVM + Repository architecture, Pomodoro-style focus sessions, smart reminders, Room persistence, Jetpack DataStore, Deep Sea dark theming, and type-safe Navigation Compose. Built by Samrat Parajuli."
+        description="Tasks is a sleek, modern task management app for Android built with Kotlin, Jetpack Compose & Material 3. Features Pomodoro focus sessions, category management, smart reminders, dynamic theming, and MVVM architecture. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
       />
 
@@ -154,7 +163,7 @@ function Tasks() {
                 src={ToDoApp}
                 alt="Tasks app"
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
-                onClick={() => setSelectedImage({ src: ToDoApp, label: 'Tasks', desc: 'A premium, productivity-focused task manager built with Kotlin & Jetpack Compose.' })}
+                onClick={() => setSelectedImage({ src: ToDoApp, label: 'Tasks', desc: 'A sleek, modern task management app built with Kotlin & Jetpack Compose.' })}
                 loading="lazy"
               />
             </div>
@@ -162,23 +171,23 @@ function Tasks() {
             {/* Intro */}
             <div className="space-y-4">
               <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
-                A premium, productivity-focused task manager for Android
+                A sleek, modern task manager for Android
               </h2>
               <p className="text-slate-400 leading-relaxed">
-                Tasks is designed to keep you moving — smart grouping, persistent lifetime stats,
-                Pomodoro-style focus sessions, smart reminders, and full System, Light, and "Deep Sea"
-                Dark theme support wrapped in a fast, polished experience. It's built entirely with
-                modern Jetpack Compose and Material 3, backed by a clean MVVM + Repository
-                architecture with Room and DataStore persistence.
+                Tasks is designed to help you stay organized, focused, and achieve your goals.
+                It features Pomodoro-style focus sessions, category management, smart reminders,
+                and full System, Light, and "Deep Sea" Dark theme support — all wrapped in a
+                polished Material 3 experience. Built entirely with modern Jetpack Compose,
+                backed by a clean MVVM + Repository architecture with Room and DataStore persistence.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Smart Grouping</p>
-                  <p className="text-sm text-slate-400">Tasks are automatically split into "Active" and "Completed" sections to keep your workspace clean.</p>
+                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Focus Sessions</p>
+                  <p className="text-sm text-slate-400">Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) for deep-work productivity.</p>
                 </div>
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Persistent Stats</p>
-                  <p className="text-sm text-slate-400">A permanent "Total Tasks Created" counter tracks your long-term productivity, even after deletions.</p>
+                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Category Management</p>
+                  <p className="text-sm text-slate-400">Pre-populated categories (Study, Work, etc.) with the ability to add and safely delete custom ones.</p>
                 </div>
               </div>
             </div>
@@ -186,7 +195,7 @@ function Tasks() {
             {/* Tabs */}
             <div>
               <div className="flex gap-1 mb-8 border-b border-slate-800">
-                {['overview', 'features', 'architecture', 'system'].map(tab => (
+                {['overview', 'features', 'architecture', 'roadmap'].map(tab => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
@@ -215,19 +224,11 @@ function Tasks() {
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Effortlessly create, edit, and organize daily tasks</span>
+                          <span>Effortlessly create, edit, and delete tasks with a clean UI</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Automatic "Active" and "Completed" grouping</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Persistent "Total Tasks Created" lifetime stats</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Swipe-to-delete with smooth, intuitive animations</span>
+                          <span>Global search and category-based filtering</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
@@ -235,7 +236,7 @@ function Tasks() {
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Toggleable reminder notifications</span>
+                          <span>Real-time profile stats: Created, Completed, Today's Wins</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
@@ -243,11 +244,19 @@ function Tasks() {
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Editable display names and motivational bios</span>
+                          <span>Toggleable reminder notifications</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Floating bottom navigation bar with an elevated FAB</span>
+                          <span>Pre-populated and custom category management</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span>Floating navigation bar with elevated FAB</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span>Custom animations and gradient backgrounds</span>
                         </li>
                       </ul>
                     </div>
@@ -292,41 +301,27 @@ function Tasks() {
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Room DAOs, Entities, Repositories & DataStore</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Database entities, DAOs, Repositories & DataStore</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
                         <p className="ml-8">│   ├── <span className="text-[#3B82F6]">home/</span> <span className="text-slate-500">// Home screen logic & UI</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-500">// Focus, Profile, Settings, Add/Edit</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-500">// ToDoNavHost & destinations</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-500">// Focus, Profile, Settings, Category, Add/Edit</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-500">// NavHost & Destination definitions</span></p>
                         <p className="ml-8">│   └── <span className="text-[#3B82F6]">theme/</span> <span className="text-slate-500">// Deep Sea schemes, typography & shapes</span></p>
-                        <p className="ml-4">├── ToDoApp.kt <span className="text-slate-500">// Floating Navigation & Scaffold</span></p>
+                        <p className="ml-4">├── ToDoApp.kt <span className="text-slate-500">// Custom Floating Navigation & Scaffold</span></p>
                         <p className="ml-4">└── MainActivity.kt <span className="text-slate-500">// Entry point with theme & splash</span></p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Design Principles</h3>
-                      <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">MVVM + Repository Pattern</p>
-                          <p className="text-sm text-slate-400">Clean layering between presentation, domain (repository interfaces), and data (Room / DataStore) keeps the app testable and predictable.</p>
-                        </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Single Source of Truth</p>
-                          <p className="text-sm text-slate-400">StateFlow-backed ViewModels drive all UI state, ensuring consistent behavior across every screen.</p>
-                        </div>
                       </div>
                     </div>
                   </div>
                 )}
 
-                {activeTab === 'system' && (
+                {activeTab === 'roadmap' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Download size={16} className="text-[#3B82F6]" /> What's New in v1.1.0?
+                        <Download size={16} className="text-[#3B82F6]" /> Future Roadmap
                       </h3>
                       <div className="space-y-3">
-                        {whatsNew.map((item, i) => (
+                        {roadmap.map((item, i) => (
                           <div key={i} className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
                             <p className="text-sm text-white font-semibold mb-1 flex items-center gap-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
@@ -347,8 +342,7 @@ function Tasks() {
                           { label: 'Minimum SDK', value: 'API 24 (Android 7.0)' },
                           { label: 'Target / Compile SDK', value: 'API 37 (Android 15)' },
                           { label: 'Kotlin Version', value: '2.2.10' },
-                          { label: 'Build Tool', value: 'Gradle 9.3.1 (AGP)' },
-                          { label: 'Annotation Processing', value: 'KSP' }
+                          { label: 'Build Tool', value: 'Gradle 9.3.1' }
                         ].map((item, i) => (
                           <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
                             <span className="text-slate-500 text-sm">{item.label}</span>
@@ -444,7 +438,7 @@ function Tasks() {
             <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'Hilt / AppContainer', 'MVVM'].map((tech, i) => (
+                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'Hilt', 'ViewModel', 'SplashScreen API'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
                     {tech}
                   </span>

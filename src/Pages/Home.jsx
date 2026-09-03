@@ -16,7 +16,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import Hero from "../Components/Hero";
-import Tasks from "../assets/ToDo/Tasks.png";
+import Tasks from "../assets/ToDo/Home.png";
 import MoviePoster from "../assets/TheMovie/MoviePoster.png";
 import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import SMS1 from "../assets/SMS/SMS1.png";
