@@ -1,5 +1,3 @@
-// Reusable ambient background — same radial glows + grid texture as the Hero
-// section, so every page shares one visual language.
 export default function BackgroundFX({ gridOpacity = 0.02, className = "" }) {
   return (
     <>

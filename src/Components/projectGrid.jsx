@@ -27,7 +27,7 @@ const PROJECTS = [
     id: " 0 ! 0 ",
     title: "Tasks",
     problem: "I wanted a lightweight task manager and a real project to apply modern Android architecture.",
-    solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, swipe-to-delete, and type-safe navigation.",
+    solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, Pomodoro-style focus sessions, smart reminders, and type-safe navigation.",
     learning: "Learned clean layering between UI, domain, and data, plus reactive state handling with StateFlow and Coroutines.",
     tags: ["Kotlin", "Jetpack Compose", "Room"],
     github: "https://github.com/SamratVsn/ToDo",

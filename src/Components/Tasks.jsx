@@ -13,6 +13,8 @@ import {
   FolderTree,
   Cpu,
   Download,
+  Timer,
+  Bell,
   X
 } from 'lucide-react'
 import SEO from './SEO'
@@ -40,8 +42,8 @@ function Tasks() {
     { label: "Database", value: "Room (SQLite)" },
     { label: "Preferences", value: "Jetpack DataStore" },
     { label: "Architecture", value: "MVVM + Repository" },
-    { label: "Navigation", value: "Navigation Compose" },
-    { label: "Dependency Injection", value: "Manual via AppContainer" }
+    { label: "Navigation", value: "Navigation Compose (ToDoNavHost)" },
+    { label: "Dependency Injection", value: "Hilt / AppContainer" }
   ]
 
   const features = [
@@ -49,9 +51,12 @@ function Tasks() {
     { icon: Layers, title: "Smart Grouping", detail: 'Tasks are automatically categorized into "Active" and "Completed" sections, keeping your workspace clean.' },
     { icon: BarChart3, title: "Persistent Lifetime Stats", detail: 'Track your long-term productivity with a persistent "Total Tasks Created" counter that stays accurate even after you delete old tasks.' },
     { icon: MoveHorizontal, title: "Advanced Swipe Gestures", detail: 'Quickly manage your list with intuitive "Swipe-to-Delete" functionality and smooth animations.' },
-    { icon: Palette, title: "Dynamic Theming", detail: "Full support for System, Light, and Dark modes with a theme-adaptive UI that remains readable and beautiful in any lighting." },
-    { icon: User, title: "Customizable Profile", detail: "Personalized experience with editable display names and motivational bios." },
-    { icon: Navigation, title: "Premium Navigation", detail: "A sleek, floating bottom navigation bar with high-contrast active states for a seamless user journey." }
+    { icon: Timer, title: "Focus Sessions", detail: "A built-in Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) to boost deep-work productivity." },
+    { icon: Bell, title: "Smart Reminders", detail: "Toggleable notifications help keep you on track so important tasks never slip through the cracks." },
+    { icon: Palette, title: "Dynamic Theming", detail: "Support for System Default, Light, and a specialized \"Deep Sea\" Dark Mode with a theme-adaptive UI that stays readable and beautiful in any lighting." },
+    { icon: User, title: "Customizable Profile", detail: "Personalized experience with editable display names, motivational bios, and real-time stats like Total Tasks, Completed, and Today's Wins." },
+    { icon: Database, title: "Robust Data Management", detail: "Reset your progress or securely delete all data with proper confirmation dialogs." },
+    { icon: Navigation, title: "Premium Navigation", detail: "A unique floating bottom navigation bar with an elevated Floating Action Button for quick task entry." }
   ]
 
   const screenshots = [
@@ -66,15 +71,17 @@ function Tasks() {
   const layers = [
     { name: "Presentation Layer", detail: "State-driven UI using StateFlow and ViewModel to maintain a single source of truth." },
     { name: "Domain Layer", detail: "Clean repository interfaces that abstract data sources." },
-    { name: "Data Layer", detail: "Local persistence powered by Room for tasks and DataStore for user preferences." }
+    { name: "Data Layer", detail: "Local persistence powered by Room for tasks and DataStore for user preferences." },
+    { name: "Navigation Layer", detail: "A centralized ToDoNavHost manages the full app flow within a Single Activity using type-safe Navigation Compose." }
   ]
 
   const whatsNew = [
-    { title: "Rebranded Identity", detail: 'Transitioned from "ToDo Vsn" to the more concise "Tasks".' },
-    { title: "Enhanced Navigation Bar", detail: "Upgraded to a floating, rounded-corner design with increased visibility and premium shadow effects." },
-    { title: "Refined Profile Experience", detail: "Removed redundant fields to focus on core productivity stats and easy-access settings." },
+    { title: "Focus Sessions", detail: "A Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) now lives right in the app to boost deep-work productivity." },
+    { title: "Smart Reminders", detail: "Toggleable notifications help you stay on track so important tasks never slip through the cracks." },
     { title: "Robust Data Management", detail: "New settings to reset progress or wipe all data with secure confirmation dialogs." },
-    { title: "Improved Dark Theme", detail: "Re-engineered Stat Cards and UI elements for perfect contrast in dark mode." }
+    { title: "Rebranded Identity", detail: 'Transitioned from "ToDo Vsn" to the more concise "Tasks".' },
+    { title: "Enhanced Navigation Bar", detail: "Upgraded to a floating, elevated design with a dedicated FAB for quick task entry and premium shadow effects." },
+    { title: "Deep Sea Dark Mode", detail: "Re-engineered the specialized \"Deep Sea\" dark theme for perfect contrast and a polished look." }
   ]
 
   const libraries = [
@@ -82,8 +89,9 @@ function Tasks() {
     { name: 'Material Design 3', purpose: 'Modern, customizable components' },
     { name: 'Room (androidx.room)', purpose: 'SQLite object mapping for tasks' },
     { name: 'Jetpack DataStore', purpose: 'Type-safe preferences storage' },
-    { name: 'Navigation Compose', purpose: 'Type-safe in-app routing' },
-    { name: 'Coroutines & Flow', purpose: 'Async operations & reactive state' }
+    { name: 'Navigation Compose', purpose: 'Type-safe in-app routing (ToDoNavHost)' },
+    { name: 'Coroutines & Flow', purpose: 'Async operations & reactive state' },
+    { name: 'Hilt', purpose: 'Dependency injection' }
   ]
 
   const developer = [
@@ -97,7 +105,7 @@ function Tasks() {
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Tasks | SamratVsn"
-        description="Tasks is a premium, productivity-focused task manager for Android built with Kotlin & Jetpack Compose — MVVM + Repository architecture, Room persistence, Jetpack DataStore, dynamic theming, and type-safe Navigation Compose. Built by Samrat Parajuli."
+        description="Tasks is a premium, productivity-focused task manager for Android built with Kotlin & Jetpack Compose — MVVM + Repository architecture, Pomodoro-style focus sessions, smart reminders, Room persistence, Jetpack DataStore, Deep Sea dark theming, and type-safe Navigation Compose. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
       />
 
@@ -158,9 +166,10 @@ function Tasks() {
               </h2>
               <p className="text-slate-400 leading-relaxed">
                 Tasks is designed to keep you moving — smart grouping, persistent lifetime stats,
-                and full System, Light, and Dark theme support wrapped in a fast, polished experience.
-                It's built entirely with modern Jetpack Compose and Material 3, backed by a clean
-                MVVM + Repository architecture with Room and DataStore persistence.
+                Pomodoro-style focus sessions, smart reminders, and full System, Light, and "Deep Sea"
+                Dark theme support wrapped in a fast, polished experience. It's built entirely with
+                modern Jetpack Compose and Material 3, backed by a clean MVVM + Repository
+                architecture with Room and DataStore persistence.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
@@ -222,7 +231,15 @@ function Tasks() {
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>System, Light, and Dark theme support</span>
+                          <span>Pomodoro-style Focus Sessions (15m, 25m, 45m, 60m)</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span>Toggleable reminder notifications</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span>System, Light, and "Deep Sea" Dark theme support</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
@@ -230,7 +247,7 @@ function Tasks() {
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Floating bottom navigation bar with high-contrast active states</span>
+                          <span>Floating bottom navigation bar with an elevated FAB</span>
                         </li>
                       </ul>
                     </div>
@@ -275,13 +292,14 @@ function Tasks() {
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Room DAOs, Entities, and Repositories</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Room DAOs, Entities, Repositories & DataStore</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">home/</span> <span className="text-slate-500">// Grouped list logic & task interactions</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-500">// Add, Edit, Details modules</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">theme/</span> <span className="text-slate-500">// Custom M3 schemes & typography</span></p>
-                        <p className="ml-8">│   └── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-500">// Centralized NavGraph</span></p>
-                        <p className="ml-4">└── MainActivity.kt <span className="text-slate-500">// Entry point</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">home/</span> <span className="text-slate-500">// Home screen logic & UI</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-500">// Focus, Profile, Settings, Add/Edit</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-500">// ToDoNavHost & destinations</span></p>
+                        <p className="ml-8">│   └── <span className="text-[#3B82F6]">theme/</span> <span className="text-slate-500">// Deep Sea schemes, typography & shapes</span></p>
+                        <p className="ml-4">├── ToDoApp.kt <span className="text-slate-500">// Floating Navigation & Scaffold</span></p>
+                        <p className="ml-4">└── MainActivity.kt <span className="text-slate-500">// Entry point with theme & splash</span></p>
                       </div>
                     </div>
 
@@ -426,7 +444,7 @@ function Tasks() {
             <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'AppContainer', 'MVVM'].map((tech, i) => (
+                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'Hilt / AppContainer', 'MVVM'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
                     {tech}
                   </span>

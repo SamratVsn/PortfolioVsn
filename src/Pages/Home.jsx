@@ -66,7 +66,7 @@ const featuredProjects = [
   {
     title: "Tasks",
     description:
-      "A distraction-free task manager built with MVVM, Room persistence, and type-safe Compose navigation.",
+      "A distraction-free task manager with Pomodoro-style focus sessions, smart reminders, Room persistence, and type-safe Compose navigation.",
     tags: ["Kotlin", "Jetpack Compose", "Room"],
     github: "https://github.com/SamratVsn/ToDo",
     path: "/projects/todo",
