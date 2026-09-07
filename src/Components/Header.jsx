@@ -89,7 +89,7 @@ export default function Header() {
             to="/contact"
             className="bg-accent hover:bg-accent-hover text-[#020617] text-[11.5px] font-bold px-4 py-2 rounded-xl transition-all active:scale-[0.97] ml-0.5"
           >
-            Hire me
+            Lets Connect
           </Link>
         </div>
       </motion.nav>

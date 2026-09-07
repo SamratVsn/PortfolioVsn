@@ -13,6 +13,7 @@ import {
   BookOpen,
   Users,
   Lightbulb,
+  PenLine,
   Layers,
   Database,
   GitBranch,
@@ -175,19 +176,29 @@ const testimonials = [
 
 const beyondItems = [
   {
+    icon: MapPin,
+    title: "Nepal",
+    desc: "Proudly from Kathmandu. I care about projects in tourism, education, and the community back home.",
+  },
+  {
     icon: BookOpen,
-    title: "Learning",
-    desc: "Exploring subjects outside day-to-day development.",
+    title: "Sanskrit & spirituality",
+    desc: "I study Sanskrit script and find balance in spirituality — roots that keep my thinking grounded.",
   },
   {
     icon: Users,
-    title: "Community",
-    desc: "Attending developer events, talks, and community activities.",
+    title: "Technology events",
+    desc: "I attend developer meetups, talks, and community events to learn from people around me.",
+  },
+  {
+    icon: PenLine,
+    title: "Writing",
+    desc: "I write about what I learn — to think clearly, teach others, and document my own journey.",
   },
   {
     icon: Lightbulb,
-    title: "Building",
-    desc: "Experimenting with ideas and side projects outside structured tutorials.",
+    title: "Beyond apps",
+    desc: "Curious about how technology can serve tourism, education, and community-driven projects.",
   },
 ];
 
@@ -665,16 +676,19 @@ export default function About() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em]">
               Beyond code
             </h2>
+            <p className="text-slate-400 max-w-lg text-sm leading-relaxed mt-2">
+              The person behind the portfolio — what keeps me grounded and curious.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="flex flex-wrap gap-4">
             {beyondItems.map((item, i) => {
               const Icon = item.icon;
               return (
                 <motion.div
                   key={i}
                   {...stagger(i)}
-                  className="flex gap-4 p-5 bg-surface/60 backdrop-blur-md border border-white/[0.05] rounded-2xl hover:border-white/[0.1] transition-colors duration-300"
+                  className="flex gap-4 p-5 bg-surface/60 backdrop-blur-md border border-white/[0.05] rounded-2xl hover:border-white/[0.1] transition-colors duration-300 flex-1 basis-[calc(50%-0.5rem)] sm:basis-[calc(33.333%-1.1rem)] min-w-[220px]"
                 >
                   <div className="shrink-0 mt-0.5">
                     <Icon size={15} className="text-accent/40" />

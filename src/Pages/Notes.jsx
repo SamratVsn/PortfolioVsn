@@ -92,9 +92,15 @@ const milestones = [
   },
   {
     period: "Mid 2026",
-    title: "Working toward production-quality Android development",
+    title: "Started building complete Android applications",
     description:
-      "Currently focused on Android architecture patterns, testing strategies, and building production-quality applications. Learning Hilt, Room, and proper error handling.",
+      "Built ToDo and The Movie using Jetpack Compose, Room, DataStore, Retrofit, Coroutines & Flow, and modern Android architecture.",
+  },
+  {
+    period: "Late 2026 — Current",
+    title: "Going deeper into Android engineering",
+    description:
+      "Exploring dependency injection, testing, architecture, and larger real-world applications while building projects around practical problems.",
     active: true,
   },
 ];

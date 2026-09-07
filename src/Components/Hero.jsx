@@ -23,10 +23,10 @@ const techBadges = [
 ];
 
 const stats = [
-  { icon: Calendar, value: "1+ Yrs", label: "Dev Experience" },
-  { icon: Rocket, value: "10+", label: "Completed Projects" },
-  { icon: PenLine, value: "4+", label: "Published Articles" },
-  { icon: Code2, value: "30+", label: "Public Repositories" },
+  { icon: PenLine, value: "5+", label: "Featured Projects" },
+  { icon: Calendar, value: "2+ Yrs", label: "Building Software" },
+  { icon: Code2, value: "4+", label: "Published Articles" },
+  { icon: Rocket, value: "30+", label: "Completed Projects" },
 ];
 
 const socials = [
@@ -41,10 +41,10 @@ const socials = [
 ];
 
 const taskItems = [
-  { label: "Learn Jetpack Compose", done: true },
-  { label: "Build Mobile Apps", done: true },
-  { label: "Learning & Improving day by day", done: false },
-  { label: "Attending Tech Events", done: false },
+  { label: "Building Android apps", done: true },
+  { label: "Exploring Hilt & testing", done: true },
+  { label: "Writing about what I learn", done: true },
+  { label: "Exploring technology for Nepal", done: false },
 ];
 
 function AndroidMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
@@ -382,9 +382,9 @@ export default function Hero() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-400 max-w-md mx-auto lg:mx-0 mb-6 leading-relaxed">
-              Also known as SamratVsn, I build modern, clean and scalable Android
-              apps with Kotlin & Jetpack Compose. I'm based in Kathmandu, Nepal —
-              learning in public, one commit at a time.
+              I build native Android applications with Kotlin and Jetpack Compose, 
+              focusing on thoughtful UI, maintainable architecture, and practical solutions. 
+              Based in Kathmandu, Nepal — learning by building and sharing what I discover.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5 mb-7">
@@ -410,10 +410,10 @@ export default function Hero() {
                 View Projects <ArrowUpRight size={15} />
               </Link>
               <Link
-                to="/notes"
+                to="/contact"
                 className="border border-slate-800/60 hover:border-slate-700 text-slate-400 hover:text-white font-medium px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg transition-all hover:bg-white/[0.03] inline-flex items-center gap-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
               >
-                Read Blogs
+                Lets Connect
               </Link>
             </div>
 

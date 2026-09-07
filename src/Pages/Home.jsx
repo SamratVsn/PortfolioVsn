@@ -164,9 +164,15 @@ const journeyItems = [
   },
   {
     period: "Mid 2026",
-    title: "Building complete applications",
+    title: "Started building complete Android applications",
     description:
-      "Currently focused on architecture patterns, testing strategies, and building production-quality Android applications.",
+      "Built ToDo and The Movie using Jetpack Compose, Room, DataStore, Retrofit, Coroutines & Flow, and modern Android architecture.",
+  },
+  {
+    period: "Late 2026 — Current",
+    title: "Going deeper into Android engineering",
+    description:
+      "Exploring dependency injection, testing, architecture, and larger real-world applications while building projects around practical problems.",
     active: true,
   },
 ];
