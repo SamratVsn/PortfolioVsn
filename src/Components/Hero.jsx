@@ -209,7 +209,7 @@ function DesktopHeroVisual() {
       <img
         src={HeroImage}
         alt="Full portrait of Samrat Parajuli, Android app developer"
-        className="relative z-10 block w-[340px] sm:w-[390px] lg:w-[420px] xl:w-[460px] 2xl:w-[520px] min-[1920px]:w-[560px] h-auto object-contain"
+        className="relative z-10 block w-[340px] sm:w-[390px] lg:w-[470px] xl:w-[460px] 2xl:w-[520px] min-[1920px]:w-[560px] h-auto object-contain"
       />
 
       {/* code card — hugs the top-right corner, above the head */}
@@ -218,7 +218,7 @@ function DesktopHeroVisual() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-        className="absolute -top-6 -right-4 xl:-right-10 z-20"
+        className="absolute -top-5 -right-5 xl:-right-10 z-20"
       >
         <CodeCard />
       </motion.div>
@@ -241,7 +241,7 @@ function DesktopHeroVisual() {
             delay: 0.45,
           },
         }}
-        className="absolute top-[38%] -left-4 xl:-left-9 z-20 w-10 h-10 rounded-xl border border-slate-700/60 bg-[#0A101F]/95 backdrop-blur-xl flex items-center justify-center shadow-[0_0_20px_-8px_rgba(59,130,246,0.4)]"
+        className="absolute top-[38%] -left-6 xl:-left-11 z-20 w-10 h-10 rounded-xl border border-slate-700/60 bg-[#0A101F]/95 backdrop-blur-xl flex items-center justify-center shadow-[0_0_20px_-8px_rgba(59,130,246,0.4)]"
       >
         <KotlinMark className="w-4 h-4" />
       </motion.div>
@@ -259,7 +259,7 @@ function DesktopHeroVisual() {
           scale: { duration: 0.6, delay: 0.6 },
           y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.6 },
         }}
-        className="absolute top-[24%] -right-4 xl:-right-10 z-20 w-10 h-10 rounded-xl border border-slate-700/60 bg-[#0A101F]/95 backdrop-blur-xl flex items-center justify-center shadow-[0_0_20px_-8px_rgba(59,130,246,0.4)]"
+        className="absolute top-[24%] -right-6 xl:-right-12 z-20 w-10 h-10 rounded-xl border border-slate-700/60 bg-[#0A101F]/95 backdrop-blur-xl flex items-center justify-center shadow-[0_0_20px_-8px_rgba(59,130,246,0.4)]"
       >
         <ComposeMark className="w-4 h-4" />
       </motion.div>
@@ -270,7 +270,7 @@ function DesktopHeroVisual() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
-        className="absolute bottom-4 -right-4 xl:-right-9 z-20"
+        className="absolute bottom-6 -right-6 xl:-right-12 z-20"
       >
         <TasksCard />
       </motion.div>
@@ -351,7 +351,7 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 sm:gap-12 lg:gap-0">
           {/* ── content: badge → headline → copy → pills → CTAs → stats, then (mobile only) the full portrait, then proof points/socials ── */}
           <motion.div
-            className="lg:basis-[57%] xl:basis-[55%] 2xl:basis-[54%] min-[1920px]:basis-[52%] min-w-0 w-full text-center lg:text-left"
+            className="lg:basis-[54%] xl:basis-[51%] 2xl:basis-[50%] min-[1920px]:basis-[49%] min-w-0 w-full text-center lg:text-left"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -440,7 +440,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="hidden lg:flex lg:basis-[41%] xl:basis-[41%] 2xl:basis-[40%] min-[1920px]:basis-[40%] shrink-0 w-full justify-center items-center"
+            className="hidden lg:flex lg:basis-[44%] xl:basis-[46%] 2xl:basis-[46%] min-[1920px]:basis-[46%] shrink-0 w-full justify-center items-center"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}

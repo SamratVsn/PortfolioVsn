@@ -1,21 +1,29 @@
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Header from "../Components/Header";
+import PageLayout from "../Components/PageLayout";
 import SEO from "../Components/SEO";
-import Footer from "../Components/Footer";
-import BottomNav from "../Components/BottomNav";
-import BackgroundFX from "../Components/BackgroundFX";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import PageHeader from "../Components/PageHeader";
+import SectionHeading from "../Components/SectionHeading";
+import CategoryFilter from "../Components/CategoryFilter";
+import { ArrowUpRight, FileText } from "lucide-react";
 
-const articles = [
+/* ── content model ──────────────────────────────────────────────────────────
+   Add a new note by appending an object below. `dateISO` keeps sorting
+   deterministic; `category` must be one of CATEGORIES (minus "All");
+   `featured` pins at most one note to the hero area.
+   Reading times are intentionally not displayed — lengths come from external
+   posts and can't be computed reliably from this data.                            */
+
+const notes = [
   {
     title: "Attending the Localhost Kathmandu Event by .Net Hub Kathmandu",
     excerpt:
       "How the Microsoft Build 2026 // Localhost : Kathmandu Event went from a student's perspective.",
     url: "https://medium.com/@samratvsn/attending-the-localhost-kathmandu-event-by-net-hub-kathmandu-d29a29dbed2d",
     date: "Jun 15, 2026",
-    category: "Event Reflection",
+    dateISO: "2026-06-15",
+    category: "Events",
     tags: ["learning-in-public", "events", "nepal"],
     image:
       "https://miro.medium.com/v2/resize:fill:640:360/1*KYyjeb2V91OfcgoM3iITlw.jpeg",
@@ -27,7 +35,8 @@ const articles = [
       "What a recent high school graduate learned from a tech specialist at Localhost Kathmandu.",
     url: "https://medium.com/@samratvsn/a-random-networking-session-turned-fruitful-e2123e919d60",
     date: "Jun 14, 2026",
-    category: "Personal Growth",
+    dateISO: "2026-06-14",
+    category: "Nepal & Technology",
     tags: ["networking", "mentorship", "career"],
     image:
       "https://miro.medium.com/v2/resize:fill:640:360/0*KTTKhNk5OK8HZPlJ",
@@ -39,7 +48,8 @@ const articles = [
       "Why waiting for the perfect time to start learning holds more people back than a lack of talent or resources.",
     url: "https://medium.com/@samratvsn/time-to-learn-0dd1697f2db3?sharedUserId=samratvsn",
     date: "Jul 29, 2026",
-    category: "Learning",
+    dateISO: "2026-07-29",
+    category: "Development",
     tags: ["learning", "productivity", "mindset"],
     image:
       "https://miro.medium.com/v2/resize:fit:720/format:webp/0*peSb3OxLzdAtY7dm",
@@ -51,7 +61,8 @@ const articles = [
       "The design decisions, architecture, and thought process behind building Viram, a platform focused on reducing digital addiction.",
     url: "https://medium.com/@samratvsn/how-i-built-a-productivity-app-from-scratch-9620eed54d57",
     date: "Jul 30, 2026",
-    category: "Development",
+    dateISO: "2026-07-30",
+    category: "Android",
     tags: ["android", "productivity", "software-development"],
     image:
       "https://miro.medium.com/v2/resize:fit:720/format:webp/1*4hlT3BiQs6MJpCIKBSWDDw.png",
@@ -59,216 +70,143 @@ const articles = [
   },
 ];
 
-const milestones = [
-  {
-    period: "2024",
-    title: "Started programming with C",
-    description:
-      "Began learning programming fundamentals through C. Built a Student Management System with binary file I/O, struct serialization, and direct byte-offset navigation.",
-  },
-  {
-    period: "Early 2025",
-    title: "Learned Web Concepts and JavaScript",
-    description:
-      "Learned HTML, CSS, and JavaScript to understand web development basics. Built simple interactive web pages and got familiar with the DOM.",
-  },
-  {
-    period: "Mid 2025",
-    title: "Started Learning Kotlin",
-    description:
-      "Transitioned to Kotlin to prepare for Android development. Explored language features like null safety, coroutines, and extension functions through small projects and exercises.",
-  },
-  {
-    period: "Late 2025",
-    title: "Started Android Development with Compose",
-    description:
-      "Began building Android apps using Jetpack Compose. Learned about composable functions, state management, and UI architecture.",
-  },
-  {
-    period: "Early 2026",
-    title: "Completed Android Basics with Compose",
-    description:
-      "Finished Google's Android Basics with Compose course. Learned Jetpack Compose fundamentals, state management, and Android app structure.",
-  },
-  {
-    period: "Mid 2026",
-    title: "Started building complete Android applications",
-    description:
-      "Built ToDo and The Movie using Jetpack Compose, Room, DataStore, Retrofit, Coroutines & Flow, and modern Android architecture.",
-  },
-  {
-    period: "Late 2026 — Current",
-    title: "Going deeper into Android engineering",
-    description:
-      "Exploring dependency injection, testing, architecture, and larger real-world applications while building projects around practical problems.",
-    active: true,
-  },
-];
-
-const notePreviews = [
-  {
-    title: "Why I Chose Android Development",
-    description:
-      "A personal reflection on the journey into Android development, the challenges faced, and the reasons behind choosing this path.",
-  },
-  {
-    title: "Compose State Management Lessons",
-    description:
-      "Lessons learned managing state in Jetpack Compose across screens and configuration changes. State hoisting, ViewModels, and derived state.",
-  },
-  {
-    title: "Android Development Notes",
-    description:
-      "An ongoing collection of Android development insights, patterns, and gotchas.",
-  },
-  {
-    title: "What I Learned Building an Android App myself",
-    description:
-      "Post-mortem reflections on specific projects and the engineering decisions behind them.",
-  },
-];
-
-const categories = [
+const CATEGORIES = [
   "All",
-  "Learning",
+  "Android",
   "Development",
-  "Event Reflection",
-  "Personal Growth",
-];
-
-const learningTopics = [
-  "Kotlin",
-  "Jetpack Compose",
-  "Android Architecture",
-  "Testing",
-  "Open Source",
+  "Events",
+  "Nepal & Technology",
 ];
 
 /* ── animation helpers ───────────────────────────────────────────────────── */
 
-const fadeUp = {
-  initial: { opacity: 0, y: 16 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.45 },
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
-const stagger = (i) => ({
-  initial: { opacity: 0, y: 12 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-40px" },
-  transition: { duration: 0.35, delay: i * 0.06 },
-});
+const cardVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
 
-/* ── component ────────────────────────────────────────────────────────────── */
+/* ── note card ────────────────────────────────────────────────────────────── */
+
+function NoteCard({ note }) {
+  return (
+    <motion.a
+      variants={cardVariants}
+      href={note.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md overflow-hidden transition-colors duration-300 hover:border-accent/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      {note.image && (
+        <div className="relative h-40 sm:h-44 overflow-hidden bg-slate-800/30">
+          <img
+            src={note.image}
+            alt=""
+            className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      <div className="flex-1 flex flex-col p-5">
+        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider mb-2.5">
+          <span className="text-accent/80 font-semibold">{note.category}</span>
+          <span className="w-1 h-1 rounded-full bg-slate-700" />
+          <span className="text-slate-500">{note.date}</span>
+        </div>
+        <h3 className="text-white text-[15px] sm:text-base font-semibold leading-snug mb-2 group-hover:text-accent transition-colors duration-200">
+          {note.title}
+        </h3>
+        <p className="text-slate-500 text-[13px] leading-relaxed line-clamp-3 mb-4 flex-1">
+          {note.excerpt}
+        </p>
+        <span className="mt-auto inline-flex items-center gap-1.5 text-[13px] text-slate-500 group-hover:text-accent transition-colors duration-200 pt-3 border-t border-white/[0.04]">
+          Read note
+          <ArrowUpRight
+            size={13}
+            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </span>
+      </div>
+    </motion.a>
+  );
+}
+
+/* ── page ─────────────────────────────────────────────────────────────────── */
 
 export default function Notes() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const reduceMotion = useReducedMotion();
 
-  const featured = articles.find((a) => a.featured);
-  const nonFeatured = articles.filter((a) => !a.featured);
+  const matches = (n) =>
+    activeCategory === "All" || n.category === activeCategory;
 
-  const filtered =
-    activeCategory === "All"
-      ? nonFeatured
-      : nonFeatured.filter((a) => a.category === activeCategory);
+  const featured = notes.find((n) => n.featured && matches(n));
+  const rest = notes.filter((n) => !n.featured && matches(n));
+  const hasAny = Boolean(featured) || rest.length > 0;
 
   return (
-    <div className="min-h-screen bg-canvas text-slate-300 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
+    <PageLayout>
       <SEO
         title="Notes | SamratVsn"
-        description="Learning in public — Android journey, engineering notes, and event reflections by Samrat Parajuli."
+        description="Notes on Android development, software engineering, technology, events, and building in public by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/notes"
       />
-      <Header />
-      <BackgroundFX />
 
-      {/* grid overlay */}
-      <div
-        className="fixed inset-0 opacity-[0.02] pointer-events-none"
-        style={{
-          backgroundImage: [
-            "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
-          ].join(", "),
-          backgroundSize: "64px 64px",
-        }}
-      />
+      <div className="relative max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem] pb-6">
+        <PageHeader
+          eyebrow="Writing"
+          title={
+            <>
+              Notes<span className="text-accent">.</span>
+            </>
+          }
+          description="Things I've learned, built, experienced, and written down along the way."
+        />
 
-      <main className="relative max-w-3xl mx-auto px-6 pt-32 pb-24">
+        <CategoryFilter
+          categories={CATEGORIES}
+          active={activeCategory}
+          onChange={setActiveCategory}
+          label="Filter notes by category"
+        />
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            PAGE HEADER
-            ═══════════════════════════════════════════════════════════════════ */}
-        <motion.div
-          className="mb-16 sm:mb-20"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-2.5 mb-5">
-            <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
-              03
-            </span>
-            <span className="w-8 h-px bg-accent/25" />
-            <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
-              Notes
-            </span>
-          </div>
-
-          <h1 className="text-white text-3xl sm:text-4xl lg:text-[2.75rem] font-bold mb-3 tracking-[-0.03em] leading-[1.1]">
-            Engineering Notes
-          </h1>
-          <p className="text-slate-400 text-[15px] leading-relaxed max-w-lg mb-8">
-            Things I&apos;m learning, building, debugging, and figuring out along
-            the way.
-          </p>
-
-          {/* currently learning */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-600 mr-1">
-              Currently learning
-            </span>
-            {learningTopics.map((topic) => (
-              <span
-                key={topic}
-                className="text-[10px] font-mono text-slate-500 bg-surface/60 border border-white/[0.05] backdrop-blur-md rounded-md px-2 py-1"
-              >
-                {topic}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            FEATURED NOTE
-            ═══════════════════════════════════════════════════════════════════ */}
         {featured && (
-          <motion.section {...fadeUp} className="mb-16">
+          <motion.section
+            key={`featured-${activeCategory}`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="mb-14 sm:mb-16"
+          >
             <a
               href={featured.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block border border-white/[0.05] rounded-2xl overflow-hidden bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-300"
+              className="group block rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md overflow-hidden hover:border-accent/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors duration-300"
             >
-              <div className="flex flex-col sm:flex-row">
-                {/* image */}
+              <div className="flex flex-col md:flex-row">
                 {featured.image && (
-                  <div className="sm:w-64 md:w-72 shrink-0 overflow-hidden bg-slate-800/30">
+                  <div className="relative h-52 sm:h-64 md:h-auto md:w-1/2 shrink-0 overflow-hidden bg-slate-800/30">
                     <img
                       src={featured.image}
                       alt=""
-                      className="w-full h-48 sm:h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
+                      className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
                       loading="lazy"
                     />
                   </div>
                 )}
 
-                {/* text */}
-                <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
+                <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2.5 mb-3">
+                    <div className="flex items-center gap-2.5 mb-3 flex-wrap">
                       <span className="text-[10px] font-mono font-bold tracking-[0.1em] uppercase text-accent/80">
                         Featured
                       </span>
@@ -289,9 +227,9 @@ export default function Notes() {
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.05]">
+                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/[0.04]">
                     <div className="flex flex-wrap gap-1.5">
-                      {featured.tags.map((tag) => (
+                      {featured.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
                           className="text-[9px] font-mono text-slate-500 bg-surface/60 border border-white/[0.05] rounded px-2 py-0.5 uppercase tracking-wider"
@@ -310,231 +248,53 @@ export default function Notes() {
           </motion.section>
         )}
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            CATEGORY FILTER
-            ═══════════════════════════════════════════════════════════════════ */}
-        <motion.div {...fadeUp} className="mb-8">
-          <div className="flex items-center gap-1 flex-wrap">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`text-[11px] font-mono font-medium tracking-wide px-3 py-1.5 rounded-lg transition-all duration-200 ${
-                  activeCategory === cat
-                    ? "text-accent bg-accent/[0.08] border border-accent/20"
-                    : "text-slate-500 hover:text-slate-300 hover:bg-white/[0.03] border border-transparent"
-                }`}
-              >
-                {cat.toUpperCase()}
-              </button>
-            ))}
-          </div>
-        </motion.div>
+        {rest.length > 0 && (
+          <section>
+            <SectionHeading
+              eyebrow="Latest"
+              title={activeCategory === "All" ? "More notes" : activeCategory}
+              subtitle={
+                activeCategory === "All"
+                  ? "Everything else I've written down recently."
+                  : "Everything I've written in this category."
+              }
+            />
+            <motion.div
+              key={`grid-${activeCategory}`}
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 pb-4"
+            >
+              {rest.map((note) => (
+                <NoteCard key={note.url} note={note} />
+              ))}
+            </motion.div>
+          </section>
+        )}
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            NOTE LIST
-            ═══════════════════════════════════════════════════════════════════ */}
-        <section className="mb-16">
-          <div className="border-t border-white/[0.05]">
-            {filtered.map((article, i) => (
-              <motion.a
-                key={article.url}
-                {...stagger(i)}
-                href={article.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-5 sm:gap-8 py-6 border-b border-white/[0.05] hover:bg-white/[0.01] transition-colors duration-200 -mx-3 px-3 rounded-lg"
-              >
-                {/* date */}
-                <div className="w-16 sm:w-20 shrink-0 pt-0.5">
-                  <span className="text-[11px] font-mono text-slate-600 font-medium tabular-nums uppercase tracking-wider">
-                    {article.date}
-                  </span>
-                </div>
-
-                {/* content */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-white font-medium text-[15px] sm:text-base leading-snug mb-1.5 group-hover:text-accent transition-colors duration-200">
-                    {article.title}
-                  </h3>
-                  <p className="text-slate-500 text-[13px] leading-relaxed line-clamp-2 mb-3">
-                    {article.excerpt}
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono font-medium tracking-wider uppercase text-accent/60">
-                      {article.category}
-                    </span>
-                    <span className="w-1 h-1 rounded-full bg-slate-700" />
-                    <div className="flex gap-1.5">
-                      {article.tags.slice(0, 2).map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[9px] font-mono text-slate-600 bg-surface/40 border border-white/[0.05] rounded px-1.5 py-0.5"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* arrow */}
-                <div className="shrink-0 pt-1 text-slate-700 group-hover:text-accent group-hover:translate-x-0.5 transition-all duration-200">
-                  <ArrowRight size={15} />
-                </div>
-              </motion.a>
-            ))}
-          </div>
-
-          {filtered.length === 0 && (
-            <p className="text-slate-600 text-sm py-8 text-center">
-              No notes in this category yet.
+        {!hasAny && (
+          <div className="flex flex-col items-center justify-center border border-white/[0.05] rounded-2xl py-20 px-6 text-center">
+            <FileText size={28} className="text-slate-600 mb-4" />
+            <p className="text-white text-sm font-medium mb-1">
+              Nothing here yet
             </p>
-          )}
-        </section>
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            ANDROID JOURNEY
-            ═══════════════════════════════════════════════════════════════════ */}
-        <section className="mb-16">
-          <motion.div {...fadeUp} className="mb-8">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
-                02
-              </span>
-              <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
-                Journey
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
-              Android Journey
-            </h2>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              From writing my first line of C to building Android apps with
-              Jetpack Compose.
+            <p className="text-slate-500 text-sm max-w-sm">
+              I haven't written about this category yet — it's likely in
+              progress.
             </p>
-          </motion.div>
-
-          <div className="relative">
-            {/* vertical line */}
-            <div className="absolute left-[5px] top-1 bottom-1 w-px bg-slate-800/40" />
-
-            {milestones.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={
-                  reduceMotion ? { opacity: 1 } : { opacity: 0, x: -8 }
-                }
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
-                className="relative flex gap-5 sm:gap-6 group"
-              >
-                {/* dot */}
-                <div className="relative z-10 flex items-start pt-1.5 shrink-0">
-                  <span
-                    className={`w-[11px] h-[11px] rounded-full border-2 transition-colors duration-300 ${
-                      item.active
-                        ? "bg-accent border-accent shadow-[0_0_8px_rgba(59,130,246,0.4)]"
-                        : "bg-canvas border-slate-600 group-hover:border-slate-500"
-                    }`}
-                  />
-                </div>
-
-                {/* content */}
-                <div className="pb-7 pt-0.5">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span
-                      className={`text-[11px] font-mono font-medium tabular-nums ${
-                        item.active ? "text-accent" : "text-slate-600"
-                      }`}
-                    >
-                      {item.period}
-                    </span>
-                    {item.active && (
-                      <span className="text-[9px] font-mono text-accent border border-accent/25 px-1.5 py-0.5 rounded uppercase tracking-wider leading-none font-medium">
-                        Now
-                      </span>
-                    )}
-                  </div>
-                  <h3
-                    className={`font-medium text-sm sm:text-base leading-snug mb-1 ${
-                      item.active ? "text-white" : "text-slate-300"
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-500 text-[13px] leading-relaxed max-w-lg">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
           </div>
-        </section>
+        )}
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            ENGINEERING NOTES (DRAFTS)
-            ═══════════════════════════════════════════════════════════════════ */}
-        <section className="mb-16">
-          <motion.div {...fadeUp} className="mb-8">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
-                04
-              </span>
-              <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
-                In Progress
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
-              Engineering Notes
-            </h2>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              Technical writing in progress — drafts on architecture, Compose
-              patterns, and lessons from building.
-            </p>
-          </motion.div>
-
-          <div className="border border-white/[0.05] rounded-2xl overflow-hidden bg-surface/60 backdrop-blur-md">
-            {notePreviews.map((note, i) => (
-              <motion.div
-                key={i}
-                {...stagger(i)}
-                className={`flex items-start gap-4 px-5 sm:px-6 py-4 sm:py-5 ${
-                  i < notePreviews.length - 1
-                    ? "border-b border-white/[0.05]"
-                    : ""
-                }`}
-              >
-                {/* status dot */}
-                <div className="shrink-0 pt-1.5">
-                  <span className="block w-1.5 h-1.5 rounded-full bg-slate-700" />
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-slate-300 font-medium text-sm sm:text-[15px] mb-1 leading-snug">
-                    {note.title}
-                  </h3>
-                  <p className="text-slate-500 text-[12.5px] leading-relaxed">
-                    {note.description}
-                  </p>
-                </div>
-
-                <span className="text-[9px] font-mono font-medium tracking-wider uppercase text-slate-600 shrink-0 pt-1">
-                  Draft
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            FOOTER CTA
-            ═══════════════════════════════════════════════════════════════════ */}
-        <motion.section {...fadeUp} className="pt-8 border-t border-white/[0.05]">
-          <div className="text-center">
+        {/* closing note */}
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.4 }}
+          className="pt-12 mt-8 border-t border-white/[0.05]"
+        >
+          <div className="text-center py-4">
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-[-0.02em] mb-3">
               Still learning.
             </h2>
@@ -550,11 +310,7 @@ export default function Notes() {
             </Link>
           </div>
         </motion.section>
-
-      </main>
-
-      <Footer />
-      <BottomNav />
-    </div>
+      </div>
+    </PageLayout>
   );
 }

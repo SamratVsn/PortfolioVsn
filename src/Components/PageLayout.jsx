@@ -1,4 +1,5 @@
 import Header from './Header'
+import Footer from './Footer'
 import BackgroundFX from './BackgroundFX'
 import BottomNav from './BottomNav'
 
@@ -11,6 +12,7 @@ export const PageLayout = ({ children, className = "" }) => {
         <main className="flex-grow pt-24 md:pt-28 pb-20 sm:pb-24">
           {children}
         </main>
+        <Footer />
       </div>
       <BottomNav />
     </div>
