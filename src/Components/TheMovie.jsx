@@ -5,15 +5,15 @@ import {
   Search,
   Film,
   User,
-  Settings,
-  Palette,
-  Database,
   Image,
   Layers,
   FolderTree,
   Cpu,
-  Network,
-  X
+  X,
+  Sparkles,
+  Heart,
+  ShieldCheck,
+  WifiOff
 } from 'lucide-react'
 import SEO from './SEO'
 import BottomNav from './BottomNav'
@@ -33,28 +33,31 @@ function TheMovie() {
     { label: "Architecture", value: "MVVM + Repository" },
     { label: "Interface", value: "Jetpack Compose (M3)" },
     { label: "Networking", value: "Retrofit & OkHttp" },
+    { label: "Auth", value: "Firebase Email/Password" },
+    { label: "Caching", value: "OkHttp disk cache + in-memory" },
     { label: "Storage", value: "Jetpack DataStore" },
     { label: "Min / Target SDK", value: "API 24 / 37" }
   ]
 
   const features = [
-    { icon: Film, title: "Browse Movies", detail: "Explore Popular, Now Playing, and Top Rated sections from the TMDB database." },
-    { icon: Search, title: "Live Search", detail: "Search any movie in the TMDB database with real-time result updates." },
-    { icon: Image, title: "Detailed View", detail: "Comprehensive movie info including backdrops, posters, ratings, and plot overviews." },
-    { icon: User, title: "User Profile", detail: "Personalize with a display name, bio, and favorite genre." },
-    { icon: Settings, title: "App Settings", detail: "Manage theme mode (System, Light, Dark) and default movie categories." },
-    { icon: Palette, title: "Material 3 UI", detail: "Modern, sleek interface adhering to the latest Android design standards." },
-    { icon: Database, title: "Persistent Preferences", detail: "User settings saved locally with Jetpack DataStore reactive storage." },
-    { icon: Network, title: "REST Integration", detail: "Type-safe API interaction via Retrofit, OkHttp, and Kotlinx Serialization." }
+    { icon: Film, title: "Browse & Discover", detail: "Popular, Now Playing, and Top Rated sections, each expandable into a single-category grid with infinite scroll." },
+    { icon: Sparkles, title: "Personalized Recommendations", detail: "A 'Because you like X' row built from your favorite genre." },
+    { icon: Search, title: "Debounced Live Search", detail: "Type-ahead search across the TMDB database with debounce and paginated results." },
+    { icon: Image, title: "Movie Details", detail: "Full movie info with pull-to-refresh, offline fallback, and a favorite heart toggle with snackbar confirmations." },
+    { icon: Heart, title: "Favorites / Watchlist", detail: "A persistent Favorites tab that keeps saved movies across restarts." },
+    { icon: ShieldCheck, title: "Firebase Auth", detail: "Email/Password sign-up and login — your signup name becomes your in-app display name." },
+    { icon: User, title: "Profile & Settings", detail: "Profile overview with Settings in the top bar; edit name, bio, and genre picked from the official TMDB list." },
+    { icon: WifiOff, title: "Offline Support", detail: "HTTP disk cache plus in-memory cache with stale fallback, pull-to-refresh, and specific error messages with retry." }
   ]
 
   const screenshots = [
     {src: MoviePoster, label: 'Poster', desc: 'Movie poster with title, rating, and release date.'},
-    { src: MovieHome, label: 'Home', desc: 'Popular, Now Playing, and Top Rated movie sections.' },
-    { src: MovieSearch, label: 'Search', desc: 'Real-time movie search across the TMDB database.' },
-    { src: MovieDetails, label: 'Movie Details', desc: 'Backdrops, ratings, and full plot overview.' },
-    { src: MovieSettings, label: 'Settings', desc: 'Theme mode and default category preferences.' },
-    { src: MovieProfile, label: 'Profile', desc: 'Custom display name, bio, and favorite genre.' }
+    { src: MovieHome, label: 'Home', stale: true, desc: 'STALE — shows the old bottom nav (Home / Search / Settings / Profile). Sections are still valid.' },
+    { src: MovieSearch, label: 'Search', stale: true, desc: 'STALE — shows the old bottom nav. Search is now debounced with infinite scroll.' },
+    { src: MovieDetails, label: 'Movie Details', desc: 'Backdrops, ratings, and full plot overview with pull-to-refresh and a favorite toggle.' },
+    { src: MovieSettings, label: 'Settings', stale: true, desc: 'STALE — Settings was a bottom-nav tab here; it now lives in the Profile top bar. Content is still valid.' },
+    { src: MovieProfile, label: 'Profile', stale: true, desc: 'STALE — shows the old bottom nav. Profile now hosts Settings in its top bar.' },
+    { src: MoviePoster, label: 'Favorites', placeholder: true, desc: 'New Favorites-tab screenshot (placeholder). Bottom nav is now Home / Search / Favorites / Profile.' }
   ]
 
   const libraries = [
@@ -63,6 +66,7 @@ function TheMovie() {
     { name: 'com.squareup.retrofit2', purpose: 'REST API requests' },
     { name: 'io.coil-kt:coil-compose', purpose: 'Async image loading' },
     { name: 'androidx.datastore', purpose: 'Reactive local persistence' },
+    { name: 'com.google.firebase:firebase-auth', purpose: 'Email/Password authentication' },
     { name: 'kotlinx.serialization', purpose: 'Type-safe JSON parsing' },
     { name: 'okhttp3:logging-interceptor', purpose: 'Network debugging' }
   ]
@@ -71,7 +75,7 @@ function TheMovie() {
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="The Movie App | SamratVsn"
-        description="Native Android movie app built with Kotlin & Jetpack Compose using the TMDB API — with search, movie details, profile, and DataStore-backed settings. Built by Samrat Parajuli."
+        description="Native Android movie app built with Kotlin & Jetpack Compose using the TMDB API — with debounced search, favorites/watchlist, Firebase auth, offline caching, and DataStore-backed settings. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/themovie"
       />
 
@@ -84,6 +88,9 @@ function TheMovie() {
               The <span className="text-[#3B82F6]">Movie</span> App
             </h1>
           </div>
+          {/* TODO(TheMovie): GitHub URL verified 2026-09 — https://github.com/SamratVsn/TheMovie is the real
+              repo; https://github.com/SamratVsn/TheMovieApp 404s. The repo README's `git clone TheMovieApp`
+              instruction is stale but the page link below is correct. */}
           <a
             href="https://github.com/SamratVsn/TheMovie"
             target="_blank"
@@ -119,8 +126,9 @@ function TheMovie() {
               </h2>
               <p className="text-slate-400 leading-relaxed">
                 The Movie App is a modern Android application built with Jetpack Compose that leverages the
-                TMDB API to showcase popular, now playing, and top-rated movies. It features a clean Material 3
-                design, seamless navigation, and user preference management using DataStore.
+                TMDB API to showcase popular, now playing, and top-rated movies. It adds Firebase email/password
+                authentication, a persistent Favorites watchlist, personalized recommendations, and full offline
+                support on top of a clean Material 3 design with DataStore-backed preferences.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
@@ -129,7 +137,7 @@ function TheMovie() {
                 </div>
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
                   <p className="text-[#3B82F6] font-semibold text-sm mb-2">Manual DI</p>
-                  <p className="text-sm text-slate-400">A DefaultAppContainer provides services and repositories without heavy frameworks.</p>
+                  <p className="text-sm text-slate-400">Repositories (Movie, Preferences, Watchlist, Auth) and services are provisioned by MovieApplication and injected into ViewModels via factories.</p>
                 </div>
               </div>
             </div>
@@ -165,27 +173,35 @@ function TheMovie() {
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Browse Popular, Now Playing, and Top Rated movie sections</span>
+                          <span>Browse Popular, Now Playing, and Top Rated sections, plus single-category grids with infinite scroll</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Search the full TMDB database with real-time results</span>
+                          <span>"Because you like X" recommendations derived from your favorite genre</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Detailed movie view with backdrops, posters, ratings, and overviews</span>
+                          <span>Debounced live search with pagination</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Customizable profile with display name, bio, and favorite genre</span>
+                          <span>Movie details with pull-to-refresh, offline fallback, and a favorite heart toggle with snackbar confirmations</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Theme mode (System, Light, Dark) and default category settings</span>
+                          <span>Persistent Favorites/Watchlist tab</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-[#3B82F6] font-bold">→</span>
-                          <span>Preferences persist locally via Jetpack DataStore</span>
+                          <span>Firebase Email/Password auth — your signup name becomes your in-app display name</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span>Profile overview with Settings in the top bar; Settings edits name, bio, and genre picked from the official TMDB list</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span>Offline support (HTTP disk cache + in-memory cache with stale fallback), pull-to-refresh, and specific error messages with retry</span>
                         </li>
                       </ul>
                     </div>
@@ -236,19 +252,27 @@ function TheMovie() {
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Repositories & DataStore</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-500">// Data models & DTOs</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">network/</span> <span className="text-slate-500">// Retrofit service & client config</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span></p>
+                        <p className="ml-8">│   ├── auth/ <span className="text-slate-500">// AuthRepository, AuthState (Firebase session)</span></p>
+                        <p className="ml-8">│   ├── MovieRepository.kt <span className="text-slate-500">// TMDB access + in-memory cache</span></p>
+                        <p className="ml-8">│   ├── PreferencesRepository.kt <span className="text-slate-500">// Theme, profile (DataStore)</span></p>
+                        <p className="ml-8">│   ├── WatchlistRepository.kt <span className="text-slate-500">// Favorites (DataStore JSON)</span></p>
+                        <p className="ml-8">│   ├── MovieErrors.kt <span className="text-slate-500">// HTTP errors → friendly messages</span></p>
+                        <p className="ml-8">│   └── UserPreferences.kt <span className="text-slate-500">// ThemeMode, categories, genres</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-500">// Movie / MovieDetail / Genre DTOs</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">network/</span> <span className="text-slate-500">// Retrofit service & OkHttp client</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
                         <p className="ml-8">│   ├── components/ <span className="text-slate-500">// Reusable widgets</span></p>
-                        <p className="ml-8">│   ├── detail/ <span className="text-slate-500">// Movie detail screen</span></p>
-                        <p className="ml-8">│   ├── home/ <span className="text-slate-500">// Home screen</span></p>
-                        <p className="ml-8">│   ├── search/ <span className="text-slate-500">// Search screen</span></p>
-                        <p className="ml-8">│   ├── settings/ <span className="text-slate-500">// Settings screen</span></p>
+                        <p className="ml-8">│   ├── detail/ <span className="text-slate-500">// Movie detail + favorite toggle</span></p>
+                        <p className="ml-8">│   ├── home/ <span className="text-slate-500">// Home + recommendations</span></p>
+                        <p className="ml-8">│   ├── profile/ <span className="text-slate-500">// Profile + Auth (login/signup)</span></p>
+                        <p className="ml-8">│   ├── search/ <span className="text-slate-500">// Debounced search + pagination</span></p>
+                        <p className="ml-8">│   ├── settings/ <span className="text-slate-500">// Profile editing, appearance</span></p>
+                        <p className="ml-8">│   ├── watchlist/ <span className="text-slate-500">// Favorites screen</span></p>
                         <p className="ml-8">│   ├── theme/ <span className="text-slate-500">// Color, Type, Theme</span></p>
-                        <p className="ml-8">│   └── NavGraph.kt <span className="text-slate-500">// Navigation routing</span></p>
+                        <p className="ml-8">│   └── NavGraph.kt <span className="text-slate-500">// All routes + bottom bar</span></p>
                         <p className="ml-4">├── MainActivity.kt <span className="text-slate-500">// Entry point</span></p>
-                        <p className="ml-4">└── MovieApplication.kt <span className="text-slate-500">// Global initialization</span></p>
+                        <p className="ml-4">└── MovieApplication.kt <span className="text-slate-500">// DI provisioning + network init</span></p>
                       </div>
                     </div>
 
@@ -305,8 +329,9 @@ function TheMovie() {
                     <div className="p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-lg">
                       <p className="text-[#60A5FA] font-semibold text-sm mb-2">Roadmap</p>
                       <p className="text-sm text-[#93C5FD]/80">
-                        Favorites/watchlist, YouTube trailer embedding, Paging 3 for infinite scrolling, Room-based
-                        offline caching, and push notifications are planned for future releases.
+                        Cloud-synced watchlist via Firestore, YouTube trailer embedding, Paging 3 with Room-based
+                        caching, Google Sign-In and email verification, and push notifications are planned for
+                        future releases.
                       </p>
                     </div>
                   </div>
@@ -318,18 +343,31 @@ function TheMovie() {
             <div className="space-y-6">
               <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {/* TODO(TheMovie): add a real Favorites-tab screenshot when available (bottom nav is now Home /
+    Search / Favorites / Profile). The placeholder below reuses an existing asset.
+    TODO(TheMovie): refresh the flagged "STALE" captures for the new bottom nav. */}
                 {screenshots.map((s, i) => (
                   <div
                     key={i}
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
+                    className={`group relative border ${s.placeholder ? 'border-dashed border-slate-700 bg-slate-900/50' : 'border-slate-800/70 bg-slate-900'} rounded-xl overflow-hidden cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all`}
                   >
                     <img
                       src={s.src}
                       alt={s.label}
-                      className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                      className={`w-full h-40 object-cover ${s.placeholder ? 'opacity-30' : 'opacity-60 group-hover:opacity-100'} transition-opacity`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {s.stale && (
+                      <span className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-950/80 border border-amber-700/50 rounded-md">
+                        Stale
+                      </span>
+                    )}
+                    {s.placeholder && (
+                      <span className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-cyan-300 bg-cyan-950/80 border border-cyan-700/50 rounded-md">
+                        Placeholder
+                      </span>
+                    )}
                     <div className="absolute bottom-0 inset-x-0 p-4">
                       <p className="text-sm font-semibold text-slate-100 group-hover:text-[#3B82F6] transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
@@ -364,8 +402,12 @@ function TheMovie() {
                   'Home (Popular / Now Playing / Top Rated)',
                   'Search Screen',
                   'Movie Details View',
+                  'Favorites Screen',
+                  'Auth Screens (Login / Signup)',
                   'Settings Screen',
                   'Profile Screen',
+                  'WatchlistRepository',
+                  'AuthRepository',
                   'Retrofit Service + DTOs',
                   'DataStore Preferences'
                 ].map((comp, i) => (
@@ -381,7 +423,7 @@ function TheMovie() {
             <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
               <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Retrofit', 'OkHttp', 'Coil', 'DataStore', 'Navigation Compose', 'ViewModel', 'Coroutines & Flow', 'Kotlinx Serialization'].map((tech, i) => (
+                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Retrofit', 'OkHttp', 'Firebase Auth', 'Coil', 'DataStore', 'Navigation Compose', 'ViewModel', 'Coroutines & Flow', 'Kotlinx Serialization'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
                     {tech}
                   </span>
@@ -390,6 +432,7 @@ function TheMovie() {
             </div>
 
             {/* Repo Link */}
+            {/* TODO(TheMovie): same repo verification as the header "View Code" link — /TheMovie is correct. */}
             <a
               href="https://github.com/SamratVsn/TheMovie"
               target="_blank"
