@@ -17,6 +17,19 @@ import { ArrowUpRight, FileText } from "lucide-react";
 
 const notes = [
   {
+    title: "Building your first Android App",
+    excerpt:
+      "Learning to code isn't the same as learning to build. What building my first Android app with Kotlin and Jetpack Compose taught me about making decisions, and why tutorials can't reproduce them.",
+    url: "https://medium.com/@samratvsn/building-your-first-android-app-d622721bd6be",
+    date: "Sep 22, 2026",
+    dateISO: "2026-09-22",
+    category: "Android",
+    tags: ["android", "learning-in-public", "jetpack-compose"],
+    image:
+      "https://miro.medium.com/v2/resize:fill:640:360/1*y3POYHp5_6dRkvnQABFEog.png",
+    featured: true,
+  },
+  {
     title: "Attending the Localhost Kathmandu Event by .Net Hub Kathmandu",
     excerpt:
       "How the Microsoft Build 2026 // Localhost : Kathmandu Event went from a student's perspective.",
@@ -53,7 +66,7 @@ const notes = [
     tags: ["learning", "productivity", "mindset"],
     image:
       "https://miro.medium.com/v2/resize:fit:720/format:webp/0*peSb3OxLzdAtY7dm",
-    featured: true,
+    featured: false,
   },
   {
     title: "How I Built a Productivity App from Scratch",

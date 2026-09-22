@@ -180,6 +180,12 @@ const journeyItems = [
 // ── Note previews (from actual Notes page) ──────────────────────────────────
 const notePreviews = [
   {
+    title: "Building your first Android App",
+    date: "Sep 22, 2026",
+    category: "Android",
+    url: "https://medium.com/@samratvsn/building-your-first-android-app-d622721bd6be",
+  },
+  {
     title: "Time to Learn",
     date: "Jul 29, 2026",
     category: "Learning",
