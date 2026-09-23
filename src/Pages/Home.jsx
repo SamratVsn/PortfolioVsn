@@ -177,31 +177,37 @@ const journeyItems = [
   },
 ];
 
-// ── Note previews (from actual Notes page) ──────────────────────────────────
+// ── Blog previews (redirect to blog.samratparajuli0.com.np) ─────────────────
 const notePreviews = [
   {
     title: "Building your first Android App",
     date: "Sep 22, 2026",
     category: "Android",
-    url: "https://medium.com/@samratvsn/building-your-first-android-app-d622721bd6be",
+    url: "https://blog.samratparajuli0.com.np/blog/building-your-first-android-app",
   },
   {
     title: "Time to Learn",
     date: "Jul 29, 2026",
-    category: "Learning",
-    url: "https://medium.com/@samratvsn/time-to-learn-0dd1697f2db3",
+    category: "Development",
+    url: "https://blog.samratparajuli0.com.np/blog/time-to-learn",
   },
   {
     title: "How I Built a Productivity App from Scratch",
-    date: "Jul 30, 2026",
-    category: "Development",
-    url: "https://medium.com/@samratvsn/how-i-built-a-productivity-app-from-scratch-9620eed54d57",
+    date: "Jul 11, 2026",
+    category: "Projects",
+    url: "https://blog.samratparajuli0.com.np/blog/how-i-built-a-productivity-app-from-scratch",
   },
   {
     title: "Attending the Localhost Kathmandu Event",
     date: "Jun 15, 2026",
-    category: "Event Reflection",
-    url: "https://medium.com/@samratvsn/attending-the-localhost-kathmandu-event-by-net-hub-kathmandu-d29a29dbed2d",
+    category: "Events",
+    url: "https://blog.samratparajuli0.com.np/blog/attending-the-localhost-kathmandu-event-by-net-hub-kathmandu",
+  },
+  {
+    title: "A Random Networking Session turned fruitful",
+    date: "Jun 14, 2026",
+    category: "Events",
+    url: "https://blog.samratparajuli0.com.np/blog/a-random-networking-session-turned-fruitful",
   },
 ];
 
@@ -699,12 +705,14 @@ function Home() {
               title="Learning in public"
               subtitle="I document what I learn, the problems I run into, and the things I build along the way."
             />
-            <Link
-              to="/notes"
+            <a
+              href="https://blog.samratparajuli0.com.np/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
             >
-              All notes <ArrowUpRight size={13} />
-            </Link>
+              All blogs <ArrowUpRight size={13} />
+            </a>
           </div>
 
           <div className="border-t border-slate-800/50">
@@ -742,12 +750,14 @@ function Home() {
             ))}
           </div>
 
-          <Link
-            to="/notes"
+          <a
+            href="https://blog.samratparajuli0.com.np/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="sm:hidden mt-6 inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1"
           >
-            All notes <ArrowUpRight size={13} />
-          </Link>
+            All blogs <ArrowUpRight size={13} />
+          </a>
         </div>
       </section>
 

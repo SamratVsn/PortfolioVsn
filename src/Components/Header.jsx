@@ -7,9 +7,10 @@ const navLinks = [
   { name: "Home", to: "/" },
   { name: "About", to: "/about" },
   { name: "Projects", to: "/projects" },
-  { name: "Notes", to: "/notes" },
   { name: "Contact", to: "/contact" },
 ];
+
+const blogHref = "https://blog.samratparajuli0.com.np/";
 
 export default function Header() {
   const { pathname } = useLocation();
@@ -72,6 +73,14 @@ export default function Header() {
               </Link>
             );
           })}
+          <a
+            href={blogHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-2 text-[12.5px] font-medium rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.04] transition-all duration-200"
+          >
+            Blog
+          </a>
         </div>
 
         {/* Right side */}
