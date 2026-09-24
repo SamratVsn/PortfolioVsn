@@ -19,7 +19,7 @@ import {
   GitBranch,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
-import PortfolioImage from "../assets/Profile.jpg";
+import PortfolioImage from "../assets/SamratAvatar.png";
 import Himanshu from "../assets/image.png";
 import Anish from "../assets/Anish.jpg";
 import Ankit from "../assets/Ankit.jpg";
