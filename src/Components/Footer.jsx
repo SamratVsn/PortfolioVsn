@@ -1,6 +1,8 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { ArrowUp } from "lucide-react";
+import { ArrowUpRight, PenLine } from "lucide-react";
+
+const BLOG_URL = "https://blog.samratparajuli0.com.np/";
 
 const socials = [
   { icon: FaGithub, href: "https://github.com/SamratVsn", label: "GitHub" },
@@ -48,6 +50,18 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
+              <span className="hidden sm:block w-px h-4 bg-white/10" aria-hidden="true" />
+              <a
+                href={BLOG_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit my blog"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.02] px-3.5 py-1.5 text-[12px] font-medium text-slate-300 transition-colors hover:border-accent/40 hover:bg-accent/10 hover:text-white"
+              >
+                <PenLine size={13} />
+                Blog
+                <ArrowUpRight size={13} className="opacity-60" />
+              </a>
             </div>
           </div>
 
@@ -65,7 +79,7 @@ export default function Footer() {
             <p className="text-[11px] text-slate-500 mb-4">
               Learning in public, one commit at a time.
             </p>
-            <div className="flex items-center justify-center gap-5 mb-3">
+            <div className="flex items-center justify-center gap-5 mb-4">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -79,6 +93,17 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit my blog"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.02] px-4 py-1.5 text-[12px] font-medium text-slate-300 transition-colors hover:border-accent/40 hover:bg-accent/10 hover:text-white"
+            >
+              <PenLine size={13} />
+              Visit my Blog
+              <ArrowUpRight size={13} className="opacity-60" />
+            </a>
           </div>
         </div>
 

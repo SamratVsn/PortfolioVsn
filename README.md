@@ -4,6 +4,8 @@ Personal portfolio of [Samrat Parajuli](https://www.samratparajuli0.com.np/) (Sa
 
 Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-route static prerendering for SEO.
 
+**Live:** [samratparajuli0.com.np](https://www.samratparajuli0.com.np/) · **Blog:** [blog.samratparajuli0.com.np](https://blog.samratparajuli0.com.np/)
+
 ## Tech Stack
 
 | Layer | Technology |
@@ -34,8 +36,13 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-rou
 | `/projects/bmsk` | Bank Management System (Kotlin, OOP, CLI) |
 | `/projects/blogvsn` | BlogVsn Platform (React, OAuth, Blogger API) |
 | `/projects/this` | Portfolio meta-project deep dive |
-| `/notes` | Blog-style notes with category filtering |
+| `/notes` | Blog-style notes with category filtering (previews link out to the [blog subdomain](https://blog.samratparajuli0.com.np/)) |
 | `*` | 404 page with navigation links |
+
+## Links
+
+- Portfolio: [https://www.samratparajuli0.com.np/](https://www.samratparajuli0.com.np/)
+- Blog: [https://blog.samratparajuli0.com.np/](https://blog.samratparajuli0.com.np/) — long-form writing, linked from the footer Blog button and the home page "Learning in public" section
 
 ## Getting Started
 
