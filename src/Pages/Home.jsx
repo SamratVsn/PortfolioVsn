@@ -7,6 +7,8 @@ import BackgroundFX from "../Components/BackgroundFX";
 import SectionHeading from "../Components/SectionHeading";
 import BottomNav from "../Components/BottomNav";
 import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
+import { LuQuote } from "react-icons/lu";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -208,6 +210,31 @@ const notePreviews = [
     date: "Jun 14, 2026",
     category: "Events",
     url: "https://blog.samratparajuli0.com.np/blog/a-random-networking-session-turned-fruitful",
+  },
+];
+
+// ── What others say (testimonials) ──────────────────────────────────────────
+const testimonials = [
+  {
+    quote:
+      "Samrat is a seeker. What I admire most is his curiosity and willingness to keep improving. He doesn't just code; he builds from what he learns.",
+    name: "Himanshu Mishra",
+    role: "Full Stack Developer",
+    linkedinUrl: "https://www.linkedin.com/in/himanshu404mishra/",
+  },
+  {
+    quote:
+      "Samrat pairs strong technical foundations with a relentless drive to learn by building. He brings real care and practical problem-solving to every project he takes on.",
+    name: "Sijan Pokharel",
+    role: "Mobile Software Engineer",
+    linkedinUrl: "https://www.linkedin.com/in/sijan-pokharel-80ab1a193/",
+  },
+  {
+    quote:
+      "Samrat is a passionate learner and someone who pushes himself a lot, and take on multiple challenges. His combination of tech, and spirituality will surely take him far in life. I would recommend any person/companies to give Samrat a try on project that you are thinking to build.",
+    name: "Bibek Dhakal",
+    role: "Product Manager / Mentor",
+    linkedinUrl: "https://www.linkedin.com/in/bibekdhkl/",
   },
 ];
 
@@ -578,6 +605,105 @@ function Home() {
           </Link>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════════
+          WHAT OTHERS SAY
+          ═══════════════════════════════════════════════════════════════════════ */}
+      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40 overflow-hidden">
+      <BackgroundFX gridOpacity={0.015} />
+
+      {/* Subtle radial glow to give the section depth */}
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[650px] rounded-full bg-blue-600/5 blur-[120px]" 
+      />
+
+      <div className="relative max-w-5xl mx-auto xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem]">
+        <SectionHeading
+          animated
+          eyebrow="Perspectives"
+          title="What others say"
+          subtitle="From people I've worked or learned alongside."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+          {testimonials.map((t, i) => {
+            // Get initials if avatar is not provided
+            const initials = t.name
+              .split(" ")
+              .map((n) => n[0])
+              .slice(0, 2)
+              .join("");
+
+            return (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className="group relative flex flex-col justify-between rounded-2xl border border-slate-800/80 bg-[#0A101F]/80 p-6 sm:p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:bg-[#0E162B]/90 hover:shadow-[0_12px_30px_-10px_rgba(59,130,246,0.15)]"
+              >
+                {/* Subtle top edge highlight line on hover */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-500/50 transition-all duration-500 rounded-t-2xl" />
+
+                <div>
+                  {/* Decorative modern icon badge */}
+                  <div className="mb-4 inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 group-hover:scale-105 group-hover:bg-blue-500/15 transition-all">
+                    <LuQuote className="w-4 h-4" />
+                  </div>
+
+                  {/* Testimonial body */}
+                  <p className="text-slate-300 text-[14px] leading-relaxed selection:bg-blue-500/30">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                {/* Author profile block */}
+                <div className="mt-6 pt-5 border-t border-slate-800/70 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    {/* Monogram / Avatar fallback badge */}
+                    <div className="shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-blue-500/20 to-slate-800 border border-blue-400/20 flex items-center justify-center text-blue-300 font-medium text-xs tracking-wider">
+                      {t.avatar ? (
+                        <img 
+                          src={t.avatar} 
+                          alt={t.name} 
+                          className="w-full h-full rounded-full object-cover" 
+                        />
+                      ) : (
+                        initials
+                      )}
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-white text-[13.5px] font-semibold tracking-tight truncate group-hover:text-blue-200 transition-colors">
+                        {t.name}
+                      </p>
+                      <p className="text-slate-400 text-xs truncate">
+                        {t.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* LinkedIn / Social Link */}
+                  {t.linkedinUrl && (
+                    <a
+                      href={t.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${t.name}'s LinkedIn profile`}
+                      className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 border border-transparent hover:border-blue-500/30 hover:text-blue-400 hover:bg-blue-500/10 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-blue-500 outline-none"
+                    >
+                      <FaLinkedin size={15} />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
 
       {/* ═══════════════════════════════════════════════════════════════════════
           HOW I BUILD

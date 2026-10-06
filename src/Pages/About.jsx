@@ -20,9 +20,6 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import PortfolioImage from "../assets/SamratAvatar.webp";
-import Himanshu from "../assets/image.png";
-import Anish from "../assets/Anish.jpg";
-import Ankit from "../assets/Ankit.webp";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -147,30 +144,6 @@ const focusItems = [
   {
     title: "Open Source",
     desc: "Publishing projects, learning from existing codebases, and eventually contributing to open-source projects.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Samrat is a seeker. What I admire most is his curiosity and willingness to keep improving. He doesn't just code; he builds from what he learns.",
-    author: "Himanshu Mishra",
-    role: "Freelance Web Developer",
-    photo: Himanshu,
-  },
-  {
-    quote:
-      "He approaches every task with creativity and a problem-solving mindset. His passion for technology is clear and his growth is consistent.",
-    author: "Anish Sah",
-    role: "Cyber-Security Enthusiast",
-    photo: Anish,
-  },
-  {
-    quote:
-      "A dedicated developer who solves complex problems while maintaining clean, organized code. A dependable and valuable collaborator.",
-    author: "Ankit",
-    role: "Video Editor · Colleague",
-    photo: Ankit,
   },
 ];
 
@@ -606,7 +579,7 @@ export default function About() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          6. WHAT OTHERS SAY — Testimonials
+          6. BEYOND CODE
           ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
@@ -614,62 +587,6 @@ export default function About() {
             <div className="flex items-center gap-2.5 mb-4">
               <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 06
-              </span>
-              <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
-                Perspectives
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
-              What others say
-            </h2>
-            <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
-              From people I&apos;ve worked or learned alongside.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                {...stagger(i)}
-                className="bg-surface/60 backdrop-blur-md border border-white/[0.05] rounded-2xl p-5 sm:p-6 flex flex-col hover:border-white/[0.1] transition-colors duration-300"
-              >
-                <div className="text-[32px] leading-none mb-2 select-none text-accent/10 font-serif">
-                  &ldquo;
-                </div>
-                <p className="text-slate-400 text-[13px] leading-relaxed flex-1 mb-5">
-                  {t.quote}
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-white/[0.05]">
-                  <img
-                    src={t.photo}
-                    alt={t.author}
-                    className="w-8 h-8 rounded-full object-cover border border-white/[0.08] shrink-0"
-                    loading="lazy"
-                  />
-                  <div>
-                    <p className="text-white text-[12px] font-medium">
-                      {t.author}
-                    </p>
-                    <p className="text-slate-500 text-[11px]">{t.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          7. BEYOND CODE
-          ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
-        <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
-          <motion.div {...fadeUp} className="mb-10">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
-                07
               </span>
               <span className="w-8 h-px bg-accent/25" />
               <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
@@ -712,7 +629,7 @@ export default function About() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          8. CTA
+          7. CTA
           ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
         <div className="max-w-lg mx-auto text-center">
