@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { ArrowUpRight, PenLine } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BLOG_URL = "https://blog.samratparajuli0.com.np/";
 
@@ -108,8 +109,15 @@ export default function Footer() {
         </div>
 
         <div className="py-4 border-t border-white/[0.04] text-center">
-          <p className="text-[10px] text-slate-600">
-            &copy; {year} Samrat Parajuli
+          <p className="text-[10px] text-slate-500">
+            &copy; {year} Samrat Parajuli{" "}
+            <span aria-hidden="true" className="px-1.5 text-white/15">·</span>{" "}
+            <Link
+              to="/privacy"
+              className="hover:text-slate-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+            >
+              Privacy Policy
+            </Link>
           </p>
         </div>
       </div>

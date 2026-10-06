@@ -29,6 +29,7 @@ export default function Header() {
       }`}
     >
       <motion.nav
+        aria-label="Primary navigation"
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -98,7 +99,7 @@ export default function Header() {
             to="/contact"
             className="bg-accent hover:bg-accent-hover text-[#020617] text-[11.5px] font-bold px-4 py-2 rounded-xl transition-all active:scale-[0.97] ml-0.5"
           >
-            Lets Connect
+            Let's Connect
           </Link>
         </div>
       </motion.nav>

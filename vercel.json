@@ -12,6 +12,7 @@
     { "source": "/projects/sms", "destination": "/projects/sms.html" },
     { "source": "/projects/bmsk", "destination": "/projects/bmsk.html" },
     { "source": "/projects/blogvsn", "destination": "/projects/blogvsn.html" },
-    { "source": "/projects/this", "destination": "/projects/this.html" }
+    { "source": "/projects/this", "destination": "/projects/this.html" },
+    { "source": "/privacy", "destination": "/privacy.html" }
   ]
 }

@@ -13,7 +13,7 @@ import {
   Code2,
   PenLine,
 } from "lucide-react";
-import HeroImage from "../assets/Hero_Image.png";
+import HeroImage from "../assets/Hero_Image.webp";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 const techBadges = [
@@ -49,7 +49,7 @@ const taskItems = [
 
 function AndroidMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d="M17.6 9.48l1.84-3.18a.5.5 0 00-.87-.5l-1.87 3.23a11.44 11.44 0 00-9.4 0L5.43 5.8a.5.5 0 10-.87.5l1.84 3.18A10.9 10.9 0 001 18h22a10.9 10.9 0 00-5.4-8.52zM7 15a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2z" />
     </svg>
   );
@@ -58,7 +58,7 @@ function AndroidMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
 function KotlinMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
   const gradId = useId();
   return (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path d="M3 3H21L12 12L21 21H3V3Z" fill={`url(#${gradId})`} />
       <defs>
         <linearGradient
@@ -80,7 +80,7 @@ function KotlinMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
 
 function ComposeMark({ className = "w-3.5 h-3.5 sm:w-4 sm:h-4" }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path
         d="M12 2L21 7V17L12 22L3 17V7L12 2Z"
         stroke="#4285F4"
@@ -112,7 +112,7 @@ function CodeCard({ compact = false }) {
         <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
         <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
         {!compact && (
-          <span className="ml-1 text-[9px] text-slate-600 font-mono">
+          <span className="ml-1 text-[9px] text-slate-500 font-mono">
             Greetings.kt
           </span>
         )}
@@ -209,6 +209,10 @@ function DesktopHeroVisual() {
       <img
         src={HeroImage}
         alt="Full portrait of Samrat Parajuli, Android app developer"
+        width={1127}
+        height={1396}
+        fetchPriority="high"
+        decoding="async"
         className="relative z-10 block w-[340px] sm:w-[390px] lg:w-[470px] xl:w-[460px] 2xl:w-[520px] min-[1920px]:w-[560px] h-auto object-contain"
       />
 
@@ -413,7 +417,7 @@ export default function Hero() {
                 to="/contact"
                 className="border border-slate-800/60 hover:border-slate-700 text-slate-400 hover:text-white font-medium px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg transition-all hover:bg-white/[0.03] inline-flex items-center gap-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
               >
-                Lets Connect
+                Let's Connect
               </Link>
             </div>
 

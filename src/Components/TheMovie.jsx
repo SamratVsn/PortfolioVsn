@@ -22,7 +22,7 @@ import MovieSearch from '../assets/TheMovie/Search.png'
 import MovieDetails from '../assets/TheMovie/Details.png'
 import MovieProfile from '../assets/TheMovie/Profile.png'
 import MovieSettings from '../assets/TheMovie/Settings.png'
-import MoviePoster from '../assets/TheMovie/MoviePoster.png'
+import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
 
 function TheMovie() {
   const [activeTab, setActiveTab] = useState('overview')

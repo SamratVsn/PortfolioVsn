@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import Hero from "../Components/Hero";
 import Tasks from "../assets/ToDo/Home.png";
-import MoviePoster from "../assets/TheMovie/MoviePoster.png";
+import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
 import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import SMS1 from "../assets/SMS/SMS1.png";
 import JuicePoster from "../assets/JuicePoster.jpeg";
@@ -218,6 +218,7 @@ function Home() {
     <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
       <SEO ogUrl="https://www.samratparajuli0.com.np/" />
       <Header />
+      <main>
       <Hero />
 
       {/* ═══════════════════════════════════════════════════════════════════════
@@ -335,7 +336,7 @@ function Home() {
                 <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
                   <img
                     src={featuredProjects[0].screenshot}
-                    alt="The Movie App screenshot"
+                    alt="Preview of The Movie App"
                     className="w-full h-48 sm:h-56 lg:h-64 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
                     loading="lazy"
                   />
@@ -349,7 +350,7 @@ function Home() {
                     </h3>
                     <ArrowUpRight
                       size={16}
-                      className="text-slate-600 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                      className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
                   <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
@@ -398,7 +399,7 @@ function Home() {
                       <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
                         <img
                           src={project.screenshot}
-                          alt={`${project.title} screenshot`}
+                          alt={`Preview of ${project.title}`}
                           className="w-full h-32 sm:h-36 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
                           loading="lazy"
                         />
@@ -413,7 +414,7 @@ function Home() {
                         </h3>
                         <ArrowUpRight
                           size={14}
-                          className="text-slate-600 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                          className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                         />
                       </div>
                       <p className="text-slate-400 text-[12px] leading-relaxed mb-3 line-clamp-2">
@@ -463,7 +464,7 @@ function Home() {
                       <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
                         <img
                           src={project.screenshot}
-                          alt={`${project.title} screenshot`}
+                          alt={`Preview of ${project.title}`}
                           className="w-full h-32 sm:h-36 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
                           loading="lazy"
                         />
@@ -478,7 +479,7 @@ function Home() {
                         </h3>
                         <ArrowUpRight
                           size={14}
-                          className="text-slate-600 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                          className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                         />
                       </div>
                       <p className="text-slate-400 text-[12px] leading-relaxed mb-3 line-clamp-2">
@@ -536,7 +537,7 @@ function Home() {
                     </span>
                     <ArrowUpRight
                       size={16}
-                      className="text-slate-600 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                      className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
                   <h3 className="text-white font-semibold text-lg sm:text-xl group-hover:text-[#3B82F6] transition-colors mb-3">
@@ -664,7 +665,7 @@ function Home() {
                   <div className="flex items-center gap-3 mb-1">
                     <span
                       className={`text-[11px] font-medium tabular-nums ${
-                        item.active ? "text-[#3B82F6]" : "text-slate-600"
+                        item.active ? "text-[#3B82F6]" : "text-slate-500"
                       }`}
                     >
                       {item.period}
@@ -729,7 +730,7 @@ function Home() {
                 className="group flex items-start gap-5 sm:gap-8 py-5 border-b border-slate-800/40 last:border-b-0 hover:bg-white/[0.01] transition-colors duration-200 -mx-3 px-3 rounded-lg"
               >
                 <div className="w-16 sm:w-20 shrink-0 pt-0.5">
-                  <span className="text-[11px] text-slate-600 font-medium tabular-nums uppercase tracking-wider">
+                  <span className="text-[11px] text-slate-500 font-medium tabular-nums uppercase tracking-wider">
                     {note.date}
                   </span>
                 </div>
@@ -801,6 +802,7 @@ function Home() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <BottomNav />
     </div>

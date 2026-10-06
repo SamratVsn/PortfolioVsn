@@ -7,10 +7,10 @@ import SectionHeading from "./SectionHeading";
 import CategoryFilter from "./CategoryFilter";
 
 import Tasks from "../assets/ToDo/Home.png";
-import MoviePoster from "../assets/TheMovie/MoviePoster.png";
+import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
 import BlogVsnB1 from '../assets/BlogVsn/B1.png';
 import SMS1 from '../assets/SMS/SMS1.png';
-import Portfolio from "../assets/Profile.jpg"
+import Portfolio from "../assets/Profile.webp"
 import BMSK from '../assets/BMSK/BMSK1.png'
 import Kathmandu from '../assets/KathmanduPoster.jpeg'
 import JuicePoster from '../assets/JuicePoster.jpeg'
@@ -185,6 +185,7 @@ function ProjectLinks({ project }) {
           onClick={(e) => e.stopPropagation()}
           className="text-slate-500 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
           title="View source code on GitHub"
+          aria-label={`View ${project.title} source code on GitHub`}
         >
           <Github size={14} />
           <span className="text-xs hidden sm:inline">Code</span>
@@ -198,13 +199,14 @@ function ProjectLinks({ project }) {
           onClick={(e) => e.stopPropagation()}
           className="text-slate-500 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
           title="View live project"
+          aria-label={`Visit ${project.title} live site`}
         >
           <ExternalLink size={14} />
           <span className="text-xs hidden sm:inline">Live</span>
         </a>
       )}
       <div className="flex-grow" />
-      <span className="text-xs text-slate-600 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
+      <span className="text-xs text-slate-500 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
         View details
         <ArrowUpRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
@@ -239,7 +241,7 @@ function FeaturedCard({ project, wide = false }) {
       >
         <img
           src={screenshot}
-          alt={`${project.title} screenshot`}
+          alt={`Screenshot of the ${project.title} app`}
           className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
         />
@@ -294,7 +296,7 @@ function ProjectCard({ project }) {
       <div className="relative h-40 sm:h-44 overflow-hidden">
         <img
           src={screenshot}
-          alt={`${project.title} screenshot`}
+          alt={`Screenshot of the ${project.title} app`}
           className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
         />
@@ -397,7 +399,7 @@ export default function ProjectGrid() {
 
       {!hasAny && (
         <div className="flex flex-col items-center justify-center border border-white/[0.05] rounded-2xl py-20 px-6 text-center">
-          <FolderOpen size={28} className="text-slate-600 mb-4" />
+          <FolderOpen size={28} className="text-slate-500 mb-4" />
           <p className="text-white text-sm font-medium mb-1">
             Nothing here yet
           </p>

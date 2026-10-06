@@ -13,12 +13,13 @@ const NotFound = () => {
       />
       <BackgroundFX />
 
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="relative text-center max-w-lg"
-      >
+      <main className="relative w-full flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative text-center max-w-lg"
+        >
         <p className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium mb-5">
           <span className="text-[#3B82F6]">Error</span> · Page not found
         </p>
@@ -45,6 +46,7 @@ const NotFound = () => {
           </Link>
         </div>
       </motion.div>
+      </main>
     </div>
   );
 };

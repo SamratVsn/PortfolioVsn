@@ -111,7 +111,7 @@ const Contact = () => {
                   <p className="text-sm text-white group-hover:text-accent transition-colors font-medium truncate">samratvsn@gmail.com</p>
                   <p className="text-xs text-slate-500 mt-1">Best way to reach me</p>
                 </div>
-                <ArrowUpRight size={16} className="text-slate-600 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+                <ArrowUpRight size={16} className="text-slate-500 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
               </a>
 
               <a
@@ -128,7 +128,7 @@ const Contact = () => {
                   <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">github.com/SamratVsn</p>
                   <p className="text-xs text-slate-500 mt-1">See my work</p>
                 </div>
-                <ArrowUpRight size={16} className="text-slate-600 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+                <ArrowUpRight size={16} className="text-slate-500 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
               </a>
 
               <a
@@ -145,7 +145,7 @@ const Contact = () => {
                   <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">linkedin.com/in/samratvsn</p>
                   <p className="text-xs text-slate-500 mt-1">Connect with me</p>
                 </div>
-                <ArrowUpRight size={16} className="text-slate-600 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+                <ArrowUpRight size={16} className="text-slate-500 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
               </a>
             </div>
 
@@ -172,11 +172,12 @@ const Contact = () => {
                   id="name"
                   type="text"
                   name="name"
+                  autoComplete="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                   placeholder="Ram, Shyam, Sita..."
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
                 />
               </div>
 
@@ -188,11 +189,12 @@ const Contact = () => {
                   id="email"
                   type="email"
                   name="email"
+                  autoComplete="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
                 />
               </div>
 
@@ -208,7 +210,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project, idea, or just say hello..."
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all resize-none text-sm leading-relaxed"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all resize-none text-sm leading-relaxed"
                 />
               </div>
 
@@ -226,7 +228,11 @@ const Contact = () => {
               </button>
 
               {sent && (
-                <div className="p-4 bg-accent/10 border border-accent/30 rounded-xl">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="p-4 bg-accent/10 border border-accent/30 rounded-xl"
+                >
                   <p className="text-sm text-accent font-medium">
                     ✓ Message sent successfully
                   </p>
@@ -237,7 +243,10 @@ const Contact = () => {
               )}
 
               {error && (
-                <div className="p-4 bg-red-900/10 border border-red-900/30 rounded-xl">
+                <div
+                  role="alert"
+                  className="p-4 bg-red-900/10 border border-red-900/30 rounded-xl"
+                >
                   <p className="text-sm text-red-400 font-medium">
                     ✗ {error}
                   </p>

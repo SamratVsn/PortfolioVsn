@@ -20,6 +20,7 @@ const routes = [
   { url: "/projects/bmsk", file: "projects/bmsk.html" },
   { url: "/projects/blogvsn", file: "projects/blogvsn.html" },
   { url: "/projects/this", file: "projects/this.html" },
+  { url: "/privacy", file: "privacy.html" },
   { url: "/this-page-does-not-exist", file: "404.html" },
 ];
 

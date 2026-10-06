@@ -19,10 +19,10 @@ import {
   GitBranch,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
-import PortfolioImage from "../assets/SamratAvatar.png";
+import PortfolioImage from "../assets/SamratAvatar.webp";
 import Himanshu from "../assets/image.png";
 import Anish from "../assets/Anish.jpg";
-import Ankit from "../assets/Ankit.jpg";
+import Ankit from "../assets/Ankit.webp";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -216,6 +216,7 @@ export default function About() {
       />
       <Header />
 
+      <main>
       {/* ═══════════════════════════════════════════════════════════════════
           1. HERO INTRO — Split layout
           ═══════════════════════════════════════════════════════════════════ */}
@@ -259,6 +260,8 @@ export default function About() {
                 <img
                   src={PortfolioImage}
                   alt="Samrat Parajuli, Android developer"
+                  width={1254}
+                  height={1254}
                   className="relative z-10 block w-full aspect-[4/5] object-cover rounded-2xl border border-white/[0.06]"
                   loading="eager"
                 />
@@ -313,7 +316,7 @@ export default function About() {
                   01
                 </span>
                 <span className="w-8 h-px bg-accent/25" />
-                <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+                <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                   About
                 </span>
               </div>
@@ -344,7 +347,7 @@ export default function About() {
                   <div key={label}>
                     <div className="flex items-center gap-1.5 mb-1">
                       <Icon size={10} className="text-accent/50" />
-                      <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-600">
+                      <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-500">
                         {label}
                       </span>
                     </div>
@@ -368,7 +371,7 @@ export default function About() {
                 02
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                 Journey
               </span>
             </div>
@@ -409,7 +412,7 @@ export default function About() {
                     <div className="flex items-baseline gap-3 mb-1">
                       <span
                         className={`text-[10px] font-mono font-bold tracking-[0.1em] ${
-                          step.active ? "text-accent" : "text-slate-600"
+                          step.active ? "text-accent" : "text-slate-500"
                         }`}
                       >
                         {step.num}
@@ -444,7 +447,7 @@ export default function About() {
                 03
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                 Process
               </span>
             </div>
@@ -485,7 +488,7 @@ export default function About() {
 
           <motion.div
             {...fadeUp}
-            className="flex items-center justify-center gap-3 mt-6 text-[11px] text-slate-600 font-mono font-medium tracking-wide"
+            className="flex items-center justify-center gap-3 mt-6 text-[11px] text-slate-500 font-mono font-medium tracking-wide"
           >
             <span>Build</span>
             <span className="w-4 h-px bg-white/[0.08]" />
@@ -509,7 +512,7 @@ export default function About() {
                 04
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                 Arsenal
               </span>
             </div>
@@ -543,7 +546,7 @@ export default function About() {
                         <span className="text-slate-300 text-[13px] font-medium">
                           {item.name}
                         </span>
-                        <span className="text-slate-600 text-[11px]">
+                        <span className="text-slate-500 text-[11px]">
                           {item.note}
                         </span>
                       </div>
@@ -567,7 +570,7 @@ export default function About() {
                 05
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                 Focus
               </span>
             </div>
@@ -613,7 +616,7 @@ export default function About() {
                 06
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                 Perspectives
               </span>
             </div>
@@ -649,7 +652,7 @@ export default function About() {
                     <p className="text-white text-[12px] font-medium">
                       {t.author}
                     </p>
-                    <p className="text-slate-600 text-[11px]">{t.role}</p>
+                    <p className="text-slate-500 text-[11px]">{t.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -669,7 +672,7 @@ export default function About() {
                 07
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-600">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
                 Outside
               </span>
             </div>
@@ -741,6 +744,7 @@ export default function About() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <BottomNav />
     </div>
