@@ -48,7 +48,7 @@ const PROJECTS = [
     solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, Pomodoro-style focus sessions, smart reminders, and type-safe navigation.",
     learning: "Learned clean layering between UI, domain, and data, plus reactive state handling with StateFlow and Coroutines.",
     tags: ["Kotlin", "Jetpack Compose", "Room"],
-    github: "https://github.com/SamratVsn/ToDo",
+    github: "http://github.com/SamratVsn/Tasks",
     path: "/projects/todo"
   },
   {

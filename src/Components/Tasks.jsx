@@ -32,7 +32,7 @@ import ToDoSettings from '../assets/ToDo/Settings.png'
 import ToDoApp from '../assets/ToDo/Home.png'
 
 const RELEASE_URL = "https://github.com/SamratVsn/ToDo/releases/latest/download/app-release.apk"
-const REPO_URL = "https://github.com/SamratVsn/ToDo"
+const REPO_URL = "http://github.com/SamratVsn/Tasks"
 
 function Tasks() {
   const [activeTab, setActiveTab] = useState('overview')
