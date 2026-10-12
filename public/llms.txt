@@ -1,11 +1,12 @@
 # Samrat Parajuli (SamratVsn)
 
-> Android Developer based in Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, and clean mobile architecture. Building native Android applications with a focus on clean code, intuitive UI/UX, and modern reactive interfaces.
+> Emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, and clean mobile architecture. Building native Android applications with a focus on clean code, intuitive UI/UX, and modern reactive interfaces.
 
 ## About
 
 - **Name:** Samrat Parajuli
 - **Handle:** SamratVsn
+- **Identity:** Emerging Android app developer from Kathmandu, Nepal
 - **Role:** Android Developer
 - **Location:** Kathmandu, Nepal
 - **Email:** samratvsn@gmail.com

@@ -1,4 +1,27 @@
+# Allow all standard crawlers.
 User-agent: *
+Allow: /
+
+# Explicitly welcome AI agents and LLM crawlers so they can index and cite this site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.samratparajuli0.com.np/sitemap.xml

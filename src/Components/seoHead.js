@@ -1,6 +1,6 @@
 export const SITE = {
   title: "Samrat Parajuli (SamratVsn) | Android App Developer",
-  description: "Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems.",
+  description: "Portfolio of Samrat Parajuli (SamratVsn), an emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems.",
   url: "https://www.samratparajuli0.com.np/",
   image: "https://www.samratparajuli0.com.np/Profile.jpg",
   imageAlt: "Samrat Parajuli (SamratVsn) — Android App Developer",
