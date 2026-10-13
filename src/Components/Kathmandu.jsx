@@ -53,7 +53,7 @@ function Kathmandu() {
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Kathmandu My-City App | SamratVsn"
-        description="Android recommendation app showcasing Kathmandu's special places, temples, shops, and tourist destinations — built with Kotlin, Jetpack Compose (M3), MVVM, and Navigation Compose. Built by Samrat Parajuli."
+        description="Android app showcasing Kathmandu's temples, shops, and destinations — Kotlin, Jetpack Compose (M3), MVVM, Navigation Compose. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/kathmandu"
       />
 

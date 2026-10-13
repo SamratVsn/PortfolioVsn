@@ -18,7 +18,7 @@ const Projects = () => {
       <Routes>
         <Route index element={<><SEO
           title="Projects | SamratVsn"
-          description="Android, web, and C projects built by Samrat Parajuli while learning, experimenting, and solving problems with software."
+          description="Android, web, and C projects built by Samrat Parajuli while learning, experimenting, and solving problems with software — Kotlin, Jetpack Compose, React, and C."
           ogUrl="https://www.samratparajuli0.com.np/projects"
         /><ProjectGrid /></>} />
         <Route path="todo" element={<Tasks />} />

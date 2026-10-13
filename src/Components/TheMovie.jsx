@@ -75,7 +75,7 @@ function TheMovie() {
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="The Movie App | SamratVsn"
-        description="Native Android movie app built with Kotlin & Jetpack Compose using the TMDB API — with debounced search, favorites/watchlist, Firebase auth, offline caching, and DataStore-backed settings. Built by Samrat Parajuli."
+        description="Android movie app using the TMDB API — debounced search, watchlist, Firebase auth, and offline caching. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/themovie"
       />
 

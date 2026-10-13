@@ -184,7 +184,7 @@ export default function About() {
     <div className="min-h-screen bg-canvas text-slate-400 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
       <SEO
         title="About Samrat Parajuli | Android Developer"
-        description="Samrat Parajuli is an Android developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications."
+        description="Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications."
         ogUrl="https://www.samratparajuli0.com.np/about"
       />
       <Header />

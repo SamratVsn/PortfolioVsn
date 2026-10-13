@@ -31,7 +31,7 @@ import ToDoProfile from '../assets/ToDo/Profile.png'
 import ToDoSettings from '../assets/ToDo/Settings.png'
 import ToDoApp from '../assets/ToDo/Home.png'
 
-const RELEASE_URL = "https://github.com/SamratVsn/ToDo/releases/latest/download/app-release.apk"
+const RELEASE_URL = "https://github.com/SamratVsn/Tasks/releases/latest/download/Tasks.apk"
 const REPO_URL = "http://github.com/SamratVsn/Tasks"
 
 function Tasks() {
@@ -114,7 +114,7 @@ function Tasks() {
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
         title="Tasks | SamratVsn"
-        description="Tasks is a sleek, modern task management app for Android built with Kotlin, Jetpack Compose & Material 3. Features Pomodoro focus sessions, category management, smart reminders, dynamic theming, and MVVM architecture. Built by Samrat Parajuli."
+        description="Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
       />
 

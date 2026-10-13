@@ -122,7 +122,7 @@ export default function Privacy() {
     <div className="min-h-screen bg-canvas text-slate-400 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
       <SEO
         title="Privacy Policy | Samrat Parajuli"
-        description="Privacy Policy for the personal portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes and why."
+        description="Privacy Policy for the portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes, what it never collects, and why."
         ogUrl="https://www.samratparajuli0.com.np/privacy"
       />
       <Header />
