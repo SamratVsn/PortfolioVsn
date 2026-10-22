@@ -13,6 +13,17 @@ import JuiceTracker from '../Components/JuiceTracker'
 import Kathmandu from '../Components/Kathmandu'
 
 const Projects = () => {
+  const projectsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': 'https://www.samratparajuli0.com.np/projects#webpage',
+    'url': 'https://www.samratparajuli0.com.np/projects',
+    'name': 'Projects | SamratVsn',
+    'description': 'Android, web, and C projects built by Samrat Parajuli while learning, experimenting, and solving problems with software — Kotlin, Jetpack Compose, React, and C.',
+    'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
+    'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
+  }
+
   return (
     <PageLayout>
       <Routes>
@@ -20,6 +31,7 @@ const Projects = () => {
           title="Projects | SamratVsn"
           description="Android, web, and C projects built by Samrat Parajuli while learning, experimenting, and solving problems with software — Kotlin, Jetpack Compose, React, and C."
           ogUrl="https://www.samratparajuli0.com.np/projects"
+          schema={[projectsSchema]}
         /><ProjectGrid /></>} />
         <Route path="todo" element={<Tasks />} />
         <Route path="sms" element={<SMS />} />

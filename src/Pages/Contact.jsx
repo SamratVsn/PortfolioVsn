@@ -74,6 +74,35 @@ const Contact = () => {
         title="Contact Samrat Parajuli | Android Developer"
         description="Get in touch with Samrat Parajuli (SamratVsn), an Android developer based in Nepal — open to projects, collaboration, and new opportunities."
         ogUrl="https://www.samratparajuli0.com.np/contact"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': 'https://www.samratparajuli0.com.np/contact#webpage',
+            'url': 'https://www.samratparajuli0.com.np/contact',
+            'name': 'Contact Samrat Parajuli | Android Developer',
+            'description': 'Get in touch with Samrat Parajuli (SamratVsn), an Android developer based in Nepal — open to projects, collaboration, and new opportunities.',
+            'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
+            'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
+            'mainEntity': {
+              '@type': 'ContactPage',
+              'name': 'Contact Samrat Parajuli',
+              'url': 'https://www.samratparajuli0.com.np/contact',
+              'mainEntity': {
+                '@type': 'Person',
+                '@id': 'https://www.samratparajuli0.com.np/#person',
+                'name': 'Samrat Parajuli',
+                'email': 'mailto:samratvsn@gmail.com',
+                'url': 'https://www.samratparajuli0.com.np/',
+                'sameAs': [
+                  'https://github.com/SamratVsn',
+                  'https://www.linkedin.com/in/samratvsn/',
+                  'https://x.com/SamratVsn'
+                ]
+              }
+            }
+          }
+        ]}
       />
 
       <Header />

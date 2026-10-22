@@ -186,6 +186,22 @@ export default function About() {
         title="About Samrat Parajuli | Android Developer"
         description="Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications."
         ogUrl="https://www.samratparajuli0.com.np/about"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': 'https://www.samratparajuli0.com.np/about#webpage',
+            'url': 'https://www.samratparajuli0.com.np/about',
+            'name': 'About Samrat Parajuli | Android Developer',
+            'description': 'Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications.',
+            'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
+            'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
+            'speakable': {
+              '@type': 'SpeakableSpecification',
+              'cssSelector': ['main h1', 'main > section:first-of-type p']
+            }
+          }
+        ]}
       />
       <Header />
 

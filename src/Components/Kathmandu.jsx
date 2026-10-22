@@ -55,6 +55,29 @@ function Kathmandu() {
         title="Kathmandu My-City App | SamratVsn"
         description="Android app showcasing Kathmandu's temples, shops, and destinations — Kotlin, Jetpack Compose (M3), MVVM, Navigation Compose. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/kathmandu"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'Kathmandu My-City App', 'item': 'https://www.samratparajuli0.com.np/projects/kathmandu' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            '@id': 'https://www.samratparajuli0.com.np/projects/kathmandu#app',
+            'name': 'Kathmandu My-City App',
+            'applicationCategory': 'TravelApplication',
+            'operatingSystem': 'Android',
+            'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD', 'availability': 'https://schema.org/InStock' },
+            'description': 'Android app showcasing Kathmandu temples, shops, and destinations with adaptive layouts. Built with Kotlin, Jetpack Compose (M3), MVVM, and Navigation Compose.',
+            'url': 'https://github.com/SamratVsn/Kathmandu',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
 
       {/* Header */}

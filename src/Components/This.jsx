@@ -22,6 +22,30 @@ export default function This() {
         title="Developer Portfolio | SamratVsn"
         description="This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np."
         ogUrl="https://www.samratparajuli0.com.np/projects/this"
+      schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'This Portfolio', 'item': 'https://www.samratparajuli0.com.np/projects/this' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            '@id': 'https://www.samratparajuli0.com.np/projects/this#app',
+            'name': 'Developer Portfolio',
+            'applicationCategory': 'WebApplication',
+            'operatingSystem': 'Web',
+            'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD', 'availability': 'https://schema.org/InStock' },
+            'description': 'This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np.',
+            'url': 'https://www.samratparajuli0.com.np/',
+            'codeRepository': 'https://github.com/SamratVsn/devPortfoli0',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
       
       {/* Header */}

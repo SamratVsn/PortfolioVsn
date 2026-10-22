@@ -21,6 +21,9 @@ export function resolveSEO({ title, description, ogTitle, ogDescription, ogImage
 // so prerendered pages stay identical to runtime output.
 export function headTagsAsString(props) {
   const r = resolveSEO(props)
+  const schemaTags = props.schema && Array.isArray(props.schema)
+    ? props.schema.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n    ')
+    : ''
   return [
     `<title>${r.t}</title>`,
     `<meta name="title" content="${r.t}" />`,
@@ -45,7 +48,8 @@ export function headTagsAsString(props) {
     `<meta name="twitter:image:height" content="630" />`,
     `<meta name="twitter:image:alt" content="${SITE.imageAlt}" />`,
     `<meta name="twitter:url" content="${r.ou}" />`,
-  ].join('\n    ')
+    schemaTags,
+  ].filter(Boolean).join('\n    ')
 }
 
 // react-helmet-async v3 does not support server rendering under React 19
@@ -60,4 +64,9 @@ export function collectSEO(props) {
 
 export function flushSeo() {
   return ssrCollected.splice(0)
+}
+
+export function buildSchemaTags(schema) {
+  if (!schema || !Array.isArray(schema)) return ''
+  return schema.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n    ')
 }

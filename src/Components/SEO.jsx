@@ -1,9 +1,18 @@
 import { Helmet } from 'react-helmet-async'
 import { SITE, resolveSEO, collectSEO } from './seoHead'
 
-export default function SEO(props) {
-  if (typeof window === 'undefined') collectSEO(props)
-  const r = resolveSEO(props)
+export default function SEO({
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogUrl,
+  noindex,
+  schema,
+}) {
+  if (typeof window === 'undefined') collectSEO({ title, description, ogTitle, ogDescription, ogImage, ogUrl, noindex, schema })
+  const r = resolveSEO({ title, description, ogTitle, ogDescription, ogImage, ogUrl, noindex })
 
   return (
     <Helmet>
@@ -27,6 +36,12 @@ export default function SEO(props) {
       <meta name="twitter:image" content={r.oi} />
       <meta name="twitter:image:alt" content={SITE.imageAlt} />
       <meta name="twitter:url" content={r.ou} />
+
+      {schema && schema.map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
+        </script>
+      ))}
     </Helmet>
   )
 }

@@ -52,6 +52,29 @@ function JuiceTracker() {
         title="Juice Tracker | SamratVsn"
         description="Android app for tracking juice combinations and ratings — Kotlin, MVVM, Room, and Jetpack Compose + View interoperability. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/juicetracker"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'Juice Tracker', 'item': 'https://www.samratparajuli0.com.np/projects/juicetracker' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            '@id': 'https://www.samratparajuli0.com.np/projects/juicetracker#app',
+            'name': 'Juice Tracker',
+            'applicationCategory': 'LifestyleApplication',
+            'operatingSystem': 'Android',
+            'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD', 'availability': 'https://schema.org/InStock' },
+            'description': 'Android app for tracking juice combinations, details, and ratings. Explores Compose-View interop with Room, RecyclerView, and reactive state. Built with Kotlin, MVVM, Room, and Jetpack Compose + View interoperability.',
+            'url': 'https://github.com/SamratVsn/Juicetracker',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
 
       {/* Header */}

@@ -48,6 +48,27 @@ const SMS = () => {
         title="Student Management System | SamratVsn"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/sms"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'Student Management System', 'item': 'https://www.samratparajuli0.com.np/projects/sms' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareSourceCode',
+            '@id': 'https://www.samratparajuli0.com.np/projects/sms#app',
+            'name': 'Student Management System',
+            'programmingLanguage': 'C',
+            'description': 'Console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Crash-safe data integrity with raw byte-level file access.',
+            'codeRepository': 'https://github.com/SamratVsn/C-codes',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
       
       {/* Header */}

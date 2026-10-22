@@ -124,6 +124,23 @@ export default function Privacy() {
         title="Privacy Policy | Samrat Parajuli"
         description="Privacy Policy for the portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes, what it never collects, and why."
         ogUrl="https://www.samratparajuli0.com.np/privacy"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': 'https://www.samratparajuli0.com.np/privacy#webpage',
+            'url': 'https://www.samratparajuli0.com.np/privacy',
+            'name': 'Privacy Policy | Samrat Parajuli',
+            'description': 'Privacy Policy for the portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes, what it never collects, and why.',
+            'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
+            'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
+            'mainEntity': {
+              '@type': 'WebPageElement',
+              'name': 'Privacy Policy',
+              'description': 'This website does not load third-party analytics or tracking scripts, does not set advertising cookies, and processes only voluntarily submitted contact form data via EmailJS and standard server logs via Vercel hosting.'
+            }
+          }
+        ]}
       />
       <Header />
 

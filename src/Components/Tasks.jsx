@@ -116,6 +116,30 @@ function Tasks() {
         title="Tasks | SamratVsn"
         description="Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'Tasks', 'item': 'https://www.samratparajuli0.com.np/projects/todo' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            '@id': 'https://www.samratparajuli0.com.np/projects/todo#app',
+            'name': 'Tasks',
+            'applicationCategory': 'ProductivityApplication',
+            'operatingSystem': 'Android',
+            'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD', 'availability': 'https://schema.org/InStock' },
+            'description': 'Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli.',
+            'url': 'https://github.com/SamratVsn/Tasks',
+            'downloadUrl': 'https://github.com/SamratVsn/Tasks/releases/latest/download/Tasks.apk',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
 
       {/* Header */}

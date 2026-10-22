@@ -28,8 +28,29 @@ function BMSK() {
         title="Bank Management System | SamratVsn"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
+      schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'Bank Management System', 'item': 'https://www.samratparajuli0.com.np/projects/bmsk' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareSourceCode',
+            '@id': 'https://www.samratparajuli0.com.np/projects/bmsk#app',
+            'name': 'Bank Management System',
+            'programmingLanguage': 'Kotlin',
+            'description': 'OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity.',
+            'codeRepository': 'https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
-
+      
       {/* Header */}
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">

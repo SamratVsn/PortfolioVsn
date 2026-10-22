@@ -46,9 +46,6 @@ for (const [key, value] of Object.entries(manifest)) {
   }
 }
 
-// react-helmet-async v3 renders its head tags into the tree during SSR
-// (React19Dispatcher emits <title>/<meta>/<link>/... in place). Strip those
-// from the body content — the head block is injected separately above.
 function stripHelmetLeak(html) {
   return html
     .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, "")

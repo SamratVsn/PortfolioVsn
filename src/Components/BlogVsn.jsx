@@ -39,6 +39,30 @@ const BlogVsn = () => {
         title="BlogVsn Platform | SamratVsn"
         description="Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
+      schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', 'position': 3, 'name': 'BlogVsn Platform', 'item': 'https://www.samratparajuli0.com.np/projects/blogvsn' }
+            ]
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            '@id': 'https://www.samratparajuli0.com.np/projects/blogvsn#app',
+            'name': 'BlogVsn Platform',
+            'applicationCategory': 'WebApplication',
+            'operatingSystem': 'Web',
+            'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD', 'availability': 'https://schema.org/InStock' },
+            'description': 'Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment.',
+            'url': 'https://blogvsn.vercel.app/',
+            'codeRepository': 'https://github.com/SamratVsn/BlogVsn',
+            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
+          }
+        ]}
       />
       
       {/* Header */}
