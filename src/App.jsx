@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { TransitionProvider } from './Components/TransitionProvider'
 import Home from './Pages/Home'
 import Contact from './Pages/Contact'
 import About from './Pages/About'
@@ -8,7 +9,7 @@ import NotFound from './Pages/NotFound'
 
 export default function App() {
   return (
-    <div>
+    <TransitionProvider>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
@@ -17,6 +18,6 @@ export default function App() {
         <Route path="/privacy" element={<Privacy />}/>
         <Route path="*" element={<NotFound />}/>
       </Routes>
-    </div>
+    </TransitionProvider>
   )
 }

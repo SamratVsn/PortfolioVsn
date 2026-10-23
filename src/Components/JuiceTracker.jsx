@@ -16,6 +16,8 @@ import {
 import SEO from './SEO'
 import BottomNav from './BottomNav'
 import JuicePoster from '../assets/JuicePoster.jpeg'
+import { motion } from 'framer-motion';
+
 
 function JuiceTracker() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -100,11 +102,13 @@ function JuiceTracker() {
       {/* Poster */}
       <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] my-10">
-          <img
-            src={JuicePoster}
+          <motion.img
+                layoutId="project-image-/projects/juicetracker"
+                src={JuicePoster}
             alt="Juice Tracker app poster"
             className="w-full h-64 sm:h-80 object-cover"
-          />
+          
+                style={{ willChange: "transform" }} />
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
         </div>
       </div>

@@ -23,6 +23,8 @@ import MovieDetails from '../assets/TheMovie/Details.png'
 import MovieProfile from '../assets/TheMovie/Profile.png'
 import MovieSettings from '../assets/TheMovie/Settings.png'
 import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
+import { motion } from 'framer-motion';
+
 
 function TheMovie() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -133,12 +135,14 @@ function TheMovie() {
 
             {/* Hero Image */}
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
-              <img
+              <motion.img
+                layoutId="project-image-/projects/themovie"
                 src={MoviePoster}
                 alt="The Movie App home screen"
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
                 onClick={() => setSelectedImage({ src: MoviePoster, label: 'The Movie App', desc: 'Native Android movie browser built with Kotlin & Jetpack Compose.' })}
                 loading="lazy"
+                style={{ willChange: "transform" }}
               />
             </div>
 

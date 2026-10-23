@@ -2,6 +2,7 @@ import Header from './Header'
 import Footer from './Footer'
 import BackgroundFX from './BackgroundFX'
 import BottomNav from './BottomNav'
+import { PageTransition } from './PageTransition'
 
 export const PageLayout = ({ children, className = "" }) => {
   return (
@@ -10,7 +11,7 @@ export const PageLayout = ({ children, className = "" }) => {
       <div className="relative flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow pt-24 md:pt-28 pb-20 sm:pb-24">
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
       </div>

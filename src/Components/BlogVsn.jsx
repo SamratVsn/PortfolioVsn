@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { 
   ExternalLink, Github, Code2, Zap, Lock, Mail, 
   Palette, Cloud, X
@@ -103,11 +104,14 @@ const BlogVsn = () => {
             
             {/* Hero Image */}
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
-              <img 
+              <motion.img
+                layoutId="project-image-/projects/blogvsn"
+                src 
                 src={B1} 
                 alt="BlogVsn Platform" 
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity" 
-              />
+              
+                style={{ willChange: "transform" }}/>
             </div>
 
             {/* Intro */}

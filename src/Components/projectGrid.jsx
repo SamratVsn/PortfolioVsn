@@ -218,6 +218,7 @@ function ProjectLinks({ project }) {
 
 function FeaturedCard({ project, wide = false }) {
   const screenshot = screenshots[project.path];
+  const imageLayoutId = `project-image-${project.path}`;
 
   return (
     <motion.article
@@ -239,11 +240,13 @@ function FeaturedCard({ project, wide = false }) {
             : "h-48 sm:h-56"
         }`}
       >
-        <img
+        <motion.img
+          layoutId={imageLayoutId}
           src={screenshot}
           alt={`Screenshot of the ${project.title} app`}
           className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
+          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />
@@ -281,6 +284,7 @@ function FeaturedCard({ project, wide = false }) {
 
 function ProjectCard({ project }) {
   const screenshot = screenshots[project.path];
+  const imageLayoutId = `project-image-${project.path}`;
 
   return (
     <motion.article
@@ -294,11 +298,13 @@ function ProjectCard({ project }) {
       />
 
       <div className="relative h-40 sm:h-44 overflow-hidden">
-        <img
+        <motion.img
+          layoutId={imageLayoutId}
           src={screenshot}
           alt={`Screenshot of the ${project.title} app`}
           className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
+          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />

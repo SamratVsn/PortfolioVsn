@@ -30,6 +30,8 @@ import ToDoCategories from '../assets/ToDo/Categories.png'
 import ToDoProfile from '../assets/ToDo/Profile.png'
 import ToDoSettings from '../assets/ToDo/Settings.png'
 import ToDoApp from '../assets/ToDo/Home.png'
+import { motion } from 'framer-motion';
+
 
 const RELEASE_URL = "https://github.com/SamratVsn/Tasks/releases/latest/download/Tasks.apk"
 const REPO_URL = "http://github.com/SamratVsn/Tasks"
@@ -183,12 +185,14 @@ function Tasks() {
 
             {/* Hero Image */}
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
-              <img
+              <motion.img
+                layoutId="project-image-/projects/todo"
                 src={ToDoApp}
                 alt="Tasks app"
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
                 onClick={() => setSelectedImage({ src: ToDoApp, label: 'Tasks', desc: 'A sleek, modern task management app built with Kotlin & Jetpack Compose.' })}
                 loading="lazy"
+                style={{ willChange: "transform" }}
               />
             </div>
 
