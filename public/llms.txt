@@ -23,7 +23,8 @@
 
 ## Core Projects
 
-- **[devPortfoli0](https://github.com/SamratVsn/devPortfoli0)** — Featured project; developer portfolio codebase.
+- **[Avalokan](https://github.com/SamratVsn/Avalokan)** — Featured project; native Android heritage explorer for Nepal built with Kotlin, Jetpack Compose, Firebase, and an offline-first Room cache.
+- **[devPortfoli0](https://github.com/SamratVsn/devPortfoli0)** — This portfolio's codebase, built with React 19, Vite, and Tailwind CSS.
 - **[Kathmandu](https://github.com/SamratVsn/Kathmandu)** — A "MyCity" themed Android app centered on Kathmandu, built in Kotlin.
 - **[Cupcake](https://github.com/SamratVsn/Cupcake)** — Android app implementing ViewModel and App Navigation (Android Basics series), built in Kotlin.
 - **[PortfolioVsn](https://github.com/SamratVsn/PortfolioVsn)** — Earlier developer portfolio, built with JavaScript.
@@ -33,6 +34,7 @@
 ## Primary Links
 
 - **Portfolio:** https://www.samratparajuli0.com.np/
+- **Avalokan APK (v1.0.0):** https://github.com/SamratVsn/Avalokan/releases/tag/v1.0.0
 - **GitHub:** https://github.com/SamratVsn
 - **LinkedIn:** https://linkedin.com/in/samratvsn
 - **Medium:** https://medium.com/@samratvsn

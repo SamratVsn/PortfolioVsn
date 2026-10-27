@@ -28,6 +28,7 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-rou
 | `/about` | Bio, skills, dev stack, current focus, testimonials, beyond-code |
 | `/contact` | Contact form with EmailJS integration |
 | `/projects` | Project grid with category filtering |
+| `/projects/avalokan` | Avalokan — native Android heritage explorer for Nepal (Kotlin, Compose, Firebase, Room) |
 | `/projects/todo` | Tasks — Android productivity app (Kotlin, Compose, Room) |
 | `/projects/themovie` | The Movie App — TMDB browser (Kotlin, Compose, Retrofit) |
 | `/projects/juicetracker` | Juice Tracker — Compose + Views interop (Kotlin, Room) |

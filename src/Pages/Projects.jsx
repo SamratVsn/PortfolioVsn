@@ -11,6 +11,7 @@ import Tasks from '../Components/Tasks'
 import TheMovie from '../Components/TheMovie'
 import JuiceTracker from '../Components/JuiceTracker'
 import Kathmandu from '../Components/Kathmandu'
+import Avalokan from '../Components/Avalokan'
 
 const Projects = () => {
   const projectsSchema = {
@@ -41,6 +42,7 @@ const Projects = () => {
         <Route path="themovie" element={<TheMovie />} />
         <Route path="juicetracker" element={<JuiceTracker />} />
         <Route path="kathmandu" element={<Kathmandu />} />
+        <Route path="avalokan" element={<Avalokan />} />
       </Routes>
     </PageLayout>
   );

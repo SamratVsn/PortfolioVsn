@@ -28,6 +28,7 @@
     { "source": "/about", "destination": "/about.html" },
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/projects/avalokan", "destination": "/projects/avalokan.html" },
     { "source": "/projects/todo", "destination": "/projects/todo.html" },
     { "source": "/projects/themovie", "destination": "/projects/themovie.html" },
     { "source": "/projects/juicetracker", "destination": "/projects/juicetracker.html" },

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Github, ExternalLink, ArrowUpRight, FolderOpen } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight, FolderOpen, Sparkles, Download } from "lucide-react";
 import PageHeader from "./PageHeader";
 import SectionHeading from "./SectionHeading";
 import CategoryFilter from "./CategoryFilter";
@@ -14,8 +14,10 @@ import Portfolio from "../assets/Profile.webp"
 import BMSK from '../assets/BMSK/BMSK1.png'
 import Kathmandu from '../assets/KathmanduPoster.jpeg'
 import JuicePoster from '../assets/JuicePoster.jpeg'
+import AvalokanHome from '../assets/Avalokan/home.png'
 
 const screenshots = {
+  '/projects/avalokan': AvalokanHome,
   '/projects/todo': Tasks,
   '/projects/themovie': MoviePoster,
   '/projects/blogvsn': BlogVsnB1,
@@ -27,6 +29,20 @@ const screenshots = {
 };
 
 const PROJECTS = [
+  {
+    id: "avalokan",
+    category: "Android",
+    featured: true,
+    isNew: true,
+    title: "Avalokan",
+    problem: "Nepal's heritage is scattered across dozens of sources — places, stories, festivals, and events each live somewhere else.",
+    solution: "Built a native Android heritage explorer that brings places, stories, and events into one app — Firestore-backed, offline-first with Room, and designed around Nepal's landscape.",
+    learning: "Learned to design a repository layer that merges a live cloud stream with a local cache, wire Hilt across an app-wide graph, and shape a product's identity from a real cultural brief.",
+    tags: ["Kotlin", "Jetpack Compose", "Firebase"],
+    github: "https://github.com/SamratVsn/Avalokan",
+    download: "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk",
+    path: "/projects/avalokan"
+  },
   {
     id: "themovie",
     category: "Android",
@@ -155,6 +171,15 @@ function CategoryChip({ category }) {
   );
 }
 
+function NewBadge() {
+  return (
+    <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-md border border-[#8FBFA4]/35 bg-[#8FBFA4]/12 backdrop-blur px-2 py-0.5 text-[9px] font-mono font-semibold uppercase tracking-widest text-[#8FBFA4]">
+      <Sparkles size={9} />
+      New
+    </span>
+  );
+}
+
 function TagsRow({ tags }) {
   return (
     <div className="flex flex-wrap gap-1.5">
@@ -205,6 +230,20 @@ function ProjectLinks({ project }) {
           <span className="text-xs hidden sm:inline">Live</span>
         </a>
       )}
+      {project.download && (
+        <a
+          href={project.download}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="text-slate-500 hover:text-[#8FBFA4] transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          title={`Download ${project.title} APK`}
+          aria-label={`Download ${project.title} APK`}
+        >
+          <Download size={14} />
+          <span className="text-xs hidden sm:inline">APK</span>
+        </a>
+      )}
       <div className="flex-grow" />
       <span className="text-xs text-slate-500 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
         View details
@@ -250,6 +289,7 @@ function FeaturedCard({ project, wide = false }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />
+        {project.isNew && <NewBadge />}
       </div>
 
       <div
@@ -308,6 +348,7 @@ function ProjectCard({ project }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />
+        {project.isNew && <NewBadge />}
       </div>
 
       <div className="flex-1 flex flex-col p-5">

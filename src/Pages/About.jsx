@@ -139,7 +139,7 @@ const focusItems = [
   },
   {
     title: "Projects",
-    desc: "Building and shipping complete applications rather than isolated tutorials.",
+    desc: "Building and shipping complete applications rather than isolated tutorials — most recently Avalokan, a heritage explorer for Nepal.",
   },
   {
     title: "Open Source",

@@ -15,6 +15,9 @@ import {
   Layers,
   Wrench,
   BookOpen,
+  Sparkles,
+  Play,
+  Download,
 } from "lucide-react";
 import Hero from "../Components/Hero";
 import Tasks from "../assets/ToDo/Home.png";
@@ -23,6 +26,7 @@ import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import SMS1 from "../assets/SMS/SMS1.png";
 import JuicePoster from "../assets/JuicePoster.jpeg";
 import KathmanduPoster from "../assets/KathmanduPoster.jpeg";
+import AvalokanPoster from "../assets/Avalokan/launch-poster.jpg";
 import Retrofit from "../assets/retrofit.webp";
 import Room from "../assets/Room.webp";
 import JetpackCompose from "../assets/Jetpack.webp";
@@ -170,10 +174,16 @@ const journeyItems = [
       "Built ToDo and The Movie using Jetpack Compose, Room, DataStore, Retrofit, Coroutines & Flow, and modern Android architecture.",
   },
   {
-    period: "Late 2026 — Current",
+    period: "Late 2026",
     title: "Going deeper into Android engineering",
     description:
       "Exploring dependency injection, testing, architecture, and larger real-world applications while building projects around practical problems.",
+  },
+  {
+    period: "Oct 2026 — Now",
+    title: "Shipped Avalokan v1.0.0",
+    description:
+      "Released a full Android heritage explorer for Nepal — Firestore-backed places, stories, and events with an offline-first Room cache, Hilt DI, and a launch film cut from real captures.",
     active: true,
   },
 ];
@@ -343,6 +353,107 @@ function Home() {
               View all <ArrowUpRight size={13} />
             </Link>
           </div>
+
+          {/* Spotlight: newest project */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="relative mb-5 overflow-hidden rounded-2xl border border-[#8FBFA4]/25 bg-[#0A101F]/70 backdrop-blur-xl"
+          >
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(520px 260px at 10% 0%, rgba(27,67,50,0.65), transparent 70%), radial-gradient(420px 220px at 95% 100%, rgba(200,111,74,0.16), transparent 70%)",
+              }}
+            />
+            <Link
+              to="/projects/avalokan"
+              className="absolute inset-0 z-10"
+              aria-label="View project: Avalokan"
+            />
+
+            <div className="relative grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-6 p-6 sm:p-8">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#8FBFA4]/35 bg-[#8FBFA4]/10 px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest text-[#8FBFA4]">
+                    <Sparkles size={10} /> Just shipped
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
+                    Android · Feature-complete beta
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-[-0.03em] text-white group-hover:text-[#8FBFA4] transition-colors">
+                  Avalokan
+                </h3>
+                <p className="mt-1 text-[13px] font-medium text-[#D98964]">
+                  Discover Nepal. Explore its heritage. Experience its stories.
+                </p>
+                <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-slate-400">
+                  A native Android heritage explorer — historical places, cultural stories,
+                  festivals, and events in one app. Firestore-backed with an offline-first Room
+                  cache, built in Kotlin and Jetpack Compose with Hilt and Material 3.
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {["Kotlin", "Jetpack Compose", "Firebase", "Room"].map((tag, idx) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
+                    >
+                      <span
+                        className="w-1 h-1 rounded-full inline-block mr-1.5"
+                        style={{ backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4", "#8FBFA4"][idx % 4] }}
+                      />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="relative z-20 mt-5 flex flex-wrap items-center gap-3">
+                  <Link
+                    to="/projects/avalokan"
+                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[13px] font-semibold text-[#04080C] transition-all active:scale-[0.97]"
+                    style={{ backgroundColor: "#8FBFA4" }}
+                  >
+                    <Play size={13} fill="currentColor" /> Open project page
+                  </Link>
+                  <a
+                    href="https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/12 px-3.5 py-2 text-[13px] font-semibold text-slate-200 transition-all hover:border-white/25 hover:text-white active:scale-[0.97]"
+                  >
+                    <Download size={13} /> Download APK
+                  </a>
+                  <a
+                    href="https://github.com/SamratVsn/Avalokan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-400 transition-colors hover:text-white"
+                  >
+                    <FaGithub size={14} /> Source
+                  </a>
+                  <span className="text-[11px] font-mono text-slate-500">v1.0.0 · 22s film inside</span>
+                </div>
+              </div>
+
+              {/* Poster */}
+              <div className="relative hidden sm:block">
+                <div
+                  className="absolute -inset-4 rounded-2xl blur-2xl"
+                  style={{ background: "radial-gradient(circle, rgba(143,191,164,0.25), transparent 70%)" }}
+                />
+                <img
+                  src={AvalokanPoster}
+                  alt="Avalokan launch film poster"
+                  className="relative h-44 lg:h-52 w-auto rounded-xl border border-white/10 object-cover shadow-xl"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.div>
 
           {/* Row 1: Large + 2 stacked */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4">

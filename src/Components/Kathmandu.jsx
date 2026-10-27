@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Github,
   ArrowUpRight,
@@ -383,6 +384,31 @@ function Kathmandu() {
           </div>
         </div>
       </div>
+
+      {/* Next chapter */}
+      <div className="max-w-6xl mx-auto px-6 pb-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <Link
+          to="/projects/avalokan"
+          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-[#8FBFA4]/25 bg-[#0A101F]/70 backdrop-blur-xl p-5 sm:p-6 transition-all hover:border-[#8FBFA4]/50 hover:shadow-[0_0_28px_-14px_rgba(143,191,164,0.45)]"
+        >
+          <div>
+            <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8FBFA4] mb-2">
+              Next chapter · New
+            </p>
+            <h3 className="text-white font-semibold text-lg tracking-tight group-hover:text-[#8FBFA4] transition-colors">
+              Avalokan
+            </h3>
+            <p className="text-sm text-slate-400 mt-1 max-w-xl">
+              The heritage thread this app started, grown into a full Firestore-backed Android
+              explorer for Nepal — with stories, events, offline caching, and an optional account.
+            </p>
+          </div>
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-[#04080C] transition-transform group-hover:translate-x-0.5" style={{ backgroundColor: '#8FBFA4' }}>
+            Explore Avalokan <ArrowUpRight size={15} />
+          </span>
+        </Link>
+      </div>
+
       <BottomNav />
     </div>
   )

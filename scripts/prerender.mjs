@@ -12,6 +12,7 @@ const routes = [
   { url: "/about", file: "about.html" },
   { url: "/contact", file: "contact.html" },
   { url: "/projects", file: "projects.html" },
+  { url: "/projects/avalokan", file: "projects/avalokan.html" },
   { url: "/projects/todo", file: "projects/todo.html" },
   { url: "/projects/themovie", file: "projects/themovie.html" },
   { url: "/projects/juicetracker", file: "projects/juicetracker.html" },
