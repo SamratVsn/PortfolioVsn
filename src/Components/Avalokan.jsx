@@ -33,6 +33,7 @@ import AvalokanDiscover from '../assets/Avalokan/discover.png'
 import AvalokanPlace from '../assets/Avalokan/place-detail.png'
 import AvalokanEvents from '../assets/Avalokan/events.png'
 import LaunchPoster from '../assets/Avalokan/launch-poster.jpg'
+import AvalokanLogo from '../assets/Avalokan/logo.jpeg'
 
 const REPO_URL = 'https://github.com/SamratVsn/Avalokan'
 const APK_URL = 'https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk'
@@ -259,7 +260,7 @@ export default function Avalokan() {
         title="Avalokan | SamratVsn"
         description="Avalokan is a native Android heritage explorer for Nepal — historical places, cultural stories, festivals, and events. Built with Kotlin, Jetpack Compose, Firebase, and an offline-first Room cache."
         ogUrl={`${SITE}/projects/avalokan`}
-        ogImage={`${SITE}/media/avalokan-poster.jpg`}
+        ogImage={`${SITE}/media/avalokan-og.jpg`}
         schema={[
           {
             '@context': 'https://schema.org',
@@ -284,7 +285,7 @@ export default function Avalokan() {
             url: REPO_URL,
             downloadUrl: APK_URL,
             sameAs: RELEASE_URL,
-            image: `${SITE}/media/avalokan-poster.jpg`,
+            image: `${SITE}/media/avalokan-og.jpg`,
             author: { '@id': `${SITE}/#person` },
             offers: {
               '@type': 'Offer',
@@ -398,41 +399,29 @@ export default function Avalokan() {
               </p>
             </div>
 
-            {/* Poster */}
+            {/* Logo poster */}
             <div className="lg:col-span-5">
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative mx-auto max-w-[300px] lg:max-w-[340px]"
+                className="relative mx-auto max-w-[300px] lg:max-w-[360px]"
               >
                 <div
                   className="absolute -inset-6 rounded-[2rem] blur-2xl"
                   style={{ background: 'radial-gradient(circle, rgba(143,191,164,0.22), transparent 70%)' }}
                 />
-                <button
-                  type="button"
-                  onClick={playFilm}
-                  aria-label="Play the Avalokan launch film"
-                  className="group relative block w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-black text-left shadow-2xl"
-                >
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#F5F3ED] shadow-2xl">
                   <img
-                    src={LaunchPoster}
-                    alt="Avalokan launch film poster"
-                    className="h-auto w-full object-cover"
-                    loading="lazy"
+                    src={AvalokanLogo}
+                    alt="Avalokan logo — Nepal Heritage Explorer"
+                    className="h-auto w-full object-contain"
+                    loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-                  <span
-                    className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full backdrop-blur-md transition-transform duration-300 group-hover:scale-105"
-                    style={{ backgroundColor: 'rgba(143,191,164,0.92)', color: '#04080C' }}
-                  >
-                    <Play size={26} fill="currentColor" className="ml-0.5" />
-                  </span>
-                  <span className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-[11px] font-medium text-white/90">
-                    <Video size={13} style={{ color: SAGE }} /> Avalokan — launch film
-                  </span>
-                </button>
+                </div>
+                <p className="mt-4 text-center text-[10px] font-mono uppercase tracking-[0.28em] text-slate-500">
+                  Nepal Heritage Explorer
+                </p>
               </motion.div>
             </div>
           </div>

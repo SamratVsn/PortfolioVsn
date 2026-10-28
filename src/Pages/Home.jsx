@@ -25,7 +25,7 @@ import BlogVsnB1 from "../assets/BlogVsn/B1.png";
 import SMS1 from "../assets/SMS/SMS1.png";
 import JuicePoster from "../assets/JuicePoster.jpeg";
 import KathmanduPoster from "../assets/KathmanduPoster.jpeg";
-import AvalokanPoster from "../assets/Avalokan/launch-poster.jpg";
+import AvalokanLogo from "../assets/Avalokan/logo.jpeg";
 import Retrofit from "../assets/retrofit.webp";
 import Room from "../assets/Room.webp";
 import JetpackCompose from "../assets/Jetpack.webp";
@@ -442,9 +442,9 @@ function Home() {
                   style={{ background: "radial-gradient(circle, rgba(143,191,164,0.25), transparent 70%)" }}
                 />
                 <img
-                  src={AvalokanPoster}
-                  alt="Avalokan launch film poster"
-                  className="relative h-44 lg:h-52 w-auto rounded-xl border border-white/10 object-cover shadow-xl"
+                  src={AvalokanLogo}
+                  alt="Avalokan — Nepal Heritage Explorer logo"
+                  className="relative h-40 lg:h-48 w-auto rounded-xl border border-white/10 bg-[#F5F3ED] object-contain shadow-xl"
                   loading="lazy"
                 />
               </div>
