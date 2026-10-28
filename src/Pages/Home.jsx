@@ -15,7 +15,6 @@ import {
   Layers,
   Wrench,
   BookOpen,
-  Sparkles,
   Play,
   Download,
 } from "lucide-react";
@@ -378,9 +377,6 @@ function Home() {
             <div className="relative grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-6 p-6 sm:p-8">
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#8FBFA4]/35 bg-[#8FBFA4]/10 px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest text-[#8FBFA4]">
-                    <Sparkles size={10} /> Just shipped
-                  </span>
                   <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
                     Android · Feature-complete beta
                   </span>
