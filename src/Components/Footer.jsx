@@ -30,7 +30,7 @@ export default function Footer() {
                   Samrat Parajuli
                 </span>
               </div>
-              <p className="text-[12px] text-slate-500 leading-relaxed max-w-[260px]">
+              <p className="text-[12px] text-slate-400 leading-relaxed max-w-[260px]">
                 Learning in public, one commit at a time.
               </p>
             </div>
@@ -44,7 +44,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="text-slate-500 hover:text-accent transition-colors text-[13px] inline-flex items-center gap-1.5"
+                    className="text-slate-400 hover:text-accent transition-colors text-[13px] inline-flex items-center gap-1.5"
                   >
                     <s.icon size={14} />
                     <span className="hidden lg:inline">{s.label}</span>
@@ -77,7 +77,7 @@ export default function Footer() {
                 Samrat Parajuli
               </span>
             </div>
-            <p className="text-[11px] text-slate-500 mb-4">
+            <p className="text-[11px] text-slate-400 mb-4">
               Learning in public, one commit at a time.
             </p>
             <div className="flex items-center justify-center gap-5 mb-4">
@@ -88,7 +88,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-slate-500 hover:text-accent transition-colors"
+                  className="text-slate-400 hover:text-accent transition-colors"
                 >
                   <s.icon size={15} />
                 </a>
@@ -109,12 +109,12 @@ export default function Footer() {
         </div>
 
         <div className="py-4 border-t border-white/[0.04] text-center">
-          <p className="text-[10px] text-slate-500">
+          <p className="text-[10px] text-slate-400">
             &copy; {year} Samrat Parajuli{" "}
             <span aria-hidden="true" className="px-1.5 text-white/15">·</span>{" "}
             <Link
               to="/privacy"
-              className="hover:text-slate-300 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+              className="hover:text-slate-200 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
             >
               Privacy Policy
             </Link>

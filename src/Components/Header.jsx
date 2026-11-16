@@ -23,11 +23,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 hidden md:flex justify-center transition-all duration-500 ${
-        scrolled ? "pt-3" : "pt-5"
-      }`}
-    >
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#020617]"
+      >
+        Skip to content
+      </a>
+      <header
+        className={`fixed top-0 left-0 w-full z-50 hidden md:flex justify-center transition-all duration-500 ${
+          scrolled ? "pt-3" : "pt-5"
+        }`}
+      >
       <motion.nav
         aria-label="Primary navigation"
         initial={{ opacity: 0, y: -12 }}
@@ -57,6 +64,7 @@ export default function Header() {
               <Link
                 key={link.to}
                 to={link.to}
+                aria-current={isActive ? "page" : undefined}
                 className={`relative px-3.5 py-2 text-[12.5px] font-medium rounded-xl transition-all duration-200 ${
                   isActive
                     ? "text-accent"
@@ -91,7 +99,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-slate-500 hover:text-white transition-colors p-2 rounded-xl hover:bg-white/[0.04]"
+            className="text-slate-400 hover:text-white transition-colors p-2 rounded-xl hover:bg-white/[0.04]"
           >
             <FaGithub size={15} />
           </a>
@@ -103,6 +111,7 @@ export default function Header() {
           </Link>
         </div>
       </motion.nav>
-    </header>
+      </header>
+    </>
   );
 }

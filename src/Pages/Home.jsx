@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
+import { SITE } from "../Components/seoHead";
 import Footer from "../Components/Footer";
 import BackgroundFX from "../Components/BackgroundFX";
 import SectionHeading from "../Components/SectionHeading";
@@ -249,11 +250,30 @@ const testimonials = [
 function Home() {
   const reduceMotion = useReducedMotion();
 
+  // ProfilePage is the accurate type for a personal portfolio home page: it
+  // describes the page and points at the Person it profiles.
+  const profilePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${SITE.url}#webpage`,
+    url: SITE.url,
+    name: "Samrat Parajuli (SamratVsn) | Android App Developer",
+    description: SITE.description,
+    inLanguage: "en",
+    isPartOf: { "@id": `${SITE.origin}/#website` },
+    about: { "@id": `${SITE.origin}/#person` },
+    mainEntity: { "@id": `${SITE.origin}/#person` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#hero-heading", "#hero-intro"],
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
-      <SEO ogUrl="https://www.samratparajuli0.com.np/" />
+      <SEO ogUrl={SITE.url} schema={[profilePageSchema]} />
       <Header />
-      <main>
+      <main id="main-content">
       <Hero />
 
       {/* ═══════════════════════════════════════════════════════════════════════
@@ -289,7 +309,7 @@ function Home() {
                       {card.title}
                     </h3>
                   </div>
-                  <p className="text-slate-500 text-[13px] leading-relaxed mb-4">
+                  <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
                     {card.desc}
                   </p>
 
@@ -431,7 +451,7 @@ function Home() {
                   >
                     <FaGithub size={14} /> Source
                   </a>
-                  <span className="text-[11px] font-mono text-slate-500">v1.0.0 · 22s film inside</span>
+                  <span className="text-[11px] font-mono text-slate-400">v1.0.0 · 22s film inside</span>
                 </div>
               </div>
 
@@ -483,7 +503,7 @@ function Home() {
                     </h3>
                     <ArrowUpRight
                       size={16}
-                      className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                      className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
                   <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
@@ -505,7 +525,7 @@ function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-slate-500 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
+                  <p className="text-slate-400 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
                     <span className="text-[#3B82F6] font-medium">Key takeaway:</span> Client-server architecture, Kotlinx Serialization, and reactive state with Coroutines & Flow.
                   </p>
                 </div>
@@ -547,7 +567,7 @@ function Home() {
                         </h3>
                         <ArrowUpRight
                           size={14}
-                          className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                          className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                         />
                       </div>
                       <p className="text-slate-400 text-[12px] leading-relaxed mb-3 line-clamp-2">
@@ -612,7 +632,7 @@ function Home() {
                         </h3>
                         <ArrowUpRight
                           size={14}
-                          className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                          className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                         />
                       </div>
                       <p className="text-slate-400 text-[12px] leading-relaxed mb-3 line-clamp-2">
@@ -665,12 +685,12 @@ function Home() {
                   )}
                 <div className="p-6 sm:p-8">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] text-slate-500 font-medium uppercase tracking-widest">
+                    <span className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">
                       Foundation Project
                     </span>
                     <ArrowUpRight
                       size={16}
-                      className="text-slate-500 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                      className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
                     />
                   </div>
                   <h3 className="text-white font-semibold text-lg sm:text-xl group-hover:text-[#3B82F6] transition-colors mb-3">
@@ -695,7 +715,7 @@ function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-slate-500 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
+                  <p className="text-slate-400 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
                     <span className="text-[#3B82F6] font-medium">Key takeaway:</span> Low-level file handling, binary record formatting, and building reliable data persistence without a database.
                   </p>
                 </div>
@@ -745,7 +765,7 @@ function Home() {
                     <h3 className="text-white font-medium text-[15px] mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-slate-500 text-[13px] leading-relaxed max-w-xl">
+                    <p className="text-slate-400 text-[13px] leading-relaxed max-w-xl">
                       {item.desc}
                     </p>
                   </div>
@@ -800,7 +820,7 @@ function Home() {
                   <div className="flex items-center gap-3 mb-1">
                     <span
                       className={`text-[11px] font-medium tabular-nums ${
-                        item.active ? "text-[#3B82F6]" : "text-slate-500"
+                        item.active ? "text-[#3B82F6]" : "text-slate-400"
                       }`}
                     >
                       {item.period}
@@ -818,7 +838,7 @@ function Home() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-slate-500 text-[13px] leading-relaxed max-w-lg">
+                  <p className="text-slate-400 text-[13px] leading-relaxed max-w-lg">
                     {item.description}
                   </p>
                 </div>
@@ -865,7 +885,7 @@ function Home() {
                 className="group flex items-start gap-5 sm:gap-8 py-5 border-b border-slate-800/40 last:border-b-0 hover:bg-white/[0.01] transition-colors duration-200 -mx-3 px-3 rounded-lg"
               >
                 <div className="w-16 sm:w-20 shrink-0 pt-0.5">
-                  <span className="text-[11px] text-slate-500 font-medium tabular-nums uppercase tracking-wider">
+                  <span className="text-[11px] text-slate-400 font-medium tabular-nums uppercase tracking-wider">
                     {note.date}
                   </span>
                 </div>

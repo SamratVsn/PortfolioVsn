@@ -26,9 +26,11 @@ function BMSK() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Bank Management System | SamratVsn"
+        title="Bank Management System in Kotlin | Samrat Parajuli"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
+        ogType="article"
+        imageAlt="Bank Account Manager — Kotlin banking simulation built by Samrat Parajuli"
       schema={[
           {
             '@context': 'https://schema.org',
@@ -56,7 +58,7 @@ function BMSK() {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Backend System</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Backend System</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
               Bank Management <span className="text-[#3B82F6]">System</span>
             </h1>
@@ -82,7 +84,6 @@ function BMSK() {
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <motion.img
                 layoutId="project-image-/projects/bmsk"
-                src 
                 src={BMSK1} 
                 alt="Bank Management System terminal interface" 
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer" 
@@ -204,7 +205,7 @@ function BMSK() {
                           { label: 'Build Tool', value: 'Gradle / Maven' }
                         ].map((item, i) => (
                           <div key={i} className="flex justify-between p-3 border border-slate-800/70 rounded-xl bg-[#0A101F]/50">
-                            <span className="text-slate-500 text-sm">{item.label}</span>
+                            <span className="text-slate-400 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
                         ))}
@@ -236,7 +237,9 @@ function BMSK() {
                     className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
                   >
                     <img 
-                      src={s.src} 
+                      src={s.src}
+                      loading="lazy"
+                      decoding="async" 
                       alt={s.label} 
                       className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                     />
@@ -260,7 +263,7 @@ function BMSK() {
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
@@ -291,15 +294,15 @@ function BMSK() {
               <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Lines of Code</span>
+                  <span className="text-slate-400">Lines of Code</span>
                   <span className="text-slate-300 font-medium">~300</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Classes</span>
+                  <span className="text-slate-400">Classes</span>
                   <span className="text-slate-300 font-medium">4</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Complexity</span>
+                  <span className="text-slate-400">Complexity</span>
                   <span className="text-slate-300 font-medium">Beginner</span>
                 </div>
               </div>

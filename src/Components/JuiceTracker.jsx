@@ -51,9 +51,11 @@ function JuiceTracker() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Juice Tracker | SamratVsn"
+        title="Juice Tracker — Android App in Kotlin | Samrat Parajuli"
         description="Android app for tracking juice combinations and ratings — Kotlin, MVVM, Room, and Jetpack Compose + View interoperability. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/juicetracker"
+        ogType="article"
+        imageAlt="Juice Tracker — Android app for logging juice combinations and ratings"
         schema={[
           {
             '@context': 'https://schema.org',
@@ -83,7 +85,7 @@ function JuiceTracker() {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Android App</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
               Juice <span className="text-[#3B82F6]">Tracker</span>
             </h1>
@@ -284,7 +286,7 @@ function JuiceTracker() {
                           { label: 'Prerequisite', value: 'Android SDK 33+' }
                         ].map((item, i) => (
                           <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
-                            <span className="text-slate-500 text-sm">{item.label}</span>
+                            <span className="text-slate-400 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
                         ))}
@@ -297,7 +299,7 @@ function JuiceTracker() {
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
                             <span className="text-slate-300 text-sm font-mono">{lib.name}</span>
-                            <span className="text-slate-500 text-sm text-right">{lib.purpose}</span>
+                            <span className="text-slate-400 text-sm text-right">{lib.purpose}</span>
                           </div>
                         ))}
                       </div>
@@ -325,7 +327,7 @@ function JuiceTracker() {
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
@@ -372,7 +374,7 @@ function JuiceTracker() {
               className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-500 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
             </a>
 
           </div>

@@ -15,7 +15,6 @@ export default function BottomNav() {
   return (
     <nav
       className="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 md:hidden"
-      role="navigation"
       aria-label="Mobile navigation"
     >
       <div
@@ -28,8 +27,8 @@ export default function BottomNav() {
             item.to
               ? pathname === item.to
                 ? "text-accent"
-                : "text-slate-500 hover:text-slate-300"
-              : "text-slate-500 hover:text-slate-300"
+                : "text-slate-400 hover:text-slate-300"
+              : "text-slate-400 hover:text-slate-300"
           }`;
 
           if (item.href) {

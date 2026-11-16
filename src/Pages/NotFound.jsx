@@ -13,14 +13,14 @@ const NotFound = () => {
       />
       <BackgroundFX />
 
-      <main className="relative w-full flex flex-col items-center">
+      <main id="main-content" className="relative w-full flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="relative text-center max-w-lg"
         >
-        <p className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium mb-5">
+        <p className="text-[11px] uppercase tracking-[0.14em] text-slate-400 font-medium mb-5">
           <span className="text-[#3B82F6]">Error</span> · Page not found
         </p>
         <h1 className="text-8xl font-bold text-white mb-4 tracking-[-0.03em]">

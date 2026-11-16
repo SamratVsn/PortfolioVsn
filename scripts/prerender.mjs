@@ -2,28 +2,11 @@ import { createServer } from "vite";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { routes, buildSitemap } from "./routes.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const distDir = path.join(root, "dist");
-
-const routes = [
-  { url: "/", file: "index.html" },
-  { url: "/about", file: "about.html" },
-  { url: "/contact", file: "contact.html" },
-  { url: "/projects", file: "projects.html" },
-  { url: "/projects/avalokan", file: "projects/avalokan.html" },
-  { url: "/projects/todo", file: "projects/todo.html" },
-  { url: "/projects/themovie", file: "projects/themovie.html" },
-  { url: "/projects/juicetracker", file: "projects/juicetracker.html" },
-  { url: "/projects/kathmandu", file: "projects/kathmandu.html" },
-  { url: "/projects/sms", file: "projects/sms.html" },
-  { url: "/projects/bmsk", file: "projects/bmsk.html" },
-  { url: "/projects/blogvsn", file: "projects/blogvsn.html" },
-  { url: "/projects/this", file: "projects/this.html" },
-  { url: "/privacy", file: "privacy.html" },
-  { url: "/this-page-does-not-exist", file: "404.html" },
-];
 
 const server = await createServer({
   root,
@@ -47,7 +30,10 @@ for (const [key, value] of Object.entries(manifest)) {
   }
 }
 
-function stripHelmetLeak(html) {
+// Head-only tags must not appear inside #root: they would be duplicated when
+// the prerendered markup hydrates. SEO.jsx only records head props during SSR,
+// so nothing should match this — it stays as a safety net for future edits.
+function stripHeadOnlyTags(html) {
   return html
     .replace(/<title[^>]*>[\s\S]*?<\/title>/gi, "")
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
@@ -55,10 +41,12 @@ function stripHelmetLeak(html) {
     .replace(/<(base|meta|link|noscript)[^>]*\/?>/gi, "");
 }
 
+// Vite rewrites imported assets to hashed files; the SSR render still emits the
+// dev URL (/src/assets/…), so map it through the build manifest.
 function rewriteAssetUrls(html) {
-  return html.replace(/src="(\/src\/assets\/[^"]+)"/g, (match, src) => {
-    const mapped = assetMap.get(src);
-    return mapped ? `src="${mapped}"` : match;
+  return html.replace(/(src|href)="(\/src\/assets\/[^"]+)"/g, (match, attr, url) => {
+    const mapped = assetMap.get(url);
+    return mapped ? `${attr}="${mapped}"` : match;
   });
 }
 
@@ -80,7 +68,7 @@ for (const route of routes) {
 
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root">${stripHelmetLeak(content)}</div>`
+    `<div id="root">${stripHeadOnlyTags(content)}</div>`
   );
   html = rewriteAssetUrls(html);
 
@@ -89,6 +77,9 @@ for (const route of routes) {
   fs.writeFileSync(outFile, html, "utf-8");
   console.log(`Prerendered ${route.url} -> ${route.file}`);
 }
+
+fs.writeFileSync(path.join(distDir, "sitemap.xml"), buildSitemap(), "utf-8");
+console.log("Wrote dist/sitemap.xml");
 
 await server.close();
 console.log("Prerendering complete.");

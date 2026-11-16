@@ -10,7 +10,7 @@ export const PageLayout = ({ children, className = "" }) => {
       <BackgroundFX className="fixed" />
       <div className="relative flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow pt-24 md:pt-28 pb-20 sm:pb-24">
+        <main id="main-content" className="flex-grow pt-24 md:pt-28 pb-20 sm:pb-24">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />

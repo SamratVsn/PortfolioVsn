@@ -183,7 +183,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-canvas text-slate-400 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
       <SEO
-        title="About Samrat Parajuli | Android Developer"
+        title="About Samrat Parajuli | Android Developer in Nepal"
         description="Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications."
         ogUrl="https://www.samratparajuli0.com.np/about"
         schema={[
@@ -192,7 +192,7 @@ export default function About() {
             '@type': 'WebPage',
             '@id': 'https://www.samratparajuli0.com.np/about#webpage',
             'url': 'https://www.samratparajuli0.com.np/about',
-            'name': 'About Samrat Parajuli | Android Developer',
+            'name': 'About Samrat Parajuli | Android Developer in Nepal',
             'description': 'Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications.',
             'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
             'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
@@ -205,7 +205,7 @@ export default function About() {
       />
       <Header />
 
-      <main>
+      <main id="main-content">
       {/* ═══════════════════════════════════════════════════════════════════
           1. HERO INTRO — Split layout
           ═══════════════════════════════════════════════════════════════════ */}
@@ -305,7 +305,7 @@ export default function About() {
                   01
                 </span>
                 <span className="w-8 h-px bg-accent/25" />
-                <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
+                <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                   About
                 </span>
               </div>
@@ -336,7 +336,7 @@ export default function About() {
                   <div key={label}>
                     <div className="flex items-center gap-1.5 mb-1">
                       <Icon size={10} className="text-accent/50" />
-                      <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-500">
+                      <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-400">
                         {label}
                       </span>
                     </div>
@@ -360,7 +360,7 @@ export default function About() {
                 02
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Journey
               </span>
             </div>
@@ -401,7 +401,7 @@ export default function About() {
                     <div className="flex items-baseline gap-3 mb-1">
                       <span
                         className={`text-[10px] font-mono font-bold tracking-[0.1em] ${
-                          step.active ? "text-accent" : "text-slate-500"
+                          step.active ? "text-accent" : "text-slate-400"
                         }`}
                       >
                         {step.num}
@@ -414,7 +414,7 @@ export default function About() {
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-slate-500 text-[13px] leading-relaxed max-w-lg">
+                    <p className="text-slate-400 text-[13px] leading-relaxed max-w-lg">
                       {step.desc}
                     </p>
                   </div>
@@ -436,7 +436,7 @@ export default function About() {
                 03
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Process
               </span>
             </div>
@@ -466,7 +466,7 @@ export default function About() {
                     <h3 className="text-white text-base font-semibold mb-1.5">
                       {step.title}
                     </h3>
-                    <p className="text-slate-500 text-[13px] leading-relaxed max-w-md">
+                    <p className="text-slate-400 text-[13px] leading-relaxed max-w-md">
                       {step.desc}
                     </p>
                   </div>
@@ -477,7 +477,7 @@ export default function About() {
 
           <motion.div
             {...fadeUp}
-            className="flex items-center justify-center gap-3 mt-6 text-[11px] text-slate-500 font-mono font-medium tracking-wide"
+            className="flex items-center justify-center gap-3 mt-6 text-[11px] text-slate-400 font-mono font-medium tracking-wide"
           >
             <span>Build</span>
             <span className="w-4 h-px bg-white/[0.08]" />
@@ -501,7 +501,7 @@ export default function About() {
                 04
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Arsenal
               </span>
             </div>
@@ -535,7 +535,7 @@ export default function About() {
                         <span className="text-slate-300 text-[13px] font-medium">
                           {item.name}
                         </span>
-                        <span className="text-slate-500 text-[11px]">
+                        <span className="text-slate-400 text-[11px]">
                           {item.note}
                         </span>
                       </div>
@@ -559,7 +559,7 @@ export default function About() {
                 05
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Focus
               </span>
             </div>
@@ -585,7 +585,7 @@ export default function About() {
                 <span className="text-[10px] font-mono font-bold tracking-[0.1em] uppercase text-accent/70 sm:w-28 shrink-0">
                   {item.title}
                 </span>
-                <p className="text-slate-500 text-[13px] leading-relaxed">
+                <p className="text-slate-400 text-[13px] leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
@@ -605,7 +605,7 @@ export default function About() {
                 06
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-500">
+              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Outside
               </span>
             </div>
@@ -633,7 +633,7 @@ export default function About() {
                     <h3 className="text-white text-[13px] font-semibold mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-slate-500 text-[12.5px] leading-relaxed">
+                    <p className="text-slate-400 text-[12.5px] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -653,7 +653,7 @@ export default function About() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.025em] mb-3">
               Let&apos;s build something.
             </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8">
+            <p className="text-slate-400 text-sm leading-relaxed mb-8">
               Have an Android project, an idea, or something interesting to
               discuss?
             </p>
@@ -668,7 +668,7 @@ export default function About() {
                 href="https://github.com/SamratVsn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.15] text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+                className="inline-flex items-center gap-2 border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.15] text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
               >
                 <FaGithub size={15} /> GitHub
               </a>

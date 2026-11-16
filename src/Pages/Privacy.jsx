@@ -144,7 +144,7 @@ export default function Privacy() {
       />
       <Header />
 
-      <main className="relative pt-28 pb-20 sm:pb-24 px-6">
+      <main id="main-content" className="relative pt-28 pb-20 sm:pb-24 px-6">
         <BackgroundFX />
         <div className="max-w-3xl mx-auto min-[1920px]:max-w-4xl relative">
           {/* Header */}
@@ -152,7 +152,7 @@ export default function Privacy() {
             <div className="flex items-center gap-2.5 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium uppercase tracking-[0.14em] text-slate-500">
+              <span className="text-[11px] font-mono font-medium uppercase tracking-[0.14em] text-slate-400">
                 Legal · Privacy
               </span>
             </div>
@@ -163,7 +163,7 @@ export default function Privacy() {
               What this website processes when you visit it, and how that
               information is handled.
             </p>
-            <p className="mt-5 text-[12px] font-mono text-slate-500 flex items-center gap-2">
+            <p className="mt-5 text-[12px] font-mono text-slate-400 flex items-center gap-2">
               <span className="w-1 h-1 rounded-full bg-emerald-400/70" />
               Last updated: October 2026
             </p>

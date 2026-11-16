@@ -257,10 +257,12 @@ export default function Avalokan() {
   return (
     <div className="min-h-screen bg-[#04080C] text-slate-300 font-sans selection:bg-[#8FBFA4]/30">
       <SEO
-        title="Avalokan | SamratVsn"
-        description="Avalokan is a native Android heritage explorer for Nepal — historical places, cultural stories, festivals, and events. Built with Kotlin, Jetpack Compose, Firebase, and an offline-first Room cache."
+        title="Avalokan — Nepal Heritage Android App | Samrat Parajuli"
+        description="Avalokan is a native Android heritage explorer for Nepal — places, cultural stories, festivals and events, built with Kotlin, Jetpack Compose and Room."
         ogUrl={`${SITE}/projects/avalokan`}
         ogImage={`${SITE}/media/avalokan-og.jpg`}
+        ogType="article"
+        imageAlt="Avalokan — Nepal heritage explorer app for Android"
         schema={[
           {
             '@context': 'https://schema.org',
@@ -345,7 +347,7 @@ export default function Avalokan() {
                 </span>
               </div>
 
-              <p className="text-[11px] font-mono uppercase tracking-[0.35em] text-slate-500 mb-3">
+              <p className="text-[11px] font-mono uppercase tracking-[0.35em] text-slate-400 mb-3">
                 अवलोकन · to observe
               </p>
 
@@ -394,7 +396,7 @@ export default function Avalokan() {
                   <Github size={15} /> Source
                 </a>
               </div>
-              <p className="mt-3 text-[11px] font-mono text-slate-500">
+              <p className="mt-3 text-[11px] font-mono text-slate-400">
                 v1.0.0 · 20 MB APK · Android 7.0+ · 22s launch film inside
               </p>
             </div>
@@ -419,7 +421,7 @@ export default function Avalokan() {
                     loading="eager"
                   />
                 </div>
-                <p className="mt-4 text-center text-[10px] font-mono uppercase tracking-[0.28em] text-slate-500">
+                <p className="mt-4 text-center text-[10px] font-mono uppercase tracking-[0.28em] text-slate-400">
                   Nepal Heritage Explorer
                 </p>
               </motion.div>
@@ -439,7 +441,7 @@ export default function Avalokan() {
                 className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 backdrop-blur-sm"
               >
                 <p className="text-lg font-bold text-white tracking-tight">{stat.k}</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">{stat.v}</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">{stat.v}</p>
               </div>
             ))}
           </div>
@@ -498,7 +500,7 @@ export default function Avalokan() {
                 )}
               </div>
 
-              <p className="text-xs text-slate-500 leading-relaxed">
+              <p className="text-xs text-slate-400 leading-relaxed">
                 Cut from real captures of the app running on a 1080×2400 emulator — no mockups, no
                 invented screens. Assembled with{' '}
                 <a
@@ -661,11 +663,11 @@ export default function Avalokan() {
                       </h3>
                       <div className="p-4 bg-black/50 border border-white/[0.07] rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
                         <p>
-                          <span className="text-slate-500">UI</span> → ViewModel → Repository
+                          <span className="text-slate-400">UI</span> → ViewModel → Repository
                         </p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>Room</span> <span className="text-slate-500">// cached reads, instant first paint</span></p>
-                        <p className="ml-4">└── <span style={{ color: TERRA }}>Firestore</span> <span className="text-slate-500">// snapshot listeners merge into Room</span></p>
-                        <p className="mt-3 text-slate-500">// listeners log errors and keep the last good UI state</p>
+                        <p className="ml-4">├── <span style={{ color: SAGE }}>Room</span> <span className="text-slate-400">// cached reads, instant first paint</span></p>
+                        <p className="ml-4">└── <span style={{ color: TERRA }}>Firestore</span> <span className="text-slate-400">// snapshot listeners merge into Room</span></p>
+                        <p className="mt-3 text-slate-400">// listeners log errors and keep the last good UI state</p>
                       </div>
                     </div>
 
@@ -675,9 +677,9 @@ export default function Avalokan() {
                       </h3>
                       <div className="p-4 bg-black/50 border border-white/[0.07] rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
                         <p>app/src/main/java/com/example/avalokan/</p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>MainActivity.kt</span> <span className="text-slate-500">// entry, edge-to-edge, theme</span></p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApp.kt</span> <span className="text-slate-500">// scaffold, floating nav, NavHost</span></p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApplication.kt</span> <span className="text-slate-500">// Hilt + anonymous auth bootstrap</span></p>
+                        <p className="ml-4">├── <span style={{ color: SAGE }}>MainActivity.kt</span> <span className="text-slate-400">// entry, edge-to-edge, theme</span></p>
+                        <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApp.kt</span> <span className="text-slate-400">// scaffold, floating nav, NavHost</span></p>
+                        <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApplication.kt</span> <span className="text-slate-400">// Hilt + anonymous auth bootstrap</span></p>
                         <p className="ml-4">├── <span style={{ color: TERRA }}>data/</span></p>
                         <p className="ml-8">│   ├── di/ · local/ · auth/</p>
                         <p className="ml-8">│   ├── place/ · event/ · story/ · user/</p>
@@ -740,7 +742,7 @@ export default function Avalokan() {
                 <h2 className="text-sm font-semibold uppercase tracking-widest" style={{ color: SAGE }}>
                   Screens
                 </h2>
-                <p className="text-[11px] text-slate-500 text-right">
+                <p className="text-[11px] text-slate-400 text-right">
                   Captured on a 1080×2400 emulator
                 </p>
               </div>
@@ -785,7 +787,7 @@ export default function Avalokan() {
                       style={{ backgroundColor: c.hex }}
                     />
                     <span className="text-xs text-slate-300">{c.name}</span>
-                    <span className="text-[10px] font-mono text-slate-500">{c.hex}</span>
+                    <span className="text-[10px] font-mono text-slate-400">{c.hex}</span>
                   </div>
                 ))}
               </div>
@@ -800,7 +802,7 @@ export default function Avalokan() {
                     className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
                   >
                     <item.icon size={16} style={{ color: SAGE }} className="mb-2" />
-                    <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">{item.k}</p>
+                    <p className="text-xs uppercase tracking-widest text-slate-400 mb-1">{item.k}</p>
                     <p className="text-[13px] text-slate-300">{item.v}</p>
                   </div>
                 ))}
@@ -822,7 +824,7 @@ export default function Avalokan() {
                     key={spec.label}
                     className="border-b border-white/[0.06] pb-3 last:border-0 last:pb-0"
                   >
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">
+                    <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">
                       {spec.label}
                     </p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
@@ -852,7 +854,7 @@ export default function Avalokan() {
               <div className="space-y-3">
                 {developer.map((dev) => (
                   <div key={dev.label}>
-                    <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">
+                    <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">
                       {dev.label}
                     </p>
                     {dev.href ? (
@@ -896,7 +898,7 @@ export default function Avalokan() {
               <span className="text-sm font-medium text-slate-300">Release notes</span>
               <ArrowUpRight
                 size={16}
-                className="text-slate-500 transition-colors group-hover:text-white"
+                className="text-slate-400 transition-colors group-hover:text-white"
               />
             </a>
 
@@ -919,7 +921,7 @@ export default function Avalokan() {
               </span>
               <ArrowUpRight
                 size={16}
-                className="text-slate-500 transition-colors group-hover:text-white"
+                className="text-slate-400 transition-colors group-hover:text-white"
               />
             </a>
 
@@ -932,7 +934,7 @@ export default function Avalokan() {
               <span className="text-sm font-medium text-slate-300">Read the full README</span>
               <ArrowUpRight
                 size={16}
-                className="text-slate-500 transition-colors group-hover:text-white"
+                className="text-slate-400 transition-colors group-hover:text-white"
               />
             </a>
           </aside>
@@ -942,7 +944,7 @@ export default function Avalokan() {
         <section className="mt-16 border-t border-white/[0.06] pt-10">
           <div className="flex items-end justify-between gap-4 mb-6">
             <div>
-              <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-slate-500 mb-2">
+              <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-slate-400 mb-2">
                 Keep exploring
               </p>
               <h2 className="text-xl font-semibold text-white tracking-tight">Related projects</h2>
@@ -965,7 +967,7 @@ export default function Avalokan() {
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-1.5">
+                    <p className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-1.5">
                       {item.tag}
                     </p>
                     <h3 className="text-white font-semibold mb-1.5 group-hover:text-[#8FBFA4] transition-colors">
@@ -975,7 +977,7 @@ export default function Avalokan() {
                   </div>
                   <ArrowUpRight
                     size={16}
-                    className="mt-1 shrink-0 text-slate-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                    className="mt-1 shrink-0 text-slate-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
                   />
                 </div>
               </Link>
@@ -984,7 +986,7 @@ export default function Avalokan() {
         </section>
 
         {/* Credits */}
-        <p className="mt-10 text-[11px] text-slate-600 leading-relaxed">
+        <p className="mt-10 text-[11px] text-slate-400 leading-relaxed">
           Launch film music: <em>Happy Beats Business Moves, Vol. 12</em> by Sascha Ende
           (ende.app), licensed under CC BY 4.0.
         </p>

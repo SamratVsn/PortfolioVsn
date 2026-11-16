@@ -37,9 +37,11 @@ const BlogVsn = () => {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="BlogVsn Platform | SamratVsn"
+        title="BlogVsn — React Blog Platform | Samrat Parajuli"
         description="Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
+        ogType="article"
+        imageAlt="BlogVsn — React blog platform built by Samrat Parajuli"
       schema={[
           {
             '@context': 'https://schema.org',
@@ -70,7 +72,7 @@ const BlogVsn = () => {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Cloud Integration</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Cloud Integration</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
               BlogVsn <span className="text-[#3B82F6]">Platform</span>
             </h1>
@@ -106,7 +108,6 @@ const BlogVsn = () => {
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <motion.img
                 layoutId="project-image-/projects/blogvsn"
-                src 
                 src={B1} 
                 alt="BlogVsn Platform" 
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity" 
@@ -234,7 +235,9 @@ const BlogVsn = () => {
                     className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
                   >
                     <img 
-                      src={s.src} 
+                      src={s.src}
+                      loading="lazy"
+                      decoding="async" 
                       alt={s.label} 
                       className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                     />
@@ -318,7 +321,8 @@ const BlogVsn = () => {
               </button>
             </div>
             <img 
-              src={selectedImage.src} 
+              src={selectedImage.src}
+                decoding="async" 
               alt={selectedImage.label} 
               className="w-full border border-slate-800 rounded-lg" 
             />

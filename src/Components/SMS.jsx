@@ -46,9 +46,11 @@ const SMS = () => {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Student Management System | SamratVsn"
+        title="Student Management System in C | Samrat Parajuli"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/sms"
+        ogType="article"
+        imageAlt="Student Management System — console CRUD program written in C"
         schema={[
           {
             '@context': 'https://schema.org',
@@ -76,7 +78,7 @@ const SMS = () => {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">System Software</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">System Software</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
               Student Management <span className="text-[#3B82F6]">System</span>
             </h1>
@@ -102,7 +104,6 @@ const SMS = () => {
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
               <motion.img
                 layoutId="project-image-/projects/sms"
-                src 
                 src={SMS1} 
                 alt="CLI Interface" 
                 className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer" 
@@ -228,7 +229,9 @@ const SMS = () => {
                     onClick={() => setSelectedImage(s)}
                   >
                     <img 
-                      src={s.src} 
+                      src={s.src}
+                      loading="lazy"
+                      decoding="async" 
                       alt={s.label} 
                       className="w-full h-32 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                     />
@@ -254,7 +257,7 @@ const SMS = () => {
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
@@ -270,9 +273,9 @@ const SMS = () => {
               <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl text-xs font-mono text-slate-400 leading-relaxed space-y-1">
                 <div><span className="text-[#3B82F6]">struct</span> Student {`{`}</div>
                 <div className="ml-4">
-                  <div><span className="text-slate-500">char</span> name[50];</div>
-                  <div><span className="text-slate-500">int</span> rollNo;</div>
-                  <div><span className="text-slate-500">float</span> gpa;</div>
+                  <div><span className="text-slate-400">char</span> name[50];</div>
+                  <div><span className="text-slate-400">int</span> rollNo;</div>
+                  <div><span className="text-slate-400">float</span> gpa;</div>
                 </div>
                 <div>{`}`};</div>
               </div>
@@ -283,15 +286,15 @@ const SMS = () => {
               <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Lines of Code</span>
+                  <span className="text-slate-400">Lines of Code</span>
                   <span className="text-slate-300 font-medium">~450</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Functions</span>
+                  <span className="text-slate-400">Functions</span>
                   <span className="text-slate-300 font-medium">8</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Complexity</span>
+                  <span className="text-slate-400">Complexity</span>
                   <span className="text-slate-300 font-medium">Intermediate</span>
                 </div>
               </div>
@@ -319,7 +322,8 @@ const SMS = () => {
               </button>
             </div>
             <img 
-              src={selectedImage.src} 
+              src={selectedImage.src}
+                decoding="async" 
               alt={selectedImage.label} 
               className="w-full border border-slate-800 rounded-lg" 
             />

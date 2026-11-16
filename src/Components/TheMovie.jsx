@@ -76,9 +76,11 @@ function TheMovie() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="The Movie App | SamratVsn"
+        title="The Movie App — Android TMDB Client | Samrat Parajuli"
         description="Android movie app using the TMDB API — debounced search, watchlist, Firebase auth, and offline caching. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/themovie"
+        ogType="article"
+        imageAlt="The Movie App — Android movie browser built with Kotlin and Jetpack Compose"
         schema={[
           {
             '@context': 'https://schema.org',
@@ -108,7 +110,7 @@ function TheMovie() {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Android App</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
               The <span className="text-[#3B82F6]">Movie</span> App
             </h1>
@@ -280,26 +282,26 @@ function TheMovie() {
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span></p>
-                        <p className="ml-8">│   ├── auth/ <span className="text-slate-500">// AuthRepository, AuthState (Firebase session)</span></p>
-                        <p className="ml-8">│   ├── MovieRepository.kt <span className="text-slate-500">// TMDB access + in-memory cache</span></p>
-                        <p className="ml-8">│   ├── PreferencesRepository.kt <span className="text-slate-500">// Theme, profile (DataStore)</span></p>
-                        <p className="ml-8">│   ├── WatchlistRepository.kt <span className="text-slate-500">// Favorites (DataStore JSON)</span></p>
-                        <p className="ml-8">│   ├── MovieErrors.kt <span className="text-slate-500">// HTTP errors → friendly messages</span></p>
-                        <p className="ml-8">│   └── UserPreferences.kt <span className="text-slate-500">// ThemeMode, categories, genres</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-500">// Movie / MovieDetail / Genre DTOs</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">network/</span> <span className="text-slate-500">// Retrofit service & OkHttp client</span></p>
+                        <p className="ml-8">│   ├── auth/ <span className="text-slate-400">// AuthRepository, AuthState (Firebase session)</span></p>
+                        <p className="ml-8">│   ├── MovieRepository.kt <span className="text-slate-400">// TMDB access + in-memory cache</span></p>
+                        <p className="ml-8">│   ├── PreferencesRepository.kt <span className="text-slate-400">// Theme, profile (DataStore)</span></p>
+                        <p className="ml-8">│   ├── WatchlistRepository.kt <span className="text-slate-400">// Favorites (DataStore JSON)</span></p>
+                        <p className="ml-8">│   ├── MovieErrors.kt <span className="text-slate-400">// HTTP errors → friendly messages</span></p>
+                        <p className="ml-8">│   └── UserPreferences.kt <span className="text-slate-400">// ThemeMode, categories, genres</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-400">// Movie / MovieDetail / Genre DTOs</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">network/</span> <span className="text-slate-400">// Retrofit service & OkHttp client</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
-                        <p className="ml-8">│   ├── components/ <span className="text-slate-500">// Reusable widgets</span></p>
-                        <p className="ml-8">│   ├── detail/ <span className="text-slate-500">// Movie detail + favorite toggle</span></p>
-                        <p className="ml-8">│   ├── home/ <span className="text-slate-500">// Home + recommendations</span></p>
-                        <p className="ml-8">│   ├── profile/ <span className="text-slate-500">// Profile + Auth (login/signup)</span></p>
-                        <p className="ml-8">│   ├── search/ <span className="text-slate-500">// Debounced search + pagination</span></p>
-                        <p className="ml-8">│   ├── settings/ <span className="text-slate-500">// Profile editing, appearance</span></p>
-                        <p className="ml-8">│   ├── watchlist/ <span className="text-slate-500">// Favorites screen</span></p>
-                        <p className="ml-8">│   ├── theme/ <span className="text-slate-500">// Color, Type, Theme</span></p>
-                        <p className="ml-8">│   └── NavGraph.kt <span className="text-slate-500">// All routes + bottom bar</span></p>
-                        <p className="ml-4">├── MainActivity.kt <span className="text-slate-500">// Entry point</span></p>
-                        <p className="ml-4">└── MovieApplication.kt <span className="text-slate-500">// DI provisioning + network init</span></p>
+                        <p className="ml-8">│   ├── components/ <span className="text-slate-400">// Reusable widgets</span></p>
+                        <p className="ml-8">│   ├── detail/ <span className="text-slate-400">// Movie detail + favorite toggle</span></p>
+                        <p className="ml-8">│   ├── home/ <span className="text-slate-400">// Home + recommendations</span></p>
+                        <p className="ml-8">│   ├── profile/ <span className="text-slate-400">// Profile + Auth (login/signup)</span></p>
+                        <p className="ml-8">│   ├── search/ <span className="text-slate-400">// Debounced search + pagination</span></p>
+                        <p className="ml-8">│   ├── settings/ <span className="text-slate-400">// Profile editing, appearance</span></p>
+                        <p className="ml-8">│   ├── watchlist/ <span className="text-slate-400">// Favorites screen</span></p>
+                        <p className="ml-8">│   ├── theme/ <span className="text-slate-400">// Color, Type, Theme</span></p>
+                        <p className="ml-8">│   └── NavGraph.kt <span className="text-slate-400">// All routes + bottom bar</span></p>
+                        <p className="ml-4">├── MainActivity.kt <span className="text-slate-400">// Entry point</span></p>
+                        <p className="ml-4">└── MovieApplication.kt <span className="text-slate-400">// DI provisioning + network init</span></p>
                       </div>
                     </div>
 
@@ -334,7 +336,7 @@ function TheMovie() {
                           { label: 'Serialization', value: 'Kotlinx Serialization' }
                         ].map((item, i) => (
                           <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
-                            <span className="text-slate-500 text-sm">{item.label}</span>
+                            <span className="text-slate-400 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
                         ))}
@@ -347,7 +349,7 @@ function TheMovie() {
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
                             <span className="text-slate-300 text-sm font-mono">{lib.name}</span>
-                            <span className="text-slate-500 text-sm text-right">{lib.purpose}</span>
+                            <span className="text-slate-400 text-sm text-right">{lib.purpose}</span>
                           </div>
                         ))}
                       </div>
@@ -381,6 +383,8 @@ function TheMovie() {
                   >
                     <img
                       src={s.src}
+                      loading="lazy"
+                      decoding="async"
                       alt={s.label}
                       className={`w-full h-40 object-cover ${s.placeholder ? 'opacity-30' : 'opacity-60 group-hover:opacity-100'} transition-opacity`}
                     />
@@ -414,7 +418,7 @@ function TheMovie() {
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
@@ -467,7 +471,7 @@ function TheMovie() {
               className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-500 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
             </a>
 
           </div>
@@ -492,6 +496,7 @@ function TheMovie() {
             </div>
             <img
               src={selectedImage.src}
+                decoding="async"
               alt={selectedImage.label}
               className="w-full border border-slate-800 rounded-lg"
             />

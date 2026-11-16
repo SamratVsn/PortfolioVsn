@@ -19,9 +19,11 @@ export default function This() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Developer Portfolio | SamratVsn"
+        title="How This Portfolio Is Built | Samrat Parajuli"
         description="This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np."
         ogUrl="https://www.samratparajuli0.com.np/projects/this"
+        ogType="article"
+        imageAlt="Developer portfolio built with React and Vite by Samrat Parajuli"
       schema={[
           {
             '@context': 'https://schema.org',

@@ -1,47 +1,27 @@
-import { Helmet } from 'react-helmet-async'
-import { SITE, resolveSEO, collectSEO } from './seoHead'
+import { useEffect, useRef } from 'react'
+import { applySeoToDocument, collectSEO } from './seoHead'
 
-export default function SEO({
-  title,
-  description,
-  ogTitle,
-  ogDescription,
-  ogImage,
-  ogUrl,
-  noindex,
-  schema,
-}) {
-  if (typeof window === 'undefined') collectSEO({ title, description, ogTitle, ogDescription, ogImage, ogUrl, noindex, schema })
-  const r = resolveSEO({ title, description, ogTitle, ogDescription, ogImage, ogUrl, noindex })
+/**
+ * Per-route metadata.
+ *
+ * Renders nothing. The tags live in the document head: written once by the
+ * prerenderer and updated in place on client navigation (see seoHead.js).
+ * This intentionally replaces react-helmet-async, which duplicated every tag
+ * under React 19 (once from the prerendered HTML, once on hydration).
+ */
+export default function SEO(props) {
+  if (typeof window === 'undefined') collectSEO(props)
 
-  return (
-    <Helmet>
-      <title>{r.t}</title>
-      <meta name="title" content={r.t} />
-      <meta name="description" content={r.d} />
-      <meta name="robots" content={r.noindex ? "noindex, follow" : "index, follow"} />
-      <link rel="canonical" href={r.canonical} />
+  const latest = useRef(props)
+  latest.current = props
 
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={r.ot} />
-      <meta property="og:description" content={r.od} />
-      <meta property="og:image" content={r.oi} />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:image:alt" content={SITE.imageAlt} />
-      <meta property="og:url" content={r.ou} />
+  // Props are rebuilt on every render, so key the effect on their serialised
+  // value rather than object identity.
+  const key = JSON.stringify(props)
 
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={r.ot} />
-      <meta name="twitter:description" content={r.od} />
-      <meta name="twitter:image" content={r.oi} />
-      <meta name="twitter:image:alt" content={SITE.imageAlt} />
-      <meta name="twitter:url" content={r.ou} />
+  useEffect(() => {
+    applySeoToDocument(latest.current)
+  }, [key])
 
-      {schema && schema.map((s, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(s)}
-        </script>
-      ))}
-    </Helmet>
-  )
+  return null
 }

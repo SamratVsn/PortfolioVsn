@@ -21,6 +21,64 @@
           "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), magnetometer=(), gyroscope=(), accelerometer=()"
         }
       ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/og/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/projects.html", "destination": "/projects", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/projects/avalokan.html", "destination": "/projects/avalokan", "permanent": true },
+    { "source": "/projects/todo.html", "destination": "/projects/todo", "permanent": true },
+    { "source": "/projects/themovie.html", "destination": "/projects/themovie", "permanent": true },
+    { "source": "/projects/juicetracker.html", "destination": "/projects/juicetracker", "permanent": true },
+    { "source": "/projects/kathmandu.html", "destination": "/projects/kathmandu", "permanent": true },
+    { "source": "/projects/sms.html", "destination": "/projects/sms", "permanent": true },
+    { "source": "/projects/bmsk.html", "destination": "/projects/bmsk", "permanent": true },
+    { "source": "/projects/blogvsn.html", "destination": "/projects/blogvsn", "permanent": true },
+    { "source": "/projects/this.html", "destination": "/projects/this", "permanent": true },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "samratparajuli0.com.np" }],
+      "destination": "https://www.samratparajuli0.com.np/$1",
+      "permanent": true
     }
   ],
   "rewrites": [

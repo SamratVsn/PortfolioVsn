@@ -55,9 +55,11 @@ function Kathmandu() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Kathmandu My-City App | SamratVsn"
+        title="Kathmandu My-City — Android App | Samrat Parajuli"
         description="Android app showcasing Kathmandu's temples, shops, and destinations — Kotlin, Jetpack Compose (M3), MVVM, Navigation Compose. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/kathmandu"
+        ogType="article"
+        imageAlt="Kathmandu My-City — Android app showcasing places in Kathmandu"
         schema={[
           {
             '@context': 'https://schema.org',
@@ -87,7 +89,7 @@ function Kathmandu() {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Android App</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
               Kathmandu <span className="text-[#3B82F6]">My-City</span>
             </h1>
@@ -244,14 +246,14 @@ function Kathmandu() {
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>com.example.kathmandu/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Local data provider (DataSource)</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-500">// Places.kt, CityUiState</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-400">// Local data provider (DataSource)</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-400">// Places.kt, CityUiState</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
-                        <p className="ml-8">│   ├── theme/ <span className="text-slate-500">// M3 color, type, shapes</span></p>
-                        <p className="ml-8">│   ├── CityViewModel.kt <span className="text-slate-500">// Business logic & state</span></p>
-                        <p className="ml-8">│   ├── CityScreen.kt <span className="text-slate-500">// Root Composable</span></p>
-                        <p className="ml-8">│   └── screens/ <span className="text-slate-500">// Start, Categories, Options</span></p>
-                        <p className="ml-4">└── MainActivity.kt <span className="text-slate-500">// App entry point</span></p>
+                        <p className="ml-8">│   ├── theme/ <span className="text-slate-400">// M3 color, type, shapes</span></p>
+                        <p className="ml-8">│   ├── CityViewModel.kt <span className="text-slate-400">// Business logic & state</span></p>
+                        <p className="ml-8">│   ├── CityScreen.kt <span className="text-slate-400">// Root Composable</span></p>
+                        <p className="ml-8">│   └── screens/ <span className="text-slate-400">// Start, Categories, Options</span></p>
+                        <p className="ml-4">└── MainActivity.kt <span className="text-slate-400">// App entry point</span></p>
                       </div>
                     </div>
 
@@ -290,7 +292,7 @@ function Kathmandu() {
                           { label: 'Course', value: 'Android Basics with Compose — Unit 4' }
                         ].map((item, i) => (
                           <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
-                            <span className="text-slate-500 text-sm">{item.label}</span>
+                            <span className="text-slate-400 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
                         ))}
@@ -303,7 +305,7 @@ function Kathmandu() {
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
                             <span className="text-slate-300 text-sm font-mono">{lib.name}</span>
-                            <span className="text-slate-500 text-sm text-right">{lib.purpose}</span>
+                            <span className="text-slate-400 text-sm text-right">{lib.purpose}</span>
                           </div>
                         ))}
                       </div>
@@ -331,7 +333,7 @@ function Kathmandu() {
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
@@ -378,7 +380,7 @@ function Kathmandu() {
               className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-500 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
             </a>
 
           </div>

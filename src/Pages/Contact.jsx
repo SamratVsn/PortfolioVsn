@@ -108,7 +108,7 @@ const Contact = () => {
       <Header />
       <BackgroundFX />
 
-      <main className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+      <main id="main-content" className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
           {/* LEFT — Contact Info (2 cols) */}
@@ -136,11 +136,11 @@ const Contact = () => {
                   <Mail size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-1">Email</p>
+                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-1">Email</p>
                   <p className="text-sm text-white group-hover:text-accent transition-colors font-medium truncate">samratvsn@gmail.com</p>
-                  <p className="text-xs text-slate-500 mt-1">Best way to reach me</p>
+                  <p className="text-xs text-slate-400 mt-1">Best way to reach me</p>
                 </div>
-                <ArrowUpRight size={16} className="text-slate-500 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+                <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
               </a>
 
               <a
@@ -153,11 +153,11 @@ const Contact = () => {
                   <Github size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-1">GitHub</p>
+                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-1">GitHub</p>
                   <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">github.com/SamratVsn</p>
-                  <p className="text-xs text-slate-500 mt-1">See my work</p>
+                  <p className="text-xs text-slate-400 mt-1">See my work</p>
                 </div>
-                <ArrowUpRight size={16} className="text-slate-500 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+                <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
               </a>
 
               <a
@@ -170,16 +170,16 @@ const Contact = () => {
                   <Linkedin size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-1">LinkedIn</p>
+                  <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-1">LinkedIn</p>
                   <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">linkedin.com/in/samratvsn</p>
-                  <p className="text-xs text-slate-500 mt-1">Connect with me</p>
+                  <p className="text-xs text-slate-400 mt-1">Connect with me</p>
                 </div>
-                <ArrowUpRight size={16} className="text-slate-500 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
+                <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
               </a>
             </div>
 
             <div className="pt-2">
-              <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 mb-3">Location</p>
+              <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-3">Location</p>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-accent mt-0.5" />
                 <div>
@@ -194,7 +194,7 @@ const Contact = () => {
           <div className="lg:mt-40 sm:mt-10 lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 block mb-2">
+                <label htmlFor="name" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 block mb-2">
                   Your name
                 </label>
                 <input
@@ -206,12 +206,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Ram, Shyam, Sita..."
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 block mb-2">
+                <label htmlFor="email" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 block mb-2">
                   Your email
                 </label>
                 <input
@@ -223,12 +223,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 block mb-2">
+                <label htmlFor="message" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 block mb-2">
                   What&apos;s on your mind?
                 </label>
                 <textarea
@@ -239,7 +239,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project, idea, or just say hello..."
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all resize-none text-sm leading-relaxed"
+                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all resize-none text-sm leading-relaxed"
                 />
               </div>
 
@@ -248,8 +248,8 @@ const Contact = () => {
                 disabled={sending}
                 className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
                   sending
-                    ? 'bg-surface text-slate-500 cursor-not-allowed border border-white/[0.05]'
-                    : 'bg-accent text-white hover:bg-accent/90 active:scale-[0.97]'
+                    ? 'bg-surface text-slate-400 cursor-not-allowed border border-white/[0.05]'
+                    : 'bg-[#2563eb] text-white hover:bg-[#1d4ed8] active:scale-[0.97]'
                 }`}
               >
                 {sending ? 'Sending...' : 'Send Message'}

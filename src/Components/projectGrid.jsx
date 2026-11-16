@@ -208,7 +208,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-slate-500 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          className="text-slate-400 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
           title="View source code on GitHub"
           aria-label={`View ${project.title} source code on GitHub`}
         >
@@ -222,7 +222,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-slate-500 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          className="text-slate-400 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
           title="View live project"
           aria-label={`Visit ${project.title} live site`}
         >
@@ -236,7 +236,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-slate-500 hover:text-[#8FBFA4] transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          className="text-slate-400 hover:text-[#8FBFA4] transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
           title={`Download ${project.title} APK`}
           aria-label={`Download ${project.title} APK`}
         >
@@ -245,7 +245,7 @@ function ProjectLinks({ project }) {
         </a>
       )}
       <div className="flex-grow" />
-      <span className="text-xs text-slate-500 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
+      <span className="text-xs text-slate-400 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
         View details
         <ArrowUpRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
@@ -446,11 +446,11 @@ export default function ProjectGrid() {
 
       {!hasAny && (
         <div className="flex flex-col items-center justify-center border border-white/[0.05] rounded-2xl py-20 px-6 text-center">
-          <FolderOpen size={28} className="text-slate-500 mb-4" />
+          <FolderOpen size={28} className="text-slate-400 mb-4" />
           <p className="text-white text-sm font-medium mb-1">
             Nothing here yet
           </p>
-          <p className="text-slate-500 text-sm max-w-sm">
+          <p className="text-slate-400 text-sm max-w-sm">
             I haven't published anything in this category yet. Check back soon.
           </p>
         </div>

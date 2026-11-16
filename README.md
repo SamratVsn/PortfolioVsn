@@ -2,7 +2,7 @@
 
 Personal portfolio of [Samrat Parajuli](https://www.samratparajuli0.com.np/) (SamratVsn) — an Android developer and software engineer from Kathmandu, Nepal.
 
-Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-route static prerendering for SEO.
+Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Every route is prerendered to static HTML at build time and hydrated on the client, so crawlers and social scrapers get real markup without a Node server.
 
 **Live:** [samratparajuli0.com.np](https://www.samratparajuli0.com.np/) · **Blog:** [blog.samratparajuli0.com.np](https://blog.samratparajuli0.com.np/)
 
@@ -16,7 +16,7 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-rou
 | Routing | React Router 7 |
 | Animation | Framer Motion 12 |
 | Icons | Lucide React, React Icons |
-| SEO | react-helmet-async |
+| SEO | Built-in `components/seoHead.js` + prerender (React 19, no helmet) |
 | Email | EmailJS |
 | Deployment | Vercel |
 
@@ -24,7 +24,7 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-rou
 
 | Route | Content |
 |---|---|
-| `/` | Landing page with hero, expertise grid, featured projects, timeline, notes |
+| `/` | Landing page with hero, expertise grid, featured projects, timeline, writing |
 | `/about` | Bio, skills, dev stack, current focus, testimonials, beyond-code |
 | `/contact` | Contact form with EmailJS integration |
 | `/projects` | Project grid with category filtering |
@@ -37,8 +37,8 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Includes per-rou
 | `/projects/bmsk` | Bank Management System (Kotlin, OOP, CLI) |
 | `/projects/blogvsn` | BlogVsn Platform (React, OAuth, Blogger API) |
 | `/projects/this` | Portfolio meta-project deep dive |
-| `/notes` | Blog-style notes with category filtering (previews link out to the [blog subdomain](https://blog.samratparajuli0.com.np/)) |
-| `*` | 404 page with navigation links |
+| `/privacy` | Privacy policy |
+| `*` | 404 page (prerendered as `404.html`, served with a real 404 status, `noindex`) |
 
 ## Links
 
@@ -61,7 +61,9 @@ npm run build
 npm run preview
 ```
 
-The build script runs `vite build` followed by `scripts/prerender.mjs` to generate static HTML for each route.
+The build runs `vite build`, then `scripts/prerender.mjs` renders every route in
+`scripts/routes.mjs` to static HTML and generates `dist/sitemap.xml` from the same
+route manifest.
 
 ### Lint
 
@@ -71,15 +73,22 @@ npm run lint
 
 ## Deployment
 
-Deployed on Vercel. The `vercel.json` rewrites all routes to their prerendered `.html` files for SPA routing with static generation.
+Deployed on Vercel. `vercel.json` rewrites each public route to its prerendered
+`.html` file, permanently redirects duplicate `.html` URLs, `/index.html` and the
+apex domain to the canonical `https://www.` URLs, and sets long-lived caching for
+hashed assets.
 
 ## SEO
 
-- Per-page meta tags via `react-helmet-async`
-- Static prerendering for search engine crawlers
-- JSON-LD structured data (Person + WebSite schema)
-- Open Graph + Twitter Card support
-- Sitemap, robots.txt, and `llms.txt`
+- Static, per-route prerendering — titles, descriptions, canonicals, Open Graph,
+  Twitter Cards and JSON-LD are present in the initial HTML response
+- One head-tag builder (`src/Components/seoHead.js`) used by both the prerenderer
+  and client-side navigation, so tags are updated in place instead of duplicated
+- Structured data: `Person` + `WebSite` site-wide; `ProfilePage` (home),
+  `CollectionPage` (projects), `SoftwareApplication` / `SoftwareSourceCode`
+  and `BreadcrumbList` on project pages
+- `robots.txt`, generated `sitemap.xml`, and `llms.txt`
+- Generated 1200×630 Open Graph image and compact PNG/ICO favicons
 - Google Search Console verified
 
 ## License

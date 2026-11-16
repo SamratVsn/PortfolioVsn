@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
 
-    <link rel="icon" type="image/svg+xml" href="/LogoSP.svg" />
+    <!-- Icons: small raster set generated from the SP mark (the old 900 KB SVG
+         favicon was downloaded on every first visit). -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#020617" />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
@@ -27,8 +32,13 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:site" content="@SamratVsn" />
     <meta name="twitter:creator" content="@SamratVsn" />
+    <meta name="author" content="Samrat Parajuli" />
 
-    <!-- ── Structured Data (JSON-LD) ──────────────────────────── -->
+    <!-- ── Site-wide structured data ───────────────────────────────
+         Person + WebSite describe the owner and the site itself, so they are
+         valid on every page. Page-specific entities (ProfilePage,
+         CollectionPage, SoftwareApplication, BreadcrumbList) live in each
+         route's SEO component so they never leak onto other pages. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -38,8 +48,9 @@
         "alternateName": "SamratVsn",
         "description": "Emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems.",
         "url": "https://www.samratparajuli0.com.np/",
-        "image": "https://www.samratparajuli0.com.np/Profile.jpg",
+        "image": "https://www.samratparajuli0.com.np/profile-400.jpg",
         "jobTitle": "Android App Developer",
+        "email": "mailto:samratvsn@gmail.com",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kathmandu",
@@ -78,108 +89,10 @@
         }
       }
     </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://www.samratparajuli0.com.np/#website",
-        "name": "Samrat Parajuli",
-        "alternateName": "SamratVsn",
-        "url": "https://www.samratparajuli0.com.np/",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://www.samratparajuli0.com.np/#person"
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://www.samratparajuli0.com.np/projects?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Who is Samrat Parajuli?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Samrat Parajuli (SamratVsn) is an emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, and clean mobile architecture."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What does Samrat Parajuli build?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Native Android applications using Kotlin, Jetpack Compose, MVVM architecture, Room, DataStore, and modern Android development practices."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is Samrat Parajuli based?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Kathmandu, Nepal. Available for remote and in-person collaboration."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I contact Samrat Parajuli?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Email: samratvsn@gmail.com, GitHub: github.com/SamratVsn, LinkedIn: linkedin.com/in/samratvsn"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What are Samrat Parajuli's notable projects?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tasks (productivity app with Pomodoro), The Movie App (TMDB client), Kathmandu My-City App, Juice Tracker, BlogVsn platform, and Student Management System in C."
-            }
-          }
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://www.samratparajuli0.com.np/#webpage",
-        "url": "https://www.samratparajuli0.com.np/",
-        "name": "Samrat Parajuli (SamratVsn) | Android App Developer",
-        "description": "Portfolio of Samrat Parajuli (SamratVsn), an emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems.",
-        "isPartOf": {
-          "@id": "https://www.samratparajuli0.com.np/#website"
-        },
-        "about": {
-          "@id": "https://www.samratparajuli0.com.np/#person"
-        },
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "section[aria-labelledby=\"hero\"] h1",
-            "section[aria-labelledby=\"hero\"] p",
-            "#what-this-covers"
-          ]
-        }
-      }
-    </script>
 
     <!-- ROUTE_SEO_START -->
     <!-- ── Per-route SEO (replaced by prerender for each route) ── -->
     <title>Samrat Parajuli (SamratVsn) | Android App Developer</title>
-    <meta
-      name="title"
-      content="Samrat Parajuli (SamratVsn) | Android App Developer"
-    />
     <meta
       name="description"
       content="Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems."
@@ -199,9 +112,9 @@
     />
     <meta
       property="og:image"
-      content="https://www.samratparajuli0.com.np/Profile.jpg"
+      content="https://www.samratparajuli0.com.np/og/og-default.jpg"
     />
-    <meta property="og:image:secure_url" content="https://www.samratparajuli0.com.np/Profile.jpg" />
+    <meta property="og:image:secure_url" content="https://www.samratparajuli0.com.np/og/og-default.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -222,7 +135,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.samratparajuli0.com.np/Profile.jpg"
+      content="https://www.samratparajuli0.com.np/og/og-default.jpg"
     />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />

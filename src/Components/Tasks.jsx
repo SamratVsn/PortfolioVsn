@@ -115,9 +115,11 @@ function Tasks() {
   return (
     <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
       <SEO
-        title="Tasks | SamratVsn"
+        title="Tasks — Android To-Do & Pomodoro App | Samrat Parajuli"
         description="Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
+        ogType="article"
+        imageAlt="Tasks — Android task manager built with Kotlin and Jetpack Compose"
         schema={[
           {
             '@context': 'https://schema.org',
@@ -148,7 +150,7 @@ function Tasks() {
       <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
-            <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Android App</p>
+            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
             <h1 className="text-2xl font-bold text-white tracking-[-0.03em] flex items-center gap-3">
               Tasks
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#3B82F6]/10 border border-[#3B82F6]/30 text-[#60A5FA]">
@@ -329,14 +331,14 @@ function Tasks() {
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-500">// Database entities, DAOs, Repositories & DataStore</span></p>
+                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-400">// Database entities, DAOs, Repositories & DataStore</span></p>
                         <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">home/</span> <span className="text-slate-500">// Home screen logic & UI</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-500">// Focus, Profile, Settings, Category, Add/Edit</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-500">// NavHost & Destination definitions</span></p>
-                        <p className="ml-8">│   └── <span className="text-[#3B82F6]">theme/</span> <span className="text-slate-500">// Deep Sea schemes, typography & shapes</span></p>
-                        <p className="ml-4">├── ToDoApp.kt <span className="text-slate-500">// Custom Floating Navigation & Scaffold</span></p>
-                        <p className="ml-4">└── MainActivity.kt <span className="text-slate-500">// Entry point with theme & splash</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">home/</span> <span className="text-slate-400">// Home screen logic & UI</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-400">// Focus, Profile, Settings, Category, Add/Edit</span></p>
+                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-400">// NavHost & Destination definitions</span></p>
+                        <p className="ml-8">│   └── <span className="text-[#3B82F6]">theme/</span> <span className="text-slate-400">// Deep Sea schemes, typography & shapes</span></p>
+                        <p className="ml-4">├── ToDoApp.kt <span className="text-slate-400">// Custom Floating Navigation & Scaffold</span></p>
+                        <p className="ml-4">└── MainActivity.kt <span className="text-slate-400">// Entry point with theme & splash</span></p>
                       </div>
                     </div>
                   </div>
@@ -373,7 +375,7 @@ function Tasks() {
                           { label: 'Build Tool', value: 'Gradle 9.3.1' }
                         ].map((item, i) => (
                           <div key={i} className="flex justify-between p-3 border border-slate-800 rounded-lg">
-                            <span className="text-slate-500 text-sm">{item.label}</span>
+                            <span className="text-slate-400 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
                         ))}
@@ -386,7 +388,7 @@ function Tasks() {
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
                             <span className="text-slate-300 text-sm font-mono">{lib.name}</span>
-                            <span className="text-slate-500 text-sm text-right">{lib.purpose}</span>
+                            <span className="text-slate-400 text-sm text-right">{lib.purpose}</span>
                           </div>
                         ))}
                       </div>
@@ -408,6 +410,8 @@ function Tasks() {
                   >
                     <img
                       src={s.src}
+                      loading="lazy"
+                      decoding="async"
                       alt={s.label}
                       className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity"
                     />
@@ -431,7 +435,7 @@ function Tasks() {
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{spec.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
                     <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
                   </div>
                 ))}
@@ -444,7 +448,7 @@ function Tasks() {
               <div className="space-y-3">
                 {developer.map((dev, i) => (
                   <div key={i}>
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">{dev.label}</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{dev.label}</p>
                     {dev.href ? (
                       <a
                         href={dev.href}
@@ -492,7 +496,7 @@ function Tasks() {
               className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-500 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
             </a>
 
           </div>
@@ -517,6 +521,7 @@ function Tasks() {
             </div>
             <img
               src={selectedImage.src}
+                decoding="async"
               alt={selectedImage.label}
               className="w-full border border-slate-800 rounded-lg"
             />

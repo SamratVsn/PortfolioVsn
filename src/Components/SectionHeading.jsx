@@ -18,7 +18,7 @@ export default function SectionHeading({
         <div className="flex items-center gap-2.5 mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
           <span className="w-8 h-px bg-accent/25" />
-          <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500 font-medium font-mono">
+          <span className="text-[11px] uppercase tracking-[0.14em] text-slate-400 font-medium font-mono">
             {eyebrow}
           </span>
         </div>

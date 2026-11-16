@@ -112,7 +112,7 @@ function CodeCard({ compact = false }) {
         <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
         <span className="w-1.5 h-1.5 rounded-full bg-slate-700" />
         {!compact && (
-          <span className="ml-1 text-[9px] text-slate-500 font-mono">
+          <span className="ml-1 text-[9px] text-slate-400 font-mono">
             Greetings.kt
           </span>
         )}
@@ -123,7 +123,7 @@ function CodeCard({ compact = false }) {
         <code>
           <span className="text-[#3B82F6]">@Composable</span>
           {"\n"}
-          <span className="text-slate-500">fun</span>{" "}
+          <span className="text-slate-400">fun</span>{" "}
           <span className="text-[#93C5FD]">Greeting</span>
           <span className="text-slate-400">
             ({compact ? "" : "name: String"}) {"{"}
@@ -173,7 +173,7 @@ function TasksCard({ compact = false }) {
                 } ${t.done ? "bg-[#3B82F6] border-[#3B82F6]" : "border-slate-700"}`}
               />
               <span
-                className={`leading-tight ${compact ? "text-[6.5px]" : "text-[7.5px]"} ${t.done ? "text-slate-500 line-through" : "text-slate-300"}`}
+                className={`leading-tight ${compact ? "text-[6.5px]" : "text-[7.5px]"} ${t.done ? "text-slate-400 line-through" : "text-slate-300"}`}
               >
                 {t.label}
               </span>
@@ -323,7 +323,7 @@ function StatsRow() {
           <p className="text-sm sm:text-base font-bold text-white leading-none mb-1">
             {value}
           </p>
-          <p className="text-[8px] sm:text-[9px] text-slate-500 leading-tight">
+          <p className="text-[8px] sm:text-[9px] text-slate-400 leading-tight">
             {label}
           </p>
         </div>
@@ -354,11 +354,11 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto w-full relative xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 sm:gap-12 lg:gap-0">
           {/* ── content: badge → headline → copy → pills → CTAs → stats, then (mobile only) the full portrait, then proof points/socials ── */}
-          <motion.div
-            className="lg:basis-[54%] xl:basis-[51%] 2xl:basis-[50%] min-[1920px]:basis-[49%] min-w-0 w-full text-center lg:text-left"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+          {/* CSS entrance animation (instead of framer-motion) so the headline
+              paints with the stylesheet rather than waiting for hydration —
+              this block contains the LCP element on mobile. */}
+          <div
+            className="hero-enter lg:basis-[54%] xl:basis-[51%] 2xl:basis-[50%] min-[1920px]:basis-[49%] min-w-0 w-full text-center lg:text-left"
           >
             <div className="inline-flex items-center gap-2 bg-[#3B82F6]/[0.06] border border-[#3B82F6]/15 rounded-full px-3 py-1.5 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse motion-reduce:animate-none" />
@@ -368,6 +368,7 @@ export default function Hero() {
             </div>
 
             <h1
+              id="hero-heading"
               className="text-[2.1rem] xs:text-[2.5rem] sm:text-5xl lg:text-[3.75rem] leading-[1.06] font-semibold text-white mb-4 tracking-[-0.02em]"
             >
               <span>
@@ -385,7 +386,10 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-400 max-w-md mx-auto lg:mx-0 mb-6 leading-relaxed">
+            <p
+              id="hero-intro"
+              className="text-sm sm:text-base text-slate-400 max-w-md mx-auto lg:mx-0 mb-6 leading-relaxed"
+            >
               I build native Android applications with Kotlin and Jetpack Compose, 
               focusing on thoughtful UI, maintainable architecture, and practical solutions. 
               Based in Kathmandu, Nepal — learning by building and sharing what I discover.
@@ -441,16 +445,11 @@ export default function Hero() {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="hidden lg:flex lg:basis-[44%] xl:basis-[46%] 2xl:basis-[46%] min-[1920px]:basis-[46%] shrink-0 w-full justify-center items-center"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
-          >
+          <div className="hero-enter-visual hidden lg:flex lg:basis-[44%] xl:basis-[46%] 2xl:basis-[46%] min-[1920px]:basis-[46%] shrink-0 w-full justify-center items-center">
             <DesktopHeroVisual />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
