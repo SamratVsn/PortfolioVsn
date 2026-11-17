@@ -51,7 +51,6 @@ export default function Header() {
           <Link
             to="/"
             className="group flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
-            aria-label="Samrat Parajuli, Android Developer — home"
           >
             <span
               aria-hidden="true"
@@ -67,6 +66,7 @@ export default function Header() {
                 Android Developer
               </span>
             </span>
+            <span className="sr-only">— home</span>
           </Link>
 
           {/* Desktop navigation */}

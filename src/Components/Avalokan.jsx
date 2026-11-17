@@ -856,7 +856,7 @@ export default function Avalokan() {
               <span className="flex items-center justify-center gap-2 text-sm font-bold">
                 <Download size={16} /> Download Avalokan v1.0.0
               </span>
-              <span className="text-center text-[11px] font-medium text-ink/70">
+              <span className="text-center text-[11px] font-medium text-ink">
                 Direct APK · 20 MB · Android 7.0+
               </span>
             </a>
