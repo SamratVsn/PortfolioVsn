@@ -3,6 +3,12 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import ScrollToTop from './Components/ScrollToTop.jsx'
+import { applySeed, getStoredSeed } from './Components/theme.js'
+
+// Apply the stored accent seed before React renders. The inline script in
+// index.html handles the very first paint; this keeps the in-memory state in
+// sync for the client render.
+applySeed(getStoredSeed())
 
 const container = document.getElementById('root')
 

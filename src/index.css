@@ -1,20 +1,98 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Design tokens
+   Every colour utility resolves through a `--p-*` custom property, so the
+   accent seeds below can re-theme the whole app at runtime without touching
+   a single component. Tailwind theme keys point at those properties; the
+   literal fallbacks keep the palette readable in this file.
+   ───────────────────────────────────────────────────────────────────────── */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --color-canvas: #020617;
-  --color-surface: #0A101F;
-  --color-elevated: #111827;
-  --color-border: #1e293b;
-  --color-border-subtle: rgba(30, 41, 59, 0.5);
+  /* Surfaces */
+  --color-canvas: var(--p-bg);
+  --color-surface: var(--p-surface);
+  --color-elevated: var(--p-surface-2);
 
-  --color-accent: #3B82F6;
-  --color-accent-hover: #3393FF;
-  --color-accent-muted: rgba(59, 130, 246, 0.12);
-  --color-accent-border: rgba(59, 130, 246, 0.2);
-  --color-accent-glow: rgba(59, 130, 246, 0.15);
+  /* Type */
+  --color-paper: var(--p-text);
+  --color-ink: var(--p-ink);
+  --color-sand: var(--p-sand);
+  --color-terra: var(--p-terra);
+
+  /* Lines */
+  --color-border: var(--p-border);
+  --color-border-subtle: var(--p-border-subtle);
+  --color-border-strong: var(--p-border-strong);
+
+  /* Accent — switches with the colour seed */
+  --color-accent: var(--p-accent);
+  --color-accent-hover: var(--p-accent-hover);
+  --color-accent-soft: var(--p-accent-soft);
+  --color-accent-muted: var(--p-accent-muted);
+  --color-accent-border: var(--p-accent-border);
+
+  /* Warm neutral ramp. Older components are written against Tailwind's
+     slate scale; remapping it here keeps them on-palette instead of
+     rewriting hundreds of class names. */
+  --color-slate-950: #080b09;
+  --color-slate-900: #0e1311;
+  --color-slate-800: #1e2723;
+  --color-slate-700: #2b3631;
+  --color-slate-600: #74827b;
+  --color-slate-500: #7d8b84;
+  --color-slate-400: #a3b1aa;
+  --color-slate-300: #c6d0c9;
+  --color-slate-200: #e1e7e2;
+  --color-slate-100: #f0f3ee;
+  --color-slate-50: #f7f9f5;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Forest Sage — default seed */
+  --p-bg: #0e1311;
+  --p-surface: #151c19;
+  --p-surface-2: #1a2320;
+
+  --p-text: #f5f3ed;
+  --p-text-2: #a3b1aa;
+  --p-sand: #e8d7b7;
+  --p-terra: #c86f4a;
+
+  --p-border: rgba(232, 215, 183, 0.1);
+  --p-border-subtle: rgba(232, 215, 183, 0.06);
+  --p-border-strong: rgba(232, 215, 183, 0.18);
+
+  --p-accent: #6b8f7a;
+  --p-accent-hover: #7ca98f;
+  --p-accent-soft: #97bca5;
+  --p-accent-muted: rgba(107, 143, 122, 0.14);
+  --p-accent-border: rgba(107, 143, 122, 0.32);
+  --p-ink: #0b120e;
+}
+
+/* Kathmandu Terracotta */
+:root[data-seed="terracotta"] {
+  --p-accent: #c86f4a;
+  --p-accent-hover: #d8835f;
+  --p-accent-soft: #e0a184;
+  --p-accent-muted: rgba(200, 111, 74, 0.14);
+  --p-accent-border: rgba(200, 111, 74, 0.34);
+  --p-ink: #150b06;
+}
+
+/* Classic Slate */
+:root[data-seed="slate"] {
+  --p-accent: #7e929c;
+  --p-accent-hover: #93a7b1;
+  --p-accent-soft: #b4c5cd;
+  --p-accent-muted: rgba(126, 146, 156, 0.15);
+  --p-accent-border: rgba(126, 146, 156, 0.34);
+  --p-ink: #0a1013;
 }
 
 @layer base {
@@ -25,41 +103,41 @@
   body {
     font-family: var(--font-sans);
     background-color: var(--color-canvas);
-    color: #e2e8f0;
+    color: var(--p-text-2);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  ::selection {
+    background-color: var(--p-accent-muted);
+    color: var(--p-text);
+  }
+
   * {
     scrollbar-width: thin;
-    scrollbar-color: #1E293B #0F172A;
+    scrollbar-color: #2b3631 var(--p-bg);
   }
 
   /* Global keyboard focus fallback — keeps native focus visible everywhere,
      including elements that don't define their own focus-visible styles. */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--p-accent-soft);
     outline-offset: 2px;
     border-radius: 2px;
   }
+
   *::-webkit-scrollbar {
     width: 5px;
   }
   *::-webkit-scrollbar-track {
-    background: #0F172A;
+    background: var(--p-bg);
   }
   *::-webkit-scrollbar-thumb {
-    background: #1E293B;
+    background: #2b3631;
     border-radius: 3px;
   }
   *::-webkit-scrollbar-thumb:hover {
-    background: #334155;
-  }
-
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 80px;
-    }
+    background: #3d4a44;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -77,22 +155,33 @@
     text-wrap: balance;
   }
 
+  /* Portrait sits on the hero's baseline; the last few percent fade into the
+     page colour so the crop never reads as a hard cut. */
+  .portrait-fade {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 88%, rgba(0, 0, 0, 0.35) 97%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 88%, rgba(0, 0, 0, 0.35) 97%, transparent 100%);
+  }
+
+  .device-bezel {
+    background-image: linear-gradient(160deg, #1c2521 0%, #0a0f0d 55%, #141c18 100%);
+  }
+
   /* Hero entrance: CSS keyframes instead of JS-driven animation so the
      above-the-fold content is painted by the stylesheet, not after hydration.
      The global prefers-reduced-motion rule collapses these to their end state. */
   .hero-enter {
-    animation: hero-enter 0.7s ease-out both;
+    animation: hero-enter 0.6s ease-out both;
   }
 
   .hero-enter-visual {
-    animation: hero-enter-visual 0.9s ease-out 0.15s both;
+    animation: hero-enter-visual 0.75s ease-out 0.1s both;
   }
 }
 
 @keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -103,7 +192,7 @@
 @keyframes hero-enter-visual {
   from {
     opacity: 0;
-    transform: scale(0.96);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;

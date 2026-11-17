@@ -21,7 +21,6 @@ import {
   ListTodo
 } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 import ToDoHome from '../assets/ToDo/Home.png'
 import ToDoAdd from '../assets/ToDo/Add.png'
 import ToDoDetails from '../assets/ToDo/Details.png'
@@ -113,7 +112,7 @@ function Tasks() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="Tasks — Android To-Do & Pomodoro App | Samrat Parajuli"
         description="Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
@@ -147,13 +146,13 @@ function Tasks() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em] flex items-center gap-3">
-              Tasks
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#3B82F6]/10 border border-[#3B82F6]/30 text-[#60A5FA]">
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em] flex items-center gap-3">
+              Tasks{" "}
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent-muted border border-accent-border text-accent-soft">
                 v1.1.0
               </span>
             </h1>
@@ -163,7 +162,7 @@ function Tasks() {
               href={RELEASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+              className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
             >
               <Download size={16} /> Download App
             </a>
@@ -171,7 +170,7 @@ function Tasks() {
               href={REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700/80 text-slate-300 hover:border-slate-600 hover:text-white rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700/80 text-slate-300 hover:border-slate-600 hover:text-paper rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
             >
               <Github size={16} /> View Code
             </a>
@@ -186,7 +185,7 @@ function Tasks() {
           <div className="lg:col-span-2 space-y-12">
 
             {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
               <motion.img
                 layoutId="project-image-/projects/todo"
                 src={ToDoApp}
@@ -200,7 +199,7 @@ function Tasks() {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 A sleek, modern task manager for Android
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -211,12 +210,12 @@ function Tasks() {
                 backed by a clean MVVM + Repository architecture with Room and DataStore persistence.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Focus Sessions</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Focus Sessions</p>
                   <p className="text-sm text-slate-400">Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) for deep-work productivity.</p>
                 </div>
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Category Management</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Category Management</p>
                   <p className="text-sm text-slate-400">Pre-populated categories (Study, Work, etc.) with the ability to add and safely delete custom ones.</p>
                 </div>
               </div>
@@ -231,7 +230,7 @@ function Tasks() {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab
-                        ? 'text-[#3B82F6] border-[#3B82F6]'
+                        ? 'text-accent border-accent'
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -250,42 +249,42 @@ function Tasks() {
                       local persistence for tasks and preferences.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Key Features</h3>
+                      <h3 className="text-paper font-semibold text-sm">Key Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Effortlessly create, edit, and delete tasks with a clean UI</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Global search and category-based filtering</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Pomodoro-style Focus Sessions (15m, 25m, 45m, 60m)</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Real-time profile stats: Created, Completed, Today's Wins</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>System, Light, and "Deep Sea" Dark theme support</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Toggleable reminder notifications</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Pre-populated and custom category management</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Floating navigation bar with elevated FAB</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Custom animations and gradient backgrounds</span>
                         </li>
                       </ul>
@@ -296,11 +295,11 @@ function Tasks() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
-                          <feat.icon size={20} className="text-[#3B82F6] mt-0.5 shrink-0" />
+                          <feat.icon size={20} className="text-accent mt-0.5 shrink-0" />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{feat.title}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{feat.title}</h4>
                             <p className="text-slate-400 text-sm">{feat.detail}</p>
                           </div>
                         </div>
@@ -312,13 +311,13 @@ function Tasks() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Layers size={16} className="text-[#3B82F6]" /> App Architecture
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Layers size={16} className="text-accent" /> App Architecture
                       </h3>
                       <div className="space-y-3">
                         {layers.map((layer, i) => (
-                          <div key={i} className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                            <p className="text-sm text-white font-semibold mb-1">{layer.name}</p>
+                          <div key={i} className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                            <p className="text-sm text-paper font-semibold mb-1">{layer.name}</p>
                             <p className="text-sm text-slate-400">{layer.detail}</p>
                           </div>
                         ))}
@@ -326,17 +325,17 @@ function Tasks() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <FolderTree size={16} className="text-[#3B82F6]" /> Project Structure
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <FolderTree size={16} className="text-accent" /> Project Structure
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-400">// Database entities, DAOs, Repositories & DataStore</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">home/</span> <span className="text-slate-400">// Home screen logic & UI</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">screens/</span> <span className="text-slate-400">// Focus, Profile, Settings, Category, Add/Edit</span></p>
-                        <p className="ml-8">│   ├── <span className="text-[#3B82F6]">navigation/</span> <span className="text-slate-400">// NavHost & Destination definitions</span></p>
-                        <p className="ml-8">│   └── <span className="text-[#3B82F6]">theme/</span> <span className="text-slate-400">// Deep Sea schemes, typography & shapes</span></p>
+                        <p className="ml-4">├── <span className="text-accent">data/</span> <span className="text-slate-400">// Database entities, DAOs, Repositories & DataStore</span></p>
+                        <p className="ml-4">├── <span className="text-accent">ui/</span></p>
+                        <p className="ml-8">│   ├── <span className="text-accent">home/</span> <span className="text-slate-400">// Home screen logic & UI</span></p>
+                        <p className="ml-8">│   ├── <span className="text-accent">screens/</span> <span className="text-slate-400">// Focus, Profile, Settings, Category, Add/Edit</span></p>
+                        <p className="ml-8">│   ├── <span className="text-accent">navigation/</span> <span className="text-slate-400">// NavHost & Destination definitions</span></p>
+                        <p className="ml-8">│   └── <span className="text-accent">theme/</span> <span className="text-slate-400">// Deep Sea schemes, typography & shapes</span></p>
                         <p className="ml-4">├── ToDoApp.kt <span className="text-slate-400">// Custom Floating Navigation & Scaffold</span></p>
                         <p className="ml-4">└── MainActivity.kt <span className="text-slate-400">// Entry point with theme & splash</span></p>
                       </div>
@@ -347,14 +346,14 @@ function Tasks() {
                 {activeTab === 'roadmap' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Download size={16} className="text-[#3B82F6]" /> Future Roadmap
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Download size={16} className="text-accent" /> Future Roadmap
                       </h3>
                       <div className="space-y-3">
                         {roadmap.map((item, i) => (
-                          <div key={i} className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                            <p className="text-sm text-white font-semibold mb-1 flex items-center gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                          <div key={i} className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                            <p className="text-sm text-paper font-semibold mb-1 flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                               {item.title}
                             </p>
                             <p className="text-sm text-slate-400">{item.detail}</p>
@@ -364,8 +363,8 @@ function Tasks() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Cpu size={16} className="text-[#3B82F6]" /> Runtime Environment
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Cpu size={16} className="text-accent" /> Runtime Environment
                       </h3>
                       <div className="space-y-3">
                         {[
@@ -383,7 +382,7 @@ function Tasks() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Libraries Used</h3>
+                      <h3 className="text-paper font-semibold text-sm">Libraries Used</h3>
                       <div className="space-y-2">
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
@@ -400,13 +399,13 @@ function Tasks() {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Screenshots</h3>
+              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {screenshots.map((s, i) => (
                   <div
                     key={i}
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover: transition-all"
                   >
                     <img
                       src={s.src}
@@ -417,7 +416,7 @@ function Tasks() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-0 inset-x-0 p-4">
-                      <p className="text-sm font-semibold text-slate-100 group-hover:text-[#3B82F6] transition-colors">{s.label}</p>
+                      <p className="text-sm font-semibold text-slate-100 group-hover:text-accent-soft transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
                   </div>
@@ -430,8 +429,8 @@ function Tasks() {
           <div className="lg:col-span-1 space-y-6">
 
             {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6">Technical Stack</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-6">Technical Stack</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
@@ -443,8 +442,8 @@ function Tasks() {
             </div>
 
             {/* Developer & Source */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Developer & Source</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Developer & Source</h3>
               <div className="space-y-3">
                 {developer.map((dev, i) => (
                   <div key={i}>
@@ -454,7 +453,7 @@ function Tasks() {
                         href={dev.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-[#3B82F6] hover:text-[#60A5FA] transition-colors font-medium break-words"
+                        className="text-sm text-accent hover:text-accent-soft transition-colors font-medium break-words"
                       >
                         {dev.value}
                       </a>
@@ -467,8 +466,8 @@ function Tasks() {
             </div>
 
             {/* Stack */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'Hilt', 'ViewModel', 'SplashScreen API'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
@@ -483,7 +482,7 @@ function Tasks() {
               href={RELEASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 p-4 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-xl font-bold text-sm transition-all group active:scale-[0.97]"
+              className="flex items-center justify-center gap-2 p-4 bg-accent text-ink hover:bg-accent-hover rounded-xl font-bold text-sm transition-all group active:scale-[0.97]"
             >
               <Download size={16} /> Download App Release
             </a>
@@ -493,10 +492,10 @@ function Tasks() {
               href={REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
+              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-accent-border hover: transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent-soft transition-colors" />
             </a>
 
           </div>
@@ -506,12 +505,12 @@ function Tasks() {
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6"
           onClick={() => setSelectedImage(null)}
         >
           <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-white font-semibold">{selectedImage.label}</h3>
+              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
               <button
                 onClick={() => setSelectedImage(null)}
                 className="p-1 hover:bg-slate-800 rounded transition-colors"
@@ -529,7 +528,6 @@ function Tasks() {
           </div>
         </div>
       )}
-      <BottomNav />
     </div>
   )
 }

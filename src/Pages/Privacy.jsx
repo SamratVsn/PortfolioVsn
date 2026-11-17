@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import BottomNav from "../Components/BottomNav";
 import BackgroundFX from "../Components/BackgroundFX";
 import SEO from "../Components/SEO";
 
@@ -144,7 +143,7 @@ export default function Privacy() {
       />
       <Header />
 
-      <main id="main-content" className="relative pt-28 pb-20 sm:pb-24 px-6">
+      <main id="main-content" className="relative px-6 pb-20 pt-10 sm:pb-24 sm:pt-14">
         <BackgroundFX />
         <div className="max-w-3xl mx-auto min-[1920px]:max-w-4xl relative">
           {/* Header */}
@@ -156,7 +155,7 @@ export default function Privacy() {
                 Legal · Privacy
               </span>
             </div>
-            <h1 className="text-white text-[2.1rem] sm:text-5xl font-bold tracking-[-0.03em] leading-[1.05] mb-4">
+            <h1 className="text-paper text-[2.1rem] sm:text-5xl font-bold tracking-[-0.03em] leading-[1.05] mb-4">
               Privacy Policy
             </h1>
             <p className="text-slate-400 text-[15px] leading-relaxed max-w-2xl">
@@ -175,7 +174,7 @@ export default function Privacy() {
               <section key={s.id} aria-labelledby={s.id} className="scroll-mt-28">
                 <h2
                   id={s.id}
-                  className="text-white text-lg sm:text-xl font-semibold tracking-[-0.02em] mb-3 flex items-center gap-3"
+                  className="text-paper text-lg sm:text-xl font-semibold tracking-[-0.02em] mb-3 flex items-center gap-3"
                 >
                   <span className="w-5 h-px bg-accent/40 shrink-0" />
                   {s.title}
@@ -188,10 +187,10 @@ export default function Privacy() {
           </div>
 
           {/* Back link */}
-          <nav aria-label="Portfolio" className="mt-14 pt-8 border-t border-white/[0.05]">
+          <nav aria-label="Portfolio" className="mt-14 pt-8 border-t border-border">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-paper transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
             >
               <span aria-hidden="true">←</span> Back to the portfolio
             </Link>
@@ -200,7 +199,6 @@ export default function Privacy() {
       </main>
 
       <Footer />
-      <BottomNav />
     </div>
   );
 }

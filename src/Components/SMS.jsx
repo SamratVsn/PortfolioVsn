@@ -5,7 +5,6 @@ import {
   HardDrive, Box, Search, Trash2, Edit, ArrowUpRight, X
 } from 'lucide-react';
 import SEO from './SEO';
-import BottomNav from './BottomNav';
 
 // Assets
 import SMS1 from '../assets/SMS/SMS1.png';
@@ -44,7 +43,7 @@ const SMS = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="Student Management System in C | Samrat Parajuli"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
@@ -75,19 +74,19 @@ const SMS = () => {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">System Software</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              Student Management <span className="text-[#3B82F6]">System</span>
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+              Student Management <span className="text-accent">System</span>
             </h1>
           </div>
           <a 
             href="https://github.com/SamratVsn/C-codes" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -101,7 +100,7 @@ const SMS = () => {
           <div className="lg:col-span-2 space-y-12">
             
             {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
               <motion.img
                 layoutId="project-image-/projects/sms"
                 src={SMS1} 
@@ -114,7 +113,7 @@ const SMS = () => {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 Low-level database engine in C
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -122,9 +121,9 @@ const SMS = () => {
                 This project demonstrates deep understanding of file I/O, memory management, and binary serialization using 
                 the C Standard Library.
               </p>
-              <div className="p-4 bg-[#0A101F]/60 border border-slate-800/70 rounded-xl">
+              <div className="p-4 bg-surface/60 border border-slate-800/70 rounded-xl">
                 <p className="text-sm text-slate-300">
-                  <span className="text-[#3B82F6] font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
+                  <span className="text-accent font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
                   flushing to ensure data persistence even in the event of software interrupt.
                 </p>
               </div>
@@ -139,7 +138,7 @@ const SMS = () => {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab 
-                        ? 'text-[#3B82F6] border-[#3B82F6]' 
+                        ? 'text-accent border-accent' 
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -156,22 +155,22 @@ const SMS = () => {
                       It showcases how modern databases work under the hood by directly manipulating binary data streams.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Core Architecture</h3>
+                      <h3 className="text-paper font-semibold text-sm">Core Architecture</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Binary file storage with struct serialization</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Direct byte-offset navigation using fseek()</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Atomic operations with temporary file swapping</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>In-place updates using rb+ file mode</span>
                         </li>
                       </ul>
@@ -182,11 +181,11 @@ const SMS = () => {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((f, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
-                          <f.icon size={20} className="text-[#3B82F6] mt-1" />
+                          <f.icon size={20} className="text-accent mt-1" />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{f.title}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{f.title}</h4>
                             <p className="text-slate-400 text-sm">{f.desc}</p>
                           </div>
                         </div>
@@ -203,7 +202,7 @@ const SMS = () => {
                         Records became unreadable due to memory alignment differences across architectures.
                       </p>
                       <div className="p-3 bg-slate-900/80 rounded-lg text-xs font-mono text-slate-300">
-                        <span className="text-[#3B82F6]">Solution:</span> #pragma pack(1)
+                        <span className="text-accent">Solution:</span> #pragma pack(1)
                       </div>
                     </div>
                     <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
@@ -220,12 +219,12 @@ const SMS = () => {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Execution Screenshots</h3>
+              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Execution Screenshots</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {screenshots.map((s, i) => (
                   <div 
                     key={i} 
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover: transition-all"
                     onClick={() => setSelectedImage(s)}
                   >
                     <img 
@@ -236,7 +235,7 @@ const SMS = () => {
                       className="w-full h-32 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-[#3B82F6] transition-colors">
+                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-accent-soft transition-colors">
                       {s.label}
                     </p>
                   </div>
@@ -249,9 +248,9 @@ const SMS = () => {
           <div className="lg:col-span-1 space-y-6">
             
             {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6 flex items-center gap-2">
-                <Activity size={16} className="text-[#3B82F6]" />
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-6 flex items-center gap-2">
+                <Activity size={16} className="text-accent" />
                 Specifications
               </h3>
               <div className="space-y-4">
@@ -265,13 +264,13 @@ const SMS = () => {
             </div>
 
             {/* Data Structure */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-                <HardDrive size={16} className="text-[#3B82F6]" />
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4 flex items-center gap-2">
+                <HardDrive size={16} className="text-accent" />
                 Data Structure
               </h3>
               <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl text-xs font-mono text-slate-400 leading-relaxed space-y-1">
-                <div><span className="text-[#3B82F6]">struct</span> Student {`{`}</div>
+                <div><span className="text-accent">struct</span> Student {`{`}</div>
                 <div className="ml-4">
                   <div><span className="text-slate-400">char</span> name[50];</div>
                   <div><span className="text-slate-400">int</span> rollNo;</div>
@@ -282,8 +281,8 @@ const SMS = () => {
             </div>
 
             {/* Stats */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Project Stats</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Lines of Code</span>
@@ -308,12 +307,12 @@ const SMS = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" 
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6" 
           onClick={() => setSelectedImage(null)}
         >
           <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-white font-semibold">{selectedImage.label}</h3>
+              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
               <button 
                 onClick={() => setSelectedImage(null)}
                 className="p-1 hover:bg-slate-800 rounded transition-colors"
@@ -331,7 +330,6 @@ const SMS = () => {
           </div>
         </div>
       )}
-      <BottomNav />
     </div>
   );
 };

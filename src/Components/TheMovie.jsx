@@ -16,7 +16,6 @@ import {
   WifiOff
 } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 import MovieHome from '../assets/TheMovie/Home.png'
 import MovieSearch from '../assets/TheMovie/Search.png'
 import MovieDetails from '../assets/TheMovie/Details.png'
@@ -74,7 +73,7 @@ function TheMovie() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="The Movie App — Android TMDB Client | Samrat Parajuli"
         description="Android movie app using the TMDB API — debounced search, watchlist, Firebase auth, and offline caching. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
@@ -107,12 +106,12 @@ function TheMovie() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              The <span className="text-[#3B82F6]">Movie</span> App
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+              The <span className="text-accent">Movie</span> App
             </h1>
           </div>
           {/* TODO(TheMovie): GitHub URL verified 2026-09 — https://github.com/SamratVsn/TheMovie is the real
@@ -122,7 +121,7 @@ function TheMovie() {
             href="https://github.com/SamratVsn/TheMovie"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -136,7 +135,7 @@ function TheMovie() {
           <div className="lg:col-span-2 space-y-12">
 
             {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
               <motion.img
                 layoutId="project-image-/projects/themovie"
                 src={MoviePoster}
@@ -150,7 +149,7 @@ function TheMovie() {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 Native movie browser powered by the TMDB API
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -160,12 +159,12 @@ function TheMovie() {
                 support on top of a clean Material 3 design with DataStore-backed preferences.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Single Activity</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Single Activity</p>
                   <p className="text-sm text-slate-400">All navigation handled within one MainActivity using Navigation Compose.</p>
                 </div>
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Manual DI</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Manual DI</p>
                   <p className="text-sm text-slate-400">Repositories (Movie, Preferences, Watchlist, Auth) and services are provisioned by MovieApplication and injected into ViewModels via factories.</p>
                 </div>
               </div>
@@ -180,7 +179,7 @@ function TheMovie() {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab
-                        ? 'text-[#3B82F6] border-[#3B82F6]'
+                        ? 'text-accent border-accent'
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -198,38 +197,38 @@ function TheMovie() {
                       with DataStore — all wrapped in a clean MVVM architecture with type-safe navigation.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Core Features</h3>
+                      <h3 className="text-paper font-semibold text-sm">Core Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Browse Popular, Now Playing, and Top Rated sections, plus single-category grids with infinite scroll</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>"Because you like X" recommendations derived from your favorite genre</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Debounced live search with pagination</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Movie details with pull-to-refresh, offline fallback, and a favorite heart toggle with snackbar confirmations</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Persistent Favorites/Watchlist tab</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Firebase Email/Password auth — your signup name becomes your in-app display name</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Profile overview with Settings in the top bar; Settings edits name, bio, and genre picked from the official TMDB list</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Offline support (HTTP disk cache + in-memory cache with stale fallback), pull-to-refresh, and specific error messages with retry</span>
                         </li>
                       </ul>
@@ -240,11 +239,11 @@ function TheMovie() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
-                          <feat.icon size={20} className="text-[#3B82F6] mt-0.5 shrink-0" />
+                          <feat.icon size={20} className="text-accent mt-0.5 shrink-0" />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{feat.title}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{feat.title}</h4>
                             <p className="text-slate-400 text-sm">{feat.detail}</p>
                           </div>
                         </div>
@@ -256,41 +255,41 @@ function TheMovie() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Layers size={16} className="text-[#3B82F6]" /> Layered Architecture
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Layers size={16} className="text-accent" /> Layered Architecture
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Presentation Layer</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Presentation Layer</p>
                           <p className="text-sm text-slate-400">Jetpack Compose screens and ViewModels manage UI state and user interactions.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Data Layer</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Data Layer</p>
                           <p className="text-sm text-slate-400">Repositories and DataStore handle API fetching and local preference persistence.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Network Layer</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Network Layer</p>
                           <p className="text-sm text-slate-400">Retrofit service and API client configuration with Kotlinx Serialization DTOs.</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <FolderTree size={16} className="text-[#3B82F6]" /> Project Structure
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <FolderTree size={16} className="text-accent" /> Project Structure
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>app/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span></p>
+                        <p className="ml-4">├── <span className="text-accent">data/</span></p>
                         <p className="ml-8">│   ├── auth/ <span className="text-slate-400">// AuthRepository, AuthState (Firebase session)</span></p>
                         <p className="ml-8">│   ├── MovieRepository.kt <span className="text-slate-400">// TMDB access + in-memory cache</span></p>
                         <p className="ml-8">│   ├── PreferencesRepository.kt <span className="text-slate-400">// Theme, profile (DataStore)</span></p>
                         <p className="ml-8">│   ├── WatchlistRepository.kt <span className="text-slate-400">// Favorites (DataStore JSON)</span></p>
                         <p className="ml-8">│   ├── MovieErrors.kt <span className="text-slate-400">// HTTP errors → friendly messages</span></p>
                         <p className="ml-8">│   └── UserPreferences.kt <span className="text-slate-400">// ThemeMode, categories, genres</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-400">// Movie / MovieDetail / Genre DTOs</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">network/</span> <span className="text-slate-400">// Retrofit service & OkHttp client</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
+                        <p className="ml-4">├── <span className="text-accent">model/</span> <span className="text-slate-400">// Movie / MovieDetail / Genre DTOs</span></p>
+                        <p className="ml-4">├── <span className="text-accent">network/</span> <span className="text-slate-400">// Retrofit service & OkHttp client</span></p>
+                        <p className="ml-4">├── <span className="text-accent">ui/</span></p>
                         <p className="ml-8">│   ├── components/ <span className="text-slate-400">// Reusable widgets</span></p>
                         <p className="ml-8">│   ├── detail/ <span className="text-slate-400">// Movie detail + favorite toggle</span></p>
                         <p className="ml-8">│   ├── home/ <span className="text-slate-400">// Home + recommendations</span></p>
@@ -306,14 +305,14 @@ function TheMovie() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Design Principles</h3>
+                      <h3 className="text-paper font-semibold text-sm">Design Principles</h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">MVVM + Repository Pattern</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">MVVM + Repository Pattern</p>
                           <p className="text-sm text-slate-400">UI, data, and network concerns stay cleanly separated for maintainability and testing.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Single Activity Architecture</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">Single Activity Architecture</p>
                           <p className="text-sm text-slate-400">All screens flow through one MainActivity with Navigation Compose handling transitions.</p>
                         </div>
                       </div>
@@ -324,8 +323,8 @@ function TheMovie() {
                 {activeTab === 'system' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Cpu size={16} className="text-[#3B82F6]" /> Runtime Environment
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Cpu size={16} className="text-accent" /> Runtime Environment
                       </h3>
                       <div className="space-y-3">
                         {[
@@ -344,7 +343,7 @@ function TheMovie() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Libraries Used</h3>
+                      <h3 className="text-paper font-semibold text-sm">Libraries Used</h3>
                       <div className="space-y-2">
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
@@ -355,9 +354,9 @@ function TheMovie() {
                       </div>
                     </div>
 
-                    <div className="p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-lg">
-                      <p className="text-[#60A5FA] font-semibold text-sm mb-2">Roadmap</p>
-                      <p className="text-sm text-[#93C5FD]/80">
+                    <div className="p-4 bg-accent-muted border border-accent-border rounded-lg">
+                      <p className="text-terra font-semibold text-sm mb-2">Roadmap</p>
+                      <p className="text-sm text-sand/80">
                         Cloud-synced watchlist via Firestore, YouTube trailer embedding, Paging 3 with Room-based
                         caching, Google Sign-In and email verification, and push notifications are planned for
                         future releases.
@@ -370,7 +369,7 @@ function TheMovie() {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Screenshots</h3>
+              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {/* TODO(TheMovie): add a real Favorites-tab screenshot when available (bottom nav is now Home /
     Search / Favorites / Profile). The placeholder below reuses an existing asset.
@@ -379,7 +378,7 @@ function TheMovie() {
                   <div
                     key={i}
                     onClick={() => setSelectedImage(s)}
-                    className={`group relative border ${s.placeholder ? 'border-dashed border-slate-700 bg-slate-900/50' : 'border-slate-800/70 bg-slate-900'} rounded-xl overflow-hidden cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all`}
+                    className={`group relative border ${s.placeholder ? 'border-dashed border-slate-700 bg-slate-900/50' : 'border-slate-800/70 bg-slate-900'} rounded-xl overflow-hidden cursor-pointer hover:border-slate-700/80 hover: transition-all`}
                   >
                     <img
                       src={s.src}
@@ -395,12 +394,12 @@ function TheMovie() {
                       </span>
                     )}
                     {s.placeholder && (
-                      <span className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-cyan-300 bg-cyan-950/80 border border-cyan-700/50 rounded-md">
+                      <span className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-sand bg-sand/10 border border-sand/30 rounded-md">
                         Placeholder
                       </span>
                     )}
                     <div className="absolute bottom-0 inset-x-0 p-4">
-                      <p className="text-sm font-semibold text-slate-100 group-hover:text-[#3B82F6] transition-colors">{s.label}</p>
+                      <p className="text-sm font-semibold text-slate-100 group-hover:text-accent-soft transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
                   </div>
@@ -413,8 +412,8 @@ function TheMovie() {
           <div className="lg:col-span-1 space-y-6">
 
             {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-6">Specifications</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
@@ -426,8 +425,8 @@ function TheMovie() {
             </div>
 
             {/* Key Components */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Core Components</h3>
               <div className="space-y-2">
                 {[
                   'Home (Popular / Now Playing / Top Rated)',
@@ -443,7 +442,7 @@ function TheMovie() {
                   'DataStore Preferences'
                 ].map((comp, i) => (
                   <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     {comp}
                   </div>
                 ))}
@@ -451,8 +450,8 @@ function TheMovie() {
             </div>
 
             {/* Stack */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {['Kotlin', 'Jetpack Compose', 'Material 3', 'Retrofit', 'OkHttp', 'Firebase Auth', 'Coil', 'DataStore', 'Navigation Compose', 'ViewModel', 'Coroutines & Flow', 'Kotlinx Serialization'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
@@ -468,10 +467,10 @@ function TheMovie() {
               href="https://github.com/SamratVsn/TheMovie"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
+              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-accent-border hover: transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent-soft transition-colors" />
             </a>
 
           </div>
@@ -481,12 +480,12 @@ function TheMovie() {
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6"
           onClick={() => setSelectedImage(null)}
         >
           <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-white font-semibold">{selectedImage.label}</h3>
+              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
               <button
                 onClick={() => setSelectedImage(null)}
                 className="p-1 hover:bg-slate-800 rounded transition-colors"
@@ -504,7 +503,6 @@ function TheMovie() {
           </div>
         </div>
       )}
-      <BottomNav />
     </div>
   )
 }

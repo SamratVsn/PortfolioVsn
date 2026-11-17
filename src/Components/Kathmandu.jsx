@@ -16,7 +16,6 @@ import {
   LayoutGrid
 } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 import KathmanduPoster from '../assets/KathmanduPoster.jpeg'
 import { motion } from 'framer-motion';
 
@@ -53,7 +52,7 @@ function Kathmandu() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="Kathmandu My-City — Android App | Samrat Parajuli"
         description="Android app showcasing Kathmandu's temples, shops, and destinations — Kotlin, Jetpack Compose (M3), MVVM, Navigation Compose. Built by Samrat Parajuli."
@@ -86,19 +85,19 @@ function Kathmandu() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              Kathmandu <span className="text-[#3B82F6]">My-City</span>
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+              Kathmandu <span className="text-accent">My-City</span>
             </h1>
           </div>
           <a
             href="https://github.com/SamratVsn/Kathmandu"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -107,7 +106,7 @@ function Kathmandu() {
 
       {/* Poster */}
       <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] my-10">
+        <div className="relative rounded-2xl overflow-hidden border border-border my-10">
           <motion.img
                 layoutId="project-image-/projects/kathmandu"
                 src={KathmanduPoster}
@@ -115,7 +114,7 @@ function Kathmandu() {
             className="w-full h-64 sm:h-80 object-cover"
           
                 style={{ willChange: "transform" }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-canvas via-transparent to-transparent" />
         </div>
       </div>
 
@@ -127,7 +126,7 @@ function Kathmandu() {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 Discover Kathmandu through curated local recommendations
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -137,12 +136,12 @@ function Kathmandu() {
                 destinations — built as the final project for Unit 4 of the Android Basics with Compose course.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Adaptive Layouts</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Adaptive Layouts</p>
                   <p className="text-sm text-slate-400">Responsive UI components that adjust to different screen sizes and orientations.</p>
                 </div>
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Cultural Theming</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Cultural Theming</p>
                   <p className="text-sm text-slate-400">Custom Material 3 color scheme reflecting Kathmandu's cultural aesthetics.</p>
                 </div>
               </div>
@@ -157,7 +156,7 @@ function Kathmandu() {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab
-                        ? 'text-[#3B82F6] border-[#3B82F6]'
+                        ? 'text-accent border-accent'
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -175,26 +174,26 @@ function Kathmandu() {
                       changes through a ViewModel and a reactive Material 3 UI.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Core Features</h3>
+                      <h3 className="text-paper font-semibold text-sm">Core Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Browse Special Places, Temples, Major Shops, and Tourist Destinations</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>View curated recommendations with names, details, and photos</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Smooth transitions between category and location detail screens</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>State preserved across screen rotation via ViewModel</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Full Material 3 theming with a cultural color palette</span>
                         </li>
                       </ul>
@@ -205,11 +204,11 @@ function Kathmandu() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
-                          <feat.icon size={20} className="text-[#3B82F6] mt-0.5 shrink-0" />
+                          <feat.icon size={20} className="text-accent mt-0.5 shrink-0" />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{feat.title}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{feat.title}</h4>
                             <p className="text-slate-400 text-sm">{feat.detail}</p>
                           </div>
                         </div>
@@ -221,34 +220,34 @@ function Kathmandu() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <LayoutGrid size={16} className="text-[#3B82F6]" /> Screen Flow
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <LayoutGrid size={16} className="text-accent" /> Screen Flow
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Start Screen</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Start Screen</p>
                           <p className="text-sm text-slate-400">App entry point that introduces the Kathmandu My-City experience.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Categories Screen</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Categories Screen</p>
                           <p className="text-sm text-slate-400">Browse Special Places, Temples, Major Shops, and Tourist Destinations.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Options Screen</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Options Screen</p>
                           <p className="text-sm text-slate-400">Detailed location cards with names, descriptions, and imagery.</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <FolderTree size={16} className="text-[#3B82F6]" /> Project Structure
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <FolderTree size={16} className="text-accent" /> Project Structure
                       </h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p>com.example.kathmandu/</p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">data/</span> <span className="text-slate-400">// Local data provider (DataSource)</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">model/</span> <span className="text-slate-400">// Places.kt, CityUiState</span></p>
-                        <p className="ml-4">├── <span className="text-[#3B82F6]">ui/</span></p>
+                        <p className="ml-4">├── <span className="text-accent">data/</span> <span className="text-slate-400">// Local data provider (DataSource)</span></p>
+                        <p className="ml-4">├── <span className="text-accent">model/</span> <span className="text-slate-400">// Places.kt, CityUiState</span></p>
+                        <p className="ml-4">├── <span className="text-accent">ui/</span></p>
                         <p className="ml-8">│   ├── theme/ <span className="text-slate-400">// M3 color, type, shapes</span></p>
                         <p className="ml-8">│   ├── CityViewModel.kt <span className="text-slate-400">// Business logic & state</span></p>
                         <p className="ml-8">│   ├── CityScreen.kt <span className="text-slate-400">// Root Composable</span></p>
@@ -258,16 +257,16 @@ function Kathmandu() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Layers size={16} className="text-[#3B82F6]" /> Design Principles
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Layers size={16} className="text-accent" /> Design Principles
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">MVVM + Reactive State</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">MVVM + Reactive State</p>
                           <p className="text-sm text-slate-400">CityViewModel exposes UI state via StateFlow, keeping screens dumb and data-driven.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">State Preservation</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">State Preservation</p>
                           <p className="text-sm text-slate-400">ViewModel-scoped state survives rotation, keeping navigation and selections intact.</p>
                         </div>
                       </div>
@@ -278,8 +277,8 @@ function Kathmandu() {
                 {activeTab === 'system' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Cpu size={16} className="text-[#3B82F6]" /> Build Environment
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Cpu size={16} className="text-accent" /> Build Environment
                       </h3>
                       <div className="space-y-3">
                         {[
@@ -300,7 +299,7 @@ function Kathmandu() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Libraries Used</h3>
+                      <h3 className="text-paper font-semibold text-sm">Libraries Used</h3>
                       <div className="space-y-2">
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
@@ -311,9 +310,9 @@ function Kathmandu() {
                       </div>
                     </div>
 
-                    <div className="p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-lg">
-                      <p className="text-[#60A5FA] font-semibold text-sm mb-2">Roadmap</p>
-                      <p className="text-sm text-[#93C5FD]/80">
+                    <div className="p-4 bg-accent-muted border border-accent-border rounded-lg">
+                      <p className="text-terra font-semibold text-sm mb-2">Roadmap</p>
+                      <p className="text-sm text-sand/80">
                         Real-time place photos, Google Maps integration, user ratings and reviews, a favorites
                         list, and expanded coverage across Nepal's cities are natural next steps.
                       </p>
@@ -328,8 +327,8 @@ function Kathmandu() {
           <div className="lg:col-span-1 space-y-6">
 
             {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-6">Specifications</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
@@ -341,8 +340,8 @@ function Kathmandu() {
             </div>
 
             {/* Key Components */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Core Components</h3>
               <div className="space-y-2">
                 {[
                   'Start / Categories / Options Screens',
@@ -353,7 +352,7 @@ function Kathmandu() {
                   'Navigation Graph'
                 ].map((comp, i) => (
                   <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     {comp}
                   </div>
                 ))}
@@ -361,8 +360,8 @@ function Kathmandu() {
             </div>
 
             {/* Stack */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {['Kotlin', 'Jetpack Compose', 'Material 3', 'Navigation Compose', 'ViewModel', 'StateFlow', 'MVVM', 'Adaptive Layouts'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
@@ -377,10 +376,10 @@ function Kathmandu() {
               href="https://github.com/SamratVsn/Kathmandu"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
+              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-accent-border hover: transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent-soft transition-colors" />
             </a>
 
           </div>
@@ -391,13 +390,13 @@ function Kathmandu() {
       <div className="max-w-6xl mx-auto px-6 pb-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         <Link
           to="/projects/avalokan"
-          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-[#8FBFA4]/25 bg-[#0A101F]/70 backdrop-blur-xl p-5 sm:p-6 transition-all hover:border-[#8FBFA4]/50 hover:shadow-[0_0_28px_-14px_rgba(143,191,164,0.45)]"
+          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-accent-border bg-surface/70 p-5 sm:p-6 transition-all hover:border-accent-border "
         >
           <div>
-            <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#8FBFA4] mb-2">
+            <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-accent-soft mb-2">
               Next chapter · New
             </p>
-            <h3 className="text-white font-semibold text-lg tracking-tight group-hover:text-[#8FBFA4] transition-colors">
+            <h3 className="text-paper font-semibold text-lg tracking-tight group-hover:text-accent-soft transition-colors">
               Avalokan
             </h3>
             <p className="text-sm text-slate-400 mt-1 max-w-xl">
@@ -405,13 +404,12 @@ function Kathmandu() {
               explorer for Nepal — with stories, events, offline caching, and an optional account.
             </p>
           </div>
-          <span className="inline-flex shrink-0 items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-[#04080C] transition-transform group-hover:translate-x-0.5" style={{ backgroundColor: '#8FBFA4' }}>
+          <span className="inline-flex shrink-0 items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-ink transition-transform group-hover:translate-x-0.5" style={{ backgroundColor: 'var(--p-accent)' }}>
             Explore Avalokan <ArrowUpRight size={15} />
           </span>
         </Link>
       </div>
 
-      <BottomNav />
     </div>
   )
 }

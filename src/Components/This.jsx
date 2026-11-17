@@ -1,10 +1,9 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { 
   Code2, Palette, Zap, Layout, ArrowUpRight
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 
 export default function This() {
   const [activeTab, setActiveTab] = useState('about')
@@ -17,7 +16,7 @@ export default function This() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="How This Portfolio Is Built | Samrat Parajuli"
         description="This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np."
@@ -51,10 +50,10 @@ export default function This() {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-            Portfolio <span className="text-[#3B82F6]">Engine v2</span>
+          <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+            Portfolio <span className="text-accent">Engine v2</span>
           </h1>
           <p className="text-sm text-slate-400 mt-1">Built with React, Tailwind CSS & Vercel Edge</p>
         </div>
@@ -64,7 +63,7 @@ export default function This() {
         
         {/* Hero Section */}
         <div className="mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 tracking-[-0.03em]">
+          <h2 className="text-5xl lg:text-6xl font-bold text-paper leading-[1.1] mb-6 tracking-[-0.03em]">
             Modern portfolio architecture with zero friction.
           </h2>
           <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
@@ -80,7 +79,7 @@ export default function This() {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === tab 
-                  ? 'text-[#3B82F6] border-[#3B82F6]' 
+                  ? 'text-accent border-accent' 
                   : 'text-slate-400 border-transparent hover:text-slate-300'
               }`}
             >
@@ -95,7 +94,7 @@ export default function This() {
           {activeTab === 'about' && (
             <div className="space-y-8">
               <div>
-                <h3 className="text-[#3B82F6] text-sm font-semibold uppercase tracking-widest mb-4">Design Philosophy</h3>
+                <h3 className="text-accent text-sm font-semibold uppercase tracking-widest mb-4">Design Philosophy</h3>
                 <p className="text-slate-300 leading-relaxed">
                   The core goal was to build a low-friction portfolio experience. By using React State management, 
                   I eliminated unnecessary page refreshes, creating a fluid single-page application feel. 
@@ -105,7 +104,7 @@ export default function This() {
               </div>
               
               <div>
-                <h3 className="text-[#3B82F6] text-sm font-semibold uppercase tracking-widest mb-4">User Experience Flow</h3>
+                <h3 className="text-accent text-sm font-semibold uppercase tracking-widest mb-4">User Experience Flow</h3>
                 <div className="space-y-3">
                   {[
                     { num: '01', text: 'Router Entry Point Initialization' },
@@ -114,7 +113,7 @@ export default function This() {
                     { num: '04', text: 'Smooth Transitions & Animations' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <span className="text-[#3B82F6] font-semibold text-sm">{item.num}</span>
+                      <span className="text-accent font-semibold text-sm">{item.num}</span>
                       <p className="text-slate-400 text-sm pt-0.5">{item.text}</p>
                     </div>
                   ))}
@@ -126,13 +125,13 @@ export default function This() {
           {activeTab === 'tech' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {techStack.map((tech, idx) => (
-                <div key={idx} className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                <div key={idx} className="p-6 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-slate-900 rounded-lg text-[#3B82F6]">
+                    <div className="p-2 bg-slate-900 rounded-lg text-accent">
                       <tech.icon size={24} />
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1 text-sm">{tech.name}</h3>
+                      <h3 className="text-paper font-semibold mb-1 text-sm">{tech.name}</h3>
                       <p className="text-slate-400 text-sm leading-relaxed">{tech.detail}</p>
                     </div>
                   </div>
@@ -149,11 +148,11 @@ export default function This() {
                 { title: "Responsive Design", detail: "Adaptive grid system that responds seamlessly to all viewports without explicit media queries." },
                 { title: "Dark-Optimized", detail: "Custom slate palette designed for reduced eye strain during extended reading sessions." }
               ].map((feat, i) => (
-                <div key={i} className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
-                  <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">
+                <div key={i} className="p-6 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                  <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">
                     Feature {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="text-white font-semibold mb-2 text-sm">{feat.title}</h3>
+                  <h3 className="text-paper font-semibold mb-2 text-sm">{feat.title}</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">{feat.detail}</p>
                 </div>
               ))}
@@ -164,7 +163,7 @@ export default function This() {
         {/* CTA Section */}
         <div className="mt-20 pt-20 border-t border-slate-800">
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+            <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
               Interested in the architecture?
             </h2>
             <p className="text-slate-400 max-w-xl">
@@ -176,13 +175,13 @@ export default function This() {
                 href="https://github.com/SamratVsn/devPortfoli0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-[#020617] font-semibold px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
+                className="bg-accent hover:bg-accent-hover text-ink font-semibold px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
               >
                 View Full Source <ArrowUpRight size={15} />
               </a>
               <Link 
                 to="/contact"
-                className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white font-medium px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
+                className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-paper font-medium px-6 py-2.5 rounded-lg transition-all inline-flex items-center gap-2 text-sm active:scale-[0.97]"
               >
                 Get in Touch
               </Link>
@@ -191,7 +190,6 @@ export default function This() {
         </div>
 
       </div>
-      <BottomNav />
     </div>
   )
 }

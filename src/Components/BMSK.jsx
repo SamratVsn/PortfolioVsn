@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ArrowUpRight } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
 import BMSK2 from '../assets/BMSK/BMSK2.png'
 
@@ -24,7 +23,7 @@ function BMSK() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="Bank Management System in Kotlin | Samrat Parajuli"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
@@ -55,19 +54,19 @@ function BMSK() {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Backend System</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              Bank Management <span className="text-[#3B82F6]">System</span>
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+              Bank Management <span className="text-accent">System</span>
             </h1>
           </div>
           <a
             href="https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -81,7 +80,7 @@ function BMSK() {
           <div className="lg:col-span-2 space-y-12">
             
             {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
               <motion.img
                 layoutId="project-image-/projects/bmsk"
                 src={BMSK1} 
@@ -94,7 +93,7 @@ function BMSK() {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 Banking system built with Kotlin
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -113,7 +112,7 @@ function BMSK() {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab 
-                        ? 'text-[#3B82F6] border-[#3B82F6]' 
+                        ? 'text-accent border-accent' 
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -130,22 +129,22 @@ function BMSK() {
                       The system manages multiple accounts with transaction handling, validation, and state preservation.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Core Features</h3>
+                      <h3 className="text-paper font-semibold text-sm">Core Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Real-time transaction processing with validation</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Account encapsulation with secure state management</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>UUID-based unique account identification</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Comprehensive error handling for edge cases</span>
                         </li>
                       </ul>
@@ -156,8 +155,8 @@ function BMSK() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
-                        <h4 className="text-white font-semibold text-sm mb-2">{feat.title}</h4>
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                        <h4 className="text-paper font-semibold text-sm mb-2">{feat.title}</h4>
                         <p className="text-slate-400 text-sm">{feat.detail}</p>
                       </div>
                     ))}
@@ -167,7 +166,7 @@ function BMSK() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Class Structure</h3>
+                      <h3 className="text-paper font-semibold text-sm">Class Structure</h3>
                       <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
                         <p><span className="text-purple-400">class</span> <span className="text-cyan-300">Account</span> {`{`}</p>
                         <p className="ml-4"><span className="text-blue-300">val</span> accId: <span className="text-slate-300">String</span></p>
@@ -178,14 +177,14 @@ function BMSK() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Design Principles</h3>
+                      <h3 className="text-paper font-semibold text-sm">Design Principles</h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Encapsulation</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">Encapsulation</p>
                           <p className="text-sm text-slate-400">Private state management for balance variables to prevent external corruption and ensure data integrity.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Polymorphism</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">Polymorphism</p>
                           <p className="text-sm text-slate-400">Interface-based design for different account types (Savings, Current) with specialized behavior.</p>
                         </div>
                       </div>
@@ -196,7 +195,7 @@ function BMSK() {
                 {activeTab === 'system' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Runtime Environment</h3>
+                      <h3 className="text-paper font-semibold text-sm">Runtime Environment</h3>
                       <div className="space-y-3">
                         {[
                           { label: 'Platform', value: 'JVM / Android Runtime' },
@@ -204,7 +203,7 @@ function BMSK() {
                           { label: 'Memory', value: 'Automatic Garbage Collection' },
                           { label: 'Build Tool', value: 'Gradle / Maven' }
                         ].map((item, i) => (
-                          <div key={i} className="flex justify-between p-3 border border-slate-800/70 rounded-xl bg-[#0A101F]/50">
+                          <div key={i} className="flex justify-between p-3 border border-slate-800/70 rounded-xl bg-surface/50">
                             <span className="text-slate-400 text-sm">{item.label}</span>
                             <span className="text-slate-300 text-sm font-medium">{item.value}</span>
                           </div>
@@ -226,7 +225,7 @@ function BMSK() {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Screenshots</h3>
+              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { src: BMSK1, label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
@@ -234,7 +233,7 @@ function BMSK() {
                 ].map((s, i) => (
                   <div 
                     key={i} 
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 hover:border-slate-700/80 hover: transition-all"
                   >
                     <img 
                       src={s.src}
@@ -245,7 +244,7 @@ function BMSK() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute bottom-0 inset-x-0 p-4">
-                      <p className="text-sm font-semibold text-slate-100 group-hover:text-[#3B82F6] transition-colors">{s.label}</p>
+                      <p className="text-sm font-semibold text-slate-100 group-hover:text-accent-soft transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
                   </div>
@@ -258,8 +257,8 @@ function BMSK() {
           <div className="lg:col-span-1 space-y-6">
             
             {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-6">Specifications</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
@@ -271,8 +270,8 @@ function BMSK() {
             </div>
 
             {/* Key Components */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Core Components</h3>
               <div className="space-y-2">
                 {[
                   'Account Management',
@@ -282,7 +281,7 @@ function BMSK() {
                   'Search & Retrieve'
                 ].map((comp, i) => (
                   <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     {comp}
                   </div>
                 ))}
@@ -290,8 +289,8 @@ function BMSK() {
             </div>
 
             {/* Stats */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Project Stats</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Project Stats</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-slate-400">Lines of Code</span>
@@ -311,7 +310,6 @@ function BMSK() {
           </div>
         </div>
       </div>
-      <BottomNav />
     </div>
   )
 }

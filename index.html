@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#020617" />
+    <meta name="theme-color" content="#0E1311" />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
 
@@ -46,7 +46,7 @@
         "@id": "https://www.samratparajuli0.com.np/#person",
         "name": "Samrat Parajuli",
         "alternateName": "SamratVsn",
-        "description": "Emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems.",
+        "description": "Android developer from Kathmandu, Nepal, building native applications with Kotlin, Jetpack Compose, and offline-first architecture.",
         "url": "https://www.samratparajuli0.com.np/",
         "image": "https://www.samratparajuli0.com.np/profile-400.jpg",
         "jobTitle": "Android App Developer",
@@ -95,7 +95,7 @@
     <title>Samrat Parajuli (SamratVsn) | Android App Developer</title>
     <meta
       name="description"
-      content="Portfolio of Samrat Parajuli (SamratVsn), an Android developer based in Nepal specializing in Kotlin, Jetpack Compose, mobile architecture, and high-performance UI/UX systems."
+      content="Portfolio of Samrat Parajuli (SamratVsn), an Android developer in Kathmandu, Nepal — Kotlin, Jetpack Compose, and offline-first architecture."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.samratparajuli0.com.np/" />
@@ -108,7 +108,7 @@
     />
     <meta
       property="og:description"
-      content="Android Developer based in Nepal specializing in Kotlin and Jetpack Compose. Building the future of mobile systems."
+      content="Android developer in Kathmandu, Nepal. I build offline-first Android apps in Kotlin and Jetpack Compose — most recently Avalokan v1.0.0."
     />
     <meta
       property="og:image"
@@ -131,7 +131,7 @@
     />
     <meta
       name="twitter:description"
-      content="Android App Developer based in Nepal specializing in Kotlin and Jetpack Compose. Building the future of mobile systems."
+      content="Android developer in Kathmandu, Nepal. I build offline-first Android apps in Kotlin and Jetpack Compose — most recently Avalokan v1.0.0."
     />
     <meta
       name="twitter:image"
@@ -145,8 +145,21 @@
     />
     <!-- ROUTE_SEO_END -->
     <meta name="msvalidate.01" content="10C81FC930825CB96F21B1FFF7438979" />
+
+    <!-- Accent seed: applied before first paint so a stored choice never flashes
+         the default palette. Kept inline and tiny; no network, no tracking. -->
+    <script>
+      (function () {
+        try {
+          var seed = localStorage.getItem("sp-accent-seed");
+          if (seed === "terracotta" || seed === "slate") {
+            document.documentElement.setAttribute("data-seed", seed);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body style="background-color: #020617">
+  <body style="background-color: #0E1311">
     <div id="root"></div>
 
     <script type="module" src="/src/main.jsx"></script>

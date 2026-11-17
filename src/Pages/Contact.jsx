@@ -3,7 +3,6 @@ import { Mail, Github, Linkedin, MapPin, ArrowUpRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
-import BottomNav from '../Components/BottomNav';
 import SEO from '../Components/SEO';
 import BackgroundFX from '../Components/BackgroundFX';
 
@@ -108,7 +107,7 @@ const Contact = () => {
       <Header />
       <BackgroundFX />
 
-      <main id="main-content" className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+      <main id="main-content" className="relative max-w-6xl mx-auto px-6 pt-10 pb-20 sm:pt-14 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
           {/* LEFT — Contact Info (2 cols) */}
@@ -117,7 +116,7 @@ const Contact = () => {
               <p className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70 mb-5">
                 01 · Contact
               </p>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-[-0.03em] mb-4">
+              <h1 className="text-4xl lg:text-5xl font-bold text-paper leading-[1.1] tracking-[-0.03em] mb-4">
                 Let&apos;s work together.
               </h1>
               <p className="text-[15px] text-slate-400 leading-relaxed max-w-md">
@@ -130,14 +129,14 @@ const Contact = () => {
             <div className="space-y-4">
               <a
                 href="mailto:samratvsn@gmail.com"
-                className="group flex items-start gap-4 p-4 rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-200"
+                className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-surface/60 hover:border-accent/20 transition-colors duration-200"
               >
                 <div className="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors mt-0.5">
                   <Mail size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-1">Email</p>
-                  <p className="text-sm text-white group-hover:text-accent transition-colors font-medium truncate">samratvsn@gmail.com</p>
+                  <p className="text-sm text-paper group-hover:text-accent transition-colors font-medium truncate">samratvsn@gmail.com</p>
                   <p className="text-xs text-slate-400 mt-1">Best way to reach me</p>
                 </div>
                 <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
@@ -147,14 +146,14 @@ const Contact = () => {
                 href="https://github.com/SamratVsn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-4 rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-200"
+                className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-surface/60 hover:border-accent/20 transition-colors duration-200"
               >
                 <div className="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors mt-0.5">
                   <Github size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-1">GitHub</p>
-                  <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">github.com/SamratVsn</p>
+                  <p className="text-sm text-paper group-hover:text-accent transition-colors font-medium">github.com/SamratVsn</p>
                   <p className="text-xs text-slate-400 mt-1">See my work</p>
                 </div>
                 <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
@@ -164,14 +163,14 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/samratvsn/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-4 rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md hover:border-accent/20 transition-colors duration-200"
+                className="group flex items-start gap-4 p-4 rounded-2xl border border-border bg-surface/60 hover:border-accent/20 transition-colors duration-200"
               >
                 <div className="p-2.5 rounded-xl bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors mt-0.5">
                   <Linkedin size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 mb-1">LinkedIn</p>
-                  <p className="text-sm text-white group-hover:text-accent transition-colors font-medium">linkedin.com/in/samratvsn</p>
+                  <p className="text-sm text-paper group-hover:text-accent transition-colors font-medium">linkedin.com/in/samratvsn</p>
                   <p className="text-xs text-slate-400 mt-1">Connect with me</p>
                 </div>
                 <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent transition-colors opacity-0 group-hover:opacity-100 mt-1 shrink-0" />
@@ -183,7 +182,7 @@ const Contact = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-accent mt-0.5" />
                 <div>
-                  <p className="text-white font-semibold text-sm">Kathmandu, Nepal</p>
+                  <p className="text-paper font-semibold text-sm">Kathmandu, Nepal</p>
                   <p className="text-xs text-slate-400 mt-0.5">Available for remote &amp; in-person collaboration</p>
                 </div>
               </div>
@@ -191,7 +190,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT — Contact Form (3 cols) */}
-          <div className="lg:mt-40 sm:mt-10 lg:col-span-3">
+          <div className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-400 block mb-2">
@@ -205,8 +204,8 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Ram, Shyam, Sita..."
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
+                  placeholder="Your name"
+                  className="w-full bg-surface/60 border border-border rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
                 />
               </div>
 
@@ -223,7 +222,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all text-sm"
+                  className="w-full bg-surface/60 border border-border rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all text-sm"
                 />
               </div>
 
@@ -239,7 +238,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Tell me about your project, idea, or just say hello..."
-                  className="w-full bg-surface/60 border border-white/[0.05] rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 backdrop-blur-md transition-all resize-none text-sm leading-relaxed"
+                  className="w-full bg-surface/60 border border-border rounded-xl px-4 py-3 text-slate-300 placeholder:text-slate-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-all resize-none text-sm leading-relaxed"
                 />
               </div>
 
@@ -248,8 +247,8 @@ const Contact = () => {
                 disabled={sending}
                 className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2 ${
                   sending
-                    ? 'bg-surface text-slate-400 cursor-not-allowed border border-white/[0.05]'
-                    : 'bg-[#2563eb] text-white hover:bg-[#1d4ed8] active:scale-[0.97]'
+                    ? 'bg-surface text-slate-400 cursor-not-allowed border border-border'
+                    : 'bg-accent text-ink hover:bg-accent-hover active:scale-[0.97]'
                 }`}
               >
                 {sending ? 'Sending...' : 'Send Message'}
@@ -289,14 +288,14 @@ const Contact = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-24 pt-16 border-t border-white/[0.05]">
+        <div className="mt-24 pt-16 border-t border-border">
           <div className="text-center">
             <p className="text-slate-400 mb-6 max-w-xl mx-auto">
               Prefer to reach out directly? My inbox is always open. No form? No problem.
             </p>
             <a
               href="mailto:samratvsn@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-surface/60 border border-white/[0.05] backdrop-blur-md hover:border-accent/20 rounded-xl text-slate-300 hover:text-accent transition-colors font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-surface/60 border border-border hover:border-accent/20 rounded-xl text-slate-300 hover:text-accent transition-colors font-medium"
             >
               <Mail size={16} />
               Email me directly
@@ -306,7 +305,6 @@ const Contact = () => {
       </main>
 
       <Footer />
-      <BottomNav />
     </div>
   );
 };

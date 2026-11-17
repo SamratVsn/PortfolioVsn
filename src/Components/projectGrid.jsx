@@ -5,147 +5,10 @@ import { Github, ExternalLink, ArrowUpRight, FolderOpen, Sparkles, Download } fr
 import PageHeader from "./PageHeader";
 import SectionHeading from "./SectionHeading";
 import CategoryFilter from "./CategoryFilter";
-
-import Tasks from "../assets/ToDo/Home.png";
-import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
-import BlogVsnB1 from '../assets/BlogVsn/B1.png';
-import SMS1 from '../assets/SMS/SMS1.png';
-import Portfolio from "../assets/Profile.webp"
-import BMSK from '../assets/BMSK/BMSK1.png'
-import Kathmandu from '../assets/KathmanduPoster.jpeg'
-import JuicePoster from '../assets/JuicePoster.jpeg'
-import AvalokanHome from '../assets/Avalokan/home.png'
-
-const screenshots = {
-  '/projects/avalokan': AvalokanHome,
-  '/projects/todo': Tasks,
-  '/projects/themovie': MoviePoster,
-  '/projects/blogvsn': BlogVsnB1,
-  '/projects/sms': SMS1,
-  '/projects/this': Portfolio,
-  '/projects/bmsk': BMSK,
-  '/projects/kathmandu': Kathmandu,
-  '/projects/juicetracker': JuicePoster,
-};
-
-const PROJECTS = [
-  {
-    id: "avalokan",
-    category: "Android",
-    featured: true,
-    isNew: true,
-    title: "Avalokan",
-    problem: "Nepal's heritage is scattered across dozens of sources — places, stories, festivals, and events each live somewhere else.",
-    solution: "Built a native Android heritage explorer that brings places, stories, and events into one app — Firestore-backed, offline-first with Room, and designed around Nepal's landscape.",
-    learning: "Learned to design a repository layer that merges a live cloud stream with a local cache, wire Hilt across an app-wide graph, and shape a product's identity from a real cultural brief.",
-    tags: ["Kotlin", "Jetpack Compose", "Firebase"],
-    github: "https://github.com/SamratVsn/Avalokan",
-    download: "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk",
-    path: "/projects/avalokan"
-  },
-  {
-    id: "themovie",
-    category: "Android",
-    featured: true,
-    title: "The Movie App",
-    problem: "I wanted to build a real-world Android app that talks to a live REST API and handles real user data.",
-    solution: "Built a Jetpack Compose app in Kotlin using the TMDB API, with movie browsing, search, details, profile, and DataStore-backed settings.",
-    learning: "Learned client-server architecture end to end — Retrofit networking, Kotlinx Serialization, reactive state with Coroutines & Flow, and MVVM with manual DI.",
-    tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
-    github: "https://github.com/SamratVsn/TheMovie",
-    path: "/projects/themovie"
-  },
-  {
-    id: "todo",
-    category: "Android",
-    featured: true,
-    title: "Tasks",
-    problem: "I wanted a lightweight task manager and a real project to apply modern Android architecture.",
-    solution: "Built a Jetpack Compose app in Kotlin using MVVM + Repository, with Room persistence, Pomodoro-style focus sessions, smart reminders, and type-safe navigation.",
-    learning: "Learned clean layering between UI, domain, and data, plus reactive state handling with StateFlow and Coroutines.",
-    tags: ["Kotlin", "Jetpack Compose", "Room"],
-    github: "http://github.com/SamratVsn/Tasks",
-    path: "/projects/todo"
-  },
-  {
-    id: "kathmandu",
-    category: "Android",
-    featured: true,
-    title: "Kathmandu My-City App",
-    problem: "I wanted to build a real app that showcases my city and completes the Android Basics with Compose course.",
-    solution: "Built a Jetpack Compose recommendation app featuring Kathmandu's special places, temples, shops, and tourist destinations with MVVM and Navigation Compose.",
-    learning: "Practiced Material 3 theming, ViewModel-backed state preservation across rotations, and adaptive layouts for different screen sizes.",
-    tags: ["Kotlin", "Jetpack Compose", "Material 3"],
-    github: "https://github.com/SamratVsn/Kathmandu",
-    path: "/projects/kathmandu"
-  },
-  {
-    id: "juicetracker",
-    category: "Android",
-    featured: false,
-    title: "Juice Tracker",
-    problem: "I wanted to explore how Jetpack Compose integrates with traditional Android Views while building something useful.",
-    solution: "Built a Kotlin app that logs juice combinations, details, and ratings using Room for local persistence and a UI that mixes Compose with RecyclerView.",
-    learning: "Learned Compose-View interoperability, Room database integration, and reactive state with StateFlow inside an MVVM structure.",
-    tags: ["Kotlin", "Compose + Views", "Room"],
-    github: "https://github.com/SamratVsn/Juicetracker",
-    path: "/projects/juicetracker"
-  },
-  {
-    id: "blogvsn",
-    category: "Web",
-    featured: false,
-    title: "BlogVsn Platform",
-    problem: "I wanted a fast blog site where content is managed separately from the frontend.",
-    solution: "Connected a React website to Google's Blogger API so I can write posts in Blogger and have them appear on the site automatically.",
-    learning: "Learned how OAuth authentication works, how to fetch data from REST APIs, and how to deploy with edge caching for speed.",
-    tags: ["React", "OAuth", "REST API"],
-    github: "https://github.com/SamratVsn/BlogVsn",
-    live: "https://blogvsn.vercel.app/",
-    path: "/projects/blogvsn"
-  },
-  {
-    id: "portfolio",
-    category: "Web",
-    featured: false,
-    title: "Portfolio Website",
-    problem: "I needed a portfolio that looks professional and shows who I am without feeling generic.",
-    solution: "Built this site with React and Tailwind CSS, focusing on clean design and clear storytelling about my work.",
-    learning: "Practiced React component design, responsive layouts, and making deliberate UX choices.",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/SamratVsn",
-    live: "https://www.samratparajuli0.com.np",
-    path: "/projects/this"
-  },
-  {
-    id: "sms",
-    category: "C",
-    featured: false,
-    title: "Student Management System",
-    problem: "I needed a way to store and manage student records persistently without using a database.",
-    solution: "Built a program in C that saves data directly to a file and lets you add, search, update, and delete records.",
-    learning: "Learned how files work at a low level — reading and writing data byte by byte, and keeping data safe even if the program crashes.",
-    tags: ["C", "Binary I/O", "CLI"],
-    github: "https://github.com/SamratVsn/C-codes",
-    path: "/projects/sms"
-  },
-  {
-    id: "bmsk",
-    category: "Experiments",
-    featured: false,
-    title: "Bank Account Manager",
-    problem: "I wanted to understand how banking applications handle accounts and transactions securely.",
-    solution: "Created a Kotlin program with account creation, deposits, withdrawals, and balance checks — all with proper error handling.",
-    learning: "Practiced object-oriented programming concepts like encapsulation, state management, and designing clean interfaces.",
-    tags: ["Kotlin", "OOP", "CLI"],
-    github: "https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt",
-    path: "/projects/bmsk"
-  },
-];
+import { PROJECTS, screenshots } from "../data/projects";
 
 const CATEGORIES = ["All", "Android", "Web", "C", "Experiments"];
-
-const TAG_DOT_COLORS = ["#7F52FF", "#3DDC84", "#4285F4"];
+const TAG_DOT_COLORS = ["var(--p-accent-soft)", "var(--p-sand)", "var(--p-terra)"];
 
 const staggerContainer = {
   hidden: {},
@@ -165,7 +28,7 @@ const cardVariants = {
 
 function CategoryChip({ category }) {
   return (
-    <span className="absolute top-4 left-5 inline-flex items-center rounded-md border border-white/10 bg-canvas/70 backdrop-blur px-2 py-0.5 text-[9px] font-mono font-medium uppercase tracking-widest text-slate-300">
+    <span className="absolute left-5 top-4 inline-flex items-center rounded-md border border-border bg-canvas/80 px-2 py-0.5 text-[9px] font-mono font-medium uppercase tracking-widest text-slate-300">
       {category}
     </span>
   );
@@ -173,7 +36,7 @@ function CategoryChip({ category }) {
 
 function NewBadge() {
   return (
-    <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-md border border-[#8FBFA4]/35 bg-[#8FBFA4]/12 backdrop-blur px-2 py-0.5 text-[9px] font-mono font-semibold uppercase tracking-widest text-[#8FBFA4]">
+    <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-md border border-accent-border bg-accent-muted px-2 py-0.5 text-[9px] font-mono font-semibold uppercase tracking-widest text-accent-soft">
       <Sparkles size={9} />
       New
     </span>
@@ -186,7 +49,7 @@ function TagsRow({ tags }) {
       {tags.map((tag, i) => (
         <span
           key={tag}
-          className="inline-flex items-center gap-1.5 text-[10px] text-slate-400 bg-white/[0.02] border border-white/[0.04] px-2.5 py-1 rounded-full transition-colors duration-300 group-hover:border-white/[0.08]"
+          className="inline-flex items-center gap-1.5 text-[10px] text-slate-400 bg-surface/40 border border-border px-2.5 py-1 rounded-full transition-colors duration-300 group-hover:border-border"
         >
           <span
             className="w-1 h-1 rounded-full shrink-0"
@@ -201,7 +64,7 @@ function TagsRow({ tags }) {
 
 function ProjectLinks({ project }) {
   return (
-    <div className="mt-auto flex items-center gap-3 pt-4 border-t border-white/[0.04]">
+    <div className="mt-auto flex items-center gap-3 pt-4 border-t border-border">
       {project.github && (
         <a
           href={project.github}
@@ -236,7 +99,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-slate-400 hover:text-[#8FBFA4] transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          className="relative z-20 flex items-center gap-1.5 rounded text-slate-400 transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           title={`Download ${project.title} APK`}
           aria-label={`Download ${project.title} APK`}
         >
@@ -253,6 +116,18 @@ function ProjectLinks({ project }) {
   );
 }
 
+/* ── status line (only rendered when a release is verified) ───────────────── */
+
+function ProjectStatus({ project }) {
+  if (!project.status) return null;
+  return (
+    <p className="mb-2 inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-accent-soft">
+      <span aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+      {project.status}
+    </p>
+  );
+}
+
 /* ── featured card (larger, stronger emphasis) ─────────────────────────────── */
 
 function FeaturedCard({ project, wide = false }) {
@@ -262,8 +137,8 @@ function FeaturedCard({ project, wide = false }) {
   return (
     <motion.article
       variants={cardVariants}
-      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md transition-all duration-300 hover:border-accent/20 focus-within:border-accent/40 ${
-        wide ? "lg:col-span-2 md:flex-row" : ""
+      className={`group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-300 hover:border-accent-border focus-within:border-accent-border ${
+        wide ? "md:col-span-2 md:flex-row lg:col-span-2" : ""
       }`}
     >
       <Link
@@ -297,8 +172,9 @@ function FeaturedCard({ project, wide = false }) {
           wide ? "p-6 sm:p-8" : "p-6"
         }`}
       >
+        <ProjectStatus project={project} />
         <h3
-          className={`font-semibold text-white mb-2 group-hover:text-accent transition-colors duration-300 ${
+          className={`mb-2 font-semibold text-paper transition-colors duration-300 group-hover:text-accent-soft ${
             wide ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
           }`}
         >
@@ -329,7 +205,7 @@ function ProjectCard({ project }) {
   return (
     <motion.article
       variants={cardVariants}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.05] bg-surface/60 backdrop-blur-md transition-all duration-300 hover:border-accent/20 focus-within:border-accent/40"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-300 hover:border-accent-border focus-within:border-accent-border"
     >
       <Link
         to={project.path}
@@ -352,7 +228,8 @@ function ProjectCard({ project }) {
       </div>
 
       <div className="flex-1 flex flex-col p-5">
-        <h3 className="text-base font-semibold text-white mb-2 group-hover:text-accent transition-colors duration-300">
+        <ProjectStatus project={project} />
+        <h3 className="mb-2 text-base font-semibold text-paper transition-colors duration-300 group-hover:text-accent-soft">
           {project.title}
         </h3>
         <p className="text-slate-400 text-[13px] leading-relaxed mb-4 line-clamp-2">
@@ -388,7 +265,7 @@ export default function ProjectGrid() {
             Projects<span className="text-accent">.</span>
           </>
         }
-        description="Things I've built while learning, experimenting, and solving problems with software."
+        description="Applications I designed, built, and shipped — then the coursework and experiments that taught me how."
       />
 
       <CategoryFilter
@@ -401,9 +278,9 @@ export default function ProjectGrid() {
       {featured.length > 0 && (
         <section className="mb-14 sm:mb-16">
           <SectionHeading
-            eyebrow="Featured"
-            title="Featured Projects"
-            subtitle="The projects I consider most important — where architecture, UI, and real engineering decisions came together."
+            eyebrow="Applications"
+            title="Featured Applications"
+            subtitle="Original apps where product thinking, architecture, and UI decisions came together — led by Avalokan, an offline-first Android app built for Nepal."
           />
           <motion.div
             key={`featured-${activeCategory}`}
@@ -426,9 +303,9 @@ export default function ProjectGrid() {
       {others.length > 0 && (
         <section>
           <SectionHeading
-            eyebrow="More"
-            title="Other Projects"
-            subtitle="Experiments, smaller applications, and earlier work that shaped how I think."
+            eyebrow="Foundations"
+            title="Foundations & Coursework"
+            subtitle="Course projects and experiments that built the fundamentals — kept here honestly, not presented as shipped products."
           />
           <motion.div
             key={`others-${activeCategory}`}
@@ -445,9 +322,9 @@ export default function ProjectGrid() {
       )}
 
       {!hasAny && (
-        <div className="flex flex-col items-center justify-center border border-white/[0.05] rounded-2xl py-20 px-6 text-center">
+        <div className="flex flex-col items-center justify-center rounded-xl border border-border py-20 px-6 text-center">
           <FolderOpen size={28} className="text-slate-400 mb-4" />
-          <p className="text-white text-sm font-medium mb-1">
+          <p className="text-paper text-sm font-medium mb-1">
             Nothing here yet
           </p>
           <p className="text-slate-400 text-sm max-w-sm">

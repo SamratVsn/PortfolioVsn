@@ -14,7 +14,6 @@ import {
   Boxes
 } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 import JuicePoster from '../assets/JuicePoster.jpeg'
 import { motion } from 'framer-motion';
 
@@ -49,7 +48,7 @@ function JuiceTracker() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="Juice Tracker — Android App in Kotlin | Samrat Parajuli"
         description="Android app for tracking juice combinations and ratings — Kotlin, MVVM, Room, and Jetpack Compose + View interoperability. Built by Samrat Parajuli."
@@ -82,19 +81,19 @@ function JuiceTracker() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              Juice <span className="text-[#3B82F6]">Tracker</span>
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+              Juice <span className="text-accent">Tracker</span>
             </h1>
           </div>
           <a
             href="https://github.com/SamratVsn/Juicetracker"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
           >
             <Github size={16} /> View Code
           </a>
@@ -103,7 +102,7 @@ function JuiceTracker() {
 
       {/* Poster */}
       <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] my-10">
+        <div className="relative rounded-2xl overflow-hidden border border-border my-10">
           <motion.img
                 layoutId="project-image-/projects/juicetracker"
                 src={JuicePoster}
@@ -111,7 +110,7 @@ function JuiceTracker() {
             className="w-full h-64 sm:h-80 object-cover"
           
                 style={{ willChange: "transform" }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-canvas via-transparent to-transparent" />
         </div>
       </div>
 
@@ -123,7 +122,7 @@ function JuiceTracker() {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 Track juice combinations with modern Android architecture
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -133,12 +132,12 @@ function JuiceTracker() {
                 StateFlow state.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Views → Compose</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Views → Compose</p>
                   <p className="text-sm text-slate-400">Demonstrates a real migration path from XML Views to Jetpack Compose, mixing both in one app.</p>
                 </div>
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Local-first</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Local-first</p>
                   <p className="text-sm text-slate-400">All data stays on-device in a Room database — no network layer, instant responsiveness.</p>
                 </div>
               </div>
@@ -153,7 +152,7 @@ function JuiceTracker() {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab
-                        ? 'text-[#3B82F6] border-[#3B82F6]'
+                        ? 'text-accent border-accent'
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -171,26 +170,26 @@ function JuiceTracker() {
                       blends Jetpack Compose with classic Android Views.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Core Features</h3>
+                      <h3 className="text-paper font-semibold text-sm">Core Features</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Log juice entries with name, description, color, and rating</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Persist everything locally with the Room database</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Embed Compose UI inside a RecyclerView-based screen</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Reactive updates driven by Kotlin StateFlow</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>MVVM separation between UI, ViewModel, and data layers</span>
                         </li>
                       </ul>
@@ -201,11 +200,11 @@ function JuiceTracker() {
                 {activeTab === 'features' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
-                          <feat.icon size={20} className="text-[#3B82F6] mt-0.5 shrink-0" />
+                          <feat.icon size={20} className="text-accent mt-0.5 shrink-0" />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{feat.title}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{feat.title}</h4>
                             <p className="text-slate-400 text-sm">{feat.detail}</p>
                           </div>
                         </div>
@@ -217,52 +216,52 @@ function JuiceTracker() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Layers size={16} className="text-[#3B82F6]" /> Layered Architecture
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Layers size={16} className="text-accent" /> Layered Architecture
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Presentation Layer</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Presentation Layer</p>
                           <p className="text-sm text-slate-400">Activities, Fragments, and Compose UI observe ViewModel state via StateFlow.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">ViewModel Layer</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">ViewModel Layer</p>
                           <p className="text-sm text-slate-400">Exposes UI state and business actions while keeping the UI free of persistence logic.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-1">Data Layer</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-1">Data Layer</p>
                           <p className="text-sm text-slate-400">Room entities, DAOs, and database handle all local persistence.</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Boxes size={16} className="text-[#3B82F6]" /> UI Interoperability
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Boxes size={16} className="text-accent" /> UI Interoperability
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Compose in a RecyclerView</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">Compose in a RecyclerView</p>
                           <p className="text-sm text-slate-400">Composable items are embedded directly inside View-based lists, proving incremental adoption works.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Incremental Migration</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">Incremental Migration</p>
                           <p className="text-sm text-slate-400">XML screens coexist with Compose elements, mirroring how real apps adopt Compose gradually.</p>
                         </div>
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <GitBranch size={16} className="text-[#3B82F6]" /> Design Principles
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <GitBranch size={16} className="text-accent" /> Design Principles
                       </h3>
                       <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">MVVM with StateFlow</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">MVVM with StateFlow</p>
                           <p className="text-sm text-slate-400">Single source of truth flows from Room through ViewModels to the UI reactively.</p>
                         </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-white font-semibold mb-2">Local-first Design</p>
+                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
+                          <p className="text-sm text-paper font-semibold mb-2">Local-first Design</p>
                           <p className="text-sm text-slate-400">No network layer — every interaction is instantly reflected from the local database.</p>
                         </div>
                       </div>
@@ -273,8 +272,8 @@ function JuiceTracker() {
                 {activeTab === 'system' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
-                        <Cpu size={16} className="text-[#3B82F6]" /> Build Environment
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
+                        <Cpu size={16} className="text-accent" /> Build Environment
                       </h3>
                       <div className="space-y-3">
                         {[
@@ -294,7 +293,7 @@ function JuiceTracker() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Libraries Used</h3>
+                      <h3 className="text-paper font-semibold text-sm">Libraries Used</h3>
                       <div className="space-y-2">
                         {libraries.map((lib, i) => (
                           <div key={i} className="flex justify-between gap-4 p-3 border border-slate-800 rounded-lg">
@@ -305,9 +304,9 @@ function JuiceTracker() {
                       </div>
                     </div>
 
-                    <div className="p-4 bg-[#3B82F6]/10 border border-[#3B82F6]/30 rounded-lg">
-                      <p className="text-[#60A5FA] font-semibold text-sm mb-2">Roadmap</p>
-                      <p className="text-sm text-[#93C5FD]/80">
+                    <div className="p-4 bg-accent-muted border border-accent-border rounded-lg">
+                      <p className="text-terra font-semibold text-sm mb-2">Roadmap</p>
+                      <p className="text-sm text-sand/80">
                         Fully migrating remaining Views to Compose, adding recipe templates, image support, and
                         search/filtering are natural next steps for the tracker.
                       </p>
@@ -322,8 +321,8 @@ function JuiceTracker() {
           <div className="lg:col-span-1 space-y-6">
 
             {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-6">Specifications</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-6">Specifications</h3>
               <div className="space-y-4">
                 {specs.map((spec, i) => (
                   <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
@@ -335,8 +334,8 @@ function JuiceTracker() {
             </div>
 
             {/* Key Components */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Core Components</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Core Components</h3>
               <div className="space-y-2">
                 {[
                   'Juice Entry Form',
@@ -347,7 +346,7 @@ function JuiceTracker() {
                   'Rating & Color Fields'
                 ].map((comp, i) => (
                   <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     {comp}
                   </div>
                 ))}
@@ -355,8 +354,8 @@ function JuiceTracker() {
             </div>
 
             {/* Stack */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Tech Stack</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
                 {['Kotlin', 'Jetpack Compose', 'XML Views', 'Room', 'ViewModel', 'Coroutines', 'StateFlow', 'RecyclerView', 'MVVM'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
@@ -371,16 +370,15 @@ function JuiceTracker() {
               href="https://github.com/SamratVsn/Juicetracker"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-[#3B82F6]/50 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all group"
+              className="flex items-center justify-between p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-accent-border hover: transition-all group"
             >
               <span className="text-sm text-slate-300 font-medium">View full README</span>
-              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-[#3B82F6] transition-colors" />
+              <ArrowUpRight size={16} className="text-slate-400 group-hover:text-accent-soft transition-colors" />
             </a>
 
           </div>
         </div>
       </div>
-      <BottomNav />
     </div>
   )
 }

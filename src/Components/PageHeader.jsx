@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 
 export default function PageHeader({ eyebrow, title, description }) {
   return (
@@ -15,7 +15,7 @@ export default function PageHeader({ eyebrow, title, description }) {
           {eyebrow}
         </span>
       </div>
-      <h1 className="text-white text-[2.1rem] sm:text-5xl font-bold tracking-[-0.03em] leading-[1.05] mb-4">
+      <h1 className="text-paper text-[2.1rem] sm:text-5xl font-bold tracking-[-0.03em] leading-[1.05] mb-4">
         {title}
       </h1>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-2xl">

@@ -5,7 +5,6 @@ import {
   Palette, Cloud, X
 } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 
 // Assets
 import B1 from '../assets/BlogVsn/B1.png'
@@ -35,7 +34,7 @@ const BlogVsn = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-[#3B82F6]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="BlogVsn — React Blog Platform | Samrat Parajuli"
         description="Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment. Built by Samrat Parajuli."
@@ -69,12 +68,12 @@ const BlogVsn = () => {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-[#020617]/80 backdrop-blur-md">
+      <div className="border-b border-slate-800/50 bg-canvas/80">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
           <div>
             <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Cloud Integration</p>
-            <h1 className="text-2xl font-bold text-white tracking-[-0.03em]">
-              BlogVsn <span className="text-[#3B82F6]">Platform</span>
+            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
+              BlogVsn <span className="text-accent">Platform</span>
             </h1>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -82,7 +81,7 @@ const BlogVsn = () => {
               href="https://blogvsn.vercel.app/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-[#3B82F6] text-[#020617] hover:bg-[#3B82F6]/90 rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+              className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
             >
               <ExternalLink size={16} /> Live Demo
             </a>
@@ -90,7 +89,7 @@ const BlogVsn = () => {
               href="https://github.com/SamratVsn/BlogVsn" 
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
+              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-paper rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
             >
               <Github size={16} /> View Code
             </a>
@@ -105,7 +104,7 @@ const BlogVsn = () => {
           <div className="lg:col-span-2 space-y-12">
             
             {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900 shadow-[0_0_36px_-14px_rgba(59,130,246,0.3)]">
+            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
               <motion.img
                 layoutId="project-image-/projects/blogvsn"
                 src={B1} 
@@ -117,7 +116,7 @@ const BlogVsn = () => {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 Cloud-native blogging platform
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -126,12 +125,12 @@ const BlogVsn = () => {
                 enabling dynamic, real-time content delivery with edge-cached global distribution.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Performance</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Performance</p>
                   <p className="text-sm text-slate-400">Edge-cached API responses for instantaneous loading and minimal latency.</p>
                 </div>
-                <div className="p-4 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl hover:border-slate-700/80 transition-colors">
-                  <p className="text-[#3B82F6] font-semibold text-sm mb-2">Security</p>
+                <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
+                  <p className="text-accent font-semibold text-sm mb-2">Security</p>
                   <p className="text-sm text-slate-400">Google Identity Services for zero-knowledge authentication and data protection.</p>
                 </div>
               </div>
@@ -146,7 +145,7 @@ const BlogVsn = () => {
                     onClick={() => setActiveTab(tab)}
                     className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab 
-                        ? 'text-[#3B82F6] border-[#3B82F6]' 
+                        ? 'text-accent border-accent' 
                         : 'text-slate-400 border-transparent hover:text-slate-300'
                     }`}
                   >
@@ -164,22 +163,22 @@ const BlogVsn = () => {
                       data fetching, and content rendering.
                     </p>
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Architecture Highlights</h3>
+                      <h3 className="text-paper font-semibold text-sm">Architecture Highlights</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Decoupled CMS integration with Blogger API v3</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>OAuth 2.0 authentication with Google Identity Services</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Edge-cached content delivery via Vercel CDN</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <span className="text-[#3B82F6] font-bold">→</span>
+                          <span className="text-accent font-bold">→</span>
                           <span>Serverless email integration with EmailJS</span>
                         </li>
                       </ul>
@@ -190,11 +189,11 @@ const BlogVsn = () => {
                 {activeTab === 'tech' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {techStack.map((t, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-[#0A101F]/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
+                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
                         <div className="flex items-start gap-3">
-                          <t.icon size={20} className="text-[#3B82F6] mt-1" />
+                          <t.icon size={20} className="text-accent mt-1" />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{t.name}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{t.name}</h4>
                             <p className="text-slate-400 text-sm">{t.detail}</p>
                           </div>
                         </div>
@@ -226,13 +225,13 @@ const BlogVsn = () => {
 
             {/* Screenshots */}
             <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-[#3B82F6] uppercase tracking-widest">Screenshots</h3>
+              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 gap-4">
                 {screenshots.map((s, i) => (
                   <div 
                     key={i} 
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover:shadow-[0_0_24px_-12px_rgba(59,130,246,0.35)] transition-all"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover: transition-all"
                   >
                     <img 
                       src={s.src}
@@ -242,7 +241,7 @@ const BlogVsn = () => {
                       className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-[#3B82F6] transition-colors">
+                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-accent-soft transition-colors">
                       {s.label}
                     </p>
                   </div>
@@ -255,34 +254,34 @@ const BlogVsn = () => {
           <div className="lg:col-span-1 space-y-6">
             
             {/* Architecture */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-                <Cloud size={16} className="text-[#3B82F6]" />
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4 flex items-center gap-2">
+                <Cloud size={16} className="text-accent" />
                 Data Flow
               </h3>
               <div className="space-y-3 text-sm text-slate-400">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#3B82F6] font-bold">1.</span>
+                  <span className="text-accent font-bold">1.</span>
                   <span>Client makes request</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#3B82F6] font-bold">2.</span>
+                  <span className="text-accent font-bold">2.</span>
                   <span>OAuth verification</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#3B82F6] font-bold">3.</span>
+                  <span className="text-accent font-bold">3.</span>
                   <span>Fetch from Blogger API</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#3B82F6] font-bold">4.</span>
+                  <span className="text-accent font-bold">4.</span>
                   <span>Render in React</span>
                 </div>
               </div>
             </div>
 
             {/* Key Features */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl shadow-[0_0_28px_-14px_rgba(59,130,246,0.25)]">
-              <h3 className="text-sm font-semibold text-white mb-4">Key Features</h3>
+            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
+              <h3 className="text-sm font-semibold text-paper mb-4">Key Features</h3>
               <div className="space-y-3 text-sm">
                 {[
                   'OAuth 2.0 Authentication',
@@ -293,7 +292,7 @@ const BlogVsn = () => {
                   'Responsive Design'
                 ].map((feature, i) => (
                   <div key={i} className="text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     {feature}
                   </div>
                 ))}
@@ -307,12 +306,12 @@ const BlogVsn = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6 backdrop-blur-sm" 
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6" 
           onClick={() => setSelectedImage(null)}
         >
           <div className="max-w-3xl w-full space-y-4">
             <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-white font-semibold">{selectedImage.label}</h3>
+              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
               <button 
                 onClick={() => setSelectedImage(null)}
                 className="p-1 hover:bg-slate-800 rounded transition-colors"
@@ -330,7 +329,6 @@ const BlogVsn = () => {
           </div>
         </div>
       )}
-      <BottomNav />
     </div>
   )
 }

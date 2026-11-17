@@ -26,13 +26,12 @@ import {
   X,
 } from 'lucide-react'
 import SEO from './SEO'
-import BottomNav from './BottomNav'
 
 import AvalokanHome from '../assets/Avalokan/home.png'
 import AvalokanDiscover from '../assets/Avalokan/discover.png'
 import AvalokanPlace from '../assets/Avalokan/place-detail.png'
 import AvalokanEvents from '../assets/Avalokan/events.png'
-import LaunchPoster from '../assets/Avalokan/launch-poster.jpg'
+
 import AvalokanLogo from '../assets/Avalokan/logo.jpeg'
 
 const REPO_URL = 'https://github.com/SamratVsn/Avalokan'
@@ -42,8 +41,8 @@ const FILM_URL = '/media/avalokan-launch.mp4'
 const SITE = 'https://www.samratparajuli0.com.np'
 
 /* Heritage palette pulled from the app's own design system */
-const SAGE = '#8FBFA4'
-const TERRA = '#D98964'
+const SAGE = 'var(--p-accent-soft)'
+const TERRA = 'var(--p-terra)'
 const SAND = '#E8D7B7'
 
 const specs = [
@@ -219,7 +218,7 @@ const developer = [
   { label: 'Portfolio', value: 'samratparajuli0.com.np', href: 'https://www.samratparajuli0.com.np' },
   { label: 'LinkedIn', value: 'Samrat Parajuli', href: 'https://www.linkedin.com/in/samratvsn/' },
   { label: 'Latest release', value: 'v1.0.0 — 27 Oct 2026', href: RELEASE_URL },
-  { label: 'Status', value: 'Feature-complete beta' },
+  { label: 'Status', value: 'Android · v1.0.0 Released' },
 ]
 
 const related = [
@@ -242,7 +241,6 @@ const TABS = ['overview', 'features', 'architecture', 'roadmap']
 export default function Avalokan() {
   const [activeTab, setActiveTab] = useState('overview')
   const [selectedImage, setSelectedImage] = useState(null)
-  const [playing, setPlaying] = useState(false)
   const videoRef = useRef(null)
   const filmRef = useRef(null)
 
@@ -255,7 +253,7 @@ export default function Avalokan() {
   }
 
   return (
-    <div className="min-h-screen bg-[#04080C] text-slate-300 font-sans selection:bg-[#8FBFA4]/30">
+    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="Avalokan — Nepal Heritage Android App | Samrat Parajuli"
         description="Avalokan is a native Android heritage explorer for Nepal — places, cultural stories, festivals and events, built with Kotlin, Jetpack Compose and Room."
@@ -316,12 +314,12 @@ export default function Avalokan() {
       />
 
       {/* ═══ Hero ═══ */}
-      <section className="relative overflow-hidden border-b border-white/[0.05]">
+      <section className="relative overflow-hidden border-b border-border">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(900px 420px at 15% 0%, rgba(27,67,50,0.55), transparent 65%), radial-gradient(700px 380px at 90% 20%, rgba(200,111,74,0.18), transparent 70%)',
+              'linear-gradient(180deg, rgba(27,67,50,0.4) 0%, rgba(14,19,17,0) 62%)',
           }}
         />
         <div className="relative max-w-6xl mx-auto px-6 py-12 sm:py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
@@ -333,17 +331,14 @@ export default function Avalokan() {
                   className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest"
                   style={{
                     color: SAGE,
-                    backgroundColor: 'rgba(143,191,164,0.10)',
-                    border: '1px solid rgba(143,191,164,0.28)',
+                    backgroundColor: 'var(--p-accent-muted)',
+                    border: '1px solid var(--p-accent-border)',
                   }}
                 >
                   <Sparkles size={11} /> New project
                 </span>
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                  Android app
-                </span>
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                  v1.0.0 · released
+                <span className="inline-flex items-center rounded-full border border-border-strong bg-surface/50 px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
+                  Android · v1.0.0 Released
                 </span>
               </div>
 
@@ -355,7 +350,7 @@ export default function Avalokan() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] text-white leading-[1.02]"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] text-paper leading-[1.02]"
               >
                 Avalokan
                 <span style={{ color: TERRA }}>.</span>
@@ -375,14 +370,14 @@ export default function Avalokan() {
                 <a
                   href={APK_URL}
                   className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all active:scale-[0.97]"
-                  style={{ backgroundColor: SAGE, color: '#04080C' }}
+                  style={{ backgroundColor: 'var(--p-accent)', color: 'var(--p-ink)' }}
                 >
                   <Download size={15} /> Download APK
                 </a>
                 <button
                   type="button"
                   onClick={playFilm}
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/12 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-all hover:border-white/25 hover:text-white active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-5 py-2.5 text-sm font-semibold text-slate-200 transition-all hover:border-border-strong hover:text-paper active:scale-[0.97]"
                 >
                   <Play size={15} fill="currentColor" /> Watch launch film
                 </button>
@@ -390,7 +385,7 @@ export default function Avalokan() {
                   href={REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-semibold text-slate-400 transition-colors hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-semibold text-slate-400 transition-colors hover:text-paper"
                   aria-label="View Avalokan source on GitHub"
                 >
                   <Github size={15} /> Source
@@ -409,11 +404,7 @@ export default function Avalokan() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="relative mx-auto max-w-[300px] lg:max-w-[360px]"
               >
-                <div
-                  className="absolute -inset-6 rounded-[2rem] blur-2xl"
-                  style={{ background: 'radial-gradient(circle, rgba(143,191,164,0.22), transparent 70%)' }}
-                />
-                <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#F5F3ED] shadow-2xl">
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-border-strong bg-paper">
                   <img
                     src={AvalokanLogo}
                     alt="Avalokan logo — Nepal Heritage Explorer"
@@ -438,9 +429,9 @@ export default function Avalokan() {
             ].map((stat) => (
               <div
                 key={stat.v}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 backdrop-blur-sm"
+                className="rounded-xl border border-border bg-surface/40 px-4 py-3"
               >
-                <p className="text-lg font-bold text-white tracking-tight">{stat.k}</p>
+                <p className="text-lg font-bold text-paper tracking-tight">{stat.k}</p>
                 <p className="text-[11px] text-slate-400 mt-0.5">{stat.v}</p>
               </div>
             ))}
@@ -462,42 +453,26 @@ export default function Avalokan() {
                   href={FILM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-medium text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1"
+                  className="text-xs font-medium text-slate-400 hover:text-paper transition-colors inline-flex items-center gap-1"
                 >
                   Open full size <ArrowUpRight size={12} />
                 </a>
               </div>
 
-              <div className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-black">
+              <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-2xl border border-border bg-black">
                 <video
                   ref={videoRef}
-                  poster={LaunchPoster}
+                  poster="/media/avalokan-poster.jpg"
                   controls
                   playsInline
                   preload="metadata"
-                  onPlay={() => setPlaying(true)}
-                  onPause={() => setPlaying(false)}
-                  className="mx-auto block max-h-[640px] w-auto max-w-full"
+                  className="block aspect-[9/16] w-full bg-black object-cover"
                   aria-label="Avalokan 22-second launch film"
                 >
                   <source src={FILM_URL} type="video/mp4" />
                   Your browser does not support embedded video. You can{' '}
                   <a href={FILM_URL}>download the launch film</a> instead.
                 </video>
-
-                {!playing && (
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/50 via-transparent to-black/30">
-                    <button
-                      type="button"
-                      onClick={() => videoRef.current?.play?.()}
-                      aria-label="Play the launch film"
-                      className="pointer-events-auto group flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
-                      style={{ backgroundColor: 'rgba(143,191,164,0.92)', color: '#04080C' }}
-                    >
-                      <Play size={26} fill="currentColor" className="ml-0.5" />
-                    </button>
-                  </div>
-                )}
               </div>
 
               <p className="text-xs text-slate-400 leading-relaxed">
@@ -507,7 +482,7 @@ export default function Avalokan() {
                   href="https://hyperframes.heygen.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 underline decoration-slate-700 hover:text-white transition-colors"
+                  className="text-slate-400 underline decoration-slate-700 hover:text-paper transition-colors"
                 >
                   HyperFrames
                 </a>
@@ -517,7 +492,7 @@ export default function Avalokan() {
 
             {/* Intro */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-white tracking-[-0.03em]">
+              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
                 One place for Nepal's places, stories, and happenings
               </h2>
               <p className="text-slate-400 leading-relaxed">
@@ -535,7 +510,7 @@ export default function Avalokan() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 border border-white/[0.07] rounded-xl bg-white/[0.02] hover:border-white/15 transition-colors">
+                <div className="p-4 border border-border rounded-xl bg-surface/40 hover:border-border-strong transition-colors">
                   <p className="font-semibold text-sm mb-2" style={{ color: SAGE }}>
                     Content that feels curated
                   </p>
@@ -544,7 +519,7 @@ export default function Avalokan() {
                     own editorial layout instead of one generic detail screen.
                   </p>
                 </div>
-                <div className="p-4 border border-white/[0.07] rounded-xl bg-white/[0.02] hover:border-white/15 transition-colors">
+                <div className="p-4 border border-border rounded-xl bg-surface/40 hover:border-border-strong transition-colors">
                   <p className="font-semibold text-sm mb-2" style={{ color: TERRA }}>
                     Designed after the landscape
                   </p>
@@ -558,7 +533,7 @@ export default function Avalokan() {
 
             {/* Tabs */}
             <div>
-              <div className="flex gap-1 mb-8 border-b border-white/10 overflow-x-auto">
+              <div className="flex gap-1 mb-8 border-b border-border-strong overflow-x-auto">
                 {TABS.map((tab) => (
                   <button
                     key={tab}
@@ -567,7 +542,7 @@ export default function Avalokan() {
                     aria-pressed={activeTab === tab}
                     className={`shrink-0 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                       activeTab === tab
-                        ? 'border-[#8FBFA4] text-[#8FBFA4]'
+                        ? 'border-accent-soft text-accent-soft'
                         : 'border-transparent text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -587,7 +562,7 @@ export default function Avalokan() {
                     </p>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm">Core experience</h3>
+                      <h3 className="text-paper font-semibold text-sm">Core experience</h3>
                       <ul className="space-y-3 text-sm text-slate-400">
                         {[
                           'Explore heritage — landmarks, cultural destinations, and religious sites',
@@ -606,7 +581,7 @@ export default function Avalokan() {
                       </ul>
                     </div>
 
-                    <div className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-5">
+                    <div className="rounded-xl border border-border bg-surface/40 p-5">
                       <p className="text-sm text-slate-300 font-medium mb-1">
                         The name matters
                       </p>
@@ -624,12 +599,12 @@ export default function Avalokan() {
                     {features.map((feat) => (
                       <div
                         key={feat.title}
-                        className="p-5 border border-white/[0.07] rounded-xl bg-white/[0.02] hover:border-white/15 hover:-translate-y-0.5 transition-all duration-300"
+                        className="p-5 border border-border rounded-xl bg-surface/40 hover:border-border-strong hover:-translate-y-0.5 transition-all duration-300"
                       >
                         <div className="flex items-start gap-3">
                           <feat.icon size={19} className="mt-0.5 shrink-0" style={{ color: SAGE }} />
                           <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">{feat.title}</h4>
+                            <h4 className="text-paper font-semibold text-sm mb-1">{feat.title}</h4>
                             <p className="text-slate-400 text-sm leading-relaxed">{feat.detail}</p>
                           </div>
                         </div>
@@ -641,16 +616,16 @@ export default function Avalokan() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
                         <Layers size={16} style={{ color: SAGE }} /> Layered by responsibility
                       </h3>
                       <div className="space-y-3">
                         {layers.map((layer) => (
                           <div
                             key={layer.name}
-                            className="p-4 border border-white/[0.07] rounded-xl bg-white/[0.02] hover:border-white/15 transition-colors"
+                            className="p-4 border border-border rounded-xl bg-surface/40 hover:border-border-strong transition-colors"
                           >
-                            <p className="text-sm text-white font-semibold mb-1">{layer.name}</p>
+                            <p className="text-sm text-paper font-semibold mb-1">{layer.name}</p>
                             <p className="text-sm text-slate-400">{layer.detail}</p>
                           </div>
                         ))}
@@ -658,10 +633,10 @@ export default function Avalokan() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
                         <Database size={16} style={{ color: SAGE }} /> Offline-first flow
                       </h3>
-                      <div className="p-4 bg-black/50 border border-white/[0.07] rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
+                      <div className="p-4 bg-black/50 border border-border rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
                         <p>
                           <span className="text-slate-400">UI</span> → ViewModel → Repository
                         </p>
@@ -672,10 +647,10 @@ export default function Avalokan() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
                         <Cloud size={16} style={{ color: SAGE }} /> Project structure
                       </h3>
-                      <div className="p-4 bg-black/50 border border-white/[0.07] rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
+                      <div className="p-4 bg-black/50 border border-border rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
                         <p>app/src/main/java/com/example/avalokan/</p>
                         <p className="ml-4">├── <span style={{ color: SAGE }}>MainActivity.kt</span> <span className="text-slate-400">// entry, edge-to-edge, theme</span></p>
                         <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApp.kt</span> <span className="text-slate-400">// scaffold, floating nav, NavHost</span></p>
@@ -696,14 +671,14 @@ export default function Avalokan() {
                 {activeTab === 'roadmap' && (
                   <div className="space-y-7">
                     <div className="space-y-3">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
                         <Check size={16} style={{ color: SAGE }} /> Shipped
                       </h3>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {roadmapDone.map((item) => (
                           <li
                             key={item}
-                            className="flex items-start gap-2.5 p-3 border border-white/[0.06] rounded-lg bg-white/[0.02]"
+                            className="flex items-start gap-2.5 p-3 border border-border rounded-lg bg-surface/40"
                           >
                             <Check size={14} className="mt-0.5 shrink-0" style={{ color: SAGE }} />
                             <span className="text-[13px] text-slate-400 leading-snug">{item}</span>
@@ -713,14 +688,14 @@ export default function Avalokan() {
                     </div>
 
                     <div className="space-y-3">
-                      <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
                         <Sparkles size={16} style={{ color: TERRA }} /> Next up
                       </h3>
                       <ul className="space-y-2.5">
                         {roadmapNext.map((item) => (
                           <li
                             key={item}
-                            className="flex items-start gap-3 p-3 border border-white/[0.06] rounded-lg"
+                            className="flex items-start gap-3 p-3 border border-border rounded-lg"
                           >
                             <span
                               className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
@@ -753,7 +728,7 @@ export default function Avalokan() {
                     key={screen.label}
                     type="button"
                     onClick={() => setSelectedImage(screen)}
-                    className="group relative overflow-hidden rounded-xl border border-white/[0.07] bg-black text-left transition-all hover:border-[#8FBFA4]/40"
+                    className="group relative overflow-hidden rounded-xl border border-border bg-black text-left transition-all hover:border-accent-border"
                   >
                     <img
                       src={screen.src}
@@ -763,7 +738,7 @@ export default function Avalokan() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-3">
-                      <p className="text-[13px] font-semibold text-white">{screen.label}</p>
+                      <p className="text-[13px] font-semibold text-paper">{screen.label}</p>
                       <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">{screen.desc}</p>
                     </div>
                   </button>
@@ -780,10 +755,10 @@ export default function Avalokan() {
                 {palette.map((c) => (
                   <div
                     key={c.hex}
-                    className="flex items-center gap-2.5 rounded-lg border border-white/[0.07] bg-white/[0.02] px-3 py-2"
+                    className="flex items-center gap-2.5 rounded-lg border border-border bg-surface/40 px-3 py-2"
                   >
                     <span
-                      className="h-6 w-6 rounded-md border border-white/10"
+                      className="h-6 w-6 rounded-md border border-border-strong"
                       style={{ backgroundColor: c.hex }}
                     />
                     <span className="text-xs text-slate-300">{c.name}</span>
@@ -799,7 +774,7 @@ export default function Avalokan() {
                 ].map((item) => (
                   <div
                     key={item.k}
-                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+                    className="rounded-xl border border-border bg-surface/40 p-4"
                   >
                     <item.icon size={16} style={{ color: SAGE }} className="mb-2" />
                     <p className="text-xs uppercase tracking-widest text-slate-400 mb-1">{item.k}</p>
@@ -813,16 +788,13 @@ export default function Avalokan() {
           {/* ═══ Sidebar ═══ */}
           <aside className="lg:col-span-1 space-y-6">
             {/* Specs */}
-            <div
-              className="p-6 border rounded-xl bg-white/[0.02] backdrop-blur-xl"
-              style={{ borderColor: 'rgba(143,191,164,0.18)' }}
-            >
-              <h3 className="text-sm font-semibold text-white mb-6">Technical stack</h3>
+            <div className="p-6 border border-accent-border rounded-xl bg-surface/40">
+              <h3 className="text-sm font-semibold text-paper mb-6">Technical stack</h3>
               <div className="space-y-4">
                 {specs.map((spec) => (
                   <div
                     key={spec.label}
-                    className="border-b border-white/[0.06] pb-3 last:border-0 last:pb-0"
+                    className="border-b border-border pb-3 last:border-0 last:pb-0"
                   >
                     <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">
                       {spec.label}
@@ -834,13 +806,13 @@ export default function Avalokan() {
             </div>
 
             {/* Tags */}
-            <div className="p-6 border border-white/[0.07] rounded-xl bg-white/[0.02] backdrop-blur-xl">
-              <h3 className="text-sm font-semibold text-white mb-4">Built with</h3>
+            <div className="p-6 border border-border rounded-xl bg-surface/40">
+              <h3 className="text-sm font-semibold text-paper mb-4">Built with</h3>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-slate-300"
+                    className="rounded-md border border-border-strong bg-surface/50 px-2.5 py-1 text-xs font-medium text-slate-300"
                   >
                     {tech}
                   </span>
@@ -849,8 +821,8 @@ export default function Avalokan() {
             </div>
 
             {/* Developer */}
-            <div className="p-6 border border-white/[0.07] rounded-xl bg-white/[0.02] backdrop-blur-xl">
-              <h3 className="text-sm font-semibold text-white mb-4">Developer & source</h3>
+            <div className="p-6 border border-border rounded-xl bg-surface/40">
+              <h3 className="text-sm font-semibold text-paper mb-4">Developer & source</h3>
               <div className="space-y-3">
                 {developer.map((dev) => (
                   <div key={dev.label}>
@@ -862,7 +834,7 @@ export default function Avalokan() {
                         href={dev.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-medium break-words transition-colors hover:text-white"
+                        className="text-sm font-medium break-words transition-colors hover:text-paper"
                         style={{ color: SAGE }}
                       >
                         {dev.value}
@@ -879,12 +851,12 @@ export default function Avalokan() {
             <a
               href={APK_URL}
               className="flex flex-col gap-1 rounded-xl p-4 transition-all active:scale-[0.97]"
-              style={{ backgroundColor: SAGE, color: '#04080C' }}
+              style={{ backgroundColor: 'var(--p-accent)', color: 'var(--p-ink)' }}
             >
               <span className="flex items-center justify-center gap-2 text-sm font-bold">
                 <Download size={16} /> Download Avalokan v1.0.0
               </span>
-              <span className="text-center text-[11px] font-medium text-[#04080C]/70">
+              <span className="text-center text-[11px] font-medium text-ink/70">
                 Direct APK · 20 MB · Android 7.0+
               </span>
             </a>
@@ -893,12 +865,12 @@ export default function Avalokan() {
               href={RELEASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 transition-all hover:border-white/20 group"
+              className="flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong group"
             >
               <span className="text-sm font-medium text-slate-300">Release notes</span>
               <ArrowUpRight
                 size={16}
-                className="text-slate-400 transition-colors group-hover:text-white"
+                className="text-slate-400 transition-colors group-hover:text-paper"
               />
             </a>
 
@@ -906,7 +878,7 @@ export default function Avalokan() {
               href={REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm font-semibold text-slate-200 transition-all hover:border-white/25 hover:text-white active:scale-[0.97]"
+              className="flex items-center justify-center gap-2 rounded-xl border border-border-strong bg-surface/50 p-4 text-sm font-semibold text-slate-200 transition-all hover:border-border-strong hover:text-paper active:scale-[0.97]"
             >
               <Github size={16} /> Open on GitHub
             </a>
@@ -914,14 +886,14 @@ export default function Avalokan() {
             <a
               href={FILM_URL}
               download
-              className="flex items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 transition-all hover:border-white/20 group"
+              className="flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong group"
             >
               <span className="flex items-center gap-2 text-sm font-medium text-slate-300">
                 <Video size={15} style={{ color: TERRA }} /> Download launch film
               </span>
               <ArrowUpRight
                 size={16}
-                className="text-slate-400 transition-colors group-hover:text-white"
+                className="text-slate-400 transition-colors group-hover:text-paper"
               />
             </a>
 
@@ -929,25 +901,25 @@ export default function Avalokan() {
               href={`${REPO_URL}#readme`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-xl border border-white/[0.07] bg-white/[0.02] p-4 transition-all hover:border-white/20 group"
+              className="flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong group"
             >
               <span className="text-sm font-medium text-slate-300">Read the full README</span>
               <ArrowUpRight
                 size={16}
-                className="text-slate-400 transition-colors group-hover:text-white"
+                className="text-slate-400 transition-colors group-hover:text-paper"
               />
             </a>
           </aside>
         </div>
 
         {/* ═══ Related ═══ */}
-        <section className="mt-16 border-t border-white/[0.06] pt-10">
+        <section className="mt-16 border-t border-border pt-10">
           <div className="flex items-end justify-between gap-4 mb-6">
             <div>
               <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-slate-400 mb-2">
                 Keep exploring
               </p>
-              <h2 className="text-xl font-semibold text-white tracking-tight">Related projects</h2>
+              <h2 className="text-xl font-semibold text-paper tracking-tight">Related projects</h2>
             </div>
             <Link
               to="/projects"
@@ -963,21 +935,21 @@ export default function Avalokan() {
               <Link
                 key={item.path}
                 to={item.path}
-                className="group rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 transition-all hover:border-white/20 hover:-translate-y-0.5"
+                className="group rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-border-strong hover:-translate-y-0.5"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-1.5">
                       {item.tag}
                     </p>
-                    <h3 className="text-white font-semibold mb-1.5 group-hover:text-[#8FBFA4] transition-colors">
+                    <h3 className="text-paper font-semibold mb-1.5 group-hover:text-accent-soft transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-[13px] text-slate-400 leading-relaxed">{item.blurb}</p>
                   </div>
                   <ArrowUpRight
                     size={16}
-                    className="mt-1 shrink-0 text-slate-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                    className="mt-1 shrink-0 text-slate-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-paper"
                   />
                 </div>
               </Link>
@@ -995,15 +967,15 @@ export default function Avalokan() {
       {/* ═══ Lightbox ═══ */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-6"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
           aria-label={`${selectedImage.label} screenshot`}
         >
           <div className="max-w-sm w-full space-y-4" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="text-white font-semibold text-sm">{selectedImage.label}</h3>
+            <div className="flex items-center justify-between border-b border-border-strong pb-3">
+              <h3 className="text-paper font-semibold text-sm">{selectedImage.label}</h3>
               <button
                 type="button"
                 onClick={() => setSelectedImage(null)}
@@ -1016,14 +988,13 @@ export default function Avalokan() {
             <img
               src={selectedImage.src}
               alt={`${selectedImage.label} screen`}
-              className="max-h-[70vh] w-full rounded-lg border border-white/10 object-contain"
+              className="max-h-[70vh] w-full rounded-lg border border-border-strong object-contain"
             />
             <p className="text-sm text-slate-400 text-center">{selectedImage.desc}</p>
           </div>
         </div>
       )}
 
-      <BottomNav />
     </div>
   )
 }

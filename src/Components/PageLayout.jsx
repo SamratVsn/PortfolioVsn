@@ -1,21 +1,19 @@
 import Header from './Header'
 import Footer from './Footer'
 import BackgroundFX from './BackgroundFX'
-import BottomNav from './BottomNav'
 import { PageTransition } from './PageTransition'
 
 export const PageLayout = ({ children, className = "" }) => {
   return (
-    <div className={`relative min-h-screen bg-canvas text-slate-300 selection:bg-accent/20 selection:text-accent overflow-x-hidden ${className}`}>
-      <BackgroundFX className="fixed" />
-      <div className="relative flex flex-col min-h-screen">
+    <div className={`relative flex min-h-screen flex-col overflow-x-clip bg-canvas text-slate-300 selection:bg-accent/20 selection:text-paper ${className}`}>
+      <BackgroundFX />
+      <div className="relative flex min-h-screen flex-col">
         <Header />
-        <main id="main-content" className="flex-grow pt-24 md:pt-28 pb-20 sm:pb-24">
+        <main id="main-content" className="flex-grow pb-16">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
       </div>
-      <BottomNav />
     </div>
   );
 };

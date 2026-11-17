@@ -7,6 +7,7 @@ export default function SectionHeading({
   align = "left",
   as = "h2",
   animated = false,
+  id,
 }) {
   const Tag = as;
   const alignCls =
@@ -23,7 +24,10 @@ export default function SectionHeading({
           </span>
         </div>
       )}
-      <Tag className="text-[1.6rem] sm:text-[2rem] font-bold text-white tracking-[-0.03em] leading-[1.15] mb-2.5">
+      <Tag
+        id={id}
+        className="text-[1.6rem] sm:text-[2rem] font-bold text-paper tracking-[-0.03em] leading-[1.15] mb-2.5"
+      >
         {title}
       </Tag>
       {subtitle && (

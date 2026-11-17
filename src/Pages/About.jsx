@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
-import BottomNav from "../Components/BottomNav";
 import BackgroundFX from "../Components/BackgroundFX";
 import SectionHeading from "../Components/SectionHeading";
 import {
@@ -19,7 +18,7 @@ import {
   GitBranch,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
-import PortfolioImage from "../assets/SamratAvatar.webp";
+import PortfolioImage from "../assets/Hero_Image.webp";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -66,7 +65,7 @@ const timeline = [
   {
     num: "06",
     title: "Today",
-    desc: "I'm building complete projects, documenting what I learn, and working toward becoming a professional Android engineer.",
+    desc: "I build production-minded Android applications with Kotlin, Compose, Hilt, and Room — documenting what I learn as I go.",
     active: true,
   },
 ];
@@ -181,10 +180,10 @@ export default function About() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="min-h-screen bg-canvas text-slate-400 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
+    <div className="min-h-screen overflow-x-clip bg-canvas text-slate-400 selection:bg-accent/20 selection:text-paper">
       <SEO
         title="About Samrat Parajuli | Android Developer in Nepal"
-        description="Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications."
+        description="Samrat Parajuli is an Android developer from Nepal building native applications with Kotlin, Jetpack Compose, offline-first architecture, and production-minded engineering."
         ogUrl="https://www.samratparajuli0.com.np/about"
         schema={[
           {
@@ -193,7 +192,7 @@ export default function About() {
             '@id': 'https://www.samratparajuli0.com.np/about#webpage',
             'url': 'https://www.samratparajuli0.com.np/about',
             'name': 'About Samrat Parajuli | Android Developer in Nepal',
-            'description': 'Samrat Parajuli is an emerging Android app developer from Nepal focused on Kotlin, Jetpack Compose, and building production-quality mobile applications.',
+            'description': 'Samrat Parajuli is an Android developer from Nepal building native applications with Kotlin, Jetpack Compose, offline-first architecture, and production-minded engineering.',
             'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
             'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
             'speakable': {
@@ -209,18 +208,8 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           1. HERO INTRO — Split layout
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative pt-28 pb-16 sm:pb-24 px-6 overflow-hidden">
+      <section className="relative px-6 pb-16 pt-10 sm:pb-24 sm:pt-14">
         <BackgroundFX />
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: [
-              "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px)",
-              "linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
-            ].join(", "),
-            backgroundSize: "64px 64px",
-          }}
-        />
 
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -232,64 +221,15 @@ export default function About() {
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <div className="relative w-full max-w-md">
-                <div
-                  className="absolute rounded-full blur-3xl pointer-events-none"
-                  style={{
-                    width: "75%",
-                    height: "60%",
-                    left: "50%",
-                    top: "40%",
-                    transform: "translate(-50%, -50%)",
-                    background:
-                      "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(34,211,238,0.04) 45%, rgba(59,130,246,0) 72%)",
-                    zIndex: 0,
-                  }}
-                />
-                <div className="absolute -inset-3 sm:-inset-4 border border-white/[0.05] rounded-2xl pointer-events-none" />
+                <div className="absolute -inset-3 sm:-inset-4 border border-border rounded-2xl pointer-events-none" />
                 <img
                   src={PortfolioImage}
                   alt="Samrat Parajuli, Android developer"
-                  width={1254}
-                  height={1254}
-                  className="relative z-10 block w-full aspect-[4/5] object-cover rounded-2xl border border-white/[0.06]"
+                  width={1127}
+                  height={1396}
+                  className="relative z-10 block w-full aspect-[4/5] rounded-2xl border border-border bg-surface object-contain object-bottom"
                   loading="eager"
                 />
-                <motion.div
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  className="absolute top-6 sm:top-8 -left-2 sm:left-0 z-20"
-                >
-                  <div className="bg-surface/60 backdrop-blur-md border border-white/[0.06] rounded-xl px-3 py-1.5 shadow-[0_0_16px_-6px_rgba(59,130,246,0.3)]">
-                    <span className="text-[9px] font-mono font-bold tracking-[0.1em] uppercase text-accent">
-                      Kotlin
-                    </span>
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.65 }}
-                  className="absolute top-[35%] -right-2 sm:right-0 z-20"
-                >
-                  <div className="bg-surface/60 backdrop-blur-md border border-white/[0.06] rounded-xl px-3 py-1.5 shadow-[0_0_16px_-6px_rgba(59,130,246,0.3)]">
-                    <span className="text-[9px] font-mono font-bold tracking-[0.1em] uppercase text-emerald-400">
-                      Android
-                    </span>
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                  className="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 z-20"
-                >
-                  <div className="bg-surface/60 backdrop-blur-md border border-white/[0.06] rounded-xl px-3 py-1.5 shadow-[0_0_16px_-6px_rgba(59,130,246,0.3)]">
-                    <span className="text-[9px] font-mono font-bold tracking-[0.1em] uppercase text-purple-400">
-                      Jetpack Compose
-                    </span>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
 
@@ -310,9 +250,8 @@ export default function About() {
                 </span>
               </div>
 
-              <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.25rem] font-bold text-white tracking-[-0.03em] leading-[1.08] mb-2">
-                Samrat
-                <br />
+              <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.25rem] font-bold text-paper tracking-[-0.03em] leading-[1.08] mb-2">
+                Samrat <br />
                 Parajuli
               </h1>
 
@@ -321,9 +260,9 @@ export default function About() {
               </p>
 
               <p className="text-slate-400 text-[15px] sm:text-base leading-relaxed max-w-lg mb-8">
-                I&apos;m an aspiring Android App Developer based in Kathmandu,
-                Nepal. I build things with Kotlin and Jetpack Compose, and I
-                document the process along the way.
+                I&apos;m an Android developer building native applications with
+                Kotlin and Jetpack Compose. Based in Kathmandu, Nepal — I build
+                complete apps, document the process, and ship what I learn.
               </p>
 
               <div className="grid grid-cols-2 gap-x-8 gap-y-5">
@@ -352,7 +291,7 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           2. PATH SO FAR — Timeline
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
+      <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
@@ -364,7 +303,7 @@ export default function About() {
                 Journey
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
               The path so far
             </h2>
             <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
@@ -373,7 +312,7 @@ export default function About() {
           </motion.div>
 
           <div className="relative">
-            <div className="absolute left-[5px] top-1 bottom-1 w-px bg-white/[0.08]" />
+            <div className="absolute left-[5px] top-1 bottom-1 w-px bg-border" />
 
             <div className="space-y-0">
               {timeline.map((step, i) => (
@@ -391,7 +330,7 @@ export default function About() {
                     <span
                       className={`w-[11px] h-[11px] rounded-full border-2 transition-colors duration-300 ${
                         step.active
-                          ? "bg-accent border-accent shadow-[0_0_8px_rgba(59,130,246,0.4)]"
+                          ? "bg-accent border-accent"
                           : "bg-canvas border-slate-600 group-hover:border-slate-500"
                       }`}
                     />
@@ -408,7 +347,7 @@ export default function About() {
                       </span>
                       <h3
                         className={`text-sm font-semibold ${
-                          step.active ? "text-accent" : "text-white"
+                          step.active ? "text-accent" : "text-paper"
                         }`}
                       >
                         {step.title}
@@ -428,7 +367,7 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           3. HOW I LEARN
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
+      <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
@@ -440,7 +379,7 @@ export default function About() {
                 Process
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
               How I learn
             </h2>
           </motion.div>
@@ -458,12 +397,12 @@ export default function About() {
                       {step.num}
                     </span>
                     {i < learnSteps.length - 1 && (
-                      <div className="w-px flex-1 min-h-[24px] bg-white/[0.06] my-1" />
+                      <div className="w-px flex-1 min-h-[24px] bg-border my-1" />
                     )}
                   </div>
 
                   <div className="pt-2 pb-6">
-                    <h3 className="text-white text-base font-semibold mb-1.5">
+                    <h3 className="text-paper text-base font-semibold mb-1.5">
                       {step.title}
                     </h3>
                     <p className="text-slate-400 text-[13px] leading-relaxed max-w-md">
@@ -480,11 +419,11 @@ export default function About() {
             className="flex items-center justify-center gap-3 mt-6 text-[11px] text-slate-400 font-mono font-medium tracking-wide"
           >
             <span>Build</span>
-            <span className="w-4 h-px bg-white/[0.08]" />
+            <span className="w-4 h-px bg-border" />
             <span>Break</span>
-            <span className="w-4 h-px bg-white/[0.08]" />
+            <span className="w-4 h-px bg-border" />
             <span>Share</span>
-            <span className="w-4 h-px bg-white/[0.08]" />
+            <span className="w-4 h-px bg-border" />
             <span className="text-accent/50">Build again</span>
           </motion.div>
         </div>
@@ -493,7 +432,7 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           4. TECHNICAL ARSENAL
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
+      <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
@@ -505,7 +444,7 @@ export default function About() {
                 Arsenal
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
               Technical arsenal
             </h2>
             <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
@@ -520,11 +459,11 @@ export default function About() {
                 <motion.div
                   key={gi}
                   {...stagger(gi)}
-                  className="bg-surface/60 backdrop-blur-md border border-white/[0.05] rounded-2xl p-5 sm:p-6 hover:border-white/[0.1] transition-colors duration-300"
+                  className="bg-surface/60 border border-border rounded-2xl p-5 sm:p-6 hover:border-border-strong transition-colors duration-300"
                 >
                   <div className="flex items-center gap-2.5 mb-4">
                     <Icon size={16} className="text-accent/60" />
-                    <h3 className="text-white text-sm font-semibold">
+                    <h3 className="text-paper text-sm font-semibold">
                       {group.category}
                     </h3>
                   </div>
@@ -551,7 +490,7 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           5. CURRENTLY — Focus items
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
+      <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
@@ -563,7 +502,7 @@ export default function About() {
                 Focus
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em] mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
               Currently
             </h2>
             <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
@@ -571,16 +510,16 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="border border-white/[0.06] rounded-2xl overflow-hidden">
+          <div className="border border-border rounded-2xl overflow-hidden">
             {focusItems.map((item, i) => (
               <motion.div
                 key={i}
                 {...stagger(i)}
                 className={`flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 px-5 sm:px-6 py-4 sm:py-5 ${
                   i < focusItems.length - 1
-                    ? "border-b border-white/[0.04]"
+                    ? "border-b border-border"
                     : ""
-                } hover:bg-white/[0.015] transition-colors duration-300`}
+                } hover:bg-surface/40 transition-colors duration-300`}
               >
                 <span className="text-[10px] font-mono font-bold tracking-[0.1em] uppercase text-accent/70 sm:w-28 shrink-0">
                   {item.title}
@@ -597,7 +536,7 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           6. BEYOND CODE
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
+      <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
@@ -609,7 +548,7 @@ export default function About() {
                 Outside
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.02em]">
+            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em]">
               Beyond code
             </h2>
             <p className="text-slate-400 max-w-lg text-sm leading-relaxed mt-2">
@@ -624,13 +563,13 @@ export default function About() {
                 <motion.div
                   key={i}
                   {...stagger(i)}
-                  className="flex gap-4 p-5 bg-surface/60 backdrop-blur-md border border-white/[0.05] rounded-2xl hover:border-white/[0.1] transition-colors duration-300 flex-1 basis-[calc(50%-0.5rem)] sm:basis-[calc(33.333%-1.1rem)] min-w-[220px]"
+                  className="flex gap-4 p-5 bg-surface/60 border border-border rounded-2xl hover:border-border-strong transition-colors duration-300 flex-1 basis-[calc(50%-0.5rem)] sm:basis-[calc(33.333%-1.1rem)] min-w-[220px]"
                 >
                   <div className="shrink-0 mt-0.5">
                     <Icon size={15} className="text-accent/40" />
                   </div>
                   <div>
-                    <h3 className="text-white text-[13px] font-semibold mb-1">
+                    <h3 className="text-paper text-[13px] font-semibold mb-1">
                       {item.title}
                     </h3>
                     <p className="text-slate-400 text-[12.5px] leading-relaxed">
@@ -647,10 +586,10 @@ export default function About() {
       {/* ═══════════════════════════════════════════════════════════════════
           7. CTA
           ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 sm:py-24 px-6 border-t border-white/[0.04]">
+      <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-lg mx-auto text-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-[-0.025em] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.025em] mb-3">
               Let&apos;s build something.
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-8">
@@ -660,7 +599,7 @@ export default function About() {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-[#020617] font-bold text-sm px-6 py-2.5 rounded-xl transition-all active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-ink font-bold text-sm px-6 py-2.5 rounded-xl transition-all active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 Get in touch <ArrowUpRight size={14} />
               </Link>
@@ -668,7 +607,7 @@ export default function About() {
                 href="https://github.com/SamratVsn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/[0.15] text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-white/[0.03] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+                className="inline-flex items-center gap-2 border border-border text-slate-400 hover:text-paper hover:border-border-strong text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-surface/60 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
               >
                 <FaGithub size={15} /> GitHub
               </a>
@@ -679,7 +618,6 @@ export default function About() {
 
       </main>
       <Footer />
-      <BottomNav />
     </div>
   );
 }

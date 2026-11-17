@@ -1,123 +1,122 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { ArrowUpRight, PenLine } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const BLOG_URL = "https://blog.samratparajuli0.com.np/";
 
-const socials = [
-  { icon: FaGithub, href: "https://github.com/SamratVsn", label: "GitHub" },
-  { icon: FaLinkedin, href: "https://www.linkedin.com/in/samratvsn/", label: "LinkedIn" },
-  { icon: MdEmail, href: "mailto:samratvsn@gmail.com", label: "Email" },
+const siteLinks = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Projects", to: "/projects" },
+  { label: "Avalokan", to: "/projects/avalokan" },
+  { label: "Contact", to: "/contact" },
+];
+
+const externalLinks = [
+  { label: "Blog", href: BLOG_URL, icon: null },
+  { label: "GitHub", href: "https://github.com/SamratVsn", icon: FaGithub },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/samratvsn/",
+    icon: FaLinkedin,
+  },
+  { label: "Email", href: "mailto:samratvsn@gmail.com", icon: MdEmail },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/[0.04] bg-[#020617]">
-      <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <div className="py-10 sm:py-14">
-          {/* Desktop */}
-          <div className="hidden sm:flex items-start justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <div className="relative w-2 h-2 shrink-0">
-                  <span className="absolute inset-0 rounded-full border border-accent/25" />
-                  <span className="absolute inset-[2px] rounded-full bg-accent" />
-                </div>
-                <span className="text-[13px] font-bold tracking-tight text-white">
-                  Samrat Parajuli
-                </span>
-              </div>
-              <p className="text-[12px] text-slate-400 leading-relaxed max-w-[260px]">
-                Learning in public, one commit at a time.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-5">
-                {socials.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className="text-slate-400 hover:text-accent transition-colors text-[13px] inline-flex items-center gap-1.5"
-                  >
-                    <s.icon size={14} />
-                    <span className="hidden lg:inline">{s.label}</span>
-                  </a>
-                ))}
-              </div>
-              <span className="hidden sm:block w-px h-4 bg-white/10" aria-hidden="true" />
-              <a
-                href={BLOG_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit my blog"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.02] px-3.5 py-1.5 text-[12px] font-medium text-slate-300 transition-colors hover:border-accent/40 hover:bg-accent/10 hover:text-white"
+    <footer className="border-t border-border bg-canvas">
+      <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between sm:gap-16">
+          <div className="max-w-sm">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
+            >
+              <span
+                aria-hidden="true"
+                className="grid h-8 w-8 place-items-center rounded-md border border-border-strong bg-surface font-mono text-[10.5px] font-semibold tracking-[0.08em] text-sand"
               >
-                <PenLine size={13} />
-                Blog
-                <ArrowUpRight size={13} className="opacity-60" />
-              </a>
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="sm:hidden text-center">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="relative w-2 h-2 shrink-0">
-                <span className="absolute inset-0 rounded-full border border-accent/25" />
-                <span className="absolute inset-[2px] rounded-full bg-accent" />
-              </div>
-              <span className="text-[13px] font-bold tracking-tight text-white">
+                SP
+              </span>
+              <span className="text-[13px] font-semibold tracking-tight text-paper">
                 Samrat Parajuli
               </span>
-            </div>
-            <p className="text-[11px] text-slate-400 mb-4">
+            </Link>
+            <p className="mt-3 text-[12.5px] leading-relaxed text-slate-400">
+              Android developer in Kathmandu, Nepal. Building Kotlin and
+              Compose applications that stay useful when the signal does not.
+            </p>
+            <p className="mt-3 text-[11px] text-slate-500">
               Learning in public, one commit at a time.
             </p>
-            <div className="flex items-center justify-center gap-5 mb-4">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="text-slate-400 hover:text-accent transition-colors"
-                >
-                  <s.icon size={15} />
-                </a>
-              ))}
-            </div>
-            <a
-              href={BLOG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my blog"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.02] px-4 py-1.5 text-[12px] font-medium text-slate-300 transition-colors hover:border-accent/40 hover:bg-accent/10 hover:text-white"
-            >
-              <PenLine size={13} />
-              Visit my Blog
-              <ArrowUpRight size={13} className="opacity-60" />
-            </a>
+          </div>
+
+          <div className="flex flex-wrap gap-x-14 gap-y-8 sm:gap-x-16">
+            <nav aria-label="Footer navigation">
+              <h2 className="mb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-slate-500">
+                Site
+              </h2>
+              <ul className="space-y-2">
+                {siteLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="rounded text-[12.5px] text-slate-400 transition-colors hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <nav aria-label="Elsewhere">
+              <h2 className="mb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-slate-500">
+                Elsewhere
+              </h2>
+              <ul className="space-y-2">
+                {externalLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded text-[12.5px] text-slate-400 transition-colors hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+                    >
+                      {link.icon && <link.icon size={12} aria-hidden="true" />}
+                      {link.label}
+                      <ArrowUpRight
+                        size={11}
+                        aria-hidden="true"
+                        className="opacity-50"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
 
-        <div className="py-4 border-t border-white/[0.04] text-center">
-          <p className="text-[10px] text-slate-400">
-            &copy; {year} Samrat Parajuli{" "}
-            <span aria-hidden="true" className="px-1.5 text-white/15">·</span>{" "}
+        <div className="mt-10 flex flex-col gap-2 border-t border-border pt-5 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            &copy; {year} Samrat Parajuli
+            <span aria-hidden="true" className="px-1.5 text-slate-700">
+              ·
+            </span>
             <Link
               to="/privacy"
-              className="hover:text-slate-200 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+              className="rounded transition-colors hover:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
             >
               Privacy Policy
             </Link>
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-slate-600">
+            Built in Kathmandu · Kotlin &amp; React
           </p>
         </div>
       </div>

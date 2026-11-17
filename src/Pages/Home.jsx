@@ -4,115 +4,39 @@ import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import { SITE } from "../Components/seoHead";
 import Footer from "../Components/Footer";
-import BackgroundFX from "../Components/BackgroundFX";
 import SectionHeading from "../Components/SectionHeading";
 import TestimonialsSection from "../Components/TestimonialsSection";
-import BottomNav from "../Components/BottomNav";
 import { FaGithub } from "react-icons/fa";
-import {
-  ArrowUpRight,
-  ArrowRight,
-  Code,
-  Layers,
-  Wrench,
-  BookOpen,
-  Play,
-  Download,
-} from "lucide-react";
+import { ArrowUpRight, ArrowRight, Download, Play } from "lucide-react";
 import Hero from "../Components/Hero";
-import Tasks from "../assets/ToDo/Home.png";
-import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
-import BlogVsnB1 from "../assets/BlogVsn/B1.png";
-import SMS1 from "../assets/SMS/SMS1.png";
-import JuicePoster from "../assets/JuicePoster.jpeg";
-import KathmanduPoster from "../assets/KathmanduPoster.jpeg";
+import { PROJECTS, screenshots } from "../data/projects";
 import AvalokanLogo from "../assets/Avalokan/logo.jpeg";
-import Retrofit from "../assets/retrofit.webp";
-import Room from "../assets/Room.webp";
-import JetpackCompose from "../assets/Jetpack.webp";
-import Android from "../assets/Android.webp";
 
-// ── Expertise data ──────────────────────────────────────────────────────────
-const expertise = [
+const APK_URL =
+  "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk";
+
+// ── Featured applications, in the order they should be read ────────────────
+const featured = ["avalokan", "themovie", "todo", "blogvsn"].map((id) =>
+  PROJECTS.find((project) => project.id === id)
+);
+const [avalokan, ...supporting] = featured;
+
+// ── Toolkit data ────────────────────────────────────────────────────────────
+const toolkit = [
   {
-    icon: Code,
-    title: "Android Development",
-    desc: "Building modern, reactive Android apps with Kotlin and Jetpack Compose.",
+    title: "Android",
+    desc: "Modern, reactive Android apps in Kotlin and Jetpack Compose.",
     tags: ["Kotlin", "Jetpack Compose", "Material 3", "Coroutines & Flow"],
-    screenshots: [MoviePoster, Tasks],
   },
   {
-    icon: Layers,
     title: "Architecture",
-    desc: "Structuring apps with clear separation between UI, data, and business logic.",
-    tags: ["MVVM", "Repository Pattern", "Room", "DataStore", "Retrofit"],
-    screenshots: [Room, Retrofit],
+    desc: "Clear separation between UI, data, and business logic.",
+    tags: ["MVVM", "Repository", "Room", "DataStore", "Retrofit"],
   },
   {
-    icon: Wrench,
-    title: "Tools & Workflow",
-    desc: "The day-to-day toolkit that keeps development smooth and version-controlled.",
+    title: "Workflow",
+    desc: "The day-to-day toolkit that keeps development honest and versioned.",
     tags: ["Android Studio", "Git & GitHub", "REST APIs", "Documentation"],
-    screenshots: [JetpackCompose, Android],
-  },
-];
-
-// ── Featured projects data ──────────────────────────────────────────────────
-const featuredProjects = [
-  {
-    title: "The Movie App",
-    description:
-      "A Jetpack Compose app that browses, searches, and explores movies using the TMDB API — with movie profiles, personal watchlists, search with debounce, and offline-ready data caching backed by DataStore preferences.",
-    tags: ["Kotlin", "Jetpack Compose", "Retrofit"],
-    github: "https://github.com/SamratVsn/TheMovie",
-    path: "/projects/themovie",
-    screenshot: MoviePoster,
-  },
-  {
-    title: "Tasks",
-    description:
-      "A distraction-free task manager with Pomodoro-style focus sessions, smart reminders, Room persistence, and type-safe Compose navigation.",
-    tags: ["Kotlin", "Jetpack Compose", "Room"],
-    github: "http://github.com/SamratVsn/Tasks",
-    path: "/projects/todo",
-    screenshot: Tasks,
-  },
-  {
-    title: "Juice Tracker",
-    description:
-      "Explores Compose-View interop with Room, RecyclerView, and reactive state in a practical logging app.",
-    tags: ["Kotlin", "Compose + Views", "Room"],
-    github: "https://github.com/SamratVsn/Juicetracker",
-    path: "/projects/juicetracker",
-    screenshot: JuicePoster,
-  },
-  {
-    title: "BlogVsn Platform",
-    description:
-      "A React blog powered by Google's Blogger API — OAuth authentication, REST data, and Vercel edge caching.",
-    tags: ["React", "OAuth", "REST API"],
-    github: "https://github.com/SamratVsn/BlogVsn",
-    live: "https://blogvsn.vercel.app/",
-    path: "/projects/blogvsn",
-    screenshot: BlogVsnB1,
-  },
-  {
-    title: "Kathmandu My-City App",
-    description:
-      "A Material 3 recommendation app showcasing Kathmandu's places, temples, and destinations with adaptive layouts.",
-    tags: ["Kotlin", "Jetpack Compose", "Material 3"],
-    github: "https://github.com/SamratVsn/Kathmandu",
-    path: "/projects/kathmandu",
-    screenshot: KathmanduPoster,
-  },
-  {
-    title: "Student Management System",
-    description:
-      "A C program handling persistent student records through binary file I/O — add, search, update, and delete operations with raw byte-level file access, structured record formatting, and crash-safe data integrity.",
-    tags: ["C", "Binary I/O", "CLI"],
-    github: "https://github.com/SamratVsn/C-codes",
-    path: "/projects/sms",
-    screenshot: SMS1,
   },
 ];
 
@@ -222,7 +146,7 @@ const notePreviews = [
   },
 ];
 
-// ── What others say (testimonials) ──────────────────────────────────────────
+// ── Perspectives ────────────────────────────────────────────────────────────
 const testimonials = [
   {
     quote:
@@ -247,6 +171,13 @@ const testimonials = [
   },
 ];
 
+const sectionMotion = {
+  initial: { opacity: 0, y: 12 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.4 },
+};
+
 function Home() {
   const reduceMotion = useReducedMotion();
 
@@ -270,696 +201,431 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 selection:bg-[#3B82F6]/20 selection:text-[#3B82F6] overflow-x-hidden">
+    <div className="min-h-screen overflow-x-clip bg-canvas text-slate-300 selection:bg-accent/20 selection:text-paper">
       <SEO ogUrl={SITE.url} schema={[profilePageSchema]} />
       <Header />
       <main id="main-content">
-      <Hero />
+        <Hero />
 
-      {/* ═══════════════════════════════════════════════════════════════════════
-          EXPERTISE
-          ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40">
-        <BackgroundFX />
-        <div className="relative max-w-5xl mx-auto xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem]">
-          <SectionHeading
-            animated
-            eyebrow="Skills"
-            title="What I build with"
-            subtitle="The core technologies and concepts I use to ship real projects."
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {expertise.map((card, i) => (
-              <motion.div
-                key={card.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="group border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl overflow-hidden hover:border-slate-700/80 transition-colors duration-300"
+        {/* ═══════════════════════════════════════════════════════════════════
+            FEATURED APPLICATIONS
+            ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          aria-labelledby="featured-heading"
+          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
+        >
+          <div className="mx-auto max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+            <div className="mb-10 flex items-end justify-between gap-6">
+              <SectionHeading
+                id="featured-heading"
+                eyebrow="Work"
+                title="Featured Applications"
+                subtitle="Applications I designed, built, and shipped — led by Avalokan, an offline-first Android app built for Nepal's mountain roads."
+              />
+              <Link
+                to="/projects"
+                className="mb-10 hidden shrink-0 items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:inline-flex"
               >
-                {/* Header */}
-                <div className="p-6 pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-[#3B82F6]/10 border border-[#3B82F6]/15 rounded-lg text-[#3B82F6] group-hover:bg-[#3B82F6]/15 transition-colors duration-300">
-                      <card.icon size={16} />
-                    </div>
-                    <h3 className="text-white font-semibold text-[15px]">
-                      {card.title}
-                    </h3>
-                  </div>
-                  <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
-                    {card.desc}
-                  </p>
+                All projects <ArrowUpRight size={13} aria-hidden="true" />
+              </Link>
+            </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {card.tags.map((tag) => (
+            {/* Avalokan spotlight */}
+            {avalokan && (
+              <div className="overflow-hidden rounded-xl border border-accent-border bg-surface">
+                <div className="grid gap-6 p-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-8">
+                  <div className="min-w-0">
+                    <p className="inline-flex items-center gap-1.5 rounded-full border border-accent-border bg-accent-muted px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.12em] text-accent-soft">
                       <span
-                        key={tag}
-                        className="text-[10px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
+                        aria-hidden="true"
+                        className="h-1 w-1 rounded-full bg-accent"
+                      />
+                      {avalokan.status}
+                    </p>
+
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.02em] text-paper sm:text-3xl">
+                      <Link
+                        to={avalokan.path}
+                        className="rounded transition-colors hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
                       >
-                        {tag}
+                        {avalokan.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-1 text-[13px] font-medium text-sand">
+                      Discover Nepal. Explore its heritage. Experience its
+                      stories.
+                    </p>
+                    <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-slate-400">
+                      {avalokan.solution}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {["Kotlin", "Jetpack Compose", "Firebase", "Room"].map(
+                        (tag) => (
+                          <span
+                            key={tag}
+                            className="rounded border border-border bg-canvas/40 px-2 py-0.5 text-[10px] font-medium text-slate-400"
+                          >
+                            {tag}
+                          </span>
+                        )
+                      )}
+                    </div>
+
+                    <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+                      <Link
+                        to={avalokan.path}
+                        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-[13px] font-semibold text-ink transition-colors hover:bg-accent-hover"
+                      >
+                        <Play size={13} fill="currentColor" aria-hidden="true" />
+                        Open case study
+                      </Link>
+                      <a
+                        href={APK_URL}
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-300 transition-colors hover:text-paper"
+                      >
+                        <Download size={13} aria-hidden="true" /> Download APK
+                      </a>
+                      <a
+                        href={avalokan.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-400 transition-colors hover:text-paper"
+                      >
+                        <FaGithub size={13} aria-hidden="true" /> Source
+                      </a>
+                      <span className="font-mono text-[11px] text-slate-500">
+                        v1.0.0 · 22s launch film inside
                       </span>
-                    ))}
+                    </div>
+                  </div>
+
+                  <div className="hidden justify-self-end sm:block">
+                    <img
+                      src={AvalokanLogo}
+                      alt="Avalokan — Nepal Heritage Explorer app logo"
+                      className="h-40 w-auto rounded-xl border border-border-strong bg-[#F5F3ED] object-contain lg:h-48"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
+              </div>
+            )}
 
-                {/* Screenshots */}
-                {card.screenshots && (
-                  <div className="px-6 pb-6">
-                    <div className="flex gap-2 rounded-lg overflow-hidden border border-slate-800/40">
-                      {card.screenshots.map((src, idx) => (
+            {/* Supporting applications */}
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+              {supporting.map((project, index) => {
+                const screenshot = screenshots[project.path];
+                return (
+                  <motion.article
+                    key={project.id}
+                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.35, delay: index * 0.05 }}
+                    className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-accent-border focus-within:border-accent-border"
+                  >
+                    <Link
+                      to={project.path}
+                      className="absolute inset-0 z-10"
+                      aria-label={`View project: ${project.title}`}
+                    />
+                    {screenshot && (
+                      <div className="relative overflow-hidden border-b border-border">
+                        <img
+                          src={screenshot}
+                          alt={`Preview of ${project.title}`}
+                          className="h-40 w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.02]"
+                          loading="lazy"
+                        />
                         <div
-                          key={idx}
-                          className="flex-1 bg-[#020617] overflow-hidden"
-                        >
-                          <img
-                            src={src}
-                            alt=""
-                            className="w-full h-28 sm:h-32 object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
-                            loading="lazy"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════════
-          FEATURED PROJECTS
-          ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40">
-        <BackgroundFX gridOpacity={0.015} />
-        <div className="relative max-w-5xl mx-auto xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem]">
-          <div className="flex items-end justify-between mb-10">
-            <SectionHeading
-              animated
-              eyebrow="Work"
-              title="Featured Projects"
-              subtitle="Real projects that shaped my engineering thinking."
-            />
-            <Link
-              to="/projects"
-              className="hidden sm:inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
-            >
-              View all <ArrowUpRight size={13} />
-            </Link>
-          </div>
-
-          {/* Spotlight: newest project */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
-            className="relative mb-5 overflow-hidden rounded-2xl border border-[#8FBFA4]/25 bg-[#0A101F]/70 backdrop-blur-xl"
-          >
-            <div
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(520px 260px at 10% 0%, rgba(27,67,50,0.65), transparent 70%), radial-gradient(420px 220px at 95% 100%, rgba(200,111,74,0.16), transparent 70%)",
-              }}
-            />
-            <Link
-              to="/projects/avalokan"
-              className="absolute inset-0 z-10"
-              aria-label="View project: Avalokan"
-            />
-
-            <div className="relative grid grid-cols-1 sm:grid-cols-[1fr_auto] items-center gap-6 p-6 sm:p-8">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                    Android · Feature-complete beta
-                  </span>
-                </div>
-
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-[-0.03em] text-white group-hover:text-[#8FBFA4] transition-colors">
-                  Avalokan
-                </h3>
-                <p className="mt-1 text-[13px] font-medium text-[#D98964]">
-                  Discover Nepal. Explore its heritage. Experience its stories.
-                </p>
-                <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-slate-400">
-                  A native Android heritage explorer — historical places, cultural stories,
-                  festivals, and events in one app. Firestore-backed with an offline-first Room
-                  cache, built in Kotlin and Jetpack Compose with Hilt and Material 3.
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {["Kotlin", "Jetpack Compose", "Firebase", "Room"].map((tag, idx) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
-                    >
-                      <span
-                        className="w-1 h-1 rounded-full inline-block mr-1.5"
-                        style={{ backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4", "#8FBFA4"][idx % 4] }}
-                      />
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="relative z-20 mt-5 flex flex-wrap items-center gap-3">
-                  <Link
-                    to="/projects/avalokan"
-                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[13px] font-semibold text-[#04080C] transition-all active:scale-[0.97]"
-                    style={{ backgroundColor: "#8FBFA4" }}
-                  >
-                    <Play size={13} fill="currentColor" /> Open project page
-                  </Link>
-                  <a
-                    href="https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk"
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/12 px-3.5 py-2 text-[13px] font-semibold text-slate-200 transition-all hover:border-white/25 hover:text-white active:scale-[0.97]"
-                  >
-                    <Download size={13} /> Download APK
-                  </a>
-                  <a
-                    href="https://github.com/SamratVsn/Avalokan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-400 transition-colors hover:text-white"
-                  >
-                    <FaGithub size={14} /> Source
-                  </a>
-                  <span className="text-[11px] font-mono text-slate-400">v1.0.0 · 22s film inside</span>
-                </div>
-              </div>
-
-              {/* Poster */}
-              <div className="relative hidden sm:block">
-                <div
-                  className="absolute -inset-4 rounded-2xl blur-2xl"
-                  style={{ background: "radial-gradient(circle, rgba(143,191,164,0.25), transparent 70%)" }}
-                />
-                <img
-                  src={AvalokanLogo}
-                  alt="Avalokan — Nepal Heritage Explorer logo"
-                  className="relative h-40 lg:h-48 w-auto rounded-xl border border-white/10 bg-[#F5F3ED] object-contain shadow-xl"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Row 1: Large + 2 stacked */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4">
-            {/* Large: The Movie App */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45 }}
-              className="lg:col-span-3 group"
-            >
-              <Link
-                to={featuredProjects[0].path}
-                className="block h-full border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl overflow-hidden hover:border-[#3B82F6]/30 transition-all duration-300"
-              >
-                {/* Screenshot */}
-                <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
-                  <img
-                    src={featuredProjects[0].screenshot}
-                    alt="Preview of The Movie App"
-                    className="w-full h-48 sm:h-56 lg:h-64 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-white font-semibold text-base group-hover:text-[#3B82F6] transition-colors">
-                      {featuredProjects[0].title}
-                    </h3>
-                    <ArrowUpRight
-                      size={16}
-                      className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                    />
-                  </div>
-                  <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
-                    {featuredProjects[0].description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {featuredProjects[0].tags.map((tag, idx) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
-                      >
-                        <span
-                          className="w-1 h-1 rounded-full inline-block mr-1.5"
-                          style={{
-                            backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][idx % 3],
-                          }}
+                          aria-hidden="true"
+                          className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"
                         />
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-slate-400 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
-                    <span className="text-[#3B82F6] font-medium">Key takeaway:</span> Client-server architecture, Kotlinx Serialization, and reactive state with Coroutines & Flow.
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Stacked right */}
-            <div className="lg:col-span-2 flex flex-col gap-4">
-              {[featuredProjects[1], featuredProjects[2]].map((project, i) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.45, delay: (i + 1) * 0.08 }}
-                  className="flex-1 group"
-                >
-                  <Link
-                    to={project.path}
-                    className="block h-full border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl overflow-hidden hover:border-[#3B82F6]/30 transition-all duration-300"
-                  >
-                    {/* Screenshot if available */}
-                    {project.screenshot && (
-                      <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
-                        <img
-                          src={project.screenshot}
-                          alt={`Preview of ${project.title}`}
-                          className="w-full h-32 sm:h-36 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
                       </div>
                     )}
-
-                    <div className="p-5">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-white font-semibold text-sm group-hover:text-[#3B82F6] transition-colors">
+                    <div className="flex flex-1 flex-col p-5">
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-[15px] font-semibold text-paper transition-colors group-hover:text-accent-soft">
                           {project.title}
                         </h3>
                         <ArrowUpRight
-                          size={14}
-                          className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                          size={15}
+                          aria-hidden="true"
+                          className="mt-0.5 shrink-0 text-slate-500 transition-colors group-hover:text-accent-soft"
                         />
                       </div>
-                      <p className="text-slate-400 text-[12px] leading-relaxed mb-3 line-clamp-2">
-                        {project.description}
+                      <p className="mt-2 line-clamp-3 text-[12.5px] leading-relaxed text-slate-400">
+                        {project.solution}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag, idx) => (
-                          <span
-                            key={tag}
-                            className="text-[9px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
-                          >
-                            <span
-                              className="w-1 h-1 rounded-full inline-block mr-1"
-                              style={{
-                                backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][idx % 3],
-                              }}
-                            />
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2: 2 small + large */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-            {/* Stacked left */}
-            <div className="lg:col-span-2 flex flex-col gap-4 order-2 lg:order-1">
-              {[featuredProjects[3], featuredProjects[4]].map((project, i) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="flex-1 group"
-                >
-                  <Link
-                    to={project.path}
-                    className="block h-full border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl overflow-hidden hover:border-[#3B82F6]/30 transition-all duration-300"
-                  >
-                    {project.screenshot && (
-                      <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
-                        <img
-                          src={project.screenshot}
-                          alt={`Preview of ${project.title}`}
-                          className="w-full h-32 sm:h-36 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
-                      </div>
-                    )}
-
-                    <div className="p-5">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-white font-semibold text-sm group-hover:text-[#3B82F6] transition-colors">
-                          {project.title}
-                        </h3>
-                        <ArrowUpRight
-                          size={14}
-                          className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                        />
-                      </div>
-                      <p className="text-slate-400 text-[12px] leading-relaxed mb-3 line-clamp-2">
-                        {project.description}
+                      <p className="mt-auto pt-4 text-[10.5px] font-medium uppercase tracking-[0.1em] text-slate-500">
+                        {project.tags.join(" · ")}
                       </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag, idx) => (
-                          <span
-                            key={tag}
-                            className="text-[9px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
-                          >
-                            <span
-                              className="w-1 h-1 rounded-full inline-block mr-1"
-                              style={{
-                                backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][idx % 3],
-                              }}
-                            />
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
                     </div>
-                  </Link>
-                </motion.div>
-              ))}
+                  </motion.article>
+                );
+              })}
             </div>
 
-            {/* Large: Student Management System */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45 }}
-              className="lg:col-span-3 group order-1 lg:order-2"
-            >
-              <Link
-                to={featuredProjects[5].path}
-                className="block h-full border border-slate-800/70 rounded-xl bg-[#0A101F]/70 backdrop-blur-xl overflow-hidden hover:border-[#3B82F6]/30 transition-all duration-300"
-              >
-                {featuredProjects[5].screenshot && (
-                    <div className="relative overflow-hidden bg-[#020617] border-b border-slate-800/40">
-                      <img
-                        src={featuredProjects[5].screenshot}
-                        alt={`${featuredProjects[5].title} screenshot`}
-                        className="w-full h-48 sm:h-56 lg:h-64 object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A101F] via-transparent to-transparent opacity-60" />
-                    </div>
-                  )}
-                <div className="p-6 sm:p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-                      Foundation Project
-                    </span>
-                    <ArrowUpRight
-                      size={16}
-                      className="text-slate-400 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                    />
-                  </div>
-                  <h3 className="text-white font-semibold text-lg sm:text-xl group-hover:text-[#3B82F6] transition-colors mb-3">
-                    {featuredProjects[5].title}
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-lg">
-                    {featuredProjects[5].description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {featuredProjects[5].tags.map((tag, idx) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] text-slate-400 bg-white/[0.02] border border-slate-800/70 px-2 py-0.5 rounded font-medium"
-                      >
-                        <span
-                          className="w-1 h-1 rounded-full inline-block mr-1.5"
-                          style={{
-                            backgroundColor: ["#7F52FF", "#3DDC84", "#4285F4"][idx % 3],
-                          }}
-                        />
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-slate-400 sm:text-[11px] lg:text-[14px] mt-4 leading-relaxed">
-                    <span className="text-[#3B82F6] font-medium">Key takeaway:</span> Low-level file handling, binary record formatting, and building reliable data persistence without a database.
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-          </div>
-
-          <Link
-            to="/projects"
-            className="sm:hidden mt-6 inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1"
-          >
-            View all projects <ArrowUpRight size={13} />
-          </Link>
-        </div>
-      </section>
-
-      <TestimonialsSection testimonials={testimonials} />
-
-      {/* ═══════════════════════════════════════════════════════════════════════
-          HOW I BUILD
-          ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40">
-        <BackgroundFX gridOpacity={0.02} />
-        <div className="relative max-w-4xl mx-auto xl:max-w-5xl">
-          <SectionHeading
-            animated
-            eyebrow="Approach"
-            title="How I build"
-            subtitle="Three principles that guide how I approach every project."
-          />
-
-          <div>
-            {philosophy.map((item, i) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="group"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8 py-7 border-b border-slate-800/40 last:border-b-0">
-                  <span className="text-[13px] font-mono tabular-nums text-slate-700 group-hover:text-[#3B82F6] transition-colors shrink-0 pt-0.5">
-                    {item.number}
-                  </span>
-                  <div>
-                    <h3 className="text-white font-medium text-[15px] mb-2">
+            {/* Toolkit — the stack behind the work, kept typographic */}
+            <div className="mt-12 border-t border-border pt-8">
+              <h3 className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-slate-500">
+                Toolkit
+              </h3>
+              <div className="mt-5 grid gap-6 sm:grid-cols-3">
+                {toolkit.map((item) => (
+                  <div key={item.title}>
+                    <h4 className="text-[13px] font-semibold text-paper">
                       {item.title}
-                    </h3>
-                    <p className="text-slate-400 text-[13px] leading-relaxed max-w-xl">
+                    </h4>
+                    <p className="mt-1 text-[12.5px] leading-relaxed text-slate-400">
                       {item.desc}
                     </p>
+                    <p className="mt-2 font-mono text-[10.5px] leading-relaxed text-slate-500">
+                      {item.tags.join(" · ")}
+                    </p>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </div>
+
+            <Link
+              to="/projects"
+              className="mt-8 inline-flex items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:hidden"
+            >
+              All projects <ArrowUpRight size={13} aria-hidden="true" />
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════════
-          ANDROID JOURNEY
-          ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40">
-        <BackgroundFX gridOpacity={0.02} />
-        <div className="relative max-w-4xl mx-auto xl:max-w-5xl">
-          <SectionHeading
-            animated
-            eyebrow="Journey"
-            title="My Android Journey"
-            subtitle="From my first line of code to building complete Android applications."
-          />
+        {/* ═══════════════════════════════════════════════════════════════════
+            HOW I BUILD
+            ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          aria-labelledby="approach-heading"
+          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
+        >
+          <div className="mx-auto max-w-4xl xl:max-w-5xl">
+            <SectionHeading
+              id="approach-heading"
+              eyebrow="Approach"
+              title="How I build"
+              subtitle="Three principles that guide how I approach every project."
+            />
 
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[5px] top-1 bottom-1 w-px bg-slate-800/40" />
+            <div>
+              {philosophy.map((item, i) => (
+                <motion.div
+                  key={item.number}
+                  {...sectionMotion}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  className="group"
+                >
+                  <div className="flex flex-col gap-3 border-b border-border py-6 last:border-b-0 sm:flex-row sm:items-start sm:gap-8">
+                    <span className="shrink-0 pt-0.5 font-mono text-[12px] tabular-nums text-slate-600 transition-colors group-hover:text-accent-soft">
+                      {item.number}
+                    </span>
+                    <div>
+                      <h3 className="mb-1.5 text-[15px] font-medium text-paper">
+                        {item.title}
+                      </h3>
+                      <p className="max-w-xl text-[13px] leading-relaxed text-slate-400">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {journeyItems.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={
-                  reduceMotion ? { opacity: 1 } : { opacity: 0, x: -8 }
-                }
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
-                className="relative flex gap-5 sm:gap-6 group"
-              >
-                {/* dot */}
-                <div className="relative z-10 flex items-start pt-1.5 shrink-0">
-                  <span
-                    className={`w-[11px] h-[11px] rounded-full border-2 transition-colors duration-300 ${
-                      item.active
-                        ? "bg-[#3B82F6] border-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.4)]"
-                        : "bg-[#020617] border-slate-600 group-hover:border-slate-500"
-                    }`}
-                  />
-                </div>
+        {/* ═══════════════════════════════════════════════════════════════════
+            ANDROID JOURNEY
+            ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          aria-labelledby="journey-heading"
+          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
+        >
+          <div className="mx-auto max-w-4xl xl:max-w-5xl">
+            <SectionHeading
+              id="journey-heading"
+              eyebrow="Journey"
+              title="My Android Journey"
+              subtitle="From my first line of code to building complete Android applications."
+            />
 
-                {/* content */}
-                <div className="pb-7 pt-0.5">
-                  <div className="flex items-center gap-3 mb-1">
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute bottom-1 left-[5px] top-1 w-px bg-border"
+              />
+
+              {journeyItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={reduceMotion ? { opacity: 1 } : { opacity: 0, x: -6 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  className="group relative flex gap-5 sm:gap-6"
+                >
+                  <div className="relative z-10 flex shrink-0 items-start pt-1.5">
                     <span
-                      className={`text-[11px] font-medium tabular-nums ${
-                        item.active ? "text-[#3B82F6]" : "text-slate-400"
+                      className={`h-[11px] w-[11px] rounded-full border-2 transition-colors duration-300 ${
+                        item.active
+                          ? "border-accent bg-accent"
+                          : "border-slate-600 bg-canvas group-hover:border-slate-500"
+                      }`}
+                    />
+                  </div>
+
+                  <div className="pb-7 pt-0.5">
+                    <div className="mb-1 flex items-center gap-3">
+                      <span
+                        className={`text-[11px] font-medium tabular-nums ${
+                          item.active ? "text-accent-soft" : "text-slate-400"
+                        }`}
+                      >
+                        {item.period}
+                      </span>
+                      {item.active && (
+                        <span className="rounded border border-accent-border px-1.5 py-0.5 text-[9px] font-medium uppercase leading-none tracking-wider text-accent-soft">
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    <h3
+                      className={`mb-1 text-sm font-medium leading-snug sm:text-base ${
+                        item.active ? "text-paper" : "text-slate-300"
                       }`}
                     >
-                      {item.period}
-                    </span>
-                    {item.active && (
-                      <span className="text-[9px] text-[#3B82F6] border border-[#3B82F6]/25 px-1.5 py-0.5 rounded uppercase tracking-wider leading-none font-medium">
-                        Current
-                      </span>
-                    )}
+                      {item.title}
+                    </h3>
+                    <p className="max-w-lg text-[13px] leading-relaxed text-slate-400">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3
-                    className={`font-medium text-sm sm:text-base leading-snug mb-1 ${
-                      item.active ? "text-white" : "text-slate-300"
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-400 text-[13px] leading-relaxed max-w-lg">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════════
-          LEARNING IN PUBLIC
-          ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40">
-        <BackgroundFX gridOpacity={0.015} />
-        <div className="relative max-w-4xl mx-auto xl:max-w-5xl">
-          <div className="flex items-end justify-between mb-10">
-            <SectionHeading
-              animated
-              eyebrow="Writing"
-              title="Learning in public"
-              subtitle="I document what I learn, the problems I run into, and the things I build along the way."
-            />
+        {/* ═══════════════════════════════════════════════════════════════════
+            WRITING
+            ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          aria-labelledby="writing-heading"
+          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
+        >
+          <div className="mx-auto max-w-4xl xl:max-w-5xl">
+            <div className="mb-10 flex items-end justify-between gap-6">
+              <SectionHeading
+                id="writing-heading"
+                eyebrow="Writing"
+                title="Learning in public"
+                subtitle="I document what I learn, the problems I run into, and the things I build along the way."
+              />
+              <a
+                href="https://blog.samratparajuli0.com.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-10 hidden shrink-0 items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:inline-flex"
+              >
+                All blogs <ArrowUpRight size={13} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className="border-t border-border">
+              {notePreviews.map((note, i) => (
+                <motion.a
+                  key={note.url}
+                  initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  href={note.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group -mx-3 flex items-start gap-5 rounded-lg border-b border-border px-3 py-5 transition-colors last:border-b-0 hover:bg-surface/40 sm:gap-8"
+                >
+                  <div className="w-16 shrink-0 pt-0.5 sm:w-20">
+                    <span className="text-[11px] font-medium uppercase tabular-nums tracking-wider text-slate-500">
+                      {note.date}
+                    </span>
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <h3 className="mb-1.5 text-[15px] font-medium leading-snug text-paper transition-colors group-hover:text-accent-soft sm:text-base">
+                      {note.title}
+                    </h3>
+                    <span className="text-[10px] font-medium uppercase tracking-wider text-accent-soft/70">
+                      {note.category}
+                    </span>
+                  </div>
+
+                  <div className="shrink-0 pt-1 text-slate-600 transition-colors group-hover:text-accent-soft">
+                    <ArrowRight size={15} aria-hidden="true" />
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
             <a
               href="https://blog.samratparajuli0.com.np/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1 mb-10 hover:gap-2 transition-all"
+              className="mt-6 inline-flex items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:hidden"
             >
-              All blogs <ArrowUpRight size={13} />
+              All blogs <ArrowUpRight size={13} aria-hidden="true" />
             </a>
           </div>
+        </section>
 
-          <div className="border-t border-slate-800/50">
-            {notePreviews.map((note, i) => (
-              <motion.a
-                key={note.url}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.35, delay: i * 0.06 }}
-                href={note.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-5 sm:gap-8 py-5 border-b border-slate-800/40 last:border-b-0 hover:bg-white/[0.01] transition-colors duration-200 -mx-3 px-3 rounded-lg"
+        <TestimonialsSection testimonials={testimonials} />
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            CONTACT CTA
+            ═══════════════════════════════════════════════════════════════════ */}
+        <section
+          aria-labelledby="contact-cta-heading"
+          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <motion.div {...sectionMotion}>
+              <h2
+                id="contact-cta-heading"
+                className="mb-4 text-2xl font-semibold tracking-[-0.02em] text-paper sm:text-3xl lg:text-4xl"
               >
-                <div className="w-16 sm:w-20 shrink-0 pt-0.5">
-                  <span className="text-[11px] text-slate-400 font-medium tabular-nums uppercase tracking-wider">
-                    {note.date}
-                  </span>
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-white font-medium text-[15px] sm:text-base leading-snug mb-1.5 group-hover:text-[#3B82F6] transition-colors duration-200">
-                    {note.title}
-                  </h3>
-                  <span className="text-[10px] font-medium tracking-wider uppercase text-[#3B82F6]/60">
-                    {note.category}
-                  </span>
-                </div>
-
-                <div className="shrink-0 pt-1 text-slate-700 group-hover:text-[#3B82F6] group-hover:translate-x-0.5 transition-all duration-200">
-                  <ArrowRight size={15} />
-                </div>
-              </motion.a>
-            ))}
+                Have something worth building?
+              </h2>
+              <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-slate-400 sm:text-base">
+                I'm open to Android roles and to conversations about shipping
+                software that has to work outside a stable Wi-Fi connection.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-[13.5px] font-semibold text-ink transition-colors hover:bg-accent-hover"
+                >
+                  Get in touch <ArrowUpRight size={15} aria-hidden="true" />
+                </Link>
+                <a
+                  href="https://github.com/SamratVsn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-5 py-3 text-[13.5px] font-medium text-slate-300 transition-colors hover:border-accent-border hover:text-paper"
+                >
+                  <FaGithub size={15} aria-hidden="true" />
+                  View GitHub
+                </a>
+              </div>
+            </motion.div>
           </div>
-
-          <a
-            href="https://blog.samratparajuli0.com.np/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sm:hidden mt-6 inline-flex text-[#3B82F6] text-sm font-medium items-center gap-1"
-          >
-            All blogs <ArrowUpRight size={13} />
-          </a>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════════
-          CTA
-          ═══════════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 sm:py-28 px-5 sm:px-6 border-t border-slate-800/40">
-        <BackgroundFX gridOpacity={0.015} />
-        <div className="relative max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Have something interesting in mind?
-            </h2>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-md mx-auto">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of something meaningful.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-              <Link
-                to="/contact"
-                className="bg-[#3B82F6] hover:bg-[#3393FF]/90 text-[#020617] font-bold px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg transition-all active:scale-[0.97] inline-flex items-center gap-2 text-sm"
-              >
-                Get in touch <ArrowUpRight size={15} />
-              </Link>
-              <a
-                href="https://github.com/SamratVsn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-slate-800/60 hover:border-slate-700 text-slate-400 hover:text-white font-medium px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg transition-all hover:bg-white/[0.03] inline-flex items-center gap-2 text-sm"
-              >
-                <FaGithub size={15} />
-                View GitHub
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+        </section>
       </main>
       <Footer />
-      <BottomNav />
     </div>
   );
 }
