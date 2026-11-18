@@ -209,4 +209,4 @@ The browser automation environment would not deliver physical key presses to the
 
 ## 7. Review gate
 
-Phase 1 is ready for review. No Phase 2 work has started, and no commit has been created on the feature branch yet. The working tree contains the Phase 1 changes plus the pre-existing untracked audit file.
+Phase 1 is approved and committed on this branch. The pre-existing audit document is committed separately from the Phase 1 implementation. No Phase 2 work is included in this commit.
