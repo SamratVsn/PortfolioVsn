@@ -20,7 +20,7 @@ const Projects = () => {
     '@id': 'https://www.samratparajuli0.com.np/projects#webpage',
     'url': 'https://www.samratparajuli0.com.np/projects',
     'name': 'Android & Software Projects | Samrat Parajuli',
-    'description': 'Android, web, and C projects by Samrat Parajuli — built while learning and experimenting with Kotlin, Jetpack Compose, React, and C.',
+    'description': 'Android, web, and systems projects by Samrat Parajuli — shipped native Android apps in Kotlin and Jetpack Compose, alongside earlier C and web work.',
     'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
     'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
   }
@@ -30,7 +30,7 @@ const Projects = () => {
       <Routes>
         <Route index element={<><SEO
           title="Android & Software Projects | Samrat Parajuli"
-          description="Android, web, and C projects by Samrat Parajuli — built while learning and experimenting with Kotlin, Jetpack Compose, React, and C."
+          description="Android, web, and systems projects by Samrat Parajuli — shipped native Android apps in Kotlin and Jetpack Compose, alongside earlier C and web work."
           ogUrl="https://www.samratparajuli0.com.np/projects"
           schema={[projectsSchema]}
         /><ProjectGrid /></>} />

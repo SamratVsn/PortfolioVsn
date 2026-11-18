@@ -1,41 +1,50 @@
 # Samrat Parajuli (SamratVsn)
 
-> Emerging Android app developer from Kathmandu, Nepal, specializing in Kotlin, Jetpack Compose, and clean mobile architecture. Building native Android applications with a focus on clean code, intuitive UI/UX, and modern reactive interfaces.
+> Product-Minded Systems & Application Engineer in Kathmandu, Nepal. I build applications end to end — product brief → data model → interface → release. My deepest specialism is native Android with Kotlin and Jetpack Compose.
 
 ## About
 
 - **Name:** Samrat Parajuli
 - **Handle:** SamratVsn
-- **Identity:** Emerging Android app developer from Kathmandu, Nepal
-- **Role:** Android Developer
+- **Identity:** Product-Minded Systems & Application Engineer
+- **Specialty:** Native Android — Kotlin, Jetpack Compose
+- **Tagline:** I build applications end to end: product brief → data model → interface → release.
 - **Location:** Kathmandu, Nepal
 - **Email:** samratvsn@gmail.com
-- **Focus:** Native Android app development, clean architecture, and high-performance UI/UX systems
+- **Focus:** Product engineering, application architecture, offline-first data, and native Android interfaces
 
 ## Tech Stack
 
-- **Language:** Kotlin, Java, C
-- **UI Toolkit:** Jetpack Compose, Material Design 3
-- **Architecture:** MVVM, Clean Architecture
-- **Async:** Coroutines, Flow
-- **Tools:** Android Studio
-- **Also familiar with:** JavaScript, HTML, CSS, Git/GitHub
+- **Languages:** Kotlin, Java, C, JavaScript
+- **Android:** Jetpack Compose, Material 3, Navigation Compose, Room, DataStore
+- **Architecture:** MVVM, Repository pattern, dependency injection (Hilt or manual containers, per project)
+- **Async:** Coroutines, Flow, StateFlow
+- **Web:** React, Vite, Tailwind CSS, React Router
+- **Cloud & APIs:** Firebase (Auth, Firestore), REST APIs, Retrofit, kotlinx.serialization
+- **Tooling:** Android Studio, Git/GitHub, Gradle
 
-## Core Projects
+## Shipped & Published Work
 
-- **[Avalokan](https://github.com/SamratVsn/Avalokan)** — Featured project; native Android heritage explorer for Nepal built with Kotlin, Jetpack Compose, Firebase, and an offline-first Room cache.
-- **[devPortfoli0](https://github.com/SamratVsn/devPortfoli0)** — This portfolio's codebase, built with React 19, Vite, and Tailwind CSS.
-- **[Kathmandu](https://github.com/SamratVsn/Kathmandu)** — A "MyCity" themed Android app centered on Kathmandu, built in Kotlin.
-- **[Cupcake](https://github.com/SamratVsn/Cupcake)** — Android app implementing ViewModel and App Navigation (Android Basics series), built in Kotlin.
-- **[PortfolioVsn](https://github.com/SamratVsn/PortfolioVsn)** — Earlier developer portfolio, built with JavaScript.
-- **[Kotlin-Beginner-Codes](https://github.com/SamratVsn/Kotlin-Beginner-Codes)** — Collection of beginner Kotlin projects and exercises.
-- **[C-codes](https://github.com/SamratVsn/C-codes)** — Collection of C programming projects.
+- **[Avalokan](https://github.com/SamratVsn/Avalokan)** — Native Android heritage explorer for Nepal. Kotlin, Jetpack Compose, Firebase Auth/Firestore, Room offline cache, Hilt, DataStore. Published v1.0.0 with a downloadable APK.
+- **[Tasks](https://github.com/SamratVsn/Tasks)** — Local-first Android task manager with Pomodoro focus sessions, categories, reminders, and dynamic theming. Kotlin, Compose, Room 3, DataStore, manual AppContainer DI. Latest release: v2.1.0.
+- **[The Movie App](https://github.com/SamratVsn/TheMovie)** — TMDB client in Kotlin and Jetpack Compose with debounced search, favorites, Firebase email/password auth, and disk/memory caching.
+- **[BlogVsn](https://github.com/SamratVsn/BlogVsn)** — React 19 frontend for a Blogger-managed blog, with Google sign-in and a client-side EmailJS contact form. Deployed on Vercel.
+
+## Additional Projects
+
+- **[Kathmandu My-City](https://github.com/SamratVsn/Kathmandu)** — Material 3 recommendation app for Kathmandu's places, temples, shops, and destinations.
+- **[Juice Tracker](https://github.com/SamratVsn/Juicetracker)** — Kotlin app exploring Compose/View interoperability with Room and StateFlow.
+- **Student Management System** — Console CRUD program in C using binary file I/O and direct byte-offset navigation ([source](https://github.com/SamratVsn/C-codes)).
+- **Bank Account Manager** — Kotlin CLI exercise in object-oriented account and transaction handling ([source](https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt)).
+- **[devPortfoli0](https://github.com/SamratVsn/devPortfoli0)** — This portfolio: React 19, Vite 7, Tailwind CSS 4, prerendered to static HTML.
 
 ## Primary Links
 
 - **Portfolio:** https://www.samratparajuli0.com.np/
-- **Avalokan APK (v1.0.0):** https://github.com/SamratVsn/Avalokan/releases/tag/v1.0.0
+- **Blog:** https://blog.samratparajuli0.com.np/
+- **Avalokan release (v1.0.0):** https://github.com/SamratVsn/Avalokan/releases/tag/v1.0.0
+- **Tasks latest release:** https://github.com/SamratVsn/Tasks/releases/latest
 - **GitHub:** https://github.com/SamratVsn
-- **LinkedIn:** https://linkedin.com/in/samratvsn
+- **LinkedIn:** https://www.linkedin.com/in/samratvsn/
 - **Medium:** https://medium.com/@samratvsn
 - **X (Twitter):** https://x.com/SamratVsn

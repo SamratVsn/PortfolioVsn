@@ -14,13 +14,14 @@ import {
   FolderTree,
   Cpu,
   Download,
-  X,
   Tag,
   BarChart3,
   Settings,
   ListTodo
 } from 'lucide-react'
 import SEO from './SEO'
+import CaseStudyHeader from './CaseStudyHeader'
+import Lightbox from './Lightbox'
 import ToDoHome from '../assets/ToDo/Home.png'
 import ToDoAdd from '../assets/ToDo/Add.png'
 import ToDoDetails from '../assets/ToDo/Details.png'
@@ -33,31 +34,31 @@ import { motion } from 'framer-motion';
 
 
 const RELEASE_URL = "https://github.com/SamratVsn/Tasks/releases/latest/download/Tasks.apk"
-const REPO_URL = "http://github.com/SamratVsn/Tasks"
+const REPO_URL = "https://github.com/SamratVsn/Tasks"
 
 function Tasks() {
   const [activeTab, setActiveTab] = useState('overview')
   const [selectedImage, setSelectedImage] = useState(null)
 
   const specs = [
-    { label: "Min SDK", value: "24 (Android 7.0)" },
-    { label: "Target SDK", value: "37 (Android 15)" },
+    { label: "Min SDK", value: "26 (Android 8.0)" },
+    { label: "Target SDK", value: "37 (Android 17)" },
     { label: "Language", value: "Kotlin 2.2.10" },
     { label: "UI Framework", value: "Jetpack Compose" },
     { label: "Design System", value: "Material Design 3 (M3)" },
-    { label: "Database", value: "Room (SQLite)" },
+    { label: "Database", value: "Room 3 (SQLite)" },
     { label: "Preferences", value: "Jetpack DataStore" },
     { label: "Architecture", value: "MVVM + Repository" },
     { label: "Navigation", value: "Navigation Compose (ToDoNavHost)" },
-    { label: "DI", value: "Hilt / AppContainer" },
-    { label: "Build", value: "Gradle 9.3.1" }
+    { label: "DI", value: "Manual AppContainer" },
+    { label: "Build", value: "AGP 9.4.0" }
   ]
 
   const features = [
     { icon: ListTodo, title: "Task Management", detail: "Effortlessly create, edit, and delete tasks with a clean UI designed for productivity." },
     { icon: Search, title: "Search & Filter", detail: "Quickly locate tasks with global search and dedicated category-based filtering." },
     { icon: Timer, title: "Focus Sessions", detail: "Integrated Pomodoro-style timer with customizable durations (15m, 25m, 45m, 60m) and a beefy UI for better visibility." },
-    { icon: User, title: "Personalized Profile", detail: "Track your progress with real-time statistics — All-time Created, Completed, and Today's Wins — along with motivational bios." },
+    { icon: User, title: "Personalized Profile", detail: "Track your progress with live statistics - All-time Created, Completed, and Today's Wins - along with motivational bios." },
     { icon: Palette, title: "Dynamic Theming", detail: "Support for System Default, Light Mode, and a specialized \"Deep Sea\" Dark Mode with a theme-adaptive UI." },
     { icon: Navigation, title: "Custom Navigation", detail: "A unique floating navigation bar with an elevated Floating Action Button (FAB) for quick task entry." },
     { icon: Bell, title: "Smart Reminders", detail: "Toggleable notifications to help you stay on track so important tasks never slip through the cracks." },
@@ -71,7 +72,7 @@ function Tasks() {
     { src: ToDoHome, label: 'Home', desc: 'Main task list with swipe-to-delete and smart grouping.' },
     { src: ToDoFocus, label: 'Focus', desc: 'Pomodoro-style timer with customizable durations.' },
     { src: ToDoCategories, label: 'Categories', desc: 'Organize tasks with pre-built and custom categories.' },
-    { src: ToDoProfile, label: 'Profile', desc: 'Real-time stats and personalized motivation.' },
+    { src: ToDoProfile, label: 'Profile', desc: 'Live stats and personalized motivation.' },
     { src: ToDoSettings, label: 'Settings', desc: 'Theme, reminders, and data management options.' },
     { src: ToDoAdd, label: 'Add Task', desc: 'Creating a new task entry with category selection.' },
     { src: ToDoDetails, label: 'Task Details', desc: 'Full description and status view.' }
@@ -100,7 +101,7 @@ function Tasks() {
     { name: 'Coroutines & Flow', purpose: 'Async ops & reactive state' },
     { name: 'ViewModel', purpose: 'Lifecycle-aware state management' },
     { name: 'SplashScreen API', purpose: 'Professional app launch' },
-    { name: 'Hilt / AppContainer', purpose: 'Dependency injection' }
+    { name: 'AppContainer', purpose: 'Manual dependency injection' }
   ]
 
   const developer = [
@@ -146,39 +147,27 @@ function Tasks() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em] flex items-center gap-3">
-              Tasks{" "}
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent-muted border border-accent-border text-accent-soft">
-                v1.1.0
-              </span>
-            </h1>
-          </div>
-          <div className="flex items-center gap-3">
-            <a
-              href={RELEASE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-            >
-              <Download size={16} /> Download App
-            </a>
-            <a
-              href={REPO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700/80 text-slate-300 hover:border-slate-600 hover:text-paper rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-            >
-              <Github size={16} /> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <CaseStudyHeader
+          eyebrow="Android App"
+          title="Tasks"
+          badge="v2.1.0"
+          summary="A local-first task manager with Pomodoro focus sessions, categories, reminders, and dynamic theming."
+          actions={[
+            {
+              href: RELEASE_URL,
+              label: 'Download App',
+              icon: Download,
+              primary: true,
+            },
+            {
+              href: REPO_URL,
+              label: 'View Code',
+              icon: Github,
+            },
+          ]}
+        />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
           {/* Main Content */}
@@ -186,15 +175,21 @@ function Tasks() {
 
             {/* Hero Image */}
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
-              <motion.img
-                layoutId="project-image-/projects/todo"
-                src={ToDoApp}
-                alt="Tasks app"
-                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+              <button
+                type="button"
                 onClick={() => setSelectedImage({ src: ToDoApp, label: 'Tasks', desc: 'A sleek, modern task management app built with Kotlin & Jetpack Compose.' })}
-                loading="lazy"
-                style={{ willChange: "transform" }}
-              />
+                aria-label="Open Tasks app screenshot"
+                className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
+              >
+                <motion.img
+                  layoutId="project-image-/projects/todo"
+                  src={ToDoApp}
+                  alt="Tasks app"
+                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                  style={{ willChange: "transform" }}
+                />
+              </button>
             </div>
 
             {/* Intro */}
@@ -265,7 +260,7 @@ function Tasks() {
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>
-                          <span>Real-time profile stats: Created, Completed, Today's Wins</span>
+                          <span>Live profile stats: Created, Completed, Today's Wins</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>
@@ -368,8 +363,8 @@ function Tasks() {
                       </h3>
                       <div className="space-y-3">
                         {[
-                          { label: 'Minimum SDK', value: 'API 24 (Android 7.0)' },
-                          { label: 'Target / Compile SDK', value: 'API 37 (Android 15)' },
+                          { label: 'Minimum SDK', value: 'API 26 (Android 8.0)' },
+                          { label: 'Target / Compile SDK', value: 'API 37 (Android 17)' },
                           { label: 'Kotlin Version', value: '2.2.10' },
                           { label: 'Build Tool', value: 'Gradle 9.3.1' }
                         ].map((item, i) => (
@@ -402,10 +397,11 @@ function Tasks() {
               <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {screenshots.map((s, i) => (
-                  <div
+                  <button
+                    type="button"
                     key={i}
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover: transition-all"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer text-left transition-all hover:border-slate-700/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
                   >
                     <img
                       src={s.src}
@@ -419,7 +415,7 @@ function Tasks() {
                       <p className="text-sm font-semibold text-slate-100 group-hover:text-accent-soft transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -469,7 +465,7 @@ function Tasks() {
             <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
               <h3 className="text-sm font-semibold text-paper mb-4">Tech Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'Hilt', 'ViewModel', 'SplashScreen API'].map((tech, i) => (
+                {['Kotlin', 'Jetpack Compose', 'Material 3', 'Room', 'DataStore', 'Coroutines & Flow', 'Navigation Compose', 'AppContainer', 'ViewModel', 'SplashScreen API'].map((tech, i) => (
                   <span key={i} className="px-2.5 py-1 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-md">
                     {tech}
                   </span>
@@ -502,31 +498,12 @@ function Tasks() {
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image viewer */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="max-w-3xl w-full space-y-4">
-            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="p-1 hover:bg-slate-800 rounded transition-colors"
-              >
-                <X size={20} className="text-slate-400" />
-              </button>
-            </div>
-            <img
-              src={selectedImage.src}
-                decoding="async"
-              alt={selectedImage.label}
-              className="w-full border border-slate-800 rounded-lg"
-            />
-            <p className="text-sm text-slate-400 text-center">{selectedImage.desc}</p>
-          </div>
-        </div>
+        <Lightbox
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </div>
   )

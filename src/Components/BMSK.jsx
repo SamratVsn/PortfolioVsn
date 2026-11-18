@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ArrowUpRight } from 'lucide-react'
 import SEO from './SEO'
+import CaseStudyHeader from './CaseStudyHeader'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
 import BMSK2 from '../assets/BMSK/BMSK2.png'
 
@@ -54,26 +55,21 @@ function BMSK() {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Backend System</p>
-            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
-              Bank Management <span className="text-accent">System</span>
-            </h1>
-          </div>
-          <a
-            href="https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-          >
-            <Github size={16} /> View Code
-          </a>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <CaseStudyHeader
+          eyebrow="Backend System"
+          title={<>Bank Management <span className="text-accent">System</span></>}
+          summary="An object-oriented Kotlin banking simulation: account encapsulation, transaction rules, and validation at the CLI boundary."
+          actions={[
+            {
+              href: 'https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt',
+              label: 'View Code',
+              icon: Github,
+              primary: true,
+            },
+          ]}
+        />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Main Content */}
@@ -98,7 +94,7 @@ function BMSK() {
               </h2>
               <p className="text-slate-400 leading-relaxed">
                 This system demonstrates proficiency in Kotlin's object-oriented paradigm by simulating a core banking 
-                environment where account integrity and state management are prioritized. Built to handle real-time 
+                environment where account integrity and state management are prioritized. Built to handle immediate
                 transaction logic with focus on encapsulation and secure data access.
               </p>
             </div>
@@ -133,7 +129,7 @@ function BMSK() {
                       <ul className="space-y-3 text-sm text-slate-400">
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>
-                          <span>Real-time transaction processing with validation</span>
+                          <span>Immediate transaction processing with validation</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>

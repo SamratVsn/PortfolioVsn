@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { 
   ExternalLink, Github, Code2, Zap, Lock, Mail, 
-  Palette, Cloud, X
+  Palette, Cloud
 } from 'lucide-react'
 import SEO from './SEO'
+import CaseStudyHeader from './CaseStudyHeader'
+import Lightbox from './Lightbox'
 
 // Assets
 import B1 from '../assets/BlogVsn/B1.png'
@@ -18,26 +20,26 @@ const BlogVsn = () => {
   const [selectedImage, setSelectedImage] = useState(null)
 
   const techStack = [
-    { icon: Code2, name: 'React 18', detail: 'Hooks-based UI state management' },
-    { icon: Lock, name: 'OAuth 2.0', detail: 'Google Cloud Identity integration' },
+    { icon: Code2, name: 'React 19', detail: 'Hooks-based UI state management' },
+    { icon: Lock, name: 'Google OAuth', detail: 'Google Identity Services sign-in' },
     { icon: Cloud, name: 'Blogger API', detail: 'RESTful content fetching' },
-    { icon: Mail, name: 'EmailJS', detail: 'Client-side SMTP relay service' },
+    { icon: Mail, name: 'EmailJS', detail: 'Client-side email delivery' },
     { icon: Palette, name: 'Framer Motion', detail: 'Declarative animation logic' },
-    { icon: Zap, name: 'Vercel CDN', detail: 'Edge-cached deployment' }
+    { icon: Zap, name: 'Vercel', detail: 'Static build and hosting' }
   ]
 
   const screenshots = [
-    { src: B2, label: 'Data Feed', desc: 'Real-time synchronization with Blogger CMS.' },
-    { src: B3, label: 'Content Engine', desc: 'Dynamic HTML parsing from API response.' },
-    { src: B4, label: 'Auth Dashboard', desc: 'Protected route handling for authenticated users.' },
-    { src: B5, label: 'SMTP Gateway', desc: 'EmailJS integration with validation logic.' }
+    { src: B2, label: 'Data Feed', desc: 'Post list loaded from the Blogger API.' },
+    { src: B3, label: 'Content Engine', desc: 'Blogger post HTML rendered inside the React app.' },
+    { src: B4, label: 'Google Sign-in', desc: 'Google sign-in state reflected in the interface.' },
+    { src: B5, label: 'Contact Form', desc: 'EmailJS contact form with client-side validation.' }
   ]
 
   return (
     <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
       <SEO
         title="BlogVsn — React Blog Platform | Samrat Parajuli"
-        description="Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment. Built by Samrat Parajuli."
+        description="Blog platform that pairs a React 19 frontend with the Blogger API and Google sign-in, deployed on Vercel. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
         ogType="article"
         imageAlt="BlogVsn — React blog platform built by Samrat Parajuli"
@@ -59,7 +61,7 @@ const BlogVsn = () => {
             'applicationCategory': 'WebApplication',
             'operatingSystem': 'Web',
             'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD', 'availability': 'https://schema.org/InStock' },
-            'description': 'Cloud-integrated blog engine using Google OAuth 2.0, Blogger API v3, and React with edge-cached Vercel deployment.',
+            'description': 'Blog platform that pairs a React 19 frontend with the Blogger API and Google sign-in, deployed on Vercel.',
             'url': 'https://blogvsn.vercel.app/',
             'codeRepository': 'https://github.com/SamratVsn/BlogVsn',
             'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
@@ -68,36 +70,26 @@ const BlogVsn = () => {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Cloud Integration</p>
-            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
-              BlogVsn <span className="text-accent">Platform</span>
-            </h1>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a 
-              href="https://blogvsn.vercel.app/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-            >
-              <ExternalLink size={16} /> Live Demo
-            </a>
-            <a 
-              href="https://github.com/SamratVsn/BlogVsn" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-paper rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-            >
-              <Github size={16} /> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <CaseStudyHeader
+          eyebrow="Web Platform"
+          title={<>BlogVsn <span className="text-accent">Platform</span></>}
+          summary="A React frontend for a Blogger-managed blog, with Google sign-in and a client-side contact form."
+          actions={[
+            {
+              href: 'https://blogvsn.vercel.app/',
+              label: 'Live Demo',
+              icon: ExternalLink,
+              primary: true,
+            },
+            {
+              href: 'https://github.com/SamratVsn/BlogVsn',
+              label: 'View Code',
+              icon: Github,
+            },
+          ]}
+        />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Main Content */}
@@ -120,18 +112,16 @@ const BlogVsn = () => {
                 Cloud-native blogging platform
               </h2>
               <p className="text-slate-400 leading-relaxed">
-                BlogVsn bridges the gap between traditional CMS content management and modern single-page application performance. 
-                By utilizing the Blogger API v3, content management remains completely decoupled from the presentation layer, 
-                enabling dynamic, real-time content delivery with edge-cached global distribution.
+                BlogVsn keeps content management in Blogger and the interface in React. Posts are fetched through the Blogger API, so writing stays in a familiar editor while the site ships as a static React build on Vercel.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
                   <p className="text-accent font-semibold text-sm mb-2">Performance</p>
-                  <p className="text-sm text-slate-400">Edge-cached API responses for instantaneous loading and minimal latency.</p>
+                  <p className="text-sm text-slate-400">A static React build served by Vercel, with content fetched from the Blogger API at request time.</p>
                 </div>
                 <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/70 hover:border-slate-700/80 transition-colors">
-                  <p className="text-accent font-semibold text-sm mb-2">Security</p>
-                  <p className="text-sm text-slate-400">Google Identity Services for zero-knowledge authentication and data protection.</p>
+                  <p className="text-accent font-semibold text-sm mb-2">Authentication</p>
+                  <p className="text-sm text-slate-400">Google Identity Services handles sign-in; the app never sees the Google password.</p>
                 </div>
               </div>
             </div>
@@ -158,9 +148,8 @@ const BlogVsn = () => {
                 {activeTab === 'overview' && (
                   <div className="space-y-6">
                     <p className="text-slate-400 leading-relaxed">
-                      This project demonstrates how to integrate cloud services (Google OAuth, Blogger API) with modern React patterns 
-                      to build a scalable, performant blogging platform. The architecture separates concerns between authentication, 
-                      data fetching, and content rendering.
+                      This project shows how to connect Google sign-in and the Blogger API to a React frontend
+                      while keeping authentication, data fetching, and content rendering separate.
                     </p>
                     <div className="space-y-4">
                       <h3 className="text-paper font-semibold text-sm">Architecture Highlights</h3>
@@ -171,15 +160,15 @@ const BlogVsn = () => {
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>
-                          <span>OAuth 2.0 authentication with Google Identity Services</span>
+                          <span>Google sign-in through Google Identity Services</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>
-                          <span>Edge-cached content delivery via Vercel CDN</span>
+                          <span>Static deployment on Vercel</span>
                         </li>
                         <li className="flex items-start gap-3">
                           <span className="text-accent font-bold">→</span>
-                          <span>Serverless email integration with EmailJS</span>
+                          <span>Client-side email delivery with EmailJS</span>
                         </li>
                       </ul>
                     </div>
@@ -212,10 +201,10 @@ const BlogVsn = () => {
                       </p>
                     </div>
                     <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
-                      <h4 className="text-amber-200 font-semibold text-sm mb-2">Token Persistence & Security</h4>
+                      <h4 className="text-amber-200 font-semibold text-sm mb-2">Session Persistence</h4>
                       <p className="text-slate-400 text-sm">
-                        Implementing secure session management for OAuth tokens required balancing between local storage 
-                        persistence and security best practices to prevent XSS attacks.
+                        The signed-in state is kept in localStorage so a reload does not sign the reader out.
+                        A production version would move session handling behind a backend instead.
                       </p>
                     </div>
                   </div>
@@ -228,10 +217,11 @@ const BlogVsn = () => {
               <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
               <div className="grid grid-cols-2 gap-4">
                 {screenshots.map((s, i) => (
-                  <div 
-                    key={i} 
+                  <button
+                    type="button"
+                    key={i}
                     onClick={() => setSelectedImage(s)}
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover: transition-all"
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer text-left transition-all hover:border-slate-700/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
                   >
                     <img 
                       src={s.src}
@@ -244,7 +234,7 @@ const BlogVsn = () => {
                     <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-accent-soft transition-colors">
                       {s.label}
                     </p>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -266,7 +256,7 @@ const BlogVsn = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-accent font-bold">2.</span>
-                  <span>OAuth verification</span>
+                  <span>Google sign-in (optional)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-accent font-bold">3.</span>
@@ -284,12 +274,12 @@ const BlogVsn = () => {
               <h3 className="text-sm font-semibold text-paper mb-4">Key Features</h3>
               <div className="space-y-3 text-sm">
                 {[
-                  'OAuth 2.0 Authentication',
-                  'Real-time Content Sync',
-                  'Email Notifications',
-                  'Protected Routes',
-                  'Edge Caching',
-                  'Responsive Design'
+                  'Google sign-in with OAuth',
+                  'Blogger API content feed',
+                  'EmailJS contact form',
+                  'Client-side routing',
+                  'Static Vercel deployment',
+                  'Responsive design'
                 ].map((feature, i) => (
                   <div key={i} className="text-slate-400 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -303,31 +293,12 @@ const BlogVsn = () => {
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image viewer */}
       {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6" 
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="max-w-3xl w-full space-y-4">
-            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
-              <button 
-                onClick={() => setSelectedImage(null)}
-                className="p-1 hover:bg-slate-800 rounded transition-colors"
-              >
-                <X size={20} className="text-slate-400" />
-              </button>
-            </div>
-            <img 
-              src={selectedImage.src}
-                decoding="async" 
-              alt={selectedImage.label} 
-              className="w-full border border-slate-800 rounded-lg" 
-            />
-            <p className="text-sm text-slate-400 text-center">{selectedImage.desc}</p>
-          </div>
-        </div>
+        <Lightbox
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </div>
   )

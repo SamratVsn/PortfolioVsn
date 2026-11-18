@@ -146,8 +146,9 @@ export default function Privacy() {
       <main id="main-content" className="relative px-6 pb-20 pt-10 sm:pb-24 sm:pt-14">
         <BackgroundFX />
         <div className="max-w-3xl mx-auto min-[1920px]:max-w-4xl relative">
-          {/* Header */}
-          <header className="mb-12 sm:mb-14">
+          {/* Page introduction — not a landmark header; the site Header above
+              is the only banner. */}
+          <div className="mb-12 sm:mb-14">
             <div className="flex items-center gap-2.5 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
               <span className="w-8 h-px bg-accent/25" />
@@ -166,7 +167,7 @@ export default function Privacy() {
               <span className="w-1 h-1 rounded-full bg-emerald-400/70" />
               Last updated: October 2026
             </p>
-          </header>
+          </div>
 
           {/* Sections */}
           <div className="space-y-10">

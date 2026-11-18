@@ -12,7 +12,7 @@ export default function This() {
     { icon: Code2, name: 'React.js', detail: 'Component-based architecture & State Management' },
     { icon: Palette, name: 'Tailwind CSS', detail: 'Design tokens & Utility-first styling' },
     { icon: Layout, name: 'React Router', detail: 'Dynamic SPAs with client-side routing' },
-    { icon: Zap, name: 'Vercel Edge', detail: 'Global distribution & CI/CD deployment' }
+    { icon: Zap, name: 'Vercel', detail: 'Static deployment & CI/CD' }
   ]
 
   return (
@@ -49,23 +49,16 @@ export default function This() {
         ]}
       />
       
-      {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
-            Portfolio <span className="text-accent">Engine v2</span>
-          </h1>
-          <p className="text-sm text-slate-400 mt-1">Built with React, Tailwind CSS & Vercel Edge</p>
-        </div>
-      </div>
-
       <div className="max-w-4xl mx-auto px-6 py-16 xl:max-w-5xl 2xl:max-w-6xl">
         
         {/* Hero Section */}
         <div className="mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-paper leading-[1.1] mb-6 tracking-[-0.03em]">
+          <p className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-slate-400">
+            Portfolio Engine v2
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-paper leading-[1.1] mb-6 tracking-[-0.03em]">
             Modern portfolio architecture with zero friction.
-          </h2>
+          </h1>
           <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
             A fast, responsive, and beautifully designed portfolio website that showcases projects and work. Built to demonstrate modern React patterns and optimal performance.
           </p>

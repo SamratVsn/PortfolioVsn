@@ -2,8 +2,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SITE, TAGLINE } from "../content/site";
 
-const BLOG_URL = "https://blog.samratparajuli0.com.np/";
+const BLOG_URL = SITE.blog;
 
 const siteLinks = [
   { label: "Home", to: "/" },
@@ -21,7 +22,7 @@ const externalLinks = [
     href: "https://www.linkedin.com/in/samratvsn/",
     icon: FaLinkedin,
   },
-  { label: "Email", href: "mailto:samratvsn@gmail.com", icon: MdEmail },
+  { label: "Email", href: `mailto:${SITE.email}`, icon: MdEmail },
 ];
 
 export default function Footer() {
@@ -47,11 +48,12 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-[12.5px] leading-relaxed text-slate-400">
-              Android developer in Kathmandu, Nepal. Building Kotlin and
-              Compose applications that stay useful when the signal does not.
+              Product-minded systems and application engineer in Kathmandu,
+              Nepal. Native Android in Kotlin and Jetpack Compose, built end to
+              end.
             </p>
             <p className="mt-3 text-[11px] text-slate-500">
-              Learning in public, one commit at a time.
+              {TAGLINE}
             </p>
           </div>
 
