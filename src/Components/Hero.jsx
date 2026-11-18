@@ -1,14 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useReducedMotion } from "framer-motion";
 import {
   SiKotlin,
   SiJetpackcompose,
   SiFirebase,
   SiMaterialdesign,
 } from "react-icons/si";
-import { ArrowUpRight, Database, Download, Syringe } from "lucide-react";
+import { ArrowUpRight, Database, Download, Play, Syringe } from "lucide-react";
 import HeroImage from "../assets/Hero_Image.webp";
-import AvalokanHome from "../assets/Avalokan/home.png";
+import { SPECIALTY_PLAIN, TAGLINE } from "../content/site";
 
 const APK_URL =
   "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk";
@@ -211,8 +211,10 @@ function HeroBackdrop() {
 }
 
 // ── The shipped app, inside a restrained Pixel-class body ───────────────────
+// The launch film is never fetched until the visitor asks for it. Until then
+// the device shows the still poster, so the homepage stays light on first load.
 function DeviceFrame() {
-  const reduceMotion = useReducedMotion();
+  const [playing, setPlaying] = useState(false);
 
   return (
     <div className="device-bezel relative rounded-[1.9rem] p-[5px] shadow-[0_26px_60px_-26px_rgba(0,0,0,0.95)] ring-1 ring-white/[0.08] sm:rounded-[2.1rem] sm:p-[6px]">
@@ -220,32 +222,45 @@ function DeviceFrame() {
         className="relative overflow-hidden rounded-[1.55rem] bg-black sm:rounded-[1.7rem]"
         style={{ aspectRatio: "9 / 19.2" }}
       >
-        {reduceMotion ? (
-          <img
-            src={AvalokanHome}
-            alt="Avalokan home screen: Boudhanath Stupa story of the day, historical gems, and local events"
-            className="h-full w-full object-cover object-top"
-            width={540}
-            height={1170}
-            loading="lazy"
-          />
-        ) : (
+        {playing ? (
           <video
             src="/media/avalokan-launch.mp4"
             poster="/media/avalokan-poster.jpg"
             className="h-full w-full object-cover"
-            muted
-            loop
-            playsInline
+            controls
             autoPlay
+            playsInline
             preload="metadata"
-            aria-label="Avalokan launch film captured from a real Android emulator"
+            aria-label="Avalokan 22-second launch film captured from a real Android emulator"
           />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            className="group relative block h-full w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
+            aria-label="Play the 22-second Avalokan launch film"
+          >
+            <img
+              src="/media/avalokan-poster.jpg"
+              alt="Avalokan home screen: Boudhanath Stupa story of the day, historical gems, and local events"
+              className="h-full w-full object-cover object-top"
+              loading="lazy"
+              decoding="async"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 grid place-items-center bg-black/35 transition-colors group-hover:bg-black/25"
+            >
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-paper/90 text-ink shadow-lg">
+                <Play size={18} fill="currentColor" className="ml-0.5" />
+              </span>
+            </span>
+          </button>
         )}
         {/* Punch-hole camera */}
         <span
           aria-hidden="true"
-          className="absolute left-1/2 top-[2.2%] h-1 w-1 -translate-x-1/2 rounded-full bg-black/80 ring-1 ring-white/15"
+          className="pointer-events-none absolute left-1/2 top-[2.2%] h-1 w-1 -translate-x-1/2 rounded-full bg-black/80 ring-1 ring-white/15"
         />
       </div>
 
@@ -306,12 +321,11 @@ export default function Hero() {
 
           <p
             id="hero-intro"
-            className="mt-6 max-w-[44ch] text-[14.5px] leading-[1.75] text-slate-400 sm:text-[15.5px]"
+            className="mt-6 max-w-[46ch] text-[14.5px] leading-[1.75] text-slate-400 sm:text-[15.5px]"
           >
-            Android developer crafting Kotlin, Jetpack Compose, and Material 3
-            applications—from offline-first heritage tools built for
-            mountain-road connectivity to clean daily utilities. Learning in
-            public and sharing what I ship.
+            {TAGLINE} My deepest specialism is {SPECIALTY_PLAIN}, with product
+            thinking across the data model, interface, and the build that ships
+            it.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -387,7 +401,7 @@ export default function Hero() {
 
               <img
                 src={HeroImage}
-                alt="Portrait of Samrat Parajuli, Android developer"
+                alt="Portrait of Samrat Parajuli, product-minded systems and application engineer"
                 width={1127}
                 height={1396}
                 fetchPriority="high"
@@ -395,13 +409,9 @@ export default function Hero() {
                 className="portrait-fade absolute bottom-0 left-0 h-[94%] w-auto max-w-none object-contain object-bottom brightness-[0.95] saturate-[0.94] contrast-[1.03] drop-shadow-[0_24px_44px_rgba(0,0,0,0.45)] lg:h-full"
               />
 
-              <Link
-                to="/projects/avalokan"
-                aria-label="Avalokan — view the case study"
-                className="group absolute bottom-8 right-0 z-10 w-[8.25rem] rounded-[1.9rem] transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft sm:bottom-10 sm:w-[9.5rem] lg:bottom-14 lg:w-[11rem] xl:w-[12rem]"
-              >
+              <div className="absolute bottom-8 right-0 z-10 w-[8.25rem] sm:bottom-10 sm:w-[9.5rem] lg:bottom-14 lg:w-[11rem] xl:w-[12rem]">
                 <DeviceFrame />
-              </Link>
+              </div>
             </div>
 
             {/* Caption + APK, set like a plate caption rather than a card */}

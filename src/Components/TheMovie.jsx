@@ -9,18 +9,15 @@ import {
   Layers,
   FolderTree,
   Cpu,
-  X,
   Sparkles,
   Heart,
   ShieldCheck,
   WifiOff
 } from 'lucide-react'
 import SEO from './SEO'
-import MovieHome from '../assets/TheMovie/Home.png'
-import MovieSearch from '../assets/TheMovie/Search.png'
+import CaseStudyHeader from './CaseStudyHeader'
+import Lightbox from './Lightbox'
 import MovieDetails from '../assets/TheMovie/Details.png'
-import MovieProfile from '../assets/TheMovie/Profile.png'
-import MovieSettings from '../assets/TheMovie/Settings.png'
 import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
 import { motion } from 'framer-motion';
 
@@ -52,13 +49,8 @@ function TheMovie() {
   ]
 
   const screenshots = [
-    {src: MoviePoster, label: 'Poster', desc: 'Movie poster with title, rating, and release date.'},
-    { src: MovieHome, label: 'Home', stale: true, desc: 'STALE — shows the old bottom nav (Home / Search / Settings / Profile). Sections are still valid.' },
-    { src: MovieSearch, label: 'Search', stale: true, desc: 'STALE — shows the old bottom nav. Search is now debounced with infinite scroll.' },
-    { src: MovieDetails, label: 'Movie Details', desc: 'Backdrops, ratings, and full plot overview with pull-to-refresh and a favorite toggle.' },
-    { src: MovieSettings, label: 'Settings', stale: true, desc: 'STALE — Settings was a bottom-nav tab here; it now lives in the Profile top bar. Content is still valid.' },
-    { src: MovieProfile, label: 'Profile', stale: true, desc: 'STALE — shows the old bottom nav. Profile now hosts Settings in its top bar.' },
-    { src: MoviePoster, label: 'Favorites', placeholder: true, desc: 'New Favorites-tab screenshot (placeholder). Bottom nav is now Home / Search / Favorites / Profile.' }
+    { src: MovieDetails, label: 'Movie Details', desc: 'Backdrops, ratings, and the full plot overview with pull-to-refresh and a favorite toggle.' },
+    { src: MoviePoster, label: 'Poster', desc: 'Movie poster with title, rating, and release date.' }
   ]
 
   const libraries = [
@@ -106,29 +98,21 @@ function TheMovie() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
-              The <span className="text-accent">Movie</span> App
-            </h1>
-          </div>
-          {/* TODO(TheMovie): GitHub URL verified 2026-09 — https://github.com/SamratVsn/TheMovie is the real
-              repo; https://github.com/SamratVsn/TheMovieApp 404s. The repo README's `git clone TheMovieApp`
-              instruction is stale but the page link below is correct. */}
-          <a
-            href="https://github.com/SamratVsn/TheMovie"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-          >
-            <Github size={16} /> View Code
-          </a>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <CaseStudyHeader
+          eyebrow="Android App"
+          title={<>The <span className="text-accent">Movie</span> App</>}
+          summary="A Jetpack Compose client for the TMDB API: browse, debounced search, favorites, Firebase auth, and offline caching."
+          actions={[
+            {
+              href: 'https://github.com/SamratVsn/TheMovie',
+              label: 'View Code',
+              icon: Github,
+              primary: true,
+            },
+          ]}
+        />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
           {/* Main Content */}
@@ -136,15 +120,21 @@ function TheMovie() {
 
             {/* Hero Image */}
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
-              <motion.img
-                layoutId="project-image-/projects/themovie"
-                src={MoviePoster}
-                alt="The Movie App home screen"
-                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
+              <button
+                type="button"
                 onClick={() => setSelectedImage({ src: MoviePoster, label: 'The Movie App', desc: 'Native Android movie browser built with Kotlin & Jetpack Compose.' })}
-                loading="lazy"
-                style={{ willChange: "transform" }}
-              />
+                aria-label="Open The Movie App poster"
+                className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
+              >
+                <motion.img
+                  layoutId="project-image-/projects/themovie"
+                  src={MoviePoster}
+                  alt="The Movie App poster"
+                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                  style={{ willChange: "transform" }}
+                />
+              </button>
             </div>
 
             {/* Intro */}
@@ -329,7 +319,7 @@ function TheMovie() {
                       <div className="space-y-3">
                         {[
                           { label: 'Minimum SDK', value: 'API 24 (Android 7.0)' },
-                          { label: 'Target / Compile SDK', value: 'API 37 (Android 15)' },
+                          { label: 'Target / Compile SDK', value: 'API 37 (Android 17)' },
                           { label: 'Kotlin Version', value: '2.2.10' },
                           { label: 'Build Tool', value: 'Gradle 9.3.1 (AGP)' },
                           { label: 'Serialization', value: 'Kotlinx Serialization' }
@@ -370,39 +360,27 @@ function TheMovie() {
             {/* Screenshots */}
             <div className="space-y-6">
               <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {/* TODO(TheMovie): add a real Favorites-tab screenshot when available (bottom nav is now Home /
-    Search / Favorites / Profile). The placeholder below reuses an existing asset.
-    TODO(TheMovie): refresh the flagged "STALE" captures for the new bottom nav. */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {screenshots.map((s, i) => (
-                  <div
+                  <button
                     key={i}
+                    type="button"
                     onClick={() => setSelectedImage(s)}
-                    className={`group relative border ${s.placeholder ? 'border-dashed border-slate-700 bg-slate-900/50' : 'border-slate-800/70 bg-slate-900'} rounded-xl overflow-hidden cursor-pointer hover:border-slate-700/80 hover: transition-all`}
+                    className="group relative border border-slate-800/70 bg-slate-900 rounded-xl overflow-hidden cursor-pointer text-left hover:border-slate-700/80 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
                   >
                     <img
                       src={s.src}
                       loading="lazy"
                       decoding="async"
                       alt={s.label}
-                      className={`w-full h-40 object-cover ${s.placeholder ? 'opacity-30' : 'opacity-60 group-hover:opacity-100'} transition-opacity`}
+                      className="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {s.stale && (
-                      <span className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300 bg-amber-950/80 border border-amber-700/50 rounded-md">
-                        Stale
-                      </span>
-                    )}
-                    {s.placeholder && (
-                      <span className="absolute top-2 left-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-sand bg-sand/10 border border-sand/30 rounded-md">
-                        Placeholder
-                      </span>
-                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
                     <div className="absolute bottom-0 inset-x-0 p-4">
                       <p className="text-sm font-semibold text-slate-100 group-hover:text-accent-soft transition-colors">{s.label}</p>
                       <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -462,7 +440,6 @@ function TheMovie() {
             </div>
 
             {/* Repo Link */}
-            {/* TODO(TheMovie): same repo verification as the header "View Code" link — /TheMovie is correct. */}
             <a
               href="https://github.com/SamratVsn/TheMovie"
               target="_blank"
@@ -477,31 +454,12 @@ function TheMovie() {
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image viewer */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="max-w-3xl w-full space-y-4">
-            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="p-1 hover:bg-slate-800 rounded transition-colors"
-              >
-                <X size={20} className="text-slate-400" />
-              </button>
-            </div>
-            <img
-              src={selectedImage.src}
-                decoding="async"
-              alt={selectedImage.label}
-              className="w-full border border-slate-800 rounded-lg"
-            />
-            <p className="text-sm text-slate-400 text-center">{selectedImage.desc}</p>
-          </div>
-        </div>
+        <Lightbox
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </div>
   )

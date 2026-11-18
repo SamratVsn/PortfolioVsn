@@ -23,9 +23,9 @@ import {
   User,
   Video,
   WifiOff,
-  X,
 } from 'lucide-react'
 import SEO from './SEO'
+import Lightbox from './Lightbox'
 
 import AvalokanHome from '../assets/Avalokan/home.png'
 import AvalokanDiscover from '../assets/Avalokan/discover.png'
@@ -424,7 +424,7 @@ export default function Avalokan() {
             {[
               { k: '4', v: 'Firestore collections' },
               { k: '9', v: 'Compose screens' },
-              { k: '100%', v: 'Offline-first reads' },
+              { k: 'Offline-first', v: 'Reads after first sync' },
               { k: 'API 24+', v: 'Android support' },
             ].map((stat) => (
               <div
@@ -966,33 +966,10 @@ export default function Avalokan() {
 
       {/* ═══ Lightbox ═══ */}
       {selectedImage && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-6"
-          onClick={() => setSelectedImage(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${selectedImage.label} screenshot`}
-        >
-          <div className="max-w-sm w-full space-y-4" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between border-b border-border-strong pb-3">
-              <h3 className="text-paper font-semibold text-sm">{selectedImage.label}</h3>
-              <button
-                type="button"
-                onClick={() => setSelectedImage(null)}
-                aria-label="Close screenshot"
-                className="rounded p-1 transition-colors hover:bg-white/10"
-              >
-                <X size={20} className="text-slate-400" />
-              </button>
-            </div>
-            <img
-              src={selectedImage.src}
-              alt={`${selectedImage.label} screen`}
-              className="max-h-[70vh] w-full rounded-lg border border-border-strong object-contain"
-            />
-            <p className="text-sm text-slate-400 text-center">{selectedImage.desc}</p>
-          </div>
-        </div>
+        <Lightbox
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
 
     </div>

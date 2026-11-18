@@ -188,7 +188,7 @@ function Home() {
     "@type": "ProfilePage",
     "@id": `${SITE.url}#webpage`,
     url: SITE.url,
-    name: "Samrat Parajuli (SamratVsn) | Android App Developer",
+    name: SITE.title,
     description: SITE.description,
     inLanguage: "en",
     isPartOf: { "@id": `${SITE.origin}/#website` },
@@ -601,8 +601,9 @@ function Home() {
                 Have something worth building?
               </h2>
               <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-slate-400 sm:text-base">
-                I'm open to Android roles and to conversations about shipping
-                software that has to work outside a stable Wi-Fi connection.
+                I&apos;m open to product engineering and Android roles, and to
+                conversations about shipping software that has to work outside
+                a stable Wi-Fi connection.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <Link

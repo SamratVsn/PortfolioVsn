@@ -70,8 +70,8 @@ const Contact = () => {
   return (
     <div className="relative min-h-screen bg-canvas text-slate-300 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
       <SEO
-        title="Contact Samrat Parajuli | Android Developer"
-        description="Get in touch with Samrat Parajuli (SamratVsn), an Android developer based in Nepal — open to projects, collaboration, and new opportunities."
+        title="Contact Samrat Parajuli | Product-Minded Systems & Application Engineer"
+        description="Get in touch with Samrat Parajuli (SamratVsn), a product-minded systems and application engineer in Kathmandu, Nepal — open to product engineering, Android roles, and collaboration."
         ogUrl="https://www.samratparajuli0.com.np/contact"
         schema={[
           {
@@ -79,8 +79,8 @@ const Contact = () => {
             '@type': 'WebPage',
             '@id': 'https://www.samratparajuli0.com.np/contact#webpage',
             'url': 'https://www.samratparajuli0.com.np/contact',
-            'name': 'Contact Samrat Parajuli | Android Developer',
-            'description': 'Get in touch with Samrat Parajuli (SamratVsn), an Android developer based in Nepal — open to projects, collaboration, and new opportunities.',
+            'name': 'Contact Samrat Parajuli | Product-Minded Systems & Application Engineer',
+            'description': 'Get in touch with Samrat Parajuli (SamratVsn), a product-minded systems and application engineer in Kathmandu, Nepal — open to product engineering, Android roles, and collaboration.',
             'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
             'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
             'mainEntity': {
@@ -121,7 +121,7 @@ const Contact = () => {
               </h1>
               <p className="text-[15px] text-slate-400 leading-relaxed max-w-md">
                 Whether you have a project in mind, want to collaborate on something interesting,
-                or just want to chat about Android development and tech — I&apos;m here for it.
+                or just want to chat about product engineering, Android development, and tech — I&apos;m here for it.
                 Reach out and let&apos;s see what we can build.
               </p>
             </div>

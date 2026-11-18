@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaGithub } from "react-icons/fa6";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { IDENTITY_SHORT, SITE } from "../content/site";
 
 const navLinks = [
   { name: "Home", to: "/" },
@@ -11,7 +12,7 @@ const navLinks = [
   { name: "Contact", to: "/contact" },
 ];
 
-const blogHref = "https://blog.samratparajuli0.com.np/";
+const blogHref = SITE.blog;
 
 function isActivePath(pathname, to) {
   if (to === "/") return pathname === "/";
@@ -63,7 +64,7 @@ export default function Header() {
                 Samrat Parajuli
               </span>
               <span className="hidden text-[9.5px] font-medium uppercase tracking-[0.16em] text-slate-500 sm:block">
-                Android Developer
+                {IDENTITY_SHORT}
               </span>
             </span>
             <span className="sr-only">— home</span>

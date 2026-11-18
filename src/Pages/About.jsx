@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import PortfolioImage from "../assets/Hero_Image.webp";
+import { IDENTITY, SPECIALTY_PLAIN, TAGLINE } from "../content/site";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -65,7 +66,7 @@ const timeline = [
   {
     num: "06",
     title: "Today",
-    desc: "I build production-minded Android applications with Kotlin, Compose, Hilt, and Room — documenting what I learn as I go.",
+    desc: "I build production-minded Android applications with Kotlin, Compose, Room, and modern Android architecture — documenting what I learn as I go.",
     active: true,
   },
 ];
@@ -182,8 +183,8 @@ export default function About() {
   return (
     <div className="min-h-screen overflow-x-clip bg-canvas text-slate-400 selection:bg-accent/20 selection:text-paper">
       <SEO
-        title="About Samrat Parajuli | Android Developer in Nepal"
-        description="Samrat Parajuli is an Android developer from Nepal building native applications with Kotlin, Jetpack Compose, offline-first architecture, and production-minded engineering."
+        title="About Samrat Parajuli | Product-Minded Systems & Application Engineer"
+        description="Samrat Parajuli is a product-minded systems and application engineer from Kathmandu, Nepal. Native Android in Kotlin and Jetpack Compose, built end to end from brief to release."
         ogUrl="https://www.samratparajuli0.com.np/about"
         schema={[
           {
@@ -191,8 +192,8 @@ export default function About() {
             '@type': 'WebPage',
             '@id': 'https://www.samratparajuli0.com.np/about#webpage',
             'url': 'https://www.samratparajuli0.com.np/about',
-            'name': 'About Samrat Parajuli | Android Developer in Nepal',
-            'description': 'Samrat Parajuli is an Android developer from Nepal building native applications with Kotlin, Jetpack Compose, offline-first architecture, and production-minded engineering.',
+            'name': 'About Samrat Parajuli | Product-Minded Systems & Application Engineer',
+            'description': 'Samrat Parajuli is a product-minded systems and application engineer from Kathmandu, Nepal. Native Android in Kotlin and Jetpack Compose, built end to end from brief to release.',
             'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
             'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
             'speakable': {
@@ -224,7 +225,7 @@ export default function About() {
                 <div className="absolute -inset-3 sm:-inset-4 border border-border rounded-2xl pointer-events-none" />
                 <img
                   src={PortfolioImage}
-                  alt="Samrat Parajuli, Android developer"
+                  alt="Portrait of Samrat Parajuli, product-minded systems and application engineer"
                   width={1127}
                   height={1396}
                   className="relative z-10 block w-full aspect-[4/5] rounded-2xl border border-border bg-surface object-contain object-bottom"
@@ -256,19 +257,19 @@ export default function About() {
               </h1>
 
               <p className="text-accent text-sm font-medium mb-6">
-                Android Developer
+                {IDENTITY}
               </p>
 
               <p className="text-slate-400 text-[15px] sm:text-base leading-relaxed max-w-lg mb-8">
-                I&apos;m an Android developer building native applications with
-                Kotlin and Jetpack Compose. Based in Kathmandu, Nepal — I build
-                complete apps, document the process, and ship what I learn.
+                I&apos;m a product-minded systems and application engineer in
+                Kathmandu, Nepal. {TAGLINE} My deepest specialism is{" "}
+                {SPECIALTY_PLAIN}. I document the process and ship what I learn.
               </p>
 
               <div className="grid grid-cols-2 gap-x-8 gap-y-5">
                 {[
                   { label: "Location", value: "Kathmandu, Nepal", icon: MapPin },
-                  { label: "Focus", value: "Android / Kotlin / Compose", icon: Code2 },
+                  { label: "Focus", value: "Product engineering · Native Android", icon: Code2 },
                   { label: "Stack", value: "Kotlin, Compose, Room, Retrofit, MVVM", icon: Layers },
                   { label: "Approach", value: "Learn by building", icon: BookOpen },
                 ].map(({ label, value, icon: Icon }) => (

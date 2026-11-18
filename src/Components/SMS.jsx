@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Github, ChevronRight, Activity, 
-  HardDrive, Box, Search, Trash2, Edit, ArrowUpRight, X
+  HardDrive, Box, Search, Trash2, Edit, ArrowUpRight
 } from 'lucide-react';
 import SEO from './SEO';
+import CaseStudyHeader from './CaseStudyHeader';
+import Lightbox from './Lightbox';
 
 // Assets
 import SMS1 from '../assets/SMS/SMS1.png';
@@ -74,26 +76,21 @@ const SMS = () => {
       />
       
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">System Software</p>
-            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
-              Student Management <span className="text-accent">System</span>
-            </h1>
-          </div>
-          <a 
-            href="https://github.com/SamratVsn/C-codes" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-          >
-            <Github size={16} /> View Code
-          </a>
-        </div>
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <CaseStudyHeader
+          eyebrow="System Software"
+          title={<>Student Management <span className="text-accent">System</span></>}
+          summary="A console CRUD database in C: binary file storage, struct serialization, and direct byte-offset navigation."
+          actions={[
+            {
+              href: 'https://github.com/SamratVsn/C-codes',
+              label: 'View Code',
+              icon: Github,
+              primary: true,
+            },
+          ]}
+        />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Main Content */}
@@ -101,14 +98,19 @@ const SMS = () => {
             
             {/* Hero Image */}
             <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
-              <motion.img
-                layoutId="project-image-/projects/sms"
-                src={SMS1} 
-                alt="CLI Interface" 
-                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer" 
+              <button
+                type="button"
                 onClick={() => setSelectedImage({src: SMS1, label: 'Main Menu', desc: 'Interactive command-line interface'})}
-              
-                style={{ willChange: "transform" }}/>
+                aria-label="Open Main Menu screenshot"
+                className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
+              >
+                <motion.img
+                  layoutId="project-image-/projects/sms"
+                  src={SMS1}
+                  alt="CLI Interface"
+                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity"
+                  style={{ willChange: "transform" }}/>
+              </button>
             </div>
 
             {/* Intro */}
@@ -222,9 +224,10 @@ const SMS = () => {
               <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Execution Screenshots</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {screenshots.map((s, i) => (
-                  <div 
-                    key={i} 
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer hover:border-slate-700/80 hover: transition-all"
+                  <button
+                    type="button"
+                    key={i}
+                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer text-left transition-all hover:border-slate-700/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
                     onClick={() => setSelectedImage(s)}
                   >
                     <img 
@@ -238,7 +241,7 @@ const SMS = () => {
                     <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-accent-soft transition-colors">
                       {s.label}
                     </p>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -304,31 +307,12 @@ const SMS = () => {
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Image viewer */}
       {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-6" 
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="max-w-3xl w-full space-y-4">
-            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <h3 className="text-paper font-semibold">{selectedImage.label}</h3>
-              <button 
-                onClick={() => setSelectedImage(null)}
-                className="p-1 hover:bg-slate-800 rounded transition-colors"
-              >
-                <X size={20} className="text-slate-400" />
-              </button>
-            </div>
-            <img 
-              src={selectedImage.src}
-                decoding="async" 
-              alt={selectedImage.label} 
-              className="w-full border border-slate-800 rounded-lg" 
-            />
-            <p className="text-sm text-slate-400">{selectedImage.desc}</p>
-          </div>
-        </div>
+        <Lightbox
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </div>
   );

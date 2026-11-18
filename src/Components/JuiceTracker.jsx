@@ -14,6 +14,7 @@ import {
   Boxes
 } from 'lucide-react'
 import SEO from './SEO'
+import CaseStudyHeader from './CaseStudyHeader'
 import JuicePoster from '../assets/JuicePoster.jpeg'
 import { motion } from 'framer-motion';
 
@@ -81,28 +82,22 @@ function JuiceTracker() {
       />
 
       {/* Header */}
-      <div className="border-b border-slate-800/50 bg-canvas/80">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div>
-            <p className="text-xs text-slate-400 uppercase tracking-widest mb-2">Android App</p>
-            <h1 className="text-2xl font-bold text-paper tracking-[-0.03em]">
-              Juice <span className="text-accent">Tracker</span>
-            </h1>
-          </div>
-          <a
-            href="https://github.com/SamratVsn/Juicetracker"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2.5 bg-accent text-ink hover:bg-accent-hover rounded-lg font-semibold text-sm transition-all active:scale-[0.97]"
-          >
-            <Github size={16} /> View Code
-          </a>
-        </div>
-      </div>
+      <div className="max-w-6xl mx-auto px-6 pt-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <CaseStudyHeader
+          eyebrow="Android App"
+          title={<>Juice <span className="text-accent">Tracker</span></>}
+          summary="A small Kotlin app for logging juice combinations — and a deliberate exercise in Compose/View interoperability with Room and StateFlow."
+          actions={[
+            {
+              href: 'https://github.com/SamratVsn/Juicetracker',
+              label: 'View Code',
+              icon: Github,
+              primary: true,
+            },
+          ]}
+        />
 
-      {/* Poster */}
-      <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <div className="relative rounded-2xl overflow-hidden border border-border my-10">
+        <div className="relative rounded-2xl overflow-hidden border border-border mb-10">
           <motion.img
                 layoutId="project-image-/projects/juicetracker"
                 src={JuicePoster}

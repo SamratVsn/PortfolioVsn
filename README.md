@@ -1,6 +1,8 @@
 # PortfolioVsn
 
-Personal portfolio of [Samrat Parajuli](https://www.samratparajuli0.com.np/) (SamratVsn) — an Android developer and software engineer from Kathmandu, Nepal.
+Personal portfolio of [Samrat Parajuli](https://www.samratparajuli0.com.np/) (SamratVsn) — a product-minded systems and application engineer from Kathmandu, Nepal. Native Android in Kotlin and Jetpack Compose, built end to end from product brief to release.
+
+The person, role, specialty, tagline, contact details and social links live in one place: [`src/content/site.js`](src/content/site.js). The SEO builder, prerendered JSON-LD, header, footer, hero, About, Contact, `llms.txt` and this README all derive from it.
 
 Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Every route is prerendered to static HTML at build time and hydrated on the client, so crawlers and social scrapers get real markup without a Node server.
 
@@ -16,7 +18,7 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Every route is p
 | Routing | React Router 7 |
 | Animation | Framer Motion 12 |
 | Icons | Lucide React, React Icons |
-| SEO | Built-in `components/seoHead.js` + prerender (React 19, no helmet) |
+| SEO | Built-in `src/Components/seoHead.js` + prerender (React 19, no helmet) |
 | Email | EmailJS |
 | Deployment | Vercel |
 
@@ -29,13 +31,13 @@ Built with React 19, Vite 7, Tailwind CSS 4, and Framer Motion. Every route is p
 | `/contact` | Contact form with EmailJS integration |
 | `/projects` | Project grid with category filtering |
 | `/projects/avalokan` | Avalokan — native Android heritage explorer for Nepal (Kotlin, Compose, Firebase, Room) |
-| `/projects/todo` | Tasks — Android productivity app (Kotlin, Compose, Room) |
+| `/projects/todo` | Tasks — Android productivity app (Kotlin, Compose, Room, v2.1.0) |
 | `/projects/themovie` | The Movie App — TMDB browser (Kotlin, Compose, Retrofit) |
 | `/projects/juicetracker` | Juice Tracker — Compose + Views interop (Kotlin, Room) |
 | `/projects/kathmandu` | Kathmandu My-City — Material 3 recommendation app |
 | `/projects/sms` | Student Management System (C, CLI, file I/O) |
 | `/projects/bmsk` | Bank Management System (Kotlin, OOP, CLI) |
-| `/projects/blogvsn` | BlogVsn Platform (React, OAuth, Blogger API) |
+| `/projects/blogvsn` | BlogVsn Platform (React 19, Google sign-in, Blogger API) |
 | `/projects/this` | Portfolio meta-project deep dive |
 | `/privacy` | Privacy policy |
 | `*` | 404 page (prerendered as `404.html`, served with a real 404 status, `noindex`) |

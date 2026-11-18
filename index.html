@@ -35,67 +35,17 @@
     <meta name="author" content="Samrat Parajuli" />
 
     <!-- ── Site-wide structured data ───────────────────────────────
-         Person + WebSite describe the owner and the site itself, so they are
-         valid on every page. Page-specific entities (ProfilePage,
-         CollectionPage, SoftwareApplication, BreadcrumbList) live in each
-         route's SEO component so they never leak onto other pages. -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://www.samratparajuli0.com.np/#person",
-        "name": "Samrat Parajuli",
-        "alternateName": "SamratVsn",
-        "description": "Android developer from Kathmandu, Nepal, building native applications with Kotlin, Jetpack Compose, and offline-first architecture.",
-        "url": "https://www.samratparajuli0.com.np/",
-        "image": "https://www.samratparajuli0.com.np/profile-400.jpg",
-        "jobTitle": "Android App Developer",
-        "email": "mailto:samratvsn@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kathmandu",
-          "addressCountry": "NP"
-        },
-        "sameAs": [
-          "https://github.com/SamratVsn",
-          "https://www.linkedin.com/in/samratvsn/",
-          "https://g.dev/samratparajuli",
-          "https://x.com/SamratVsn",
-          "https://medium.com/@samratvsn",
-          "https://facebook.com/samratvsn"
-        ],
-        "knowsAbout": [
-          "Android Development",
-          "Kotlin",
-          "Jetpack Compose",
-          "MVVM Architecture",
-          "Coroutines & Flow",
-          "Mobile App Architecture",
-          "UI/UX Design"
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://www.samratparajuli0.com.np/#website",
-        "name": "Samrat Parajuli",
-        "alternateName": "SamratVsn",
-        "url": "https://www.samratparajuli0.com.np/",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://www.samratparajuli0.com.np/#person"
-        }
-      }
-    </script>
+         Person + WebSite are emitted on every route by seoHead.js, from the
+         single identity source in src/content/site.js, and injected inside the
+         ROUTE_SEO block below by the prerenderer. Keeping them out of this
+         static file avoids a second copy that would drift from the React app. -->
 
     <!-- ROUTE_SEO_START -->
     <!-- ── Per-route SEO (replaced by prerender for each route) ── -->
-    <title>Samrat Parajuli (SamratVsn) | Android App Developer</title>
+    <title>Samrat Parajuli (SamratVsn) — Product-Minded Systems &amp; Application Engineer</title>
     <meta
       name="description"
-      content="Portfolio of Samrat Parajuli (SamratVsn), an Android developer in Kathmandu, Nepal — Kotlin, Jetpack Compose, and offline-first architecture."
+      content="Portfolio of Samrat Parajuli (SamratVsn), a product-minded systems and application engineer in Kathmandu, Nepal. Native Android in Kotlin and Jetpack Compose, built end to end from product brief to release."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.samratparajuli0.com.np/" />
@@ -104,11 +54,11 @@
     <meta property="og:url" content="https://www.samratparajuli0.com.np/" />
     <meta
       property="og:title"
-      content="Samrat Parajuli (SamratVsn) | Android App Developer"
+      content="Samrat Parajuli (SamratVsn) — Product-Minded Systems &amp; Application Engineer"
     />
     <meta
       property="og:description"
-      content="Android developer in Kathmandu, Nepal. I build offline-first Android apps in Kotlin and Jetpack Compose — most recently Avalokan v1.0.0."
+      content="Portfolio of Samrat Parajuli (SamratVsn), a product-minded systems and application engineer in Kathmandu, Nepal. Native Android in Kotlin and Jetpack Compose, built end to end from product brief to release."
     />
     <meta
       property="og:image"
@@ -120,18 +70,18 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Samrat Parajuli (SamratVsn) — Android App Developer"
+      content="Samrat Parajuli (SamratVsn) — Product-Minded Systems &amp; Application Engineer"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://www.samratparajuli0.com.np/" />
     <meta
       name="twitter:title"
-      content="Samrat Parajuli (SamratVsn) | Android App Developer"
+      content="Samrat Parajuli (SamratVsn) — Product-Minded Systems &amp; Application Engineer"
     />
     <meta
       name="twitter:description"
-      content="Android developer in Kathmandu, Nepal. I build offline-first Android apps in Kotlin and Jetpack Compose — most recently Avalokan v1.0.0."
+      content="Portfolio of Samrat Parajuli (SamratVsn), a product-minded systems and application engineer in Kathmandu, Nepal. Native Android in Kotlin and Jetpack Compose, built end to end from product brief to release."
     />
     <meta
       name="twitter:image"
@@ -141,23 +91,15 @@
     <meta name="twitter:image:height" content="630" />
     <meta
       name="twitter:image:alt"
-      content="Samrat Parajuli (SamratVsn) — Android App Developer"
+      content="Samrat Parajuli (SamratVsn) — Product-Minded Systems &amp; Application Engineer"
     />
     <!-- ROUTE_SEO_END -->
     <meta name="msvalidate.01" content="10C81FC930825CB96F21B1FFF7438979" />
 
     <!-- Accent seed: applied before first paint so a stored choice never flashes
-         the default palette. Kept inline and tiny; no network, no tracking. -->
-    <script>
-      (function () {
-        try {
-          var seed = localStorage.getItem("sp-accent-seed");
-          if (seed === "terracotta" || seed === "slate") {
-            document.documentElement.setAttribute("data-seed", seed);
-          }
-        } catch (e) {}
-      })();
-    </script>
+         the default palette. Served as /theme-init.js rather than inline so the
+         CSP's `script-src 'self'` allows it to run in production. -->
+    <script src="/theme-init.js"></script>
   </head>
   <body style="background-color: #0E1311">
     <div id="root"></div>

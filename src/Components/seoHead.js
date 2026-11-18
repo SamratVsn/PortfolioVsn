@@ -7,17 +7,15 @@
 // 19, where it rendered metadata twice — once per route in the prerendered
 // HTML and again on hydration.
 
-export const SITE = {
-  name: "Samrat Parajuli",
-  title: "Samrat Parajuli (SamratVsn) | Android App Developer",
-  description:
-    "Portfolio of Samrat Parajuli (SamratVsn), an Android developer in Kathmandu, Nepal — Kotlin, Jetpack Compose, and offline-first architecture. Builder of Avalokan v1.0.0.",
-  origin: "https://www.samratparajuli0.com.np",
-  url: "https://www.samratparajuli0.com.np/",
-  image: "https://www.samratparajuli0.com.np/og/og-default.jpg",
-  imageAlt: "Samrat Parajuli (SamratVsn) — Android App Developer",
-  twitter: "@SamratVsn",
-};
+import { SITE, personSchema, websiteSchema } from "../content/site";
+
+export { SITE };
+
+// Site-wide entities are added to every route, before any page-specific schema.
+function siteSchemas(props) {
+  const pageSchemas = Array.isArray(props.schema) ? props.schema.filter(Boolean) : [];
+  return [personSchema(), websiteSchema(), ...pageSchemas];
+}
 
 // Every social image must be served at 1200x630 so the declared dimensions
 // match the file (mismatched og:image:width/height crops previews).
@@ -92,8 +90,7 @@ export function seoHeadTags(props = {}) {
     { tag: "meta", attrs: { name: "twitter:url", content: r.ou } }
   );
 
-  const schemas = Array.isArray(props.schema) ? props.schema.filter(Boolean) : [];
-  for (const schema of schemas) {
+  for (const schema of siteSchemas(props)) {
     tags.push({
       tag: "script",
       attrs: { type: "application/ld+json", "data-seo-schema": "true" },
@@ -220,8 +217,7 @@ export function applySeoToDocument(props = {}) {
   }
 
   head.querySelectorAll('script[data-seo-schema="true"]').forEach((el) => el.remove());
-  const schemas = Array.isArray(props.schema) ? props.schema.filter(Boolean) : [];
-  for (const schema of schemas) {
+  for (const schema of siteSchemas(props)) {
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.setAttribute("data-seo-schema", "true");
