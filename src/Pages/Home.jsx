@@ -13,7 +13,16 @@ import Button from "../Components/ui/Button";
 import StatusPill from "../Components/ui/StatusPill";
 import Tag from "../Components/ui/Tag";
 import { FaGithub } from "react-icons/fa";
-import { ArrowUpRight, ArrowRight, Download, Play } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Download,
+  Play,
+  Database,
+  Layers,
+  PackageCheck,
+  Smartphone,
+} from "lucide-react";
 import Hero from "../Components/Hero";
 import { PROJECTS, screenshots } from "../data/projects";
 import AvalokanLogo from "../assets/Avalokan/logo.jpeg";
@@ -21,104 +30,109 @@ import AvalokanLogo from "../assets/Avalokan/logo.jpeg";
 const APK_URL =
   "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk";
 
-// ── Featured applications, in the order they should be read ────────────────
-const featured = ["avalokan", "themovie", "todo", "blogvsn"].map((id) =>
-  PROJECTS.find((project) => project.id === id)
-);
-const [avalokan, ...supporting] = featured;
+const byId = (id) => PROJECTS.find((project) => project.id === id);
+const avalokan = byId("avalokan");
+const tasks = byId("todo");
+const blogvsn = byId("blogvsn");
+const selectedWork = [tasks, blogvsn];
 
-// ── Toolkit data ────────────────────────────────────────────────────────────
-const toolkit = [
-  {
-    title: "Android",
-    desc: "Modern, reactive Android apps in Kotlin and Jetpack Compose.",
-    tags: ["Kotlin", "Jetpack Compose", "Material 3", "Coroutines & Flow"],
-  },
-  {
-    title: "Architecture",
-    desc: "Clear separation between UI, data, and business logic.",
-    tags: ["MVVM", "Repository", "Room", "DataStore", "Retrofit"],
-  },
-  {
-    title: "Workflow",
-    desc: "The day-to-day toolkit that keeps development honest and versioned.",
-    tags: ["Android Studio", "Git & GitHub", "REST APIs", "Documentation"],
-  },
-];
+/* -- section 2: what I actually do ------------------------------------------ */
 
-// ── Philosophy data ─────────────────────────────────────────────────────────
-const philosophy = [
+const capabilities = [
   {
     number: "01",
-    title: "Understand the problem",
-    desc: "I try to understand what I'm actually solving before jumping into implementation. A clear problem statement saves more time than a fast keyboard.",
+    icon: PackageCheck,
+    title: "Product framing",
+    body: "Avalokan began with a scattered-content problem: heritage places, stories, and events lived in separate sources. The app turns that into one product surface with three distinct content types, instead of one generic list.",
+    project: avalokan,
+    linkLabel: "Read the Avalokan case study",
   },
   {
     number: "02",
-    title: "Keep it understandable",
-    desc: "I prefer solutions that are clear enough to debug, maintain, and explain. If I can't walk through it later, it's not done yet.",
+    icon: Database,
+    title: "Data & systems",
+    body: "In Avalokan, Firestore snapshot listeners write into Room, repositories map Room entities to domain models, and ViewModels expose one state stream. Hilt binds the repositories, while DataStore holds device-local flags.",
+    project: avalokan,
+    linkLabel: "See the repository and cache decisions",
   },
   {
     number: "03",
-    title: "Learn by building",
-    desc: "Tutorials help me learn concepts, but building without the tutorial is where I actually understand them. Real projects teach what courses can't.",
+    icon: Smartphone,
+    title: "Interface",
+    body: "Tasks uses Jetpack Compose and Material 3 for real states: an active focus timer, category filters, a task editor, theme switching, and live profile statistics. The interface is wired to Flow-backed state, not static screens.",
+    project: tasks,
+    linkLabel: "Read the Tasks case study",
   },
 ];
 
-// ── Journey data ────────────────────────────────────────────────────────────
-const journeyItems = [
+/* -- section 4: brief -> model -> layers -> ship ---------------------------- */
+
+const buildSteps = [
   {
-    period: "2024",
-    title: "Started programming with C",
-    description:
-      "Learned fundamentals through C — loops, structs, binary file I/O, and a Student Management System built from scratch.",
+    number: "01",
+    title: "Brief",
+    body: "Start from the constraint, not the stack. Avalokan had to make three content types feel distinct while still opening on a weak connection.",
+    artifact: "Avalokan: places, stories, and events",
   },
   {
-    period: "Early 2025",
-    title: "Learned web basics",
-    description:
-      "HTML, CSS, and JavaScript to understand how the web works. Built simple interactive pages and got familiar with the DOM.",
+    number: "02",
+    title: "Model",
+    body: "Name the entities and their relationships before drawing screens. Avalokan stores places, events, and stories as separate Room entities, with related IDs held in list columns.",
+    artifact: "PlaceItem, EventItem, StoryItem",
   },
   {
-    period: "Mid 2025",
-    title: "Started learning Kotlin",
-    description:
-      "Transitioned to Kotlin to prepare for Android. Explored null safety, coroutines, and extension functions through small projects.",
+    number: "03",
+    title: "Layers",
+    body: "Put each responsibility where it can be tested and changed. Tasks keeps Compose screens, ViewModels, repository interfaces, and Room/DataStore behind clear boundaries.",
+    artifact: "UI -> ViewModel -> Repository -> Room / DataStore",
   },
   {
-    period: "Late 2025",
-    title: "Started Android with Compose",
-    description:
-      "Began building Android apps using Jetpack Compose — composable functions, state management, and UI architecture.",
-  },
-  {
-    period: "Early 2026",
-    title: "Completed Android Basics with Compose",
-    description:
-      "Finished Google's course. Solidified Compose fundamentals, state handling, and Android app structure.",
-  },
-  {
-    period: "Mid 2026",
-    title: "Started building complete Android applications",
-    description:
-      "Built ToDo and The Movie using Jetpack Compose, Room, DataStore, Retrofit, Coroutines & Flow, and modern Android architecture.",
-  },
-  {
-    period: "Late 2026",
-    title: "Going deeper into Android engineering",
-    description:
-      "Exploring dependency injection, testing, architecture, and larger real-world applications while building projects around practical problems.",
-  },
-  {
-    period: "Oct 2026 — Now",
-    title: "Shipped Avalokan v1.0.0",
-    description:
-      "Released a full Android heritage explorer for Nepal — Firestore-backed places, stories, and events with an offline-first Room cache, Hilt DI, and a launch film cut from real captures.",
-    active: true,
+    number: "04",
+    title: "Ship",
+    body: "A build only counts when someone can open it. Avalokan and Tasks have signed APK releases; BlogVsn is live on Vercel.",
+    artifact: "Avalokan v1.0.0, Tasks v2.1.0, BlogVsn live",
   },
 ];
 
-// ── Blog previews (redirect to blog.samratparajuli0.com.np) ─────────────────
+/* -- section 5: evidence ----------------------------------------------------- */
+
+const evidence = [
+  {
+    icon: Download,
+    label: "Release",
+    title: "Avalokan v1.0.0",
+    detail: "Signed Android APK and a tagged GitHub release.",
+    href: "https://github.com/SamratVsn/Avalokan/releases/tag/v1.0.0",
+    cta: "Open the release",
+  },
+  {
+    icon: Download,
+    label: "Release",
+    title: "Tasks v2.1.0",
+    detail: "Latest APK published through GitHub Releases.",
+    href: "https://github.com/SamratVsn/Tasks/releases/latest",
+    cta: "Open the latest release",
+  },
+  {
+    icon: Play,
+    label: "Live product",
+    title: "BlogVsn",
+    detail: "A static React build serving a Blogger-backed blog on Vercel.",
+    href: "https://blogvsn.vercel.app/",
+    cta: "Visit the live site",
+  },
+  {
+    icon: FaGithub,
+    label: "Source",
+    title: "GitHub repositories",
+    detail: "Read the code behind these case studies, including migrations and cache policy.",
+    href: "https://github.com/SamratVsn",
+    cta: "Browse the repositories",
+  },
+];
+
+/* -- writing ---------------------------------------------------------------- */
+
 const notePreviews = [
   {
     title: "Building your first Android App",
@@ -138,21 +152,10 @@ const notePreviews = [
     category: "Projects",
     url: "https://blog.samratparajuli0.com.np/blog/how-i-built-a-productivity-app-from-scratch",
   },
-  {
-    title: "Attending the Localhost Kathmandu Event",
-    date: "Jun 15, 2026",
-    category: "Events",
-    url: "https://blog.samratparajuli0.com.np/blog/attending-the-localhost-kathmandu-event-by-net-hub-kathmandu",
-  },
-  {
-    title: "A Random Networking Session turned fruitful",
-    date: "Jun 14, 2026",
-    category: "Events",
-    url: "https://blog.samratparajuli0.com.np/blog/a-random-networking-session-turned-fruitful",
-  },
 ];
 
-// ── Perspectives ────────────────────────────────────────────────────────────
+/* -- testimonials ----------------------------------------------------------- */
+
 const testimonials = [
   {
     quote:
@@ -187,8 +190,6 @@ const sectionMotion = {
 function Home() {
   const reduceMotion = useReducedMotion();
 
-  // ProfilePage is the accurate type for a personal portfolio home page: it
-  // describes the page and points at the Person it profiles.
   const profilePageSchema = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -213,21 +214,68 @@ function Home() {
       <main id="main-content">
         <Hero />
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            FEATURED APPLICATIONS
-            ═══════════════════════════════════════════════════════════════════ */}
-        <Section
-          divided
-          spacing="loose"
-          aria-labelledby="featured-heading"
-        >
+        {/* ═══ 2. What I actually do ═══════════════════════════════════════ */}
+        <Section divided spacing="loose" aria-labelledby="capabilities-heading">
+          <Container>
+            <SectionHeading
+              id="capabilities-heading"
+              eyebrow="Capabilities"
+              title="What I actually do"
+              subtitle="Three parts of the same job: frame the product, decide how the data moves, then build the interface that carries it."
+            />
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+              {capabilities.map((capability, index) => {
+                const Icon = capability.icon;
+                return (
+                  <motion.div
+                    key={capability.title}
+                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.35, delay: index * 0.06 }}
+                  >
+                    <Card variant="subtle" padding="lg" className="flex h-full flex-col">
+                      <div className="mb-5 flex items-center justify-between gap-3">
+                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-accent-border bg-accent-muted text-accent-soft">
+                          <Icon size={16} aria-hidden="true" />
+                        </span>
+                        <span className="font-mono text-label font-semibold tabular-nums text-slate-500">
+                          {capability.number}
+                        </span>
+                      </div>
+                      <h3 className="mb-2 text-h4 font-semibold text-paper">
+                        {capability.title}
+                      </h3>
+                      <p className="mb-5 text-small leading-relaxed text-slate-400">
+                        {capability.body}
+                      </p>
+                      {capability.project && (
+                        <Link
+                          to={capability.project.path}
+                          className="mt-auto inline-flex items-center gap-1 text-small font-medium text-accent-soft transition-colors hover:text-paper"
+                        >
+                          {capability.linkLabel}
+                          <ArrowUpRight size={13} aria-hidden="true" />
+                        </Link>
+                      )}
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </Container>
+        </Section>
+
+        {/* ═══ 3. Selected work ════════════════════════════════════════════ */}
+        <Section divided spacing="loose" aria-labelledby="selected-heading">
           <Container>
             <div className="mb-10 flex items-end justify-between gap-6">
               <SectionHeading
-                id="featured-heading"
-                eyebrow="Work"
-                title="Featured Applications"
-                subtitle="Applications I designed, built, and shipped — led by Avalokan, an offline-first Android app built for Nepal's mountain roads."
+                id="selected-heading"
+                eyebrow="Selected work"
+                title="Three shipped products"
+                subtitle="A heritage app, a task manager, and a live blog. Each one exists outside this portfolio."
               />
               <Link
                 to="/projects"
@@ -237,7 +285,6 @@ function Home() {
               </Link>
             </div>
 
-            {/* Avalokan spotlight */}
             {avalokan && (
               <Card variant="accent" padding="none" className="overflow-hidden">
                 <div className="grid gap-6 p-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-8">
@@ -255,15 +302,14 @@ function Home() {
                       </Link>
                     </h3>
                     <p className="mt-1 text-small font-medium text-sand">
-                      Discover Nepal. Explore its heritage. Experience its
-                      stories.
+                      Discover Nepal. Explore its heritage. Experience its stories.
                     </p>
                     <p className="mt-3 max-w-xl text-small leading-relaxed text-slate-400">
-                      {avalokan.solution}
+                      {avalokan.thesis}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-1.5">
-                      {["Kotlin", "Jetpack Compose", "Firebase", "Room"].map(
+                      {["Kotlin", "Jetpack Compose", "Firebase", "Room", "Hilt"].map(
                         (tag) => (
                           <Tag key={tag}>{tag}</Tag>
                         )
@@ -290,7 +336,7 @@ function Home() {
                         <FaGithub size={13} aria-hidden="true" /> Source
                       </a>
                       <span className="font-mono text-label text-slate-500">
-                        v1.0.0 · 22s launch film inside
+                        v1.0.0 - 22s launch film inside
                       </span>
                     </div>
                   </div>
@@ -298,7 +344,7 @@ function Home() {
                   <div className="hidden justify-self-end sm:block">
                     <img
                       src={AvalokanLogo}
-                      alt="Avalokan — Nepal Heritage Explorer app logo"
+                      alt="Avalokan - Nepal Heritage Explorer app logo"
                       className="h-40 w-auto rounded-xl border border-border-strong bg-[#F5F3ED] object-contain lg:h-48"
                       loading="lazy"
                     />
@@ -307,9 +353,8 @@ function Home() {
               </Card>
             )}
 
-            {/* Supporting applications */}
-            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
-              {supporting.map((project, index) => {
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {selectedWork.map((project, index) => {
                 const screenshot = screenshots[project.path];
                 return (
                   <Card
@@ -343,6 +388,9 @@ function Home() {
                       </div>
                     )}
                     <div className="flex flex-1 flex-col p-5">
+                      <StatusPill tone="accent" className="mb-2 w-fit" dot={false}>
+                        {project.status}
+                      </StatusPill>
                       <div className="flex items-start justify-between gap-3">
                         <h3 className="text-body font-semibold text-paper transition-colors group-hover:text-accent-soft">
                           {project.title}
@@ -353,38 +401,16 @@ function Home() {
                           className="mt-0.5 shrink-0 text-slate-500 transition-colors group-hover:text-accent-soft"
                         />
                       </div>
-                      <p className="mt-2 line-clamp-3 text-small leading-relaxed text-slate-400">
-                        {project.solution}
+                      <p className="mt-2 text-small leading-relaxed text-slate-400">
+                        {project.thesis}
                       </p>
                       <p className="mt-auto pt-4 text-label font-medium uppercase tracking-[0.1em] text-slate-500">
-                        {project.tags.join(" · ")}
+                        {project.tags.join(" - ")}
                       </p>
                     </div>
                   </Card>
                 );
               })}
-            </div>
-
-            {/* Toolkit — the stack behind the work, kept typographic */}
-            <div className="mt-12 border-t border-border pt-8">
-              <h3 className="font-mono text-label uppercase tracking-[0.16em] text-slate-500">
-                Toolkit
-              </h3>
-              <div className="mt-5 grid gap-6 sm:grid-cols-3">
-                {toolkit.map((item) => (
-                  <div key={item.title}>
-                    <h4 className="text-small font-semibold text-paper">
-                      {item.title}
-                    </h4>
-                    <p className="mt-1 text-small leading-relaxed text-slate-400">
-                      {item.desc}
-                    </p>
-                    <p className="mt-2 font-mono text-label leading-relaxed text-slate-500">
-                      {item.tags.join(" · ")}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <Link
@@ -396,114 +422,40 @@ function Home() {
           </Container>
         </Section>
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            HOW I BUILD
-            ═══════════════════════════════════════════════════════════════════ */}
-        <Section
-          divided
-          spacing="loose"
-          aria-labelledby="approach-heading"
-        >
-          <Container variant="narrow">
+        {/* ═══ 4. How I build ══════════════════════════════════════════════ */}
+        <Section divided spacing="loose" aria-labelledby="approach-heading">
+          <Container>
             <SectionHeading
               id="approach-heading"
-              eyebrow="Approach"
+              eyebrow="Method"
               title="How I build"
-              subtitle="Three principles that guide how I approach every project."
+              subtitle="The same chain on every project: understand the brief, model the data, separate the layers, then ship something that exists."
             />
 
-            <div>
-              {philosophy.map((item, i) => (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {buildSteps.map((step, index) => (
                 <motion.div
-                  key={item.number}
+                  key={step.number}
                   {...sectionMotion}
-                  transition={{ duration: 0.35, delay: i * 0.05 }}
-                  className="group"
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  className="relative"
                 >
-                  <div className="flex flex-col gap-3 border-b border-border py-6 last:border-b-0 sm:flex-row sm:items-start sm:gap-8">
-                    <span className="shrink-0 pt-0.5 font-mono text-small tabular-nums text-slate-600 transition-colors group-hover:text-accent-soft">
-                      {item.number}
-                    </span>
-                    <div>
-                      <h3 className="mb-1.5 text-body font-medium text-paper">
-                        {item.title}
-                      </h3>
-                      <p className="max-w-xl text-small leading-relaxed text-slate-400">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </Container>
-        </Section>
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            ANDROID JOURNEY
-            ═══════════════════════════════════════════════════════════════════ */}
-        <Section
-          divided
-          spacing="loose"
-          aria-labelledby="journey-heading"
-        >
-          <Container variant="narrow">
-            <SectionHeading
-              id="journey-heading"
-              eyebrow="Journey"
-              title="My Android Journey"
-              subtitle="From my first line of code to building complete Android applications."
-            />
-
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute bottom-1 left-[5px] top-1 w-px bg-border"
-              />
-
-              {journeyItems.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={reduceMotion ? { opacity: 1 } : { opacity: 0, x: -6 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.3, delay: i * 0.04 }}
-                  className="group relative flex gap-5 sm:gap-6"
-                >
-                  <div className="relative z-10 flex shrink-0 items-start pt-1.5">
-                    <span
-                      className={`h-[11px] w-[11px] rounded-full border-2 transition-colors duration-300 ${
-                        item.active
-                          ? "border-accent bg-accent"
-                          : "border-slate-600 bg-canvas group-hover:border-slate-500"
-                      }`}
-                    />
-                  </div>
-
-                  <div className="pb-7 pt-0.5">
-                    <div className="mb-1 flex items-center gap-3">
-                      <span
-                        className={`text-label font-medium tabular-nums ${
-                          item.active ? "text-accent-soft" : "text-slate-400"
-                        }`}
-                      >
-                        {item.period}
+                  <div className="flex h-full flex-col rounded-xl border border-border bg-surface/50 p-5 sm:p-6">
+                    <div className="mb-5 flex items-center gap-3">
+                      <span className="font-mono text-label font-semibold tabular-nums text-accent-soft/80">
+                        {step.number}
                       </span>
-                      {item.active && (
-                        <span className="rounded border border-accent-border px-1.5 py-0.5 text-label font-medium uppercase leading-none tracking-wider text-accent-soft">
-                          Current
-                        </span>
-                      )}
+                      <span aria-hidden="true" className="h-px flex-1 bg-border" />
+                      <Layers size={14} aria-hidden="true" className="text-slate-500" />
                     </div>
-                    <h3
-                      className={`mb-1 text-body font-medium leading-snug ${
-                        item.active ? "text-paper" : "text-slate-300"
-                      }`}
-                    >
-                      {item.title}
+                    <h3 className="mb-2 text-h4 font-semibold text-paper">
+                      {step.title}
                     </h3>
-                    <p className="max-w-lg text-small leading-relaxed text-slate-400">
-                      {item.description}
+                    <p className="mb-4 text-small leading-relaxed text-slate-400">
+                      {step.body}
+                    </p>
+                    <p className="mt-auto border-t border-border pt-3 font-mono text-label leading-relaxed text-slate-500">
+                      {step.artifact}
                     </p>
                   </div>
                 </motion.div>
@@ -512,14 +464,58 @@ function Home() {
           </Container>
         </Section>
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            WRITING
-            ═══════════════════════════════════════════════════════════════════ */}
-        <Section
-          divided
-          spacing="loose"
-          aria-labelledby="writing-heading"
-        >
+        {/* ═══ 5. Evidence ═════════════════════════════════════════════════ */}
+        <Section divided spacing="loose" aria-labelledby="evidence-heading">
+          <Container>
+            <SectionHeading
+              id="evidence-heading"
+              eyebrow="Evidence"
+              title="What exists today"
+              subtitle="Releases, source, and a live site. No user counts or performance numbers are claimed here because none are measured."
+            />
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {evidence.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.a
+                    key={item.title}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    {...sectionMotion}
+                    transition={{ duration: 0.35, delay: index * 0.05 }}
+                    className="group flex h-full flex-col rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+                  >
+                    <div className="mb-4 flex items-center justify-between gap-3">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border-strong bg-surface text-accent-soft">
+                        <Icon size={14} aria-hidden="true" />
+                      </span>
+                      <span className="font-mono text-label font-semibold uppercase tracking-[0.12em] text-slate-500">
+                        {item.label}
+                      </span>
+                    </div>
+                    <h3 className="mb-1.5 text-body font-semibold text-paper transition-colors group-hover:text-accent-soft">
+                      {item.title}
+                    </h3>
+                    <p className="mb-4 text-small leading-relaxed text-slate-400">
+                      {item.detail}
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-1 text-small font-medium text-slate-300">
+                      {item.cta}
+                      <ArrowUpRight size={13} aria-hidden="true" />
+                    </span>
+                  </motion.a>
+                );
+              })}
+            </div>
+          </Container>
+        </Section>
+
+        <TestimonialsSection testimonials={testimonials} />
+
+        {/* ═══ 6. Writing ══════════════════════════════════════════════════ */}
+        <Section divided spacing="loose" aria-labelledby="writing-heading">
           <Container variant="narrow">
             <div className="mb-10 flex items-end justify-between gap-6">
               <SectionHeading
@@ -584,16 +580,8 @@ function Home() {
           </Container>
         </Section>
 
-        <TestimonialsSection testimonials={testimonials} />
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            CONTACT CTA
-            ═══════════════════════════════════════════════════════════════════ */}
-        <Section
-          divided
-          spacing="loose"
-          aria-labelledby="contact-cta-heading"
-        >
+        {/* ═══ 7. Contact CTA ══════════════════════════════════════════════ */}
+        <Section divided spacing="loose" aria-labelledby="contact-cta-heading">
           <Container variant="narrow" className="text-center">
             <motion.div {...sectionMotion}>
               <h2

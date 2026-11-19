@@ -20,12 +20,16 @@ import CaseStudyLayout from './case-study/CaseStudyLayout'
 import CaseStudyTabs from './case-study/CaseStudyTabs'
 import CaseStudySection from './case-study/CaseStudySection'
 import ScreenshotGallery from './case-study/ScreenshotGallery'
+import DecisionList from './case-study/DecisionList'
+import DataModelTable from './case-study/DataModelTable'
 import { AsideCard, SpecList, BulletList, TagList } from './case-study/CaseStudyAside'
+import { getProject } from '../data/projects'
 import Card from './ui/Card'
 import MovieDetails from '../assets/TheMovie/Details.png'
 import MoviePoster from '../assets/TheMovie/MoviePoster.webp'
 
 const REPO_URL = 'https://github.com/SamratVsn/TheMovie'
+const movie = getProject('themovie')
 
 const SPECS = [
   { label: 'Language', value: 'Kotlin 2.2.10' },
@@ -200,8 +204,8 @@ function TheMovie() {
           <p className="text-body text-slate-400">
             The Movie App is a modern Android application built with Jetpack Compose that leverages the
             TMDB API to showcase popular, now playing, and top-rated movies. It adds Firebase email/password
-            authentication, a persistent Favorites watchlist, personalized recommendations, and full offline
-            support on top of a clean Material 3 design with DataStore-backed preferences.
+            authentication, a persistent Favorites watchlist, personalized recommendations, and cached
+            reads with a stale fallback on top of a clean Material 3 design with DataStore-backed preferences.
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Card variant="subtle" padding="sm">
@@ -374,6 +378,33 @@ function TheMovie() {
             )}
           </div>
         </div>
+
+        <CaseStudySection
+          eyebrow="Engineering decisions"
+          title="Caching, identity, and where state lives"
+        >
+          <p className="text-body text-slate-400">
+            The Movie App is a client for someone else's API. Its useful
+            engineering is in how it reduces repeated network work, handles a
+            failed request, and keeps a small watchlist without adding a server.
+          </p>
+          <DecisionList decisions={movie?.decisions} />
+        </CaseStudySection>
+
+        <CaseStudySection
+          eyebrow="Data model"
+          title="TMDB responses and local profile state"
+        >
+          <p className="text-body text-slate-400">
+            The DTOs follow TMDB's response shape, while the watchlist and profile
+            preferences are stored locally. Auth state is a separate reactive
+            stream from Firebase.
+          </p>
+          <DataModelTable
+            entities={movie?.dataModel}
+            caption="The Movie App DTOs, watchlist, auth state, and preferences"
+          />
+        </CaseStudySection>
 
         <ScreenshotGallery screenshots={SCREENSHOTS} onSelect={setSelectedImage} columns={2} />
       </CaseStudyLayout>

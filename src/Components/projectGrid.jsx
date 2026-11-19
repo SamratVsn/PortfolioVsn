@@ -8,7 +8,7 @@ import CategoryFilter from "./CategoryFilter";
 import Container from "./ui/Container";
 import Tag from "./ui/Tag";
 import StatusPill from "./ui/StatusPill";
-import { PROJECTS, screenshots } from "../data/projects";
+import { PROJECTS, TIERS, screenshots } from "../data/projects";
 
 const CATEGORIES = ["All", "Android", "Web", "C", "Experiments"];
 
@@ -26,7 +26,7 @@ const cardVariants = {
   },
 };
 
-/* ── small building blocks ─────────────────────────────────────────────────── */
+/* -- small building blocks --------------------------------------------------- */
 
 function CategoryChip({ category }) {
   return (
@@ -111,18 +111,19 @@ function ProjectLinks({ project }) {
   );
 }
 
-/* ── status line (only rendered when a release is verified) ───────────────── */
-
 function ProjectStatus({ project }) {
   if (!project.status) return null;
   return (
-    <StatusPill tone="accent" className="mb-2 w-fit">
+    <StatusPill
+      tone={project.tier === "shipped" ? "accent" : "neutral"}
+      className="mb-2 w-fit"
+    >
       {project.status}
     </StatusPill>
   );
 }
 
-/* ── featured card (larger, stronger emphasis) ─────────────────────────────── */
+/* -- featured card ----------------------------------------------------------- */
 
 function FeaturedCard({ project, wide = false }) {
   const screenshot = screenshots[project.path];
@@ -149,7 +150,7 @@ function FeaturedCard({ project, wide = false }) {
         <motion.img
           layoutId={imageLayoutId}
           src={screenshot}
-          alt={`Screenshot of the ${project.title} app`}
+          alt={`Preview of ${project.title}`}
           className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
           style={{ willChange: "transform" }}
@@ -169,7 +170,7 @@ function FeaturedCard({ project, wide = false }) {
           {project.title}
         </h3>
         <p className={`mb-4 text-body text-slate-400 ${wide ? "max-w-lg" : ""}`}>
-          {project.solution}
+          {project.thesis}
         </p>
         <div className="mb-5">
           <TagsRow tags={project.tags} />
@@ -180,7 +181,7 @@ function FeaturedCard({ project, wide = false }) {
   );
 }
 
-/* ── compact card (other projects) ─────────────────────────────────────────── */
+/* -- compact card ------------------------------------------------------------ */
 
 function ProjectCard({ project }) {
   const screenshot = screenshots[project.path];
@@ -201,7 +202,7 @@ function ProjectCard({ project }) {
         <motion.img
           layoutId={imageLayoutId}
           src={screenshot}
-          alt={`Screenshot of the ${project.title} app`}
+          alt={`Preview of ${project.title}`}
           className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
           style={{ willChange: "transform" }}
@@ -217,7 +218,7 @@ function ProjectCard({ project }) {
           {project.title}
         </h3>
         <p className="mb-4 line-clamp-2 text-small text-slate-400">
-          {project.solution}
+          {project.thesis}
         </p>
         <div className="mb-4">
           <TagsRow tags={project.tags} />
@@ -228,17 +229,22 @@ function ProjectCard({ project }) {
   );
 }
 
-/* ── page ──────────────────────────────────────────────────────────────────── */
+/* -- page -------------------------------------------------------------------- */
 
 export default function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const matches = (p) =>
-    activeCategory === "All" || p.category === activeCategory;
+  const matches = (project) =>
+    activeCategory === "All" || project.category === activeCategory;
 
-  const featured = PROJECTS.filter((p) => p.featured && matches(p));
-  const others = PROJECTS.filter((p) => !p.featured && matches(p));
-  const hasAny = featured.length > 0 || others.length > 0;
+  const tiers = TIERS.map((tier) => ({
+    ...tier,
+    projects: PROJECTS.filter(
+      (project) => project.tier === tier.id && matches(project)
+    ),
+  }));
+
+  const hasAny = tiers.some((tier) => tier.projects.length > 0);
 
   return (
     <Container className="pb-6">
@@ -249,7 +255,7 @@ export default function ProjectGrid() {
             Projects<span className="text-accent">.</span>
           </>
         }
-        description="Applications I designed, built, and shipped — then the coursework and experiments that taught me how."
+        description="Shipped applications first, then the systems and coursework that built the engineering behind them."
       />
 
       <CategoryFilter
@@ -259,47 +265,48 @@ export default function ProjectGrid() {
         label="Filter projects by category"
       />
 
-      {featured.length > 0 && (
-        <section className="mb-14 sm:mb-16">
-          <SectionHeading
-            eyebrow="Applications"
-            title="Featured Applications"
-            subtitle="Original apps where product thinking, architecture, and UI decisions came together — led by Avalokan, an offline-first Android app built for Nepal."
-          />
-          <motion.div
-            key={`featured-${activeCategory}`}
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2"
-          >
-            {featured.map((project, i) => (
-              <FeaturedCard key={project.id} project={project} wide={i === 0} />
-            ))}
-          </motion.div>
-        </section>
-      )}
+      {tiers.map((tier, tierIndex) => {
+        if (tier.projects.length === 0) return null;
 
-      {others.length > 0 && (
-        <section>
-          <SectionHeading
-            eyebrow="Foundations"
-            title="Foundations & Coursework"
-            subtitle="Course projects and experiments that built the fundamentals — kept here honestly, not presented as shipped products."
-          />
-          <motion.div
-            key={`others-${activeCategory}`}
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
+        return (
+          <section
+            key={tier.id}
+            className={tierIndex < tiers.length - 1 ? "mb-14 sm:mb-16" : ""}
+            aria-labelledby={`tier-${tier.id}`}
           >
-            {others.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </motion.div>
-        </section>
-      )}
+            <SectionHeading
+              id={`tier-${tier.id}`}
+              eyebrow={tier.eyebrow}
+              title={tier.title}
+              subtitle={tier.subtitle}
+            />
+
+            <motion.div
+              key={`${tier.id}-${activeCategory}`}
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              className={
+                tier.id === "foundations"
+                  ? "grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
+                  : "grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2"
+              }
+            >
+              {tier.projects.map((project, index) =>
+                tier.id === "shipped" ? (
+                  <FeaturedCard
+                    key={project.id}
+                    project={project}
+                    wide={index === 0}
+                  />
+                ) : (
+                  <ProjectCard key={project.id} project={project} />
+                )
+              )}
+            </motion.div>
+          </section>
+        );
+      })}
 
       {!hasAny && (
         <div className="flex flex-col items-center justify-center rounded-xl border border-border px-6 py-20 text-center">

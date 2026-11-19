@@ -6,7 +6,10 @@ import CaseStudyLayout from './case-study/CaseStudyLayout'
 import CaseStudyTabs from './case-study/CaseStudyTabs'
 import CaseStudySection from './case-study/CaseStudySection'
 import ScreenshotGallery from './case-study/ScreenshotGallery'
+import DecisionList from './case-study/DecisionList'
+import DataModelTable from './case-study/DataModelTable'
 import { AsideCard, BulletList } from './case-study/CaseStudyAside'
+import { getProject } from '../data/projects'
 import Card from './ui/Card'
 
 import B1 from '../assets/BlogVsn/B1.png'
@@ -17,6 +20,7 @@ import B5 from '../assets/BlogVsn/B5.png'
 
 const LIVE_URL = 'https://blogvsn.vercel.app/'
 const REPO_URL = 'https://github.com/SamratVsn/BlogVsn'
+const blogvsn = getProject('blogvsn')
 
 const TECH_STACK = [
   { icon: Code2, name: 'React 19', detail: 'Hooks-based UI state management' },
@@ -95,7 +99,12 @@ const BlogVsn = () => {
           <>
             <AsideCard title="Data Flow" icon={Cloud}>
               <ol className="space-y-3">
-                {['Client makes request', 'Google sign-in (optional)', 'Fetch from Blogger API', 'Render in React'].map(
+                {[
+                  'Static React build loads',
+                  'Blogger API returns latest posts',
+                  'React renders post cards',
+                  'Google sign-in sets a local profile',
+                ].map(
                   (step, index) => (
                     <li key={step} className="flex items-center gap-2 text-small text-slate-400">
                       <span className="font-mono font-bold text-accent-text">{index + 1}.</span>
@@ -141,7 +150,7 @@ const BlogVsn = () => {
             </Card>
             <Card variant="subtle" padding="sm">
               <p className="mb-2 text-small font-semibold text-accent-text">Authentication</p>
-              <p className="text-small text-slate-400">Google Identity Services handles sign-in; the app never sees the Google password.</p>
+              <p className="text-small text-slate-400">Google Identity Services handles sign-in; the app never sees the Google password. The signed-in state is local and does not protect content.</p>
             </Card>
           </div>
         </CaseStudySection>
@@ -189,23 +198,60 @@ const BlogVsn = () => {
             {activeTab === 'challenges' && (
               <div className="space-y-4">
                 <div className="rounded-xl border border-amber-900/50 bg-amber-900/10 p-5">
-                  <h4 className="mb-2 text-small font-semibold text-amber-200">OAuth Callback Logic</h4>
+                  <h4 className="mb-2 text-small font-semibold text-amber-200">API Key in the Client</h4>
                   <p className="text-small text-slate-400">
-                    Managing URI redirection between local development environment and production Vercel deployment
-                    required careful configuration of OAuth consent screen and authorized redirect URIs.
+                    The Blogger API key is part of the browser request URL. A static
+                    deployment cannot hide it; a backend proxy would be the stronger
+                    boundary, but it would add a server this project does not have.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-amber-900/50 bg-amber-900/10 p-5">
+                  <h4 className="mb-2 text-small font-semibold text-amber-200">HTML Excerpts</h4>
+                  <p className="text-small text-slate-400">
+                    Post content arrives as HTML and is truncated as a string before
+                    being injected with dangerouslySetInnerHTML. A production version
+                    would sanitise the HTML and truncate on a parsed boundary instead.
                   </p>
                 </div>
                 <div className="rounded-xl border border-amber-900/50 bg-amber-900/10 p-5">
                   <h4 className="mb-2 text-small font-semibold text-amber-200">Session Persistence</h4>
                   <p className="text-small text-slate-400">
-                    The signed-in state is kept in localStorage so a reload does not sign the reader out.
-                    A production version would move session handling behind a backend instead.
+                    The signed-in state is kept in localStorage so a reload does not sign
+                    the reader out. A production version would move session handling
+                    behind a backend instead.
                   </p>
                 </div>
               </div>
             )}
           </div>
         </div>
+
+        <CaseStudySection
+          eyebrow="Engineering decisions"
+          title="A static site with deliberate limits"
+        >
+          <p className="text-body text-slate-400">
+            BlogVsn keeps the backend small by using Blogger as the CMS and
+            treating the React app as a static client. The trade-offs are part of
+            the design, not hidden behind the word "cloud-native".
+          </p>
+          <DecisionList decisions={blogvsn?.decisions} />
+        </CaseStudySection>
+
+        <CaseStudySection
+          eyebrow="Data model"
+          title="External content and local identity"
+        >
+          <p className="text-body text-slate-400">
+            There is no local database. The app consumes an external post feed,
+            stores one decoded Google profile locally, and sends one contact
+            payload to EmailJS.
+          </p>
+          <DataModelTable
+            entities={blogvsn?.dataModel}
+            caption="BlogVsn external post data, local profile, and contact payload"
+          />
+        </CaseStudySection>
 
         <ScreenshotGallery
           screenshots={SCREENSHOTS}

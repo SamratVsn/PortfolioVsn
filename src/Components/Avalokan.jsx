@@ -33,7 +33,10 @@ import StatusPill from './ui/StatusPill'
 import CaseStudyTabs from './case-study/CaseStudyTabs'
 import CaseStudySection from './case-study/CaseStudySection'
 import ScreenshotGallery from './case-study/ScreenshotGallery'
+import DecisionList from './case-study/DecisionList'
+import DataModelTable from './case-study/DataModelTable'
 import { AsideCard, SpecList, TagList } from './case-study/CaseStudyAside'
+import { getProject } from '../data/projects'
 
 import AvalokanHome from '../assets/Avalokan/home.png'
 import AvalokanDiscover from '../assets/Avalokan/discover.png'
@@ -47,6 +50,7 @@ const APK_URL = 'https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/
 const RELEASE_URL = 'https://github.com/SamratVsn/Avalokan/releases/tag/v1.0.0'
 const FILM_URL = '/media/avalokan-launch.mp4'
 const SITE = 'https://www.samratparajuli0.com.np'
+const avalokan = getProject('avalokan')
 
 /* Heritage palette pulled from the app's own design system */
 const SAGE = 'var(--p-accent-soft)'
@@ -682,6 +686,34 @@ export default function Avalokan() {
                 )}
               </div>
             </div>
+
+            <CaseStudySection
+              eyebrow="Engineering decisions"
+              title="Decisions behind the cache"
+            >
+              <p className="text-body text-slate-400">
+                Avalokan's hardest problems are not visual. They are about which
+                source the interface reads, when cached data may be replaced, and
+                where user state belongs. These are the decisions implemented in
+                the repository today.
+              </p>
+              <DecisionList decisions={avalokan?.decisions} />
+            </CaseStudySection>
+
+            <CaseStudySection
+              eyebrow="Data model"
+              title="The entities behind the app"
+            >
+              <p className="text-body text-slate-400">
+                The Room tables mirror three Firestore content collections, plus a
+                small sync layer and device-local preferences. This is the subset
+                that explains how the app is put together, not a full schema dump.
+              </p>
+              <DataModelTable
+                entities={avalokan?.dataModel}
+                caption="Avalokan Room entities, sync layer, and device-local preferences"
+              />
+            </CaseStudySection>
 
             {/* Screens */}
             <ScreenshotGallery

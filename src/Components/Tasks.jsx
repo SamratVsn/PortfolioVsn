@@ -24,7 +24,10 @@ import CaseStudyLayout from './case-study/CaseStudyLayout'
 import CaseStudyTabs from './case-study/CaseStudyTabs'
 import CaseStudySection from './case-study/CaseStudySection'
 import ScreenshotGallery from './case-study/ScreenshotGallery'
+import DecisionList from './case-study/DecisionList'
+import DataModelTable from './case-study/DataModelTable'
 import { AsideCard, SpecList, BulletList, TagList } from './case-study/CaseStudyAside'
+import { getProject } from '../data/projects'
 import Card from './ui/Card'
 import Button from './ui/Button'
 import ToDoHome from '../assets/ToDo/Home.png'
@@ -38,6 +41,7 @@ import ToDoApp from '../assets/ToDo/Home.png'
 
 const RELEASE_URL = 'https://github.com/SamratVsn/Tasks/releases/latest/download/Tasks.apk'
 const REPO_URL = 'https://github.com/SamratVsn/Tasks'
+const tasks = getProject('todo')
 
 const SPECS = [
   { label: 'Min SDK', value: '26 (Android 8.0)' },
@@ -386,6 +390,33 @@ function Tasks() {
             )}
           </div>
         </div>
+
+        <CaseStudySection
+          eyebrow="Engineering decisions"
+          title="Local-first choices that keep tasks safe"
+        >
+          <p className="text-body text-slate-400">
+            Tasks has no backend in its current source. That makes persistence,
+            category deletion, and dependency wiring the decisions that matter
+            most.
+          </p>
+          <DecisionList decisions={tasks?.decisions} />
+        </CaseStudySection>
+
+        <CaseStudySection
+          eyebrow="Data model"
+          title="Tasks, categories, and local state"
+        >
+          <p className="text-body text-slate-400">
+            Two Room tables hold the task data. Preferences and focus statistics
+            live in DataStore, and the timer itself is runtime state rather than a
+            database row.
+          </p>
+          <DataModelTable
+            entities={tasks?.dataModel}
+            caption="Tasks Room entities, DataStore preferences, and timer state"
+          />
+        </CaseStudySection>
 
         <ScreenshotGallery screenshots={SCREENSHOTS} onSelect={setSelectedImage} columns={3} />
       </CaseStudyLayout>
