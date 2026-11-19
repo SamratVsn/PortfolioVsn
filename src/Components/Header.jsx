@@ -72,7 +72,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop navigation */}
-          <nav aria-label="Primary navigation" className="hidden items-center gap-1 md:flex">
+          <nav aria-label="Primary navigation" className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const active = isActivePath(pathname, link.to);
               return (
@@ -134,7 +134,7 @@ export default function Header() {
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
-              className="inline-flex items-center justify-center rounded-md border border-border p-2 text-slate-300 transition-colors hover:border-border-strong hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft md:hidden"
+              className="inline-flex items-center justify-center rounded-md border border-border p-2 text-slate-300 transition-colors hover:border-border-strong hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft lg:hidden"
             >
               {menuOpen ? <X size={16} aria-hidden="true" /> : <Menu size={16} aria-hidden="true" />}
             </button>
@@ -145,7 +145,7 @@ export default function Header() {
         <div
           id="mobile-nav"
           hidden={!menuOpen}
-          className="border-t border-border bg-canvas md:hidden"
+          className="border-t border-border bg-canvas lg:hidden"
         >
           <nav aria-label="Mobile navigation" className="px-5 py-3 sm:px-6">
             <ul className="flex flex-col">
