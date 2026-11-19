@@ -1,10 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
 import BackgroundFX from "../Components/BackgroundFX";
-import SectionHeading from "../Components/SectionHeading";
+import Button from "../Components/ui/Button";
 import {
   ArrowUpRight,
   MapPin,
@@ -242,25 +241,25 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
               <div className="flex items-center gap-2.5 mb-6">
-                <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
+                <span className="text-label font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                   01
                 </span>
                 <span className="w-8 h-px bg-accent/25" />
-                <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
+                <span className="text-label font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                   About
                 </span>
               </div>
 
-              <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.25rem] font-bold text-paper tracking-[-0.03em] leading-[1.08] mb-2">
+              <h1 className="text-h1 font-bold text-paper tracking-[-0.03em] leading-[1.08] mb-2">
                 Samrat <br />
                 Parajuli
               </h1>
 
-              <p className="text-accent text-sm font-medium mb-6">
+              <p className="text-accent text-body font-medium mb-6">
                 {IDENTITY}
               </p>
 
-              <p className="text-slate-400 text-[15px] sm:text-base leading-relaxed max-w-lg mb-8">
+              <p className="text-slate-400 text-body sm:text-body leading-relaxed max-w-lg mb-8">
                 I&apos;m a product-minded systems and application engineer in
                 Kathmandu, Nepal. {TAGLINE} My deepest specialism is{" "}
                 {SPECIALTY_PLAIN}. I document the process and ship what I learn.
@@ -276,11 +275,11 @@ export default function About() {
                   <div key={label}>
                     <div className="flex items-center gap-1.5 mb-1">
                       <Icon size={10} className="text-accent/50" />
-                      <span className="text-[9px] font-mono font-bold tracking-[0.12em] uppercase text-slate-400">
+                      <span className="text-label font-mono font-bold tracking-[0.12em] uppercase text-slate-400">
                         {label}
                       </span>
                     </div>
-                    <p className="text-slate-300 text-[13px]">{value}</p>
+                    <p className="text-slate-300 text-small">{value}</p>
                   </div>
                 ))}
               </div>
@@ -296,18 +295,18 @@ export default function About() {
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
+              <span className="text-label font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 02
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
+              <span className="text-label font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Journey
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
+            <h2 className="text-h2 font-bold text-paper tracking-[-0.02em] mb-2">
               The path so far
             </h2>
-            <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
+            <p className="text-slate-400 max-w-lg text-body leading-relaxed">
               How I got here and what changed along the way.
             </p>
           </motion.div>
@@ -340,21 +339,21 @@ export default function About() {
                   <div className="pb-7 pt-0.5">
                     <div className="flex items-baseline gap-3 mb-1">
                       <span
-                        className={`text-[10px] font-mono font-bold tracking-[0.1em] ${
+                        className={`text-label font-mono font-bold tracking-[0.1em] ${
                           step.active ? "text-accent" : "text-slate-400"
                         }`}
                       >
                         {step.num}
                       </span>
                       <h3
-                        className={`text-sm font-semibold ${
+                        className={`text-body font-semibold ${
                           step.active ? "text-accent" : "text-paper"
                         }`}
                       >
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-slate-400 text-[13px] leading-relaxed max-w-lg">
+                    <p className="text-slate-400 text-small leading-relaxed max-w-lg">
                       {step.desc}
                     </p>
                   </div>
@@ -372,15 +371,15 @@ export default function About() {
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
+              <span className="text-label font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 03
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
+              <span className="text-label font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Process
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
+            <h2 className="text-h2 font-bold text-paper tracking-[-0.02em] mb-2">
               How I learn
             </h2>
           </motion.div>
@@ -394,7 +393,7 @@ export default function About() {
               >
                 <div className="flex items-start gap-5 sm:gap-6">
                   <div className="flex flex-col items-center shrink-0">
-                    <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent/[0.08] border border-accent/20 flex items-center justify-center text-[11px] font-mono font-bold text-accent/70 tracking-wider">
+                    <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent/[0.08] border border-accent/20 flex items-center justify-center text-label font-mono font-bold text-accent/70 tracking-wider">
                       {step.num}
                     </span>
                     {i < learnSteps.length - 1 && (
@@ -403,10 +402,10 @@ export default function About() {
                   </div>
 
                   <div className="pt-2 pb-6">
-                    <h3 className="text-paper text-base font-semibold mb-1.5">
+                    <h3 className="text-paper text-body font-semibold mb-1.5">
                       {step.title}
                     </h3>
-                    <p className="text-slate-400 text-[13px] leading-relaxed max-w-md">
+                    <p className="text-slate-400 text-small leading-relaxed max-w-md">
                       {step.desc}
                     </p>
                   </div>
@@ -417,7 +416,7 @@ export default function About() {
 
           <motion.div
             {...fadeUp}
-            className="flex items-center justify-center gap-3 mt-6 text-[11px] text-slate-400 font-mono font-medium tracking-wide"
+            className="flex items-center justify-center gap-3 mt-6 text-label text-slate-400 font-mono font-medium tracking-wide"
           >
             <span>Build</span>
             <span className="w-4 h-px bg-border" />
@@ -437,18 +436,18 @@ export default function About() {
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
+              <span className="text-label font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 04
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
+              <span className="text-label font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Arsenal
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
+            <h2 className="text-h2 font-bold text-paper tracking-[-0.02em] mb-2">
               Technical arsenal
             </h2>
-            <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
+            <p className="text-slate-400 max-w-lg text-body leading-relaxed">
               The tools and technologies I work with daily.
             </p>
           </motion.div>
@@ -464,7 +463,7 @@ export default function About() {
                 >
                   <div className="flex items-center gap-2.5 mb-4">
                     <Icon size={16} className="text-accent/60" />
-                    <h3 className="text-paper text-sm font-semibold">
+                    <h3 className="text-paper text-body font-semibold">
                       {group.category}
                     </h3>
                   </div>
@@ -472,10 +471,10 @@ export default function About() {
                     {group.items.map((item, ii) => (
                       <div key={ii} className="flex items-center gap-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent/40 shrink-0" />
-                        <span className="text-slate-300 text-[13px] font-medium">
+                        <span className="text-slate-300 text-small font-medium">
                           {item.name}
                         </span>
-                        <span className="text-slate-400 text-[11px]">
+                        <span className="text-slate-400 text-label">
                           {item.note}
                         </span>
                       </div>
@@ -495,18 +494,18 @@ export default function About() {
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
+              <span className="text-label font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 05
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
+              <span className="text-label font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Focus
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em] mb-2">
+            <h2 className="text-h2 font-bold text-paper tracking-[-0.02em] mb-2">
               Currently
             </h2>
-            <p className="text-slate-400 max-w-lg text-sm leading-relaxed">
+            <p className="text-slate-400 max-w-lg text-body leading-relaxed">
               What I am focused on right now.
             </p>
           </motion.div>
@@ -522,10 +521,10 @@ export default function About() {
                     : ""
                 } hover:bg-surface/40 transition-colors duration-300`}
               >
-                <span className="text-[10px] font-mono font-bold tracking-[0.1em] uppercase text-accent/70 sm:w-28 shrink-0">
+                <span className="text-label font-mono font-bold tracking-[0.1em] uppercase text-accent/70 sm:w-28 shrink-0">
                   {item.title}
                 </span>
-                <p className="text-slate-400 text-[13px] leading-relaxed">
+                <p className="text-slate-400 text-small leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>
@@ -541,18 +540,18 @@ export default function About() {
         <div className="max-w-6xl mx-auto min-[1920px]:max-w-7xl">
           <motion.div {...fadeUp} className="mb-10">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
+              <span className="text-label font-mono font-bold tracking-[0.14em] uppercase text-accent/70">
                 06
               </span>
               <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
+              <span className="text-label font-mono font-medium tracking-[0.14em] uppercase text-slate-400">
                 Outside
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.02em]">
+            <h2 className="text-h2 font-bold text-paper tracking-[-0.02em]">
               Beyond code
             </h2>
-            <p className="text-slate-400 max-w-lg text-sm leading-relaxed mt-2">
+            <p className="text-slate-400 max-w-lg text-body leading-relaxed mt-2">
               The person behind the portfolio — what keeps me grounded and curious.
             </p>
           </motion.div>
@@ -570,10 +569,10 @@ export default function About() {
                     <Icon size={15} className="text-accent/40" />
                   </div>
                   <div>
-                    <h3 className="text-paper text-[13px] font-semibold mb-1">
+                    <h3 className="text-paper text-small font-semibold mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-slate-400 text-[12.5px] leading-relaxed">
+                    <p className="text-slate-400 text-small leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -590,28 +589,24 @@ export default function About() {
       <section className="py-20 sm:py-24 px-6 border-t border-border">
         <div className="max-w-lg mx-auto text-center">
           <motion.div {...fadeUp}>
-            <h2 className="text-2xl sm:text-3xl font-bold text-paper tracking-[-0.025em] mb-3">
+            <h2 className="text-h2 font-bold text-paper tracking-[-0.025em] mb-3">
               Let&apos;s build something.
             </h2>
-            <p className="text-slate-400 text-sm leading-relaxed mb-8">
+            <p className="text-slate-400 text-body leading-relaxed mb-8">
               Have an Android project, an idea, or something interesting to
               discuss?
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-ink font-bold text-sm px-6 py-2.5 rounded-xl transition-all active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                Get in touch <ArrowUpRight size={14} />
-              </Link>
-              <a
+              <Button to="/contact" size="md">
+                Get in touch <ArrowUpRight size={14} aria-hidden="true" />
+              </Button>
+              <Button
                 href="https://github.com/SamratVsn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-border text-slate-400 hover:text-paper hover:border-border-strong text-sm font-medium px-6 py-2.5 rounded-xl transition-all hover:bg-surface/60 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+                variant="secondary"
+                size="md"
               >
-                <FaGithub size={15} /> GitHub
-              </a>
+                <FaGithub size={15} aria-hidden="true" /> GitHub
+              </Button>
             </div>
           </motion.div>
         </div>

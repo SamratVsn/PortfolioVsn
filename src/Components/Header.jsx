@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaGithub } from "react-icons/fa6";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
+import Container from "./ui/Container";
 import { IDENTITY_SHORT, SITE } from "../content/site";
 
 const navLinks = [
@@ -41,13 +42,13 @@ export default function Header() {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-small focus:font-semibold focus:text-ink"
       >
         Skip to content
       </a>
 
       <header className="sticky top-0 z-50 border-b border-border bg-canvas/90 backdrop-blur-md">
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-5 sm:px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+        <Container className="flex h-16 items-center justify-between gap-3">
           {/* Brand */}
           <Link
             to="/"
@@ -55,15 +56,15 @@ export default function Header() {
           >
             <span
               aria-hidden="true"
-              className="grid h-8 w-8 place-items-center rounded-md border border-border-strong bg-surface font-mono text-[10.5px] font-semibold tracking-[0.08em] text-sand transition-colors group-hover:border-accent-border"
+              className="grid h-8 w-8 place-items-center rounded-md border border-border-strong bg-surface font-mono text-label font-semibold tracking-[0.08em] text-sand transition-colors group-hover:border-accent-border"
             >
               SP
             </span>
             <span className="flex flex-col leading-tight">
-              <span className="text-[13px] font-semibold tracking-tight text-paper">
+              <span className="text-small font-semibold tracking-tight text-paper">
                 Samrat Parajuli
               </span>
-              <span className="hidden text-[9.5px] font-medium uppercase tracking-[0.16em] text-slate-500 sm:block">
+              <span className="hidden text-label font-medium uppercase tracking-[0.16em] text-slate-500 sm:block">
                 {IDENTITY_SHORT}
               </span>
             </span>
@@ -79,7 +80,7 @@ export default function Header() {
                   key={link.to}
                   to={link.to}
                   aria-current={active ? "page" : undefined}
-                  className={`relative rounded-md px-3 py-2 text-[12.5px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft ${
+                  className={`relative rounded-md px-3 py-2 text-small font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft ${
                     active
                       ? "text-paper"
                       : "text-slate-400 hover:text-paper"
@@ -99,7 +100,7 @@ export default function Header() {
               href={blogHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-[12.5px] font-medium text-slate-400 transition-colors hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+              className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-small font-medium text-slate-400 transition-colors hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
             >
               Blog
               <ArrowUpRight size={12} className="opacity-60" aria-hidden="true" />
@@ -122,7 +123,7 @@ export default function Header() {
 
             <Link
               to="/contact"
-              className="hidden rounded-lg bg-accent px-3.5 py-2 text-[12px] font-semibold text-ink transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft sm:inline-flex"
+              className="hidden rounded-lg bg-accent px-3.5 py-2 text-small font-semibold text-ink transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft sm:inline-flex"
             >
               Let&apos;s Connect
             </Link>
@@ -138,7 +139,7 @@ export default function Header() {
               {menuOpen ? <X size={16} aria-hidden="true" /> : <Menu size={16} aria-hidden="true" />}
             </button>
           </div>
-        </div>
+        </Container>
 
         {/* Mobile panel */}
         <div
@@ -155,7 +156,7 @@ export default function Header() {
                     <Link
                       to={link.to}
                       aria-current={active ? "page" : undefined}
-                      className={`flex items-center justify-between border-l-2 py-2.5 pl-3 text-[13.5px] font-medium transition-colors ${
+                      className={`flex items-center justify-between border-l-2 py-2.5 pl-3 text-small font-medium transition-colors ${
                         active
                           ? "border-accent text-paper"
                           : "border-transparent text-slate-400 hover:text-paper"
@@ -171,7 +172,7 @@ export default function Header() {
                   href={blogHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between border-l-2 border-transparent py-2.5 pl-3 text-[13.5px] font-medium text-slate-400 transition-colors hover:text-paper"
+                  className="flex items-center justify-between border-l-2 border-transparent py-2.5 pl-3 text-small font-medium text-slate-400 transition-colors hover:text-paper"
                 >
                   Blog
                   <ArrowUpRight size={13} className="opacity-60" aria-hidden="true" />
@@ -184,13 +185,13 @@ export default function Header() {
                 href="https://github.com/SamratVsn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[12.5px] font-medium text-slate-400 transition-colors hover:text-paper"
+                className="inline-flex items-center gap-2 text-small font-medium text-slate-400 transition-colors hover:text-paper"
               >
                 <FaGithub size={14} aria-hidden="true" /> GitHub
               </a>
               <Link
                 to="/contact"
-                className="rounded-lg bg-accent px-4 py-2 text-[12.5px] font-semibold text-ink transition-colors hover:bg-accent-hover"
+                className="rounded-lg bg-accent px-4 py-2 text-small font-semibold text-ink transition-colors hover:bg-accent-hover"
               >
                 Let&apos;s Connect
               </Link>

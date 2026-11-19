@@ -19,7 +19,7 @@ export default function CategoryFilter({
               type="button"
               onClick={() => onChange(cat)}
               aria-pressed={isActive}
-              className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-[11px] font-mono font-medium uppercase tracking-wide transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+              className={`inline-flex items-center rounded-full border px-3.5 py-1.5 font-mono text-label font-medium uppercase transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                 isActive
                   ? "text-accent bg-accent/[0.08] border-accent/25"
                   : "text-slate-400 hover:text-slate-300 hover:bg-surface/60 border-border"

@@ -3,6 +3,8 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import BackgroundFX from "../Components/BackgroundFX";
 import SEO from "../Components/SEO";
+import PageHeader from "../Components/PageHeader";
+import Container from "../Components/ui/Container";
 
 const sections = [
   {
@@ -91,7 +93,7 @@ const sections = [
           of anything you've sent through the site, you can reach me at{" "}
           <a
             href="mailto:samratvsn@gmail.com"
-            className="text-accent hover:text-accent-hover underline underline-offset-4 decoration-accent/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+            className="rounded text-accent-text underline decoration-accent/40 underline-offset-4 transition-colors hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           >
             samratvsn@gmail.com
           </a>
@@ -118,7 +120,7 @@ const sections = [
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-canvas text-slate-400 selection:bg-accent/20 selection:text-accent overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-canvas text-slate-400 selection:bg-accent/20 selection:text-accent">
       <SEO
         title="Privacy Policy | Samrat Parajuli"
         description="Privacy Policy for the portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes, what it never collects, and why."
@@ -128,46 +130,36 @@ export default function Privacy() {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             '@id': 'https://www.samratparajuli0.com.np/privacy#webpage',
-            'url': 'https://www.samratparajuli0.com.np/privacy',
-            'name': 'Privacy Policy | Samrat Parajuli',
-            'description': 'Privacy Policy for the portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes, what it never collects, and why.',
-            'isPartOf': { '@id': 'https://www.samratparajuli0.com.np/#website' },
-            'about': { '@id': 'https://www.samratparajuli0.com.np/#person' },
-            'mainEntity': {
+            url: 'https://www.samratparajuli0.com.np/privacy',
+            name: 'Privacy Policy | Samrat Parajuli',
+            description: 'Privacy Policy for the portfolio website of Samrat Parajuli (SamratVsn) — what data this site processes, what it never collects, and why.',
+            isPartOf: { '@id': 'https://www.samratparajuli0.com.np/#website' },
+            about: { '@id': 'https://www.samratparajuli0.com.np/#person' },
+            mainEntity: {
               '@type': 'WebPageElement',
-              'name': 'Privacy Policy',
-              'description': 'This website does not load third-party analytics or tracking scripts, does not set advertising cookies, and processes only voluntarily submitted contact form data via EmailJS and standard server logs via Vercel hosting.'
-            }
-          }
+              name: 'Privacy Policy',
+              description: 'This website does not load third-party analytics or tracking scripts, does not set advertising cookies, and processes only voluntarily submitted contact form data via EmailJS and standard server logs via Vercel hosting.',
+            },
+          },
         ]}
       />
       <Header />
 
-      <main id="main-content" className="relative px-6 pb-20 pt-10 sm:pb-24 sm:pt-14">
+      <main id="main-content" className="relative pb-20 pt-10 sm:pb-24 sm:pt-14">
         <BackgroundFX />
-        <div className="max-w-3xl mx-auto min-[1920px]:max-w-4xl relative">
+        <Container variant="prose" className="relative">
           {/* Page introduction — not a landmark header; the site Header above
               is the only banner. */}
-          <div className="mb-12 sm:mb-14">
-            <div className="flex items-center gap-2.5 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
-              <span className="w-8 h-px bg-accent/25" />
-              <span className="text-[11px] font-mono font-medium uppercase tracking-[0.14em] text-slate-400">
-                Legal · Privacy
-              </span>
-            </div>
-            <h1 className="text-paper text-[2.1rem] sm:text-5xl font-bold tracking-[-0.03em] leading-[1.05] mb-4">
-              Privacy Policy
-            </h1>
-            <p className="text-slate-400 text-[15px] leading-relaxed max-w-2xl">
-              What this website processes when you visit it, and how that
-              information is handled.
-            </p>
-            <p className="mt-5 text-[12px] font-mono text-slate-400 flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-emerald-400/70" />
-              Last updated: October 2026
-            </p>
-          </div>
+          <PageHeader
+            eyebrow="Legal · Privacy"
+            title="Privacy Policy"
+            description="What this website processes when you visit it, and how that information is handled."
+          />
+
+          <p className="-mt-6 mb-12 flex items-center gap-2 font-mono text-label tracking-normal text-slate-400">
+            <span aria-hidden="true" className="h-1 w-1 rounded-full bg-emerald-400/70" />
+            Last updated: October 2026
+          </p>
 
           {/* Sections */}
           <div className="space-y-10">
@@ -175,12 +167,12 @@ export default function Privacy() {
               <section key={s.id} aria-labelledby={s.id} className="scroll-mt-28">
                 <h2
                   id={s.id}
-                  className="text-paper text-lg sm:text-xl font-semibold tracking-[-0.02em] mb-3 flex items-center gap-3"
+                  className="mb-3 flex items-center gap-3 text-h3 font-semibold text-paper"
                 >
-                  <span className="w-5 h-px bg-accent/40 shrink-0" />
+                  <span aria-hidden="true" className="h-px w-5 shrink-0 bg-accent/40" />
                   {s.title}
                 </h2>
-                <div className="text-slate-400 text-[15px] leading-relaxed space-y-3">
+                <div className="space-y-3 text-body text-slate-400">
                   {s.body}
                 </div>
               </section>
@@ -188,15 +180,15 @@ export default function Privacy() {
           </div>
 
           {/* Back link */}
-          <nav aria-label="Portfolio" className="mt-14 pt-8 border-t border-border">
+          <nav aria-label="Portfolio" className="mt-14 border-t border-border pt-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-paper transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+              className="inline-flex items-center gap-2 rounded text-small text-slate-400 transition-colors hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
             >
               <span aria-hidden="true">←</span> Back to the portfolio
             </Link>
           </nav>
-        </div>
+        </Container>
       </main>
 
       <Footer />

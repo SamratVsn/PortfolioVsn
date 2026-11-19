@@ -8,6 +8,8 @@ import {
 } from "react-icons/si";
 import { ArrowUpRight, Database, Download, Play, Syringe } from "lucide-react";
 import HeroImage from "../assets/Hero_Image.webp";
+import Button from "./ui/Button";
+import Container from "./ui/Container";
 import { SPECIALTY_PLAIN, TAGLINE } from "../content/site";
 
 const APK_URL =
@@ -291,14 +293,14 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden px-5 pb-16 pt-11 sm:px-6 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-20"
+      className="relative isolate overflow-hidden pb-16 pt-11 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-20"
     >
       <HeroBackdrop />
 
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem] lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-10 xl:gap-14">
+      <Container padded={false} className="relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-10 xl:gap-14">
         {/* ── Introduction ─────────────────────────────────────────────── */}
         <div className="hero-enter min-w-0 lg:pb-6">
-          <p className="flex items-center gap-3 font-mono text-[10.5px] uppercase tracking-[0.22em] text-sand">
+          <p className="flex items-center gap-3 font-mono text-label uppercase tracking-[0.22em] text-sand">
             <span
               aria-hidden="true"
               className="h-px w-7 shrink-0 bg-sand/45"
@@ -308,7 +310,7 @@ export default function Hero() {
 
           <h1
             id="hero-heading"
-            className="mt-6 text-balance text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-paper sm:text-[3rem] lg:text-[3.3rem] xl:text-[3.85rem]"
+            className="mt-6 text-balance text-display font-semibold text-paper"
           >
             {"Native Android apps"}
             <br className="hidden sm:block" />
@@ -321,7 +323,7 @@ export default function Hero() {
 
           <p
             id="hero-intro"
-            className="mt-6 max-w-[46ch] text-[14.5px] leading-[1.75] text-slate-400 sm:text-[15.5px]"
+            className="mt-6 max-w-[46ch] text-body text-slate-400"
           >
             {TAGLINE} My deepest specialism is {SPECIALTY_PLAIN}, with product
             thinking across the data model, interface, and the build that ships
@@ -329,30 +331,24 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-[13.5px] font-semibold text-ink transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft active:scale-[0.99]"
-            >
+            <Button to="/projects" size="md">
               View Projects
               <ArrowUpRight size={15} aria-hidden="true" />
-            </Link>
-            <Link
-              to="/projects/avalokan"
-              className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-5 py-3 text-[13.5px] font-medium text-slate-200 transition-colors hover:border-accent-border hover:text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
-            >
+            </Button>
+            <Button to="/projects/avalokan" variant="secondary" size="md">
               Avalokan Case Study
-            </Link>
+            </Button>
           </div>
 
           {/* Technical signature */}
           <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-5">
-            <span className="font-mono text-[9.5px] font-medium uppercase tracking-[0.2em] text-slate-500">
+            <span className="font-mono text-label font-medium uppercase tracking-[0.2em] text-slate-500">
               Core stack
             </span>
             {stack.map(({ name, Icon }) => (
               <span
                 key={name}
-                className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-slate-300"
+                className="inline-flex items-center gap-1.5 text-small font-medium text-slate-300"
               >
                 <Icon
                   size={12}
@@ -420,14 +416,14 @@ export default function Hero() {
                 to="/projects/avalokan"
                 className="group min-w-0 rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-soft"
               >
-                <span className="flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-sand">
+                <span className="flex items-center gap-2 font-mono text-label font-medium uppercase tracking-[0.18em] text-sand">
                   <span
                     aria-hidden="true"
                     className="h-1 w-1 shrink-0 rounded-full bg-accent"
                   />
                   Avalokan · v1.0.0 Released
                 </span>
-                <span className="mt-1.5 flex items-center gap-1 text-xs text-slate-400 transition-colors group-hover:text-paper">
+                <span className="mt-1.5 flex items-center gap-1 text-small text-slate-400 transition-colors group-hover:text-paper">
                   Offline-first Nepal Heritage Explorer
                   <ArrowUpRight
                     size={12}
@@ -439,7 +435,7 @@ export default function Hero() {
               <a
                 href={APK_URL}
                 aria-label="Download Avalokan v1.0.0 APK · 20 MB"
-                className="inline-flex items-center gap-1.5 rounded text-[11.5px] font-medium text-slate-400 transition-colors hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+                className="inline-flex items-center gap-1.5 rounded text-small font-medium text-slate-400 transition-colors hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
               >
                 <Download size={12} aria-hidden="true" />
                 APK · 20 MB
@@ -447,7 +443,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

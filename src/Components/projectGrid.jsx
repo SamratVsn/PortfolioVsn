@@ -5,10 +5,12 @@ import { Github, ExternalLink, ArrowUpRight, FolderOpen, Sparkles, Download } fr
 import PageHeader from "./PageHeader";
 import SectionHeading from "./SectionHeading";
 import CategoryFilter from "./CategoryFilter";
+import Container from "./ui/Container";
+import Tag from "./ui/Tag";
+import StatusPill from "./ui/StatusPill";
 import { PROJECTS, screenshots } from "../data/projects";
 
 const CATEGORIES = ["All", "Android", "Web", "C", "Experiments"];
-const TAG_DOT_COLORS = ["var(--p-accent-soft)", "var(--p-sand)", "var(--p-terra)"];
 
 const staggerContainer = {
   hidden: {},
@@ -28,18 +30,18 @@ const cardVariants = {
 
 function CategoryChip({ category }) {
   return (
-    <span className="absolute left-5 top-4 inline-flex items-center rounded-md border border-border bg-canvas/80 px-2 py-0.5 text-[9px] font-mono font-medium uppercase tracking-widest text-slate-300">
+    <Tag className="absolute left-5 top-4 border-border bg-canvas/80 font-mono uppercase tracking-widest text-slate-300">
       {category}
-    </span>
+    </Tag>
   );
 }
 
 function NewBadge() {
   return (
-    <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-md border border-accent-border bg-accent-muted px-2 py-0.5 text-[9px] font-mono font-semibold uppercase tracking-widest text-accent-soft">
-      <Sparkles size={9} />
+    <StatusPill tone="accent" className="absolute right-4 top-4" dot={false}>
+      <Sparkles size={9} aria-hidden="true" />
       New
-    </span>
+    </StatusPill>
   );
 }
 
@@ -47,16 +49,9 @@ function TagsRow({ tags }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {tags.map((tag, i) => (
-        <span
-          key={tag}
-          className="inline-flex items-center gap-1.5 text-[10px] text-slate-400 bg-surface/40 border border-border px-2.5 py-1 rounded-full transition-colors duration-300 group-hover:border-border"
-        >
-          <span
-            className="w-1 h-1 rounded-full shrink-0"
-            style={{ backgroundColor: TAG_DOT_COLORS[i % 3] }}
-          />
+        <Tag key={tag} dot dotIndex={i}>
           {tag}
-        </span>
+        </Tag>
       ))}
     </div>
   );
@@ -64,19 +59,19 @@ function TagsRow({ tags }) {
 
 function ProjectLinks({ project }) {
   return (
-    <div className="mt-auto flex items-center gap-3 pt-4 border-t border-border">
+    <div className="mt-auto flex items-center gap-3 border-t border-border pt-4">
       {project.github && (
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-slate-400 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          className="relative z-20 flex items-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           title="View source code on GitHub"
           aria-label={`View ${project.title} source code on GitHub`}
         >
-          <Github size={14} />
-          <span className="text-xs hidden sm:inline">Code</span>
+          <Github size={14} aria-hidden="true" />
+          <span className="hidden sm:inline">Code</span>
         </a>
       )}
       {project.live && (
@@ -85,12 +80,12 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-slate-400 hover:text-accent transition-colors flex items-center gap-1.5 relative z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded"
+          className="relative z-20 flex items-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           title="View live project"
           aria-label={`Visit ${project.title} live site`}
         >
-          <ExternalLink size={14} />
-          <span className="text-xs hidden sm:inline">Live</span>
+          <ExternalLink size={14} aria-hidden="true" />
+          <span className="hidden sm:inline">Live</span>
         </a>
       )}
       {project.download && (
@@ -99,18 +94,18 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="relative z-20 flex items-center gap-1.5 rounded text-slate-400 transition-colors hover:text-accent-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="relative z-20 flex items-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           title={`Download ${project.title} APK`}
           aria-label={`Download ${project.title} APK`}
         >
-          <Download size={14} />
-          <span className="text-xs hidden sm:inline">APK</span>
+          <Download size={14} aria-hidden="true" />
+          <span className="hidden sm:inline">APK</span>
         </a>
       )}
       <div className="flex-grow" />
-      <span className="text-xs text-slate-400 group-hover:text-accent transition-colors duration-300 flex items-center gap-1 relative z-20">
+      <span className="relative z-20 flex items-center gap-1 text-small text-slate-400 transition-colors duration-300 group-hover:text-accent-text">
         View details
-        <ArrowUpRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ArrowUpRight size={12} aria-hidden="true" className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </span>
     </div>
   );
@@ -121,10 +116,9 @@ function ProjectLinks({ project }) {
 function ProjectStatus({ project }) {
   if (!project.status) return null;
   return (
-    <p className="mb-2 inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-accent-soft">
-      <span aria-hidden="true" className="h-1 w-1 rounded-full bg-accent" />
+    <StatusPill tone="accent" className="mb-2 w-fit">
       {project.status}
-    </p>
+    </StatusPill>
   );
 }
 
@@ -149,16 +143,14 @@ function FeaturedCard({ project, wide = false }) {
 
       <div
         className={`relative overflow-hidden ${
-          wide
-            ? "h-56 sm:h-64 md:h-72 lg:h-80 md:w-1/2 shrink-0"
-            : "h-48 sm:h-56"
+          wide ? "h-56 shrink-0 sm:h-64 md:h-72 md:w-1/2 lg:h-80" : "h-48 sm:h-56"
         }`}
       >
         <motion.img
           layoutId={imageLayoutId}
           src={screenshot}
           alt={`Screenshot of the ${project.title} app`}
-          className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+          className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
           style={{ willChange: "transform" }}
         />
@@ -167,24 +159,16 @@ function FeaturedCard({ project, wide = false }) {
         {project.isNew && <NewBadge />}
       </div>
 
-      <div
-        className={`flex-1 flex flex-col ${
-          wide ? "p-6 sm:p-8" : "p-6"
-        }`}
-      >
+      <div className={`flex flex-1 flex-col ${wide ? "p-6 sm:p-8" : "p-6"}`}>
         <ProjectStatus project={project} />
         <h3
           className={`mb-2 font-semibold text-paper transition-colors duration-300 group-hover:text-accent-soft ${
-            wide ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"
+            wide ? "text-h2" : "text-h3"
           }`}
         >
           {project.title}
         </h3>
-        <p
-          className={`text-slate-400 text-sm leading-relaxed mb-4 ${
-            wide ? "max-w-lg" : ""
-          }`}
-        >
+        <p className={`mb-4 text-body text-slate-400 ${wide ? "max-w-lg" : ""}`}>
           {project.solution}
         </p>
         <div className="mb-5">
@@ -213,12 +197,12 @@ function ProjectCard({ project }) {
         aria-label={`View project: ${project.title}`}
       />
 
-      <div className="relative h-40 sm:h-44 overflow-hidden">
+      <div className="relative h-40 overflow-hidden sm:h-44">
         <motion.img
           layoutId={imageLayoutId}
           src={screenshot}
           alt={`Screenshot of the ${project.title} app`}
-          className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+          className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
           style={{ willChange: "transform" }}
         />
@@ -227,12 +211,12 @@ function ProjectCard({ project }) {
         {project.isNew && <NewBadge />}
       </div>
 
-      <div className="flex-1 flex flex-col p-5">
+      <div className="flex flex-1 flex-col p-5">
         <ProjectStatus project={project} />
-        <h3 className="mb-2 text-base font-semibold text-paper transition-colors duration-300 group-hover:text-accent-soft">
+        <h3 className="mb-2 text-h4 font-semibold text-paper transition-colors duration-300 group-hover:text-accent-soft">
           {project.title}
         </h3>
-        <p className="text-slate-400 text-[13px] leading-relaxed mb-4 line-clamp-2">
+        <p className="mb-4 line-clamp-2 text-small text-slate-400">
           {project.solution}
         </p>
         <div className="mb-4">
@@ -257,7 +241,7 @@ export default function ProjectGrid() {
   const hasAny = featured.length > 0 || others.length > 0;
 
   return (
-    <div className="max-w-6xl mx-auto px-6 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem] pb-6">
+    <Container className="pb-6">
       <PageHeader
         eyebrow="Work"
         title={
@@ -287,14 +271,10 @@ export default function ProjectGrid() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6"
+            className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2"
           >
             {featured.map((project, i) => (
-              <FeaturedCard
-                key={project.id}
-                project={project}
-                wide={i === 0}
-              />
+              <FeaturedCard key={project.id} project={project} wide={i === 0} />
             ))}
           </motion.div>
         </section>
@@ -312,7 +292,7 @@ export default function ProjectGrid() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+            className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
             {others.map((project) => (
               <ProjectCard key={project.id} project={project} />
@@ -322,16 +302,14 @@ export default function ProjectGrid() {
       )}
 
       {!hasAny && (
-        <div className="flex flex-col items-center justify-center rounded-xl border border-border py-20 px-6 text-center">
-          <FolderOpen size={28} className="text-slate-400 mb-4" />
-          <p className="text-paper text-sm font-medium mb-1">
-            Nothing here yet
-          </p>
-          <p className="text-slate-400 text-sm max-w-sm">
+        <div className="flex flex-col items-center justify-center rounded-xl border border-border px-6 py-20 text-center">
+          <FolderOpen size={28} className="mb-4 text-slate-400" aria-hidden="true" />
+          <p className="mb-1 text-small font-medium text-paper">Nothing here yet</p>
+          <p className="max-w-sm text-small text-slate-400">
             I haven't published anything in this category yet. Check back soon.
           </p>
         </div>
       )}
-    </div>
+    </Container>
   );
 }

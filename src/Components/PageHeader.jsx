@@ -1,4 +1,5 @@
 ﻿import { motion } from "framer-motion";
+import Eyebrow from "./ui/Eyebrow";
 
 export default function PageHeader({ eyebrow, title, description }) {
   return (
@@ -8,19 +9,11 @@ export default function PageHeader({ eyebrow, title, description }) {
       transition={{ duration: 0.5 }}
       className="mb-12 sm:mb-14"
     >
-      <div className="flex items-center gap-2.5 mb-5">
-        <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
-        <span className="w-8 h-px bg-accent/25" />
-        <span className="text-[11px] font-mono font-medium uppercase tracking-[0.14em] text-slate-400">
-          {eyebrow}
-        </span>
-      </div>
-      <h1 className="text-paper text-[2.1rem] sm:text-5xl font-bold tracking-[-0.03em] leading-[1.05] mb-4">
-        {title}
-      </h1>
-      <p className="text-slate-400 text-[15px] leading-relaxed max-w-2xl">
-        {description}
-      </p>
+      {eyebrow && <Eyebrow className="mb-5">{eyebrow}</Eyebrow>}
+      <h1 className="mb-4 text-h1 font-bold text-paper">{title}</h1>
+      {description && (
+        <p className="max-w-2xl text-body text-slate-400">{description}</p>
+      )}
     </motion.div>
   );
 }

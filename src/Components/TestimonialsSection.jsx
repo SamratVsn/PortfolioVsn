@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6";
 import SectionHeading from "./SectionHeading";
+import Container from "./ui/Container";
 
 function getInitials(name = "") {
   return name
@@ -30,14 +31,14 @@ function TestimonialCard({ testimonial, index, reduceMotion }) {
         </div>
 
         <blockquote>
-          <p className="text-[14.5px] leading-[1.75] text-slate-300">
+          <p className="text-body text-slate-300">
             &ldquo;{quote}&rdquo;
           </p>
         </blockquote>
 
         <figcaption className="mt-6 flex items-center justify-between gap-3 border-t border-border pt-5">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-strong bg-elevated text-xs font-medium tracking-wider text-accent-soft">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-strong bg-elevated font-mono text-label font-medium text-accent-soft">
               {avatar ? (
                 <img
                   src={avatar}
@@ -51,10 +52,10 @@ function TestimonialCard({ testimonial, index, reduceMotion }) {
             </div>
 
             <div className="min-w-0">
-              <p className="truncate text-[13.5px] font-semibold tracking-tight text-paper">
+              <p className="truncate text-small font-semibold tracking-tight text-paper">
                 {name}
               </p>
-              <p className="truncate text-xs text-slate-400">{role}</p>
+              <p className="truncate text-label tracking-normal text-slate-400">{role}</p>
             </div>
           </div>
 
@@ -82,9 +83,9 @@ export default function TestimonialsSection({ testimonials }) {
     <section
       id="testimonials"
       aria-labelledby="perspectives-heading"
-      className="relative border-t border-border px-5 py-20 sm:px-6 sm:py-24"
+      className="relative border-t border-border py-20 sm:py-24"
     >
-      <div className="mx-auto max-w-5xl xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem]">
+      <Container variant="wide">
         <SectionHeading
           id="perspectives-heading"
           eyebrow="Perspectives"
@@ -103,7 +104,7 @@ export default function TestimonialsSection({ testimonials }) {
             />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -18,6 +18,52 @@ const server = await createServer({
 const entry = await server.ssrLoadModule("/scripts/prerender-entry.jsx");
 const { render } = entry;
 
+// Hosting config is deliberately explicit (Vercel rewrites/redirects are easier
+// to audit live than a generated file), so the build verifies it still matches
+// the single route manifest. Drift fails the build instead of shipping a 404.
+function checkHostingConfig() {
+  const config = JSON.parse(fs.readFileSync(path.join(root, "vercel.json"), "utf-8"));
+  const rewrites = new Map((config.rewrites || []).map((r) => [r.source, r.destination]));
+  const redirects = new Map((config.redirects || []).map((r) => [r.source, r.destination]));
+  const problems = [];
+
+  for (const route of routes) {
+    if (route.file === "404.html") continue;
+
+    const expected = `/${route.file}`.replace(/^\/index\.html$/, "/index.html");
+    const actual = rewrites.get(route.url);
+    if (actual !== expected) {
+      problems.push(`rewrite ${route.url}: expected ${expected}, found ${actual ?? "nothing"}`);
+    }
+
+    if (route.url !== "/") {
+      const htmlSource = `${route.url}.html`;
+      const dest = redirects.get(htmlSource);
+      if (dest !== route.url) {
+        problems.push(
+          `redirect ${htmlSource}: expected ${route.url}, found ${dest ?? "nothing"}`
+        );
+      }
+    }
+  }
+
+  // Reverse direction: every hosting rewrite must belong to a real route, so a
+  // deleted route cannot linger in vercel.json.
+  const knownUrls = new Set(routes.map((route) => route.url));
+  for (const source of rewrites.keys()) {
+    if (!knownUrls.has(source)) {
+      problems.push(`rewrite ${source}: no matching route in the manifest`);
+    }
+  }
+
+  if (problems.length > 0) {
+    throw new Error(
+      `vercel.json is out of sync with src/content/routes.js:\n  - ${problems.join("\n  - ")}`
+    );
+  }
+  console.log(`Hosting config matches ${routes.length - 1} public routes.`);
+}
+
 const template = fs.readFileSync(path.join(distDir, "index.html"), "utf-8");
 
 const manifest = JSON.parse(
@@ -52,6 +98,8 @@ function rewriteAssetUrls(html) {
 
 const START = "<!-- ROUTE_SEO_START -->";
 const END = "<!-- ROUTE_SEO_END -->";
+
+checkHostingConfig();
 
 for (const route of routes) {
   const { content, head } = render(route.url);

@@ -1,17 +1,30 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SEO from '../Components/SEO';
-import  ProjectGrid from '../Components/projectGrid';
-import PageLayout from '../Components/PageLayout'
-import SMS from '../Components/SMS'
-import BMSK from '../Components/BMSK'
-import BlogVsn from '../Components/BlogVsn'
-import This from '../Components/This'
-import Tasks from '../Components/Tasks'
-import TheMovie from '../Components/TheMovie'
-import JuiceTracker from '../Components/JuiceTracker'
-import Kathmandu from '../Components/Kathmandu'
-import Avalokan from '../Components/Avalokan'
+import ProjectGrid from '../Components/projectGrid';
+import PageLayout from '../Components/PageLayout';
+import SMS from '../Components/SMS';
+import BMSK from '../Components/BMSK';
+import BlogVsn from '../Components/BlogVsn';
+import This from '../Components/This';
+import Tasks from '../Components/Tasks';
+import TheMovie from '../Components/TheMovie';
+import JuiceTracker from '../Components/JuiceTracker';
+import Kathmandu from '../Components/Kathmandu';
+import Avalokan from '../Components/Avalokan';
+import { PROJECT_ROUTES } from '../content/routes';
+
+const PROJECT_COMPONENTS = {
+  avalokan: Avalokan,
+  todo: Tasks,
+  themovie: TheMovie,
+  juicetracker: JuiceTracker,
+  kathmandu: Kathmandu,
+  sms: SMS,
+  bmsk: BMSK,
+  blogvsn: BlogVsn,
+  this: This,
+};
 
 const Projects = () => {
   const projectsSchema = {
@@ -34,15 +47,10 @@ const Projects = () => {
           ogUrl="https://www.samratparajuli0.com.np/projects"
           schema={[projectsSchema]}
         /><ProjectGrid /></>} />
-        <Route path="todo" element={<Tasks />} />
-        <Route path="sms" element={<SMS />} />
-        <Route path="bmsk" element={<BMSK />}/>
-        <Route path="blogvsn" element={<BlogVsn />} />
-        <Route path="this" element={<This />} />
-        <Route path="themovie" element={<TheMovie />} />
-        <Route path="juicetracker" element={<JuiceTracker />} />
-        <Route path="kathmandu" element={<Kathmandu />} />
-        <Route path="avalokan" element={<Avalokan />} />
+        {PROJECT_ROUTES.map((route) => {
+          const Project = PROJECT_COMPONENTS[route.id];
+          return <Route key={route.id} path={route.slug} element={<Project />} />;
+        })}
       </Routes>
     </PageLayout>
   );

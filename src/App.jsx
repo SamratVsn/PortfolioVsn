@@ -6,17 +6,27 @@ import About from './Pages/About'
 import Projects from './Pages/Projects'
 import Privacy from './Pages/Privacy'
 import NotFound from './Pages/NotFound'
+import { STATIC_ROUTES } from './content/routes'
+
+const PAGE_COMPONENTS = {
+  home: Home,
+  about: About,
+  projects: Projects,
+  contact: Contact,
+  privacy: Privacy,
+}
 
 export default function App() {
   return (
     <TransitionProvider>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/about" element={<About />}/>
-        <Route path="/contact" element={<Contact />}/>
-        <Route path="/projects/*" element={<Projects />}/>
-        <Route path="/privacy" element={<Privacy />}/>
-        <Route path="*" element={<NotFound />}/>
+        {STATIC_ROUTES.map((route) => {
+          const Page = PAGE_COMPONENTS[route.id]
+          // Projects owns its nested case-study routes under /projects/*.
+          const path = route.id === 'projects' ? '/projects/*' : route.url
+          return <Route key={route.id} path={path} element={<Page />} />
+        })}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </TransitionProvider>
   )

@@ -1,312 +1,238 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Github, ArrowUpRight } from 'lucide-react'
+import { Github } from 'lucide-react'
 import SEO from './SEO'
-import CaseStudyHeader from './CaseStudyHeader'
+import CaseStudyLayout from './case-study/CaseStudyLayout'
+import CaseStudyTabs from './case-study/CaseStudyTabs'
+import CaseStudySection from './case-study/CaseStudySection'
+import ScreenshotGallery from './case-study/ScreenshotGallery'
+import { AsideCard, SpecList, BulletList } from './case-study/CaseStudyAside'
+import Card from './ui/Card'
 import BMSK1 from '../assets/BMSK/BMSK1.png'
 import BMSK2 from '../assets/BMSK/BMSK2.png'
 
+const REPO_URL = 'https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt'
+
+const SPECS = [
+  { label: 'Language', value: 'Kotlin 1.9' },
+  { label: 'Architecture', value: 'Object-Oriented' },
+  { label: 'Interface', value: 'CLI (Terminal)' },
+  { label: 'Storage', value: 'In-Memory Collections' },
+]
+
+const FEATURES = [
+  { title: 'Account Creation', detail: 'Dynamic object instantiation with unique UUIDs.' },
+  { title: 'Balance Operations', detail: 'Atomic deposit/withdraw logic with error handling.' },
+  { title: 'Data Integrity', detail: 'Validation checks for negative inputs and overdrafts.' },
+  { title: 'Search Engine', detail: 'Efficient account retrieval with O(n) complexity.' },
+]
+
+const COMPONENTS = [
+  'Account Management',
+  'Transaction Engine',
+  'Validation Logic',
+  'Balance Operations',
+  'Search & Retrieve',
+]
+
+const TABS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'features', label: 'Features' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'system', label: 'System' },
+]
+
 function BMSK() {
-  const [activeTab, setActiveTab] = useState('overview');
-
-  const specs = [
-    { label: "Language", value: "Kotlin 1.9" },
-    { label: "Architecture", value: "Object-Oriented" },
-    { label: "Interface", value: "CLI (Terminal)" },
-    { label: "Storage", value: "In-Memory Collections" }
-  ];
-
-  const features = [
-    { title: "Account Creation", detail: "Dynamic object instantiation with unique UUIDs." },
-    { title: "Balance Operations", detail: "Atomic deposit/withdraw logic with error handling." },
-    { title: "Data Integrity", detail: "Validation checks for negative inputs and overdrafts." },
-    { title: "Search Engine", detail: "Efficient account retrieval with O(n) complexity." }
-  ];
+  const [activeTab, setActiveTab] = useState('overview')
 
   return (
-    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
+    <>
       <SEO
         title="Bank Management System in Kotlin | Samrat Parajuli"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
         ogType="article"
         imageAlt="Bank Account Manager — Kotlin banking simulation built by Samrat Parajuli"
-      schema={[
+        schema={[
           {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
-            'itemListElement': [
-              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
-              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
-              { '@type': 'ListItem', 'position': 3, 'name': 'Bank Management System', 'item': 'https://www.samratparajuli0.com.np/projects/bmsk' }
-            ]
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', position: 3, name: 'Bank Management System', item: 'https://www.samratparajuli0.com.np/projects/bmsk' },
+            ],
           },
           {
             '@context': 'https://schema.org',
             '@type': 'SoftwareSourceCode',
             '@id': 'https://www.samratparajuli0.com.np/projects/bmsk#app',
-            'name': 'Bank Management System',
-            'programmingLanguage': 'Kotlin',
-            'description': 'OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity.',
-            'codeRepository': 'https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt',
-            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
-          }
+            name: 'Bank Management System',
+            programmingLanguage: 'Kotlin',
+            description: 'OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity.',
+            codeRepository: REPO_URL,
+            author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
+          },
         ]}
       />
-      
-      {/* Header */}
-      <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <CaseStudyHeader
-          eyebrow="Backend System"
-          title={<>Bank Management <span className="text-accent">System</span></>}
-          summary="An object-oriented Kotlin banking simulation: account encapsulation, transaction rules, and validation at the CLI boundary."
-          actions={[
-            {
-              href: 'https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt',
-              label: 'View Code',
-              icon: Github,
-              primary: true,
-            },
-          ]}
-        />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            
-            {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
-              <motion.img
-                layoutId="project-image-/projects/bmsk"
-                src={BMSK1} 
-                alt="Bank Management System terminal interface" 
-                className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer" 
-                loading="lazy"
-              
-                style={{ willChange: "transform" }}/>
-            </div>
+      <CaseStudyLayout
+        breadcrumb={[
+          { label: 'Home', to: '/' },
+          { label: 'Projects', to: '/projects' },
+          { label: 'Bank Management System' },
+        ]}
+        eyebrow="Backend System"
+        title="Bank Management System"
+        summary="An object-oriented Kotlin banking simulation: account encapsulation, transaction rules, and validation at the CLI boundary."
+        actions={[{ href: REPO_URL, label: 'View Code', icon: Github, primary: true }]}
+        aside={
+          <>
+            <AsideCard title="Specifications">
+              <SpecList items={SPECS} />
+            </AsideCard>
 
-            {/* Intro */}
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
-                Banking system built with Kotlin
-              </h2>
-              <p className="text-slate-400 leading-relaxed">
-                This system demonstrates proficiency in Kotlin's object-oriented paradigm by simulating a core banking 
-                environment where account integrity and state management are prioritized. Built to handle immediate
-                transaction logic with focus on encapsulation and secure data access.
-              </p>
-            </div>
+            <AsideCard title="Core Components">
+              <BulletList items={COMPONENTS} />
+            </AsideCard>
 
-            {/* Tabs */}
-            <div>
-              <div className="flex gap-1 mb-8 border-b border-slate-800">
-                {['overview', 'features', 'architecture', 'system'].map(tab => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                      activeTab === tab 
-                        ? 'text-accent border-accent' 
-                        : 'text-slate-400 border-transparent hover:text-slate-300'
-                    }`}
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </button>
+            <AsideCard title="Project Stats">
+              <dl className="space-y-3">
+                {[
+                  { label: 'Lines of Code', value: '~300' },
+                  { label: 'Classes', value: '4' },
+                  { label: 'Complexity', value: 'Beginner' },
+                ].map((item) => (
+                  <div key={item.label} className="flex justify-between gap-4">
+                    <dt className="text-small text-slate-400">{item.label}</dt>
+                    <dd className="text-small font-medium text-slate-300">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </AsideCard>
+          </>
+        }
+      >
+        <div className="overflow-hidden rounded-xl border border-border bg-surface">
+          <img
+            src={BMSK1}
+            alt="Bank Management System terminal interface"
+            className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
+            loading="lazy"
+          />
+        </div>
+
+        <CaseStudySection title="Banking system built with Kotlin">
+          <p className="text-body text-slate-400">
+            This system demonstrates proficiency in Kotlin's object-oriented paradigm by simulating a core banking
+            environment where account integrity and state management are prioritized. Built to handle immediate
+            transaction logic with focus on encapsulation and secure data access.
+          </p>
+        </CaseStudySection>
+
+        <div>
+          <CaseStudyTabs tabs={TABS} active={activeTab} onChange={setActiveTab} />
+
+          <div className="min-h-[400px]">
+            {activeTab === 'overview' && (
+              <div className="space-y-6">
+                <p className="text-body text-slate-400">
+                  This banking simulation demonstrates core principles of object-oriented design in Kotlin.
+                  The system manages multiple accounts with transaction handling, validation, and state preservation.
+                </p>
+                <div className="space-y-4">
+                  <h3 className="text-h4 font-semibold text-paper">Core Features</h3>
+                  <BulletList
+                    items={[
+                      'Immediate transaction processing with validation',
+                      'Account encapsulation with secure state management',
+                      'UUID-based unique account identification',
+                      'Comprehensive error handling for edge cases',
+                    ]}
+                  />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'features' && (
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {FEATURES.map((feat) => (
+                  <Card key={feat.title} interactive>
+                    <h4 className="mb-2 text-h4 font-semibold text-paper">{feat.title}</h4>
+                    <p className="text-small text-slate-400">{feat.detail}</p>
+                  </Card>
                 ))}
               </div>
+            )}
 
-              <div className="min-h-[400px]">
-                {activeTab === 'overview' && (
-                  <div className="space-y-6">
-                    <p className="text-slate-400 leading-relaxed">
-                      This banking simulation demonstrates core principles of object-oriented design in Kotlin. 
-                      The system manages multiple accounts with transaction handling, validation, and state preservation.
-                    </p>
-                    <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm">Core Features</h3>
-                      <ul className="space-y-3 text-sm text-slate-400">
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>Immediate transaction processing with validation</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>Account encapsulation with secure state management</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>UUID-based unique account identification</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>Comprehensive error handling for edge cases</span>
-                        </li>
-                      </ul>
-                    </div>
+            {activeTab === 'architecture' && (
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <h3 className="text-h4 font-semibold text-paper">Class Structure</h3>
+                  <div className="rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
+                    <p><span className="text-purple-400">class</span> <span className="text-cyan-300">Account</span> {'{'}</p>
+                    <p className="ml-4"><span className="text-blue-300">val</span> accId: <span className="text-slate-300">String</span></p>
+                    <p className="ml-4"><span className="text-blue-300">var</span> balance: <span className="text-slate-300">Double</span></p>
+                    <p className="ml-4"><span className="text-blue-300">val</span> customer: <span className="text-slate-300">Customer</span></p>
+                    <p>{'}'}</p>
                   </div>
-                )}
+                </div>
 
-                {activeTab === 'features' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {features.map((feat, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
-                        <h4 className="text-paper font-semibold text-sm mb-2">{feat.title}</h4>
-                        <p className="text-slate-400 text-sm">{feat.detail}</p>
+                <div className="space-y-4">
+                  <h3 className="text-h4 font-semibold text-paper">Design Principles</h3>
+                  <div className="space-y-3">
+                    <Card variant="subtle" padding="sm">
+                      <p className="mb-2 text-small font-semibold text-paper">Encapsulation</p>
+                      <p className="text-small text-slate-400">Private state management for balance variables to prevent external corruption and ensure data integrity.</p>
+                    </Card>
+                    <Card variant="subtle" padding="sm">
+                      <p className="mb-2 text-small font-semibold text-paper">Polymorphism</p>
+                      <p className="text-small text-slate-400">Interface-based design for different account types (Savings, Current) with specialized behavior.</p>
+                    </Card>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'system' && (
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <h3 className="text-h4 font-semibold text-paper">Runtime Environment</h3>
+                  <dl className="space-y-3">
+                    {[
+                      { label: 'Platform', value: 'JVM / Android Runtime' },
+                      { label: 'Compiler', value: 'kotlinc 1.9.0' },
+                      { label: 'Memory', value: 'Automatic Garbage Collection' },
+                      { label: 'Build Tool', value: 'Gradle / Maven' },
+                    ].map((item) => (
+                      <div key={item.label} className="flex justify-between gap-4 rounded-xl border border-border bg-surface/50 p-3">
+                        <dt className="text-small text-slate-400">{item.label}</dt>
+                        <dd className="text-small font-medium text-slate-300">{item.value}</dd>
                       </div>
                     ))}
-                  </div>
-                )}
-
-                {activeTab === 'architecture' && (
-                  <div className="space-y-6">
-                    <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm">Class Structure</h3>
-                      <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl font-mono text-sm text-slate-400 leading-relaxed">
-                        <p><span className="text-purple-400">class</span> <span className="text-cyan-300">Account</span> {`{`}</p>
-                        <p className="ml-4"><span className="text-blue-300">val</span> accId: <span className="text-slate-300">String</span></p>
-                        <p className="ml-4"><span className="text-blue-300">var</span> balance: <span className="text-slate-300">Double</span></p>
-                        <p className="ml-4"><span className="text-blue-300">val</span> customer: <span className="text-slate-300">Customer</span></p>
-                        <p>{`}`}</p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm">Design Principles</h3>
-                      <div className="space-y-3">
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-paper font-semibold mb-2">Encapsulation</p>
-                          <p className="text-sm text-slate-400">Private state management for balance variables to prevent external corruption and ensure data integrity.</p>
-                        </div>
-                        <div className="p-4 border border-slate-800/70 rounded-xl bg-surface/50 hover:border-slate-700/80 transition-colors">
-                          <p className="text-sm text-paper font-semibold mb-2">Polymorphism</p>
-                          <p className="text-sm text-slate-400">Interface-based design for different account types (Savings, Current) with specialized behavior.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'system' && (
-                  <div className="space-y-6">
-                    <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm">Runtime Environment</h3>
-                      <div className="space-y-3">
-                        {[
-                          { label: 'Platform', value: 'JVM / Android Runtime' },
-                          { label: 'Compiler', value: 'kotlinc 1.9.0' },
-                          { label: 'Memory', value: 'Automatic Garbage Collection' },
-                          { label: 'Build Tool', value: 'Gradle / Maven' }
-                        ].map((item, i) => (
-                          <div key={i} className="flex justify-between p-3 border border-slate-800/70 rounded-xl bg-surface/50">
-                            <span className="text-slate-400 text-sm">{item.label}</span>
-                            <span className="text-slate-300 text-sm font-medium">{item.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="p-4 bg-amber-900/10 border border-amber-900/50 rounded-xl">
-                      <p className="text-amber-200 font-semibold text-sm mb-2">Known Limitation</p>
-                      <p className="text-sm text-amber-200/70">
-                        Current implementation uses volatile in-memory storage. Persistence layer (database/file I/O) 
-                        planned for v2.0 release.
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Screenshots */}
-            <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Screenshots</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { src: BMSK1, label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
-                  { src: BMSK2, label: 'Transaction Flow', desc: 'Deposit and withdrawal logic with validation.' }
-                ].map((s, i) => (
-                  <div 
-                    key={i} 
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 hover:border-slate-700/80 hover: transition-all"
-                  >
-                    <img 
-                      src={s.src}
-                      loading="lazy"
-                      decoding="async" 
-                      alt={s.label} 
-                      className="w-full h-40 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-0 inset-x-0 p-4">
-                      <p className="text-sm font-semibold text-slate-100 group-hover:text-accent-soft transition-colors">{s.label}</p>
-                      <p className="text-xs text-slate-400 mt-1">{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1 space-y-6">
-            
-            {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
-              <h3 className="text-sm font-semibold text-paper mb-6">Specifications</h3>
-              <div className="space-y-4">
-                {specs.map((spec, i) => (
-                  <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
-                    <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Key Components */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
-              <h3 className="text-sm font-semibold text-paper mb-4">Core Components</h3>
-              <div className="space-y-2">
-                {[
-                  'Account Management',
-                  'Transaction Engine',
-                  'Validation Logic',
-                  'Balance Operations',
-                  'Search & Retrieve'
-                ].map((comp, i) => (
-                  <div key={i} className="text-sm text-slate-400 flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    {comp}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
-              <h3 className="text-sm font-semibold text-paper mb-4">Project Stats</h3>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Lines of Code</span>
-                  <span className="text-slate-300 font-medium">~300</span>
+                  </dl>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Classes</span>
-                  <span className="text-slate-300 font-medium">4</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Complexity</span>
-                  <span className="text-slate-300 font-medium">Beginner</span>
+
+                <div className="rounded-xl border border-amber-900/50 bg-amber-900/10 p-4">
+                  <p className="mb-2 text-small font-semibold text-amber-200">Known Limitation</p>
+                  <p className="text-small text-amber-200/70">
+                    Current implementation uses volatile in-memory storage. Persistence layer (database/file I/O)
+                    planned for v2.0 release.
+                  </p>
                 </div>
               </div>
-            </div>
-
+            )}
           </div>
         </div>
-      </div>
-    </div>
+
+        <ScreenshotGallery
+          screenshots={[
+            { src: BMSK1, label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
+            { src: BMSK2, label: 'Transaction Flow', desc: 'Deposit and withdrawal logic with validation.' },
+          ]}
+          columns={2}
+        />
+      </CaseStudyLayout>
+    </>
   )
 }
 
