@@ -1,51 +1,59 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Github, ChevronRight, Activity, 
-  HardDrive, Box, Search, Trash2, Edit, ArrowUpRight
-} from 'lucide-react';
-import SEO from './SEO';
-import CaseStudyHeader from './CaseStudyHeader';
-import Lightbox from './Lightbox';
+import { useState } from 'react'
+import { Github, Activity, HardDrive, Box, Search, Trash2, Edit } from 'lucide-react'
+import SEO from './SEO'
+import Lightbox from './Lightbox'
+import CaseStudyLayout from './case-study/CaseStudyLayout'
+import CaseStudyTabs from './case-study/CaseStudyTabs'
+import CaseStudySection from './case-study/CaseStudySection'
+import ScreenshotGallery from './case-study/ScreenshotGallery'
+import { AsideCard, SpecList, BulletList } from './case-study/CaseStudyAside'
+import Card from './ui/Card'
 
-// Assets
-import SMS1 from '../assets/SMS/SMS1.png';
-import SMS2 from '../assets/SMS/SMS2.png';
-import SMS3 from '../assets/SMS/SMS3.png';
-import SMS4 from '../assets/SMS/SMS4.png';
-import SMS5 from '../assets/SMS/SMS5.png';
-import SMS6 from '../assets/SMS/SMS6.png';
-import SMS7 from '../assets/SMS/SMS7.png';
+import SMS1 from '../assets/SMS/SMS1.png'
+import SMS2 from '../assets/SMS/SMS2.png'
+import SMS3 from '../assets/SMS/SMS3.png'
+import SMS4 from '../assets/SMS/SMS4.png'
+import SMS5 from '../assets/SMS/SMS5.png'
+import SMS6 from '../assets/SMS/SMS6.png'
+import SMS7 from '../assets/SMS/SMS7.png'
+
+const REPO_URL = 'https://github.com/SamratVsn/C-codes'
+
+const SCREENSHOTS = [
+  { src: SMS2, label: 'Add Record', desc: 'Validating struct serialization to disk.' },
+  { src: SMS3, label: 'Database Dump', desc: 'Iterating through binary stream using fread().' },
+  { src: SMS4, label: 'Query Engine', desc: 'Testing fseek() jump logic by Roll No.' },
+  { src: SMS5, label: 'Update Buffer', desc: 'Overwriting specific byte offsets in rb+ mode.' },
+  { src: SMS6, label: 'Delete Rewrite', desc: 'Temporary file swap logic for record removal.' },
+  { src: SMS7, label: 'Integrity Check', desc: 'Validating file pointers and end-of-file markers.' },
+]
+
+const FEATURES = [
+  { icon: Box, title: 'Serialization', desc: 'Writing struct blocks directly to disk.' },
+  { icon: Search, title: 'Fseek Navigation', desc: 'Direct access to records via byte offsets.' },
+  { icon: Trash2, title: 'Atomic Delete', desc: 'Temporary file swap to ensure data safety.' },
+  { icon: Edit, title: 'In-Place Edit', desc: 'Using rb+ mode for non-destructive updates.' },
+]
+
+const SPECS = [
+  { label: 'Language', value: 'ANSI C / C99' },
+  { label: 'Compiler', value: 'GCC / Clang' },
+  { label: 'I/O Mode', value: 'Unbuffered Binary' },
+  { label: 'Pattern', value: 'Direct Memory Access' },
+]
+
+const TABS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'features', label: 'Features' },
+  { id: 'challenges', label: 'Challenges' },
+]
 
 const SMS = () => {
-  const [activeTab, setActiveTab] = useState('overview');
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const screenshots = [
-    { src: SMS2, label: 'Add Record', desc: 'Validating struct serialization to disk.' },
-    { src: SMS3, label: 'Database Dump', desc: 'Iterating through binary stream using fread().' },
-    { src: SMS4, label: 'Query Engine', desc: 'Testing fseek() jump logic by Roll No.' },
-    { src: SMS5, label: 'Update Buffer', desc: 'Overwriting specific byte offsets in rb+ mode.' },
-    { src: SMS6, label: 'Delete Rewrite', desc: 'Temporary file swap logic for record removal.' },
-    { src: SMS7, label: 'Integrity Check', desc: 'Validating file pointers and end-of-file markers.' }
-  ];
-
-  const features = [
-    { icon: Box, title: "Serialization", desc: "Writing struct blocks directly to disk." },
-    { icon: Search, title: "Fseek Navigation", desc: "Direct access to records via byte offsets." },
-    { icon: Trash2, title: "Atomic Delete", desc: "Temporary file swap to ensure data safety." },
-    { icon: Edit, title: "In-Place Edit", desc: "Using rb+ mode for non-destructive updates." }
-  ];
-
-  const specs = [
-    { label: 'Language', value: 'ANSI C / C99' },
-    { label: 'Compiler', value: 'GCC / Clang' },
-    { label: 'I/O Mode', value: 'Unbuffered Binary' },
-    { label: 'Pattern', value: 'Direct Memory Access' }
-  ];
+  const [activeTab, setActiveTab] = useState('overview')
+  const [selectedImage, setSelectedImage] = useState(null)
 
   return (
-    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
+    <>
       <SEO
         title="Student Management System in C | Samrat Parajuli"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
@@ -56,266 +64,177 @@ const SMS = () => {
           {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
-            'itemListElement': [
-              { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.samratparajuli0.com.np/' },
-              { '@type': 'ListItem', 'position': 2, 'name': 'Projects', 'item': 'https://www.samratparajuli0.com.np/projects' },
-              { '@type': 'ListItem', 'position': 3, 'name': 'Student Management System', 'item': 'https://www.samratparajuli0.com.np/projects/sms' }
-            ]
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.samratparajuli0.com.np/' },
+              { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://www.samratparajuli0.com.np/projects' },
+              { '@type': 'ListItem', position: 3, name: 'Student Management System', item: 'https://www.samratparajuli0.com.np/projects/sms' },
+            ],
           },
           {
             '@context': 'https://schema.org',
             '@type': 'SoftwareSourceCode',
             '@id': 'https://www.samratparajuli0.com.np/projects/sms#app',
-            'name': 'Student Management System',
-            'programmingLanguage': 'C',
-            'description': 'Console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Crash-safe data integrity with raw byte-level file access.',
-            'codeRepository': 'https://github.com/SamratVsn/C-codes',
-            'author': { '@id': 'https://www.samratparajuli0.com.np/#person' }
-          }
+            name: 'Student Management System',
+            programmingLanguage: 'C',
+            description: 'Console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Crash-safe data integrity with raw byte-level file access.',
+            codeRepository: REPO_URL,
+            author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
+          },
         ]}
       />
-      
-      {/* Header */}
-      <div className="max-w-6xl mx-auto px-6 py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <CaseStudyHeader
-          eyebrow="System Software"
-          title={<>Student Management <span className="text-accent">System</span></>}
-          summary="A console CRUD database in C: binary file storage, struct serialization, and direct byte-offset navigation."
-          actions={[
-            {
-              href: 'https://github.com/SamratVsn/C-codes',
-              label: 'View Code',
-              icon: Github,
-              primary: true,
-            },
-          ]}
-        />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            
-            {/* Hero Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800/70 bg-slate-900">
-              <button
-                type="button"
-                onClick={() => setSelectedImage({src: SMS1, label: 'Main Menu', desc: 'Interactive command-line interface'})}
-                aria-label="Open Main Menu screenshot"
-                className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
-              >
-                <motion.img
-                  layoutId="project-image-/projects/sms"
-                  src={SMS1}
-                  alt="CLI Interface"
-                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity"
-                  style={{ willChange: "transform" }}/>
-              </button>
-            </div>
+      <CaseStudyLayout
+        breadcrumb={[
+          { label: 'Home', to: '/' },
+          { label: 'Projects', to: '/projects' },
+          { label: 'Student Management System' },
+        ]}
+        eyebrow="System Software"
+        title="Student Management System"
+        summary="A console CRUD database in C: binary file storage, struct serialization, and direct byte-offset navigation."
+        actions={[{ href: REPO_URL, label: 'View Code', icon: Github, primary: true }]}
+        aside={
+          <>
+            <AsideCard title="Specifications" icon={Activity}>
+              <SpecList items={SPECS} />
+            </AsideCard>
 
-            {/* Intro */}
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
-                Low-level database engine in C
-              </h2>
-              <p className="text-slate-400 leading-relaxed">
-                A high-performance CRUD system that bypasses high-level abstractions to manipulate raw data streams directly. 
-                This project demonstrates deep understanding of file I/O, memory management, and binary serialization using 
-                the C Standard Library.
-              </p>
-              <div className="p-4 bg-surface/60 border border-slate-800/70 rounded-xl">
-                <p className="text-sm text-slate-300">
-                  <span className="text-accent font-semibold">Key Pattern:</span> Synchronous file I/O with manual buffer 
-                  flushing to ensure data persistence even in the event of software interrupt.
-                </p>
-              </div>
-            </div>
-
-            {/* Tabs */}
-            <div>
-              <div className="flex gap-1 mb-8 border-b border-slate-800">
-                {['overview', 'features', 'challenges'].map(tab => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                      activeTab === tab 
-                        ? 'text-accent border-accent' 
-                        : 'text-slate-400 border-transparent hover:text-slate-300'
-                    }`}
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </button>
-                ))}
-              </div>
-
-              <div className="min-h-[300px]">
-                {activeTab === 'overview' && (
-                  <div className="space-y-6">
-                    <p className="text-slate-400 leading-relaxed">
-                      This project demonstrates a low-level implementation of a database engine using the C Standard Library. 
-                      It showcases how modern databases work under the hood by directly manipulating binary data streams.
-                    </p>
-                    <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm">Core Architecture</h3>
-                      <ul className="space-y-3 text-sm text-slate-400">
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>Binary file storage with struct serialization</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>Direct byte-offset navigation using fseek()</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>Atomic operations with temporary file swapping</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-accent font-bold">→</span>
-                          <span>In-place updates using rb+ file mode</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'features' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {features.map((f, i) => (
-                      <div key={i} className="p-5 border border-slate-800/70 rounded-xl bg-surface/60 hover:border-slate-700/80 hover:-translate-y-0.5 transition-all duration-300">
-                        <div className="flex items-start gap-3">
-                          <f.icon size={20} className="text-accent mt-1" />
-                          <div>
-                            <h4 className="text-paper font-semibold text-sm mb-1">{f.title}</h4>
-                            <p className="text-slate-400 text-sm">{f.desc}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {activeTab === 'challenges' && (
-                  <div className="space-y-6">
-                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
-                      <h4 className="text-amber-200 font-semibold text-sm mb-2">Struct Padding Issue</h4>
-                      <p className="text-slate-400 text-sm mb-3">
-                        Records became unreadable due to memory alignment differences across architectures.
-                      </p>
-                      <div className="p-3 bg-slate-900/80 rounded-lg text-xs font-mono text-slate-300">
-                        <span className="text-accent">Solution:</span> #pragma pack(1)
-                      </div>
-                    </div>
-                    <div className="p-5 border border-amber-900/50 bg-amber-900/10 rounded-xl">
-                      <h4 className="text-amber-200 font-semibold text-sm mb-2">File Pointer Management</h4>
-                      <p className="text-slate-400 text-sm">
-                        Managing file pointers across multiple operations required careful tracking to prevent 
-                        data corruption. Implemented validation checks to ensure pointer consistency.
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Screenshots */}
-            <div className="space-y-6">
-              <h3 className="text-sm font-semibold text-accent uppercase tracking-widest">Execution Screenshots</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {screenshots.map((s, i) => (
-                  <button
-                    type="button"
-                    key={i}
-                    className="group relative border border-slate-800/70 rounded-xl overflow-hidden bg-slate-900 cursor-pointer text-left transition-all hover:border-slate-700/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
-                    onClick={() => setSelectedImage(s)}
-                  >
-                    <img 
-                      src={s.src}
-                      loading="lazy"
-                      decoding="async" 
-                      alt={s.label} 
-                      className="w-full h-32 object-cover opacity-60 group-hover:opacity-100 transition-opacity" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <p className="absolute bottom-3 left-3 right-3 text-xs font-medium text-slate-100 group-hover:text-accent-soft transition-colors">
-                      {s.label}
-                    </p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1 space-y-6">
-            
-            {/* Specifications */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
-              <h3 className="text-sm font-semibold text-paper mb-6 flex items-center gap-2">
-                <Activity size={16} className="text-accent" />
-                Specifications
-              </h3>
-              <div className="space-y-4">
-                {specs.map((spec, i) => (
-                  <div key={i} className="border-b border-slate-800 pb-4 last:border-0 last:pb-0">
-                    <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">{spec.label}</p>
-                    <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Data Structure */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
-              <h3 className="text-sm font-semibold text-paper mb-4 flex items-center gap-2">
-                <HardDrive size={16} className="text-accent" />
-                Data Structure
-              </h3>
-              <div className="p-4 bg-slate-950/80 border border-slate-800/70 rounded-xl text-xs font-mono text-slate-400 leading-relaxed space-y-1">
-                <div><span className="text-accent">struct</span> Student {`{`}</div>
+            <AsideCard title="Data Structure" icon={HardDrive}>
+              <div className="space-y-1 rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400">
+                <div><span className="text-accent-text">struct</span> Student {'{'}</div>
                 <div className="ml-4">
                   <div><span className="text-slate-400">char</span> name[50];</div>
                   <div><span className="text-slate-400">int</span> rollNo;</div>
                   <div><span className="text-slate-400">float</span> gpa;</div>
                 </div>
-                <div>{`}`};</div>
+                <div>{'}'};</div>
               </div>
-            </div>
+            </AsideCard>
 
-            {/* Stats */}
-            <div className="p-6 border border-slate-800/70 rounded-xl bg-surface/70">
-              <h3 className="text-sm font-semibold text-paper mb-4">Project Stats</h3>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Lines of Code</span>
-                  <span className="text-slate-300 font-medium">~450</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Functions</span>
-                  <span className="text-slate-300 font-medium">8</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Complexity</span>
-                  <span className="text-slate-300 font-medium">Intermediate</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
+            <AsideCard title="Project Stats">
+              <dl className="space-y-3">
+                {[
+                  { label: 'Lines of Code', value: '~450' },
+                  { label: 'Functions', value: '8' },
+                  { label: 'Complexity', value: 'Intermediate' },
+                ].map((item) => (
+                  <div key={item.label} className="flex justify-between gap-4">
+                    <dt className="text-small text-slate-400">{item.label}</dt>
+                    <dd className="text-small font-medium text-slate-300">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </AsideCard>
+          </>
+        }
+      >
+        <div className="overflow-hidden rounded-xl border border-border bg-surface">
+          <button
+            type="button"
+            onClick={() =>
+              setSelectedImage({ src: SMS1, label: 'Main Menu', desc: 'Interactive command-line interface' })
+            }
+            aria-label="Open Main Menu screenshot"
+            className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
+          >
+            <img
+              src={SMS1}
+              alt="CLI Interface"
+              className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
+            />
+          </button>
         </div>
-      </div>
 
-      {/* Image viewer */}
-      {selectedImage && (
-        <Lightbox
-          image={selectedImage}
-          onClose={() => setSelectedImage(null)}
+        <CaseStudySection title="Low-level database engine in C">
+          <p className="text-body text-slate-400">
+            A high-performance CRUD system that bypasses high-level abstractions to manipulate raw data streams directly.
+            This project demonstrates deep understanding of file I/O, memory management, and binary serialization using
+            the C Standard Library.
+          </p>
+          <div className="rounded-xl border border-border bg-surface/60 p-4">
+            <p className="text-small text-slate-300">
+              <span className="font-semibold text-accent-text">Key Pattern:</span> Synchronous file I/O with manual buffer
+              flushing to ensure data persistence even in the event of software interrupt.
+            </p>
+          </div>
+        </CaseStudySection>
+
+        <div>
+          <CaseStudyTabs tabs={TABS} active={activeTab} onChange={setActiveTab} />
+
+          <div className="min-h-[300px]">
+            {activeTab === 'overview' && (
+              <div className="space-y-6">
+                <p className="text-body text-slate-400">
+                  This project demonstrates a low-level implementation of a database engine using the C Standard Library.
+                  It showcases how modern databases work under the hood by directly manipulating binary data streams.
+                </p>
+                <div className="space-y-4">
+                  <h3 className="text-h4 font-semibold text-paper">Core Architecture</h3>
+                  <BulletList
+                    items={[
+                      'Binary file storage with struct serialization',
+                      'Direct byte-offset navigation using fseek()',
+                      'Atomic operations with temporary file swapping',
+                      'In-place updates using rb+ file mode',
+                    ]}
+                  />
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'features' && (
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {FEATURES.map((feature) => (
+                  <Card key={feature.title} interactive>
+                    <div className="flex items-start gap-3">
+                      <feature.icon size={20} aria-hidden="true" className="mt-1 shrink-0 text-accent-text" />
+                      <div>
+                        <h4 className="mb-1 text-h4 font-semibold text-paper">{feature.title}</h4>
+                        <p className="text-small text-slate-400">{feature.desc}</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
+
+            {activeTab === 'challenges' && (
+              <div className="space-y-6">
+                <div className="rounded-xl border border-amber-900/50 bg-amber-900/10 p-5">
+                  <h4 className="mb-2 text-small font-semibold text-amber-200">Struct Padding Issue</h4>
+                  <p className="mb-3 text-small text-slate-400">
+                    Records became unreadable due to memory alignment differences across architectures.
+                  </p>
+                  <div className="rounded-lg bg-canvas p-3 font-mono text-label tracking-normal text-slate-300">
+                    <span className="text-accent-text">Solution:</span> #pragma pack(1)
+                  </div>
+                </div>
+                <div className="rounded-xl border border-amber-900/50 bg-amber-900/10 p-5">
+                  <h4 className="mb-2 text-small font-semibold text-amber-200">File Pointer Management</h4>
+                  <p className="text-small text-slate-400">
+                    Managing file pointers across multiple operations required careful tracking to prevent
+                    data corruption. Implemented validation checks to ensure pointer consistency.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <ScreenshotGallery
+          screenshots={SCREENSHOTS}
+          onSelect={setSelectedImage}
+          columns={3}
+          title="Execution Screenshots"
         />
-      )}
-    </div>
-  );
-};
+      </CaseStudyLayout>
 
-export default SMS;
+      {selectedImage && (
+        <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
+      )}
+    </>
+  )
+}
+
+export default SMS

@@ -26,6 +26,14 @@ import {
 } from 'lucide-react'
 import SEO from './SEO'
 import Lightbox from './Lightbox'
+import Container from './ui/Container'
+import Card from './ui/Card'
+import Eyebrow from './ui/Eyebrow'
+import StatusPill from './ui/StatusPill'
+import CaseStudyTabs from './case-study/CaseStudyTabs'
+import CaseStudySection from './case-study/CaseStudySection'
+import ScreenshotGallery from './case-study/ScreenshotGallery'
+import { AsideCard, SpecList, TagList } from './case-study/CaseStudyAside'
 
 import AvalokanHome from '../assets/Avalokan/home.png'
 import AvalokanDiscover from '../assets/Avalokan/discover.png'
@@ -43,9 +51,8 @@ const SITE = 'https://www.samratparajuli0.com.np'
 /* Heritage palette pulled from the app's own design system */
 const SAGE = 'var(--p-accent-soft)'
 const TERRA = 'var(--p-terra)'
-const SAND = '#E8D7B7'
 
-const specs = [
+const SPECS = [
   { label: 'Platform', value: 'Android · min SDK 24' },
   { label: 'Language', value: 'Kotlin 2.2.10' },
   { label: 'UI', value: 'Jetpack Compose + Material 3' },
@@ -59,7 +66,7 @@ const specs = [
   { label: 'Testing', value: 'JUnit · Turbine · coroutines-test' },
 ]
 
-const features = [
+const FEATURES = [
   {
     icon: Mountain,
     title: 'Explore heritage',
@@ -122,7 +129,7 @@ const features = [
   },
 ]
 
-const screens = [
+const SCREENS = [
   {
     src: AvalokanHome,
     label: 'Home',
@@ -145,7 +152,7 @@ const screens = [
   },
 ]
 
-const layers = [
+const LAYERS = [
   {
     name: 'UI layer',
     detail:
@@ -168,7 +175,7 @@ const layers = [
   },
 ]
 
-const palette = [
+const PALETTE = [
   { name: 'Forest green', hex: '#1B4332' },
   { name: 'Sage', hex: '#6B8F7A' },
   { name: 'Sand', hex: '#E8D7B7' },
@@ -176,7 +183,7 @@ const palette = [
   { name: 'Warm ivory', hex: '#F5F3ED' },
 ]
 
-const roadmapDone = [
+const ROADMAP_DONE = [
   'Main UI screens, design system, and navigation',
   'Hilt DI and ViewModels',
   'Firestore repositories with Room offline cache',
@@ -188,7 +195,7 @@ const roadmapDone = [
   '22-second launch film cut from real app captures',
 ]
 
-const roadmapNext = [
+const ROADMAP_NEXT = [
   'Persist event bookings to Firestore (in-app confirmation works today)',
   'Cloud sync for saved places across devices',
   'Calendar export and a notification center',
@@ -197,7 +204,7 @@ const roadmapNext = [
   'Privacy policy and Data safety disclosure for Play Console',
 ]
 
-const techStack = [
+const TECH_STACK = [
   'Kotlin',
   'Jetpack Compose',
   'Material 3',
@@ -212,7 +219,7 @@ const techStack = [
   'Credential Manager',
 ]
 
-const developer = [
+const DEVELOPER = [
   { label: 'Developer', value: 'Samrat Parajuli' },
   { label: 'GitHub', value: 'github.com/SamratVsn', href: 'https://github.com/SamratVsn' },
   { label: 'Portfolio', value: 'samratparajuli0.com.np', href: 'https://www.samratparajuli0.com.np' },
@@ -221,7 +228,7 @@ const developer = [
   { label: 'Status', value: 'Android · v1.0.0 Released' },
 ]
 
-const related = [
+const RELATED = [
   {
     title: 'Kathmandu My-City',
     blurb: 'The earlier Material 3 love letter to Kathmandu — the app that started the heritage thread.',
@@ -236,7 +243,12 @@ const related = [
   },
 ]
 
-const TABS = ['overview', 'features', 'architecture', 'roadmap']
+const TABS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'features', label: 'Features' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'roadmap', label: 'Roadmap' },
+]
 
 export default function Avalokan() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -253,7 +265,7 @@ export default function Avalokan() {
   }
 
   return (
-    <div className="min-h-screen bg-canvas text-slate-300 font-sans selection:bg-accent/30">
+    <div className="min-h-screen bg-canvas font-sans text-slate-300 selection:bg-accent/30">
       <SEO
         title="Avalokan — Nepal Heritage Android App | Samrat Parajuli"
         description="Avalokan is a native Android heritage explorer for Nepal — places, cultural stories, festivals and events, built with Kotlin, Jetpack Compose and Room."
@@ -322,44 +334,45 @@ export default function Avalokan() {
               'linear-gradient(180deg, rgba(27,67,50,0.4) 0%, rgba(14,19,17,0) 62%)',
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-6 py-12 sm:py-16 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <Container className="relative py-12 sm:py-16">
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex flex-wrap items-center gap-1.5 font-mono text-label uppercase tracking-[0.12em] text-slate-500">
+              <li><Link to="/" className="rounded transition-colors hover:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft">Home</Link></li>
+              <li aria-hidden="true" className="text-slate-700">/</li>
+              <li><Link to="/projects" className="rounded transition-colors hover:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft">Projects</Link></li>
+              <li aria-hidden="true" className="text-slate-700">/</li>
+              <li><span aria-current="page" className="text-slate-400">Avalokan</span></li>
+            </ol>
+          </nav>
+
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
             {/* Copy */}
             <div className="lg:col-span-7">
-              <div className="flex flex-wrap items-center gap-2.5 mb-5">
-                <span
-                  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-mono font-semibold uppercase tracking-widest"
-                  style={{
-                    color: SAGE,
-                    backgroundColor: 'var(--p-accent-muted)',
-                    border: '1px solid var(--p-accent-border)',
-                  }}
-                >
-                  <Sparkles size={11} /> New project
-                </span>
-                <span className="inline-flex items-center rounded-full border border-border-strong bg-surface/50 px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                  Android · v1.0.0 Released
-                </span>
+              <div className="mb-5 flex flex-wrap items-center gap-2.5">
+                <StatusPill tone="accent">
+                  <Sparkles size={11} aria-hidden="true" /> New project
+                </StatusPill>
+                <StatusPill tone="neutral">Android · v1.0.0 Released</StatusPill>
               </div>
 
-              <p className="text-[11px] font-mono uppercase tracking-[0.35em] text-slate-400 mb-3">
+              <Eyebrow wide dot={false} rule={false} className="mb-3">
                 अवलोकन · to observe
-              </p>
+              </Eyebrow>
 
               <motion.h1
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.04em] text-paper leading-[1.02]"
+                className="text-display font-bold text-paper"
               >
                 Avalokan
                 <span style={{ color: TERRA }}>.</span>
               </motion.h1>
 
-              <p className="mt-4 text-lg sm:text-xl text-slate-300 font-medium max-w-xl">
+              <p className="mt-4 max-w-xl text-body-lg font-medium text-slate-300">
                 Discover Nepal. Explore its heritage. Experience its stories.
               </p>
-              <p className="mt-3 text-slate-400 leading-relaxed max-w-xl">
+              <p className="mt-3 max-w-xl text-body text-slate-400">
                 A native Android heritage explorer for Nepal — historical places, cultural
                 stories, festivals, and the details worth knowing before you go. Built with
                 Kotlin, Jetpack Compose, and Material 3, backed by Firebase and cached offline
@@ -369,29 +382,29 @@ export default function Avalokan() {
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <a
                   href={APK_URL}
-                  className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-small font-semibold transition-all active:scale-[0.97]"
                   style={{ backgroundColor: 'var(--p-accent)', color: 'var(--p-ink)' }}
                 >
-                  <Download size={15} /> Download APK
+                  <Download size={15} aria-hidden="true" /> Download APK
                 </a>
                 <button
                   type="button"
                   onClick={playFilm}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-5 py-2.5 text-sm font-semibold text-slate-200 transition-all hover:border-border-strong hover:text-paper active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-5 py-2.5 text-small font-semibold text-slate-200 transition-all hover:border-border-strong hover:text-paper active:scale-[0.97]"
                 >
-                  <Play size={15} fill="currentColor" /> Watch launch film
+                  <Play size={15} fill="currentColor" aria-hidden="true" /> Watch launch film
                 </button>
                 <a
                   href={REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-semibold text-slate-400 transition-colors hover:text-paper"
+                  className="inline-flex items-center gap-2 rounded-lg px-2 py-2.5 text-small font-semibold text-slate-400 transition-colors hover:text-paper"
                   aria-label="View Avalokan source on GitHub"
                 >
-                  <Github size={15} /> Source
+                  <Github size={15} aria-hidden="true" /> Source
                 </a>
               </div>
-              <p className="mt-3 text-[11px] font-mono text-slate-400">
+              <p className="mt-3 font-mono text-label tracking-normal text-slate-400">
                 v1.0.0 · 20 MB APK · Android 7.0+ · 22s launch film inside
               </p>
             </div>
@@ -412,7 +425,7 @@ export default function Avalokan() {
                     loading="eager"
                   />
                 </div>
-                <p className="mt-4 text-center text-[10px] font-mono uppercase tracking-[0.28em] text-slate-400">
+                <p className="mt-4 text-center font-mono text-label uppercase tracking-[0.28em] text-slate-400">
                   Nepal Heritage Explorer
                 </p>
               </motion.div>
@@ -420,42 +433,39 @@ export default function Avalokan() {
           </div>
 
           {/* Quick stats */}
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <dl className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
               { k: '4', v: 'Firestore collections' },
               { k: '9', v: 'Compose screens' },
               { k: 'Offline-first', v: 'Reads after first sync' },
               { k: 'API 24+', v: 'Android support' },
             ].map((stat) => (
-              <div
-                key={stat.v}
-                className="rounded-xl border border-border bg-surface/40 px-4 py-3"
-              >
-                <p className="text-lg font-bold text-paper tracking-tight">{stat.k}</p>
-                <p className="text-[11px] text-slate-400 mt-0.5">{stat.v}</p>
+              <div key={stat.v} className="rounded-xl border border-border bg-surface/40 px-4 py-3">
+                <dd className="text-h4 font-bold tracking-tight text-paper">{stat.k}</dd>
+                <dt className="mt-0.5 text-label tracking-normal text-slate-400">{stat.v}</dt>
               </div>
             ))}
-          </div>
-        </div>
+          </dl>
+        </Container>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-14 xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <Container className="py-14">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {/* ═══ Main ═══ */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="min-w-0 space-y-12 lg:col-span-2">
             {/* Launch film */}
-            <div id="film" ref={filmRef} className="space-y-4 scroll-mt-24">
+            <section id="film" ref={filmRef} className="scroll-mt-24 space-y-4">
               <div className="flex items-end justify-between gap-4">
-                <h2 className="text-sm font-semibold uppercase tracking-widest" style={{ color: SAGE }}>
+                <Eyebrow as="h2" tone="accent" dot={false} rule={false}>
                   Launch film
-                </h2>
+                </Eyebrow>
                 <a
                   href={FILM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-medium text-slate-400 hover:text-paper transition-colors inline-flex items-center gap-1"
+                  className="inline-flex items-center gap-1 text-small font-medium text-slate-400 transition-colors hover:text-paper"
                 >
-                  Open full size <ArrowUpRight size={12} />
+                  Open full size <ArrowUpRight size={12} aria-hidden="true" />
                 </a>
               </div>
 
@@ -475,33 +485,30 @@ export default function Avalokan() {
                 </video>
               </div>
 
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-label leading-relaxed tracking-normal text-slate-400">
                 Cut from real captures of the app running on a 1080×2400 emulator — no mockups, no
                 invented screens. Assembled with{' '}
                 <a
                   href="https://hyperframes.heygen.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 underline decoration-slate-700 hover:text-paper transition-colors"
+                  className="text-slate-400 underline decoration-slate-700 transition-colors hover:text-paper"
                 >
                   HyperFrames
                 </a>
                 .
               </p>
-            </div>
+            </section>
 
             {/* Intro */}
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-paper tracking-[-0.03em]">
-                One place for Nepal's places, stories, and happenings
-              </h2>
-              <p className="text-slate-400 leading-relaxed">
+            <CaseStudySection title="One place for Nepal's places, stories, and happenings">
+              <p className="text-body text-slate-400">
                 Nepal holds centuries of history, living traditions, sacred places, architectural
                 wonders, and festivals that bring communities together. Finding the stories behind
                 those places — and what is happening next — usually means searching across many
                 different sources.
               </p>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-body text-slate-400">
                 Avalokan brings those experiences together in one app: discover destinations, read
                 editorial stories, browse events, save places to a personal collection, and
                 optionally sign in to sync a profile with Firestore. Content streams from Cloud
@@ -509,52 +516,36 @@ export default function Avalokan() {
                 mountain road with one bar of signal.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 border border-border rounded-xl bg-surface/40 hover:border-border-strong transition-colors">
-                  <p className="font-semibold text-sm mb-2" style={{ color: SAGE }}>
+              <div className="grid grid-cols-1 gap-4 pt-2 sm:grid-cols-2">
+                <Card variant="subtle" padding="sm">
+                  <p className="mb-2 text-small font-semibold" style={{ color: SAGE }}>
                     Content that feels curated
                   </p>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-small text-slate-400">
                     Places, stories, and events are separate Firestore collections — each with its
                     own editorial layout instead of one generic detail screen.
                   </p>
-                </div>
-                <div className="p-4 border border-border rounded-xl bg-surface/40 hover:border-border-strong transition-colors">
-                  <p className="font-semibold text-sm mb-2" style={{ color: TERRA }}>
+                </Card>
+                <Card variant="subtle" padding="sm">
+                  <p className="mb-2 text-small font-semibold" style={{ color: TERRA }}>
                     Designed after the landscape
                   </p>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-small text-slate-400">
                     Forest green, sage, sand, and terracotta with Montserrat and Inter — an earthy
                     system built to make heritage feel present, not archival.
                   </p>
-                </div>
+                </Card>
               </div>
-            </div>
+            </CaseStudySection>
 
             {/* Tabs */}
             <div>
-              <div className="flex gap-1 mb-8 border-b border-border-strong overflow-x-auto">
-                {TABS.map((tab) => (
-                  <button
-                    key={tab}
-                    type="button"
-                    onClick={() => setActiveTab(tab)}
-                    aria-pressed={activeTab === tab}
-                    className={`shrink-0 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                      activeTab === tab
-                        ? 'border-accent-soft text-accent-soft'
-                        : 'border-transparent text-slate-400 hover:text-slate-200'
-                    }`}
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </button>
-                ))}
-              </div>
+              <CaseStudyTabs tabs={TABS} active={activeTab} onChange={setActiveTab} />
 
               <div className="min-h-[400px]">
                 {activeTab === 'overview' && (
                   <div className="space-y-6">
-                    <p className="text-slate-400 leading-relaxed">
+                    <p className="text-body text-slate-400">
                       Avalokan is a single-activity Compose app organised around a repository layer
                       that hides two data sources. Snapshot listeners keep Firestore live, Room keeps
                       the last known good state on disk, and ViewModels expose one state stream to
@@ -562,8 +553,8 @@ export default function Avalokan() {
                     </p>
 
                     <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm">Core experience</h3>
-                      <ul className="space-y-3 text-sm text-slate-400">
+                      <h3 className="text-h4 font-semibold text-paper">Core experience</h3>
+                      <ul className="space-y-3 text-small text-slate-400">
                         {[
                           'Explore heritage — landmarks, cultural destinations, and religious sites',
                           'Read stories — Story of the Day plus a full editorial reader',
@@ -574,7 +565,7 @@ export default function Avalokan() {
                           'Account (optional) — anonymous by default, upgrade any time',
                         ].map((item) => (
                           <li key={item} className="flex items-start gap-3">
-                            <Check size={15} className="mt-0.5 shrink-0" style={{ color: SAGE }} />
+                            <Check size={15} aria-hidden="true" className="mt-0.5 shrink-0" style={{ color: SAGE }} />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -582,10 +573,8 @@ export default function Avalokan() {
                     </div>
 
                     <div className="rounded-xl border border-border bg-surface/40 p-5">
-                      <p className="text-sm text-slate-300 font-medium mb-1">
-                        The name matters
-                      </p>
-                      <p className="text-sm text-slate-400 leading-relaxed">
+                      <p className="mb-1 text-small font-medium text-slate-300">The name matters</p>
+                      <p className="text-small text-slate-400">
                         <em>Avalokan</em> (अवलोकन) means observation — looking closely at something
                         with attention. That's the whole product thesis: look at Nepal properly,
                         then tell its stories well.
@@ -595,20 +584,17 @@ export default function Avalokan() {
                 )}
 
                 {activeTab === 'features' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {features.map((feat) => (
-                      <div
-                        key={feat.title}
-                        className="p-5 border border-border rounded-xl bg-surface/40 hover:border-border-strong hover:-translate-y-0.5 transition-all duration-300"
-                      >
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {FEATURES.map((feature) => (
+                      <Card key={feature.title} variant="subtle" interactive>
                         <div className="flex items-start gap-3">
-                          <feat.icon size={19} className="mt-0.5 shrink-0" style={{ color: SAGE }} />
+                          <feature.icon size={19} aria-hidden="true" className="mt-0.5 shrink-0" style={{ color: SAGE }} />
                           <div>
-                            <h4 className="text-paper font-semibold text-sm mb-1">{feat.title}</h4>
-                            <p className="text-slate-400 text-sm leading-relaxed">{feat.detail}</p>
+                            <h4 className="mb-1 text-h4 font-semibold text-paper">{feature.title}</h4>
+                            <p className="text-small text-slate-400">{feature.detail}</p>
                           </div>
                         </div>
-                      </div>
+                      </Card>
                     ))}
                   </div>
                 )}
@@ -616,30 +602,25 @@ export default function Avalokan() {
                 {activeTab === 'architecture' && (
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
-                        <Layers size={16} style={{ color: SAGE }} /> Layered by responsibility
+                      <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
+                        <Layers size={16} aria-hidden="true" style={{ color: SAGE }} /> Layered by responsibility
                       </h3>
                       <div className="space-y-3">
-                        {layers.map((layer) => (
-                          <div
-                            key={layer.name}
-                            className="p-4 border border-border rounded-xl bg-surface/40 hover:border-border-strong transition-colors"
-                          >
-                            <p className="text-sm text-paper font-semibold mb-1">{layer.name}</p>
-                            <p className="text-sm text-slate-400">{layer.detail}</p>
-                          </div>
+                        {LAYERS.map((layer) => (
+                          <Card key={layer.name} variant="subtle" padding="sm">
+                            <p className="mb-1 text-small font-semibold text-paper">{layer.name}</p>
+                            <p className="text-small text-slate-400">{layer.detail}</p>
+                          </Card>
                         ))}
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
-                        <Database size={16} style={{ color: SAGE }} /> Offline-first flow
+                      <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
+                        <Database size={16} aria-hidden="true" style={{ color: SAGE }} /> Offline-first flow
                       </h3>
-                      <div className="p-4 bg-black/50 border border-border rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
-                        <p>
-                          <span className="text-slate-400">UI</span> → ViewModel → Repository
-                        </p>
+                      <div className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400 sm:text-small">
+                        <p><span className="text-slate-400">UI</span> → ViewModel → Repository</p>
                         <p className="ml-4">├── <span style={{ color: SAGE }}>Room</span> <span className="text-slate-400">// cached reads, instant first paint</span></p>
                         <p className="ml-4">└── <span style={{ color: TERRA }}>Firestore</span> <span className="text-slate-400">// snapshot listeners merge into Room</span></p>
                         <p className="mt-3 text-slate-400">// listeners log errors and keep the last good UI state</p>
@@ -647,10 +628,10 @@ export default function Avalokan() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
-                        <Cloud size={16} style={{ color: SAGE }} /> Project structure
+                      <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
+                        <Cloud size={16} aria-hidden="true" style={{ color: SAGE }} /> Project structure
                       </h3>
-                      <div className="p-4 bg-black/50 border border-border rounded-xl font-mono text-[12px] sm:text-sm text-slate-400 leading-relaxed overflow-x-auto">
+                      <div className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400 sm:text-small">
                         <p>app/src/main/java/com/example/avalokan/</p>
                         <p className="ml-4">├── <span style={{ color: SAGE }}>MainActivity.kt</span> <span className="text-slate-400">// entry, edge-to-edge, theme</span></p>
                         <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApp.kt</span> <span className="text-slate-400">// scaffold, floating nav, NavHost</span></p>
@@ -671,37 +652,28 @@ export default function Avalokan() {
                 {activeTab === 'roadmap' && (
                   <div className="space-y-7">
                     <div className="space-y-3">
-                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
-                        <Check size={16} style={{ color: SAGE }} /> Shipped
+                      <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
+                        <Check size={16} aria-hidden="true" style={{ color: SAGE }} /> Shipped
                       </h3>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {roadmapDone.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-start gap-2.5 p-3 border border-border rounded-lg bg-surface/40"
-                          >
-                            <Check size={14} className="mt-0.5 shrink-0" style={{ color: SAGE }} />
-                            <span className="text-[13px] text-slate-400 leading-snug">{item}</span>
+                      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        {ROADMAP_DONE.map((item) => (
+                          <li key={item} className="flex items-start gap-2.5 rounded-lg border border-border bg-surface/40 p-3">
+                            <Check size={14} aria-hidden="true" className="mt-0.5 shrink-0" style={{ color: SAGE }} />
+                            <span className="text-small leading-snug text-slate-400">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     <div className="space-y-3">
-                      <h3 className="text-paper font-semibold text-sm flex items-center gap-2">
-                        <Sparkles size={16} style={{ color: TERRA }} /> Next up
+                      <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
+                        <Sparkles size={16} aria-hidden="true" style={{ color: TERRA }} /> Next up
                       </h3>
                       <ul className="space-y-2.5">
-                        {roadmapNext.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-start gap-3 p-3 border border-border rounded-lg"
-                          >
-                            <span
-                              className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                              style={{ backgroundColor: TERRA }}
-                            />
-                            <span className="text-[13px] text-slate-400 leading-snug">{item}</span>
+                        {ROADMAP_NEXT.map((item) => (
+                          <li key={item} className="flex items-start gap-3 rounded-lg border border-border p-3">
+                            <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: TERRA }} />
+                            <span className="text-small leading-snug text-slate-400">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -712,151 +684,67 @@ export default function Avalokan() {
             </div>
 
             {/* Screens */}
-            <div className="space-y-6">
-              <div className="flex items-end justify-between gap-4">
-                <h2 className="text-sm font-semibold uppercase tracking-widest" style={{ color: SAGE }}>
-                  Screens
-                </h2>
-                <p className="text-[11px] text-slate-400 text-right">
-                  Captured on a 1080×2400 emulator
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                {screens.map((screen) => (
-                  <button
-                    key={screen.label}
-                    type="button"
-                    onClick={() => setSelectedImage(screen)}
-                    className="group relative overflow-hidden rounded-xl border border-border bg-black text-left transition-all hover:border-accent-border"
-                  >
-                    <img
-                      src={screen.src}
-                      alt={`${screen.label} screen`}
-                      className="h-52 sm:h-64 w-full object-cover object-top opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-3">
-                      <p className="text-[13px] font-semibold text-paper">{screen.label}</p>
-                      <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">{screen.desc}</p>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <ScreenshotGallery
+              screenshots={SCREENS}
+              onSelect={setSelectedImage}
+              columns={4}
+              title="Screens"
+              caption="Captured on a 1080×2400 emulator"
+            />
 
             {/* Design system */}
-            <div className="space-y-5">
-              <h2 className="text-sm font-semibold uppercase tracking-widest" style={{ color: SAGE }}>
+            <section className="space-y-5">
+              <Eyebrow as="h2" tone="accent" dot={false} rule={false}>
                 Design system
-              </h2>
+              </Eyebrow>
               <div className="flex flex-wrap gap-2">
-                {palette.map((c) => (
-                  <div
-                    key={c.hex}
-                    className="flex items-center gap-2.5 rounded-lg border border-border bg-surface/40 px-3 py-2"
-                  >
-                    <span
-                      className="h-6 w-6 rounded-md border border-border-strong"
-                      style={{ backgroundColor: c.hex }}
-                    />
-                    <span className="text-xs text-slate-300">{c.name}</span>
-                    <span className="text-[10px] font-mono text-slate-400">{c.hex}</span>
+                {PALETTE.map((color) => (
+                  <div key={color.hex} className="flex items-center gap-2.5 rounded-lg border border-border bg-surface/40 px-3 py-2">
+                    <span aria-hidden="true" className="h-6 w-6 rounded-md border border-border-strong" style={{ backgroundColor: color.hex }} />
+                    <span className="text-small text-slate-300">{color.name}</span>
+                    <span className="font-mono text-label tracking-normal text-slate-400">{color.hex}</span>
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+              <div className="grid grid-cols-1 gap-3 text-small sm:grid-cols-3">
                 {[
                   { icon: Palette, k: 'Typography', v: 'Montserrat headings, Inter body' },
                   { icon: Layers, k: 'Layout', v: '8dp grid, floating bottom bar' },
                   { icon: Smartphone, k: 'Window', v: 'Edge-to-edge with correct insets' },
                 ].map((item) => (
-                  <div
-                    key={item.k}
-                    className="rounded-xl border border-border bg-surface/40 p-4"
-                  >
-                    <item.icon size={16} style={{ color: SAGE }} className="mb-2" />
-                    <p className="text-xs uppercase tracking-widest text-slate-400 mb-1">{item.k}</p>
-                    <p className="text-[13px] text-slate-300">{item.v}</p>
-                  </div>
+                  <Card key={item.k} variant="subtle" padding="md">
+                    <item.icon size={16} aria-hidden="true" style={{ color: SAGE }} className="mb-2" />
+                    <p className="mb-1 font-mono text-label uppercase text-slate-400">{item.k}</p>
+                    <p className="text-small text-slate-300">{item.v}</p>
+                  </Card>
                 ))}
               </div>
-            </div>
+            </section>
           </div>
 
           {/* ═══ Sidebar ═══ */}
-          <aside className="lg:col-span-1 space-y-6">
-            {/* Specs */}
-            <div className="p-6 border border-accent-border rounded-xl bg-surface/40">
-              <h3 className="text-sm font-semibold text-paper mb-6">Technical stack</h3>
-              <div className="space-y-4">
-                {specs.map((spec) => (
-                  <div
-                    key={spec.label}
-                    className="border-b border-border pb-3 last:border-0 last:pb-0"
-                  >
-                    <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">
-                      {spec.label}
-                    </p>
-                    <p className="text-sm text-slate-300 font-medium">{spec.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <aside aria-label="Project details" className="space-y-6 lg:col-span-1">
+            <AsideCard title="Technical stack" className="border-accent-border">
+              <SpecList items={SPECS} />
+            </AsideCard>
 
-            {/* Tags */}
-            <div className="p-6 border border-border rounded-xl bg-surface/40">
-              <h3 className="text-sm font-semibold text-paper mb-4">Built with</h3>
-              <div className="flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border-strong bg-surface/50 px-2.5 py-1 text-xs font-medium text-slate-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <AsideCard title="Built with">
+              <TagList items={TECH_STACK} />
+            </AsideCard>
 
-            {/* Developer */}
-            <div className="p-6 border border-border rounded-xl bg-surface/40">
-              <h3 className="text-sm font-semibold text-paper mb-4">Developer & source</h3>
-              <div className="space-y-3">
-                {developer.map((dev) => (
-                  <div key={dev.label}>
-                    <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">
-                      {dev.label}
-                    </p>
-                    {dev.href ? (
-                      <a
-                        href={dev.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium break-words transition-colors hover:text-paper"
-                        style={{ color: SAGE }}
-                      >
-                        {dev.value}
-                      </a>
-                    ) : (
-                      <p className="text-sm font-medium text-slate-300 break-words">{dev.value}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <AsideCard title="Developer & source">
+              <SpecList items={DEVELOPER} />
+            </AsideCard>
 
-            {/* CTAs */}
             <a
               href={APK_URL}
               className="flex flex-col gap-1 rounded-xl p-4 transition-all active:scale-[0.97]"
               style={{ backgroundColor: 'var(--p-accent)', color: 'var(--p-ink)' }}
             >
-              <span className="flex items-center justify-center gap-2 text-sm font-bold">
-                <Download size={16} /> Download Avalokan v1.0.0
+              <span className="flex items-center justify-center gap-2 text-small font-bold">
+                <Download size={16} aria-hidden="true" /> Download Avalokan v1.0.0
               </span>
-              <span className="text-center text-[11px] font-medium text-ink">
+              <span className="text-center text-label font-medium tracking-normal text-ink">
                 Direct APK · 20 MB · Android 7.0+
               </span>
             </a>
@@ -865,90 +753,82 @@ export default function Avalokan() {
               href={RELEASE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong group"
+              className="group flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong"
             >
-              <span className="text-sm font-medium text-slate-300">Release notes</span>
-              <ArrowUpRight
-                size={16}
-                className="text-slate-400 transition-colors group-hover:text-paper"
-              />
+              <span className="text-small font-medium text-slate-300">Release notes</span>
+              <ArrowUpRight size={16} aria-hidden="true" className="text-slate-400 transition-colors group-hover:text-paper" />
             </a>
 
             <a
               href={REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl border border-border-strong bg-surface/50 p-4 text-sm font-semibold text-slate-200 transition-all hover:border-border-strong hover:text-paper active:scale-[0.97]"
+              className="flex items-center justify-center gap-2 rounded-xl border border-border-strong bg-surface/50 p-4 text-small font-semibold text-slate-200 transition-all hover:border-border-strong hover:text-paper active:scale-[0.97]"
             >
-              <Github size={16} /> Open on GitHub
+              <Github size={16} aria-hidden="true" /> Open on GitHub
             </a>
 
             <a
               href={FILM_URL}
               download
-              className="flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong group"
+              className="group flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong"
             >
-              <span className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                <Video size={15} style={{ color: TERRA }} /> Download launch film
+              <span className="flex items-center gap-2 text-small font-medium text-slate-300">
+                <Video size={15} aria-hidden="true" style={{ color: TERRA }} /> Download launch film
               </span>
-              <ArrowUpRight
-                size={16}
-                className="text-slate-400 transition-colors group-hover:text-paper"
-              />
+              <ArrowUpRight size={16} aria-hidden="true" className="text-slate-400 transition-colors group-hover:text-paper" />
             </a>
 
             <a
               href={`${REPO_URL}#readme`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong group"
+              className="group flex items-center justify-between rounded-xl border border-border bg-surface/40 p-4 transition-all hover:border-border-strong"
             >
-              <span className="text-sm font-medium text-slate-300">Read the full README</span>
-              <ArrowUpRight
-                size={16}
-                className="text-slate-400 transition-colors group-hover:text-paper"
-              />
+              <span className="text-small font-medium text-slate-300">Read the full README</span>
+              <ArrowUpRight size={16} aria-hidden="true" className="text-slate-400 transition-colors group-hover:text-paper" />
             </a>
           </aside>
         </div>
 
         {/* ═══ Related ═══ */}
         <section className="mt-16 border-t border-border pt-10">
-          <div className="flex items-end justify-between gap-4 mb-6">
+          <div className="mb-6 flex items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] font-mono uppercase tracking-[0.3em] text-slate-400 mb-2">
+              <Eyebrow wide dot={false} rule={false} className="mb-2">
                 Keep exploring
-              </p>
-              <h2 className="text-xl font-semibold text-paper tracking-tight">Related projects</h2>
+              </Eyebrow>
+              <h2 className="text-h3 font-semibold tracking-tight text-paper">Related projects</h2>
             </div>
             <Link
               to="/projects"
-              className="hidden sm:inline-flex items-center gap-1 text-sm font-medium transition-colors hover:gap-2"
+              className="hidden items-center gap-1 text-small font-medium transition-colors hover:gap-2 sm:inline-flex"
               style={{ color: SAGE }}
             >
-              All projects <ArrowUpRight size={13} />
+              All projects <ArrowUpRight size={13} aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {related.map((item) => (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {RELATED.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="group rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-border-strong hover:-translate-y-0.5"
+                className="group rounded-xl border border-border bg-surface/40 p-5 transition-all hover:border-border-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <p className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-1.5">
+                    <p className="mb-1.5 font-mono text-label uppercase tracking-widest text-slate-400">
                       {item.tag}
                     </p>
-                    <h3 className="text-paper font-semibold mb-1.5 group-hover:text-accent-soft transition-colors">
+                    <h3 className="mb-1.5 font-semibold text-paper transition-colors group-hover:text-accent-soft">
                       {item.title}
                     </h3>
-                    <p className="text-[13px] text-slate-400 leading-relaxed">{item.blurb}</p>
+                    <p className="text-small leading-relaxed text-slate-400">{item.blurb}</p>
                   </div>
                   <ArrowUpRight
                     size={16}
+                    aria-hidden="true"
                     className="mt-1 shrink-0 text-slate-400 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-paper"
                   />
                 </div>
@@ -958,20 +838,16 @@ export default function Avalokan() {
         </section>
 
         {/* Credits */}
-        <p className="mt-10 text-[11px] text-slate-400 leading-relaxed">
+        <p className="mt-10 text-label leading-relaxed tracking-normal text-slate-400">
           Launch film music: <em>Happy Beats Business Moves, Vol. 12</em> by Sascha Ende
           (ende.app), licensed under CC BY 4.0.
         </p>
-      </div>
+      </Container>
 
       {/* ═══ Lightbox ═══ */}
       {selectedImage && (
-        <Lightbox
-          image={selectedImage}
-          onClose={() => setSelectedImage(null)}
-        />
+        <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
       )}
-
     </div>
   )
 }

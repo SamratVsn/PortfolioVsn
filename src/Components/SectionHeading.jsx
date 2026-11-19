@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Eyebrow from "./ui/Eyebrow";
 
 export default function SectionHeading({
   eyebrow,
@@ -15,25 +16,12 @@ export default function SectionHeading({
 
   const inner = (
     <div className={`flex flex-col ${alignCls} mb-10 sm:mb-12`}>
-      {eyebrow && (
-        <div className="flex items-center gap-2.5 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
-          <span className="w-8 h-px bg-accent/25" />
-          <span className="text-[11px] uppercase tracking-[0.14em] text-slate-400 font-medium font-mono">
-            {eyebrow}
-          </span>
-        </div>
-      )}
-      <Tag
-        id={id}
-        className="text-[1.6rem] sm:text-[2rem] font-bold text-paper tracking-[-0.03em] leading-[1.15] mb-2.5"
-      >
+      {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
+      <Tag id={id} className="mb-2.5 text-h2 font-bold text-paper">
         {title}
       </Tag>
       {subtitle && (
-        <p className="text-slate-400/80 max-w-lg text-[14px] sm:text-[15px] leading-relaxed">
-          {subtitle}
-        </p>
+        <p className="max-w-lg text-body text-slate-400">{subtitle}</p>
       )}
     </div>
   );

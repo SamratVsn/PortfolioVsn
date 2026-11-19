@@ -86,7 +86,7 @@ export default function Lightbox({ image, onClose }) {
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4 border-b border-border pb-3">
-          <h2 id={titleId} className="text-sm font-semibold text-paper sm:text-base">
+          <h2 id={titleId} className="text-h4 font-semibold text-paper">
             {label}
           </h2>
           <button
@@ -108,7 +108,7 @@ export default function Lightbox({ image, onClose }) {
         />
 
         {image.desc && (
-          <p className="text-sm leading-relaxed text-slate-400">{image.desc}</p>
+          <p className="text-small text-slate-400">{image.desc}</p>
         )}
       </div>
     </div>,

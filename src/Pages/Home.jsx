@@ -6,6 +6,12 @@ import { SITE } from "../Components/seoHead";
 import Footer from "../Components/Footer";
 import SectionHeading from "../Components/SectionHeading";
 import TestimonialsSection from "../Components/TestimonialsSection";
+import Section from "../Components/ui/Section";
+import Container from "../Components/ui/Container";
+import Card from "../Components/ui/Card";
+import Button from "../Components/ui/Button";
+import StatusPill from "../Components/ui/StatusPill";
+import Tag from "../Components/ui/Tag";
 import { FaGithub } from "react-icons/fa";
 import { ArrowUpRight, ArrowRight, Download, Play } from "lucide-react";
 import Hero from "../Components/Hero";
@@ -210,11 +216,12 @@ function Home() {
         {/* ═══════════════════════════════════════════════════════════════════
             FEATURED APPLICATIONS
             ═══════════════════════════════════════════════════════════════════ */}
-        <section
+        <Section
+          divided
+          spacing="loose"
           aria-labelledby="featured-heading"
-          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
         >
-          <div className="mx-auto max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem]">
+          <Container>
             <div className="mb-10 flex items-end justify-between gap-6">
               <SectionHeading
                 id="featured-heading"
@@ -224,7 +231,7 @@ function Home() {
               />
               <Link
                 to="/projects"
-                className="mb-10 hidden shrink-0 items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:inline-flex"
+                className="mb-10 hidden shrink-0 items-center gap-1 text-small font-medium text-slate-400 transition-colors hover:text-sand sm:inline-flex"
               >
                 All projects <ArrowUpRight size={13} aria-hidden="true" />
               </Link>
@@ -232,18 +239,14 @@ function Home() {
 
             {/* Avalokan spotlight */}
             {avalokan && (
-              <div className="overflow-hidden rounded-xl border border-accent-border bg-surface">
+              <Card variant="accent" padding="none" className="overflow-hidden">
                 <div className="grid gap-6 p-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-8">
                   <div className="min-w-0">
-                    <p className="inline-flex items-center gap-1.5 rounded-full border border-accent-border bg-accent-muted px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.12em] text-accent-soft">
-                      <span
-                        aria-hidden="true"
-                        className="h-1 w-1 rounded-full bg-accent"
-                      />
+                    <StatusPill tone="accent" dot>
                       {avalokan.status}
-                    </p>
+                    </StatusPill>
 
-                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.02em] text-paper sm:text-3xl">
+                    <h3 className="mt-4 text-h3 font-semibold text-paper">
                       <Link
                         to={avalokan.path}
                         className="rounded transition-colors hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
@@ -251,38 +254,30 @@ function Home() {
                         {avalokan.title}
                       </Link>
                     </h3>
-                    <p className="mt-1 text-[13px] font-medium text-sand">
+                    <p className="mt-1 text-small font-medium text-sand">
                       Discover Nepal. Explore its heritage. Experience its
                       stories.
                     </p>
-                    <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-slate-400">
+                    <p className="mt-3 max-w-xl text-small leading-relaxed text-slate-400">
                       {avalokan.solution}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {["Kotlin", "Jetpack Compose", "Firebase", "Room"].map(
                         (tag) => (
-                          <span
-                            key={tag}
-                            className="rounded border border-border bg-canvas/40 px-2 py-0.5 text-[10px] font-medium text-slate-400"
-                          >
-                            {tag}
-                          </span>
+                          <Tag key={tag}>{tag}</Tag>
                         )
                       )}
                     </div>
 
                     <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-                      <Link
-                        to={avalokan.path}
-                        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-[13px] font-semibold text-ink transition-colors hover:bg-accent-hover"
-                      >
+                      <Button to={avalokan.path} size="sm">
                         <Play size={13} fill="currentColor" aria-hidden="true" />
                         Open case study
-                      </Link>
+                      </Button>
                       <a
                         href={APK_URL}
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-300 transition-colors hover:text-paper"
+                        className="inline-flex items-center gap-1.5 text-small font-medium text-slate-300 transition-colors hover:text-paper"
                       >
                         <Download size={13} aria-hidden="true" /> Download APK
                       </a>
@@ -290,11 +285,11 @@ function Home() {
                         href={avalokan.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-400 transition-colors hover:text-paper"
+                        className="inline-flex items-center gap-1.5 text-small font-medium text-slate-400 transition-colors hover:text-paper"
                       >
                         <FaGithub size={13} aria-hidden="true" /> Source
                       </a>
-                      <span className="font-mono text-[11px] text-slate-500">
+                      <span className="font-mono text-label text-slate-500">
                         v1.0.0 · 22s launch film inside
                       </span>
                     </div>
@@ -309,7 +304,7 @@ function Home() {
                     />
                   </div>
                 </div>
-              </div>
+              </Card>
             )}
 
             {/* Supporting applications */}
@@ -317,13 +312,16 @@ function Home() {
               {supporting.map((project, index) => {
                 const screenshot = screenshots[project.path];
                 return (
-                  <motion.article
+                  <Card
+                    as={motion.article}
                     key={project.id}
                     initial={reduceMotion ? false : { opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.35, delay: index * 0.05 }}
-                    className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-accent-border focus-within:border-accent-border"
+                    padding="none"
+                    interactive
+                    className="group relative flex flex-col overflow-hidden"
                   >
                     <Link
                       to={project.path}
@@ -346,7 +344,7 @@ function Home() {
                     )}
                     <div className="flex flex-1 flex-col p-5">
                       <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-[15px] font-semibold text-paper transition-colors group-hover:text-accent-soft">
+                        <h3 className="text-body font-semibold text-paper transition-colors group-hover:text-accent-soft">
                           {project.title}
                         </h3>
                         <ArrowUpRight
@@ -355,33 +353,33 @@ function Home() {
                           className="mt-0.5 shrink-0 text-slate-500 transition-colors group-hover:text-accent-soft"
                         />
                       </div>
-                      <p className="mt-2 line-clamp-3 text-[12.5px] leading-relaxed text-slate-400">
+                      <p className="mt-2 line-clamp-3 text-small leading-relaxed text-slate-400">
                         {project.solution}
                       </p>
-                      <p className="mt-auto pt-4 text-[10.5px] font-medium uppercase tracking-[0.1em] text-slate-500">
+                      <p className="mt-auto pt-4 text-label font-medium uppercase tracking-[0.1em] text-slate-500">
                         {project.tags.join(" · ")}
                       </p>
                     </div>
-                  </motion.article>
+                  </Card>
                 );
               })}
             </div>
 
             {/* Toolkit — the stack behind the work, kept typographic */}
             <div className="mt-12 border-t border-border pt-8">
-              <h3 className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-slate-500">
+              <h3 className="font-mono text-label uppercase tracking-[0.16em] text-slate-500">
                 Toolkit
               </h3>
               <div className="mt-5 grid gap-6 sm:grid-cols-3">
                 {toolkit.map((item) => (
                   <div key={item.title}>
-                    <h4 className="text-[13px] font-semibold text-paper">
+                    <h4 className="text-small font-semibold text-paper">
                       {item.title}
                     </h4>
-                    <p className="mt-1 text-[12.5px] leading-relaxed text-slate-400">
+                    <p className="mt-1 text-small leading-relaxed text-slate-400">
                       {item.desc}
                     </p>
-                    <p className="mt-2 font-mono text-[10.5px] leading-relaxed text-slate-500">
+                    <p className="mt-2 font-mono text-label leading-relaxed text-slate-500">
                       {item.tags.join(" · ")}
                     </p>
                   </div>
@@ -391,21 +389,22 @@ function Home() {
 
             <Link
               to="/projects"
-              className="mt-8 inline-flex items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:hidden"
+              className="mt-8 inline-flex items-center gap-1 text-small font-medium text-slate-400 transition-colors hover:text-sand sm:hidden"
             >
               All projects <ArrowUpRight size={13} aria-hidden="true" />
             </Link>
-          </div>
-        </section>
+          </Container>
+        </Section>
 
         {/* ═══════════════════════════════════════════════════════════════════
             HOW I BUILD
             ═══════════════════════════════════════════════════════════════════ */}
-        <section
+        <Section
+          divided
+          spacing="loose"
           aria-labelledby="approach-heading"
-          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
         >
-          <div className="mx-auto max-w-4xl xl:max-w-5xl">
+          <Container variant="narrow">
             <SectionHeading
               id="approach-heading"
               eyebrow="Approach"
@@ -422,14 +421,14 @@ function Home() {
                   className="group"
                 >
                   <div className="flex flex-col gap-3 border-b border-border py-6 last:border-b-0 sm:flex-row sm:items-start sm:gap-8">
-                    <span className="shrink-0 pt-0.5 font-mono text-[12px] tabular-nums text-slate-600 transition-colors group-hover:text-accent-soft">
+                    <span className="shrink-0 pt-0.5 font-mono text-small tabular-nums text-slate-600 transition-colors group-hover:text-accent-soft">
                       {item.number}
                     </span>
                     <div>
-                      <h3 className="mb-1.5 text-[15px] font-medium text-paper">
+                      <h3 className="mb-1.5 text-body font-medium text-paper">
                         {item.title}
                       </h3>
-                      <p className="max-w-xl text-[13px] leading-relaxed text-slate-400">
+                      <p className="max-w-xl text-small leading-relaxed text-slate-400">
                         {item.desc}
                       </p>
                     </div>
@@ -437,17 +436,18 @@ function Home() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
+          </Container>
+        </Section>
 
         {/* ═══════════════════════════════════════════════════════════════════
             ANDROID JOURNEY
             ═══════════════════════════════════════════════════════════════════ */}
-        <section
+        <Section
+          divided
+          spacing="loose"
           aria-labelledby="journey-heading"
-          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
         >
-          <div className="mx-auto max-w-4xl xl:max-w-5xl">
+          <Container variant="narrow">
             <SectionHeading
               id="journey-heading"
               eyebrow="Journey"
@@ -483,43 +483,44 @@ function Home() {
                   <div className="pb-7 pt-0.5">
                     <div className="mb-1 flex items-center gap-3">
                       <span
-                        className={`text-[11px] font-medium tabular-nums ${
+                        className={`text-label font-medium tabular-nums ${
                           item.active ? "text-accent-soft" : "text-slate-400"
                         }`}
                       >
                         {item.period}
                       </span>
                       {item.active && (
-                        <span className="rounded border border-accent-border px-1.5 py-0.5 text-[9px] font-medium uppercase leading-none tracking-wider text-accent-soft">
+                        <span className="rounded border border-accent-border px-1.5 py-0.5 text-label font-medium uppercase leading-none tracking-wider text-accent-soft">
                           Current
                         </span>
                       )}
                     </div>
                     <h3
-                      className={`mb-1 text-sm font-medium leading-snug sm:text-base ${
+                      className={`mb-1 text-body font-medium leading-snug ${
                         item.active ? "text-paper" : "text-slate-300"
                       }`}
                     >
                       {item.title}
                     </h3>
-                    <p className="max-w-lg text-[13px] leading-relaxed text-slate-400">
+                    <p className="max-w-lg text-small leading-relaxed text-slate-400">
                       {item.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
+          </Container>
+        </Section>
 
         {/* ═══════════════════════════════════════════════════════════════════
             WRITING
             ═══════════════════════════════════════════════════════════════════ */}
-        <section
+        <Section
+          divided
+          spacing="loose"
           aria-labelledby="writing-heading"
-          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
         >
-          <div className="mx-auto max-w-4xl xl:max-w-5xl">
+          <Container variant="narrow">
             <div className="mb-10 flex items-end justify-between gap-6">
               <SectionHeading
                 id="writing-heading"
@@ -531,7 +532,7 @@ function Home() {
                 href="https://blog.samratparajuli0.com.np/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mb-10 hidden shrink-0 items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:inline-flex"
+                className="mb-10 hidden shrink-0 items-center gap-1 text-small font-medium text-slate-400 transition-colors hover:text-sand sm:inline-flex"
               >
                 All blogs <ArrowUpRight size={13} aria-hidden="true" />
               </a>
@@ -551,16 +552,16 @@ function Home() {
                   className="group -mx-3 flex items-start gap-5 rounded-lg border-b border-border px-3 py-5 transition-colors last:border-b-0 hover:bg-surface/40 sm:gap-8"
                 >
                   <div className="w-16 shrink-0 pt-0.5 sm:w-20">
-                    <span className="text-[11px] font-medium uppercase tabular-nums tracking-wider text-slate-500">
+                    <span className="text-label font-medium uppercase tabular-nums tracking-wider text-slate-500">
                       {note.date}
                     </span>
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <h3 className="mb-1.5 text-[15px] font-medium leading-snug text-paper transition-colors group-hover:text-accent-soft sm:text-base">
+                    <h3 className="mb-1.5 text-body font-medium leading-snug text-paper transition-colors group-hover:text-accent-soft">
                       {note.title}
                     </h3>
-                    <span className="text-[10px] font-medium uppercase tracking-wider text-accent-soft/70">
+                    <span className="text-label font-medium uppercase tracking-wider text-accent-soft/70">
                       {note.category}
                     </span>
                   </div>
@@ -576,55 +577,52 @@ function Home() {
               href="https://blog.samratparajuli0.com.np/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-1 text-[13px] font-medium text-slate-400 transition-colors hover:text-sand sm:hidden"
+              className="mt-6 inline-flex items-center gap-1 text-small font-medium text-slate-400 transition-colors hover:text-sand sm:hidden"
             >
               All blogs <ArrowUpRight size={13} aria-hidden="true" />
             </a>
-          </div>
-        </section>
+          </Container>
+        </Section>
 
         <TestimonialsSection testimonials={testimonials} />
 
         {/* ═══════════════════════════════════════════════════════════════════
             CONTACT CTA
             ═══════════════════════════════════════════════════════════════════ */}
-        <section
+        <Section
+          divided
+          spacing="loose"
           aria-labelledby="contact-cta-heading"
-          className="border-t border-border px-5 py-20 sm:px-6 sm:py-24"
         >
-          <div className="mx-auto max-w-3xl text-center">
+          <Container variant="narrow" className="text-center">
             <motion.div {...sectionMotion}>
               <h2
                 id="contact-cta-heading"
-                className="mb-4 text-2xl font-semibold tracking-[-0.02em] text-paper sm:text-3xl lg:text-4xl"
+                className="mb-4 text-h2 font-semibold text-paper"
               >
                 Have something worth building?
               </h2>
-              <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-slate-400 sm:text-base">
+              <p className="mx-auto mb-8 max-w-md text-body text-slate-400">
                 I&apos;m open to product engineering and Android roles, and to
                 conversations about shipping software that has to work outside
                 a stable Wi-Fi connection.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-[13.5px] font-semibold text-ink transition-colors hover:bg-accent-hover"
-                >
+                <Button to="/contact" size="md">
                   Get in touch <ArrowUpRight size={15} aria-hidden="true" />
-                </Link>
-                <a
+                </Button>
+                <Button
                   href="https://github.com/SamratVsn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-strong px-5 py-3 text-[13.5px] font-medium text-slate-300 transition-colors hover:border-accent-border hover:text-paper"
+                  variant="secondary"
+                  size="md"
                 >
                   <FaGithub size={15} aria-hidden="true" />
                   View GitHub
-                </a>
+                </Button>
               </div>
             </motion.div>
-          </div>
-        </section>
+          </Container>
+        </Section>
       </main>
       <Footer />
     </div>
