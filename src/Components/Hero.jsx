@@ -297,7 +297,7 @@ export default function Hero() {
     >
       <HeroBackdrop />
 
-      <Container padded={false} className="relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-10 xl:gap-14">
+      <Container className="relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:gap-10 xl:gap-14">
         {/* ── Introduction ─────────────────────────────────────────────── */}
         <div className="hero-enter min-w-0 lg:pb-6">
           <p className="flex items-center gap-3 font-mono text-label uppercase tracking-[0.22em] text-sand">
