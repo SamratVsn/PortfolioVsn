@@ -105,7 +105,7 @@ const FEATURES = [
     icon: User,
     title: 'Your profile',
     detail:
-      'Display name, bio, avatar, saved places, and activity stats. Edits sync to users/{uid} when signed in.',
+      'Display name, bio, avatar, saved places, and visited/saved/favourite counts. Name, bio, and a remote avatar URL sync to users/{uid} when signed in; saved places and counts stay on the device.',
   },
   {
     icon: Lock,
