@@ -37,13 +37,8 @@ import DecisionList from './case-study/DecisionList'
 import DataModelTable from './case-study/DataModelTable'
 import { AsideCard, SpecList, TagList } from './case-study/CaseStudyAside'
 import { getProject } from '../data/projects'
-
-import AvalokanHome from '../assets/Avalokan/home.png'
-import AvalokanDiscover from '../assets/Avalokan/discover.png'
-import AvalokanPlace from '../assets/Avalokan/place-detail.png'
-import AvalokanEvents from '../assets/Avalokan/events.png'
-
-import AvalokanLogo from '../assets/Avalokan/logo.jpeg'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const REPO_URL = 'https://github.com/SamratVsn/Avalokan'
 const APK_URL = 'https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk'
@@ -135,22 +130,22 @@ const FEATURES = [
 
 const SCREENS = [
   {
-    src: AvalokanHome,
+    src: image('avalokan-home'),
     label: 'Home',
     desc: 'Greeting, Story of the Day, Historical Gems, and event discovery.',
   },
   {
-    src: AvalokanDiscover,
+    src: image('avalokan-discover'),
     label: 'Discover',
     desc: 'Search, category chips, heritage cards, and save toggles.',
   },
   {
-    src: AvalokanPlace,
+    src: image('avalokan-place-detail'),
     label: 'Place details',
     desc: 'Bhaktapur Durbar Square with facts, story, and Save to Collection.',
   },
   {
-    src: AvalokanEvents,
+    src: image('avalokan-events'),
     label: 'Events',
     desc: 'Featured Tihar festival card and upcoming events with booking.',
   },
@@ -422,9 +417,10 @@ export default function Avalokan() {
                 className="relative mx-auto max-w-[300px] lg:max-w-[360px]"
               >
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-border-strong bg-paper">
-                  <img
-                    src={AvalokanLogo}
+                  <ResponsiveImage
+                    image={image('avalokan-logo')}
                     alt="Avalokan logo — Nepal Heritage Explorer"
+                    sizes="(min-width: 1024px) 360px, 300px"
                     className="h-auto w-full object-contain"
                     loading="eager"
                   />
@@ -479,7 +475,7 @@ export default function Avalokan() {
                   poster="/media/avalokan-poster.jpg"
                   controls
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   className="block aspect-[9/16] w-full bg-black object-cover"
                   aria-label="Avalokan 22-second launch film"
                 >
@@ -623,32 +619,33 @@ export default function Avalokan() {
                       <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
                         <Database size={16} aria-hidden="true" style={{ color: SAGE }} /> Offline-first flow
                       </h3>
-                      <div className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400 sm:text-small">
-                        <p><span className="text-slate-400">UI</span> → ViewModel → Repository</p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>Room</span> <span className="text-slate-400">// cached reads, instant first paint</span></p>
-                        <p className="ml-4">└── <span style={{ color: TERRA }}>Firestore</span> <span className="text-slate-400">// snapshot listeners merge into Room</span></p>
-                        <p className="mt-3 text-slate-400">// listeners log errors and keep the last good UI state</p>
-                      </div>
+                      <pre className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400 sm:text-small">
+                        <code>{`UI → ViewModel → Repository
+├── Room       // cached reads, instant first paint
+└── Firestore  // snapshot listeners merge into Room
+
+// listeners log errors and keep the last good UI state`}</code>
+                      </pre>
                     </div>
 
                     <div className="space-y-4">
                       <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
                         <Cloud size={16} aria-hidden="true" style={{ color: SAGE }} /> Project structure
                       </h3>
-                      <div className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400 sm:text-small">
-                        <p>app/src/main/java/com/example/avalokan/</p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>MainActivity.kt</span> <span className="text-slate-400">// entry, edge-to-edge, theme</span></p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApp.kt</span> <span className="text-slate-400">// scaffold, floating nav, NavHost</span></p>
-                        <p className="ml-4">├── <span style={{ color: SAGE }}>AvalokanApplication.kt</span> <span className="text-slate-400">// Hilt + anonymous auth bootstrap</span></p>
-                        <p className="ml-4">├── <span style={{ color: TERRA }}>data/</span></p>
-                        <p className="ml-8">│   ├── di/ · local/ · auth/</p>
-                        <p className="ml-8">│   ├── place/ · event/ · story/ · user/</p>
-                        <p className="ml-8">│   └── AvalokanDatabase.kt</p>
-                        <p className="ml-4">└── <span style={{ color: TERRA }}>ui/</span></p>
-                        <p className="ml-8">    ├── home/ · discover/ · events/ · profile/</p>
-                        <p className="ml-8">    ├── settings/ · auth/ · detail/</p>
-                        <p className="ml-8">    ├── components/ · navigation/ · theme/</p>
-                      </div>
+                      <pre className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-label tracking-normal leading-relaxed text-slate-400 sm:text-small">
+                        <code>{`app/src/main/java/com/example/avalokan/
+├── MainActivity.kt          // entry, edge-to-edge, theme
+├── AvalokanApp.kt           // scaffold, floating nav, NavHost
+├── AvalokanApplication.kt   // Hilt + anonymous auth bootstrap
+├── data/
+│   ├── di/ · local/ · auth/
+│   ├── place/ · event/ · story/ · user/
+│   └── AvalokanDatabase.kt
+└── ui/
+    ├── home/ · discover/ · events/ · profile/
+    ├── settings/ · auth/ · detail/
+    └── components/ · navigation/ · theme/`}</code>
+                      </pre>
                     </div>
                   </div>
                 )}

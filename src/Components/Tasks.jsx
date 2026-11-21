@@ -30,14 +30,8 @@ import { AsideCard, SpecList, BulletList, TagList } from './case-study/CaseStudy
 import { getProject } from '../data/projects'
 import Card from './ui/Card'
 import Button from './ui/Button'
-import ToDoHome from '../assets/ToDo/Home.png'
-import ToDoAdd from '../assets/ToDo/Add.png'
-import ToDoDetails from '../assets/ToDo/Details.png'
-import ToDoFocus from '../assets/ToDo/Focus.png'
-import ToDoCategories from '../assets/ToDo/Categories.png'
-import ToDoProfile from '../assets/ToDo/Profile.png'
-import ToDoSettings from '../assets/ToDo/Settings.png'
-import ToDoApp from '../assets/ToDo/Home.png'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const RELEASE_URL = 'https://github.com/SamratVsn/Tasks/releases/latest/download/Tasks.apk'
 const REPO_URL = 'https://github.com/SamratVsn/Tasks'
@@ -72,13 +66,13 @@ const FEATURES = [
 ]
 
 const SCREENSHOTS = [
-  { src: ToDoHome, label: 'Home', desc: 'Main task list with swipe-to-delete and smart grouping.' },
-  { src: ToDoFocus, label: 'Focus', desc: 'Pomodoro-style timer with customizable durations.' },
-  { src: ToDoCategories, label: 'Categories', desc: 'Organize tasks with pre-built and custom categories.' },
-  { src: ToDoProfile, label: 'Profile', desc: 'Live stats and personalized motivation.' },
-  { src: ToDoSettings, label: 'Settings', desc: 'Theme, reminders, and data management options.' },
-  { src: ToDoAdd, label: 'Add Task', desc: 'Creating a new task entry with category selection.' },
-  { src: ToDoDetails, label: 'Task Details', desc: 'Full description and status view.' },
+  { src: image('todo-home'), label: 'Home', desc: 'Main task list with swipe-to-delete and smart grouping.' },
+  { src: image('todo-focus'), label: 'Focus', desc: 'Pomodoro-style timer with customizable durations.' },
+  { src: image('todo-categories'), label: 'Categories', desc: 'Organize tasks with pre-built and custom categories.' },
+  { src: image('todo-profile'), label: 'Profile', desc: 'Live stats and personalized motivation.' },
+  { src: image('todo-settings'), label: 'Settings', desc: 'Theme, reminders, and data management options.' },
+  { src: image('todo-add'), label: 'Add Task', desc: 'Creating a new task entry with category selection.' },
+  { src: image('todo-details'), label: 'Task Details', desc: 'Full description and status view.' },
 ]
 
 const LAYERS = [
@@ -221,14 +215,15 @@ function Tasks() {
           <button
             type="button"
             onClick={() =>
-              setSelectedImage({ src: ToDoApp, label: 'Tasks', desc: 'A sleek, modern task management app built with Kotlin & Jetpack Compose.' })
+              setSelectedImage({ src: image('todo-home'), label: 'Tasks', desc: 'A sleek, modern task management app built with Kotlin & Jetpack Compose.' })
             }
             aria-label="Open Tasks app screenshot"
             className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
           >
-            <img
-              src={ToDoApp}
+            <ResponsiveImage
+              image={image('todo-home')}
               alt="Tasks app"
+              sizes="(min-width: 1024px) 720px, 100vw"
               className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
               loading="lazy"
             />
@@ -322,17 +317,17 @@ function Tasks() {
                   <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
                     <FolderTree size={16} aria-hidden="true" className="text-accent-text" /> Project Structure
                   </h3>
-                  <div className="rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
-                    <p>app/</p>
-                    <p className="ml-4">├── <span className="text-accent-text">data/</span> <span className="text-slate-400">// Database entities, DAOs, Repositories & DataStore</span></p>
-                    <p className="ml-4">├── <span className="text-accent-text">ui/</span></p>
-                    <p className="ml-8">│   ├── <span className="text-accent-text">home/</span> <span className="text-slate-400">// Home screen logic & UI</span></p>
-                    <p className="ml-8">│   ├── <span className="text-accent-text">screens/</span> <span className="text-slate-400">// Focus, Profile, Settings, Category, Add/Edit</span></p>
-                    <p className="ml-8">│   ├── <span className="text-accent-text">navigation/</span> <span className="text-slate-400">// NavHost & Destination definitions</span></p>
-                    <p className="ml-8">│   └── <span className="text-accent-text">theme/</span> <span className="text-slate-400">// Deep Sea schemes, typography & shapes</span></p>
-                    <p className="ml-4">├── ToDoApp.kt <span className="text-slate-400">// Custom Floating Navigation & Scaffold</span></p>
-                    <p className="ml-4">└── MainActivity.kt <span className="text-slate-400">// Entry point with theme & splash</span></p>
-                  </div>
+                  <pre className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
+                    <code>{`app/
+├── data/             // Database entities, DAOs, Repositories & DataStore
+├── ui/
+│   ├── home/         // Home screen logic & UI
+│   ├── screens/      // Focus, Profile, Settings, Category, Add/Edit
+│   ├── navigation/   // NavHost & Destination definitions
+│   └── theme/        // Deep Sea schemes, typography & shapes
+├── ToDoApp.kt        // Custom Floating Navigation & Scaffold
+└── MainActivity.kt   // Entry point with theme & splash`}</code>
+                  </pre>
                 </div>
               </div>
             )}

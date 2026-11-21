@@ -20,7 +20,6 @@ import {
   Smartphone,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
-import PortfolioImage from "../assets/Hero_Image.webp";
 import { IDENTITY, SPECIALTY_PLAIN, TAGLINE } from "../content/site";
 
 const fadeUp = {
@@ -404,7 +403,7 @@ export default function About() {
               <span className="w-4 h-px bg-border" />
               <span>Share</span>
               <span className="w-4 h-px bg-border" />
-              <span className="text-accent/50">Build again</span>
+              <span className="text-accent-text">Build again</span>
             </motion.div>
           </div>
         </section>

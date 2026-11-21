@@ -49,6 +49,7 @@ const Contact = () => {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(null);
+  const [invalid, setInvalid] = useState({});
 
   const mountedRef = useRef(true);
   const feedbackTimerRef = useRef(null);
@@ -66,11 +67,37 @@ const Contact = () => {
   }, []);
 
   const handleChange = useCallback((e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear a field's error as soon as the visitor edits it, so the message
+    // does not linger while the corrected value is being typed.
+    setInvalid(prev => (prev[name] ? { ...prev, [name]: undefined } : prev));
+  }, []);
+
+  const validate = useCallback(() => {
+    const current = formDataRef.current;
+    const next = {};
+    if (!current.name.trim()) next.name = 'Enter your name.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(current.email.trim())) {
+      next.email = 'Enter a valid email address.';
+    }
+    if (!current.message.trim()) next.message = 'Write a short message.';
+    return next;
   }, []);
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
+
+    // Validate here rather than relying on the browser's native tooltips, so
+    // every error is rendered once, associated with its field via
+    // aria-describedby, and announced through the live status region.
+    const next = validate();
+    setInvalid(next);
+    if (Object.keys(next).length) {
+      setSending(false);
+      return;
+    }
+
     setSending(true);
     setError(null);
     if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);

@@ -123,7 +123,7 @@
   --p-accent-muted: rgba(107, 143, 122, 0.14);
   --p-accent-border: rgba(107, 143, 122, 0.32);
   --p-accent-text: #97bca5;
-  --p-border-control: rgba(232, 215, 183, 0.28);
+  --p-border-control: rgba(232, 215, 183, 0.42);
   --p-ink: #0b120e;
 }
 
@@ -135,7 +135,7 @@
   --p-accent-muted: rgba(200, 111, 74, 0.14);
   --p-accent-border: rgba(200, 111, 74, 0.34);
   --p-accent-text: #e0a184;
-  --p-border-control: rgba(232, 215, 183, 0.28);
+  --p-border-control: rgba(232, 215, 183, 0.42);
   --p-ink: #150b06;
 }
 
@@ -147,7 +147,7 @@
   --p-accent-muted: rgba(126, 146, 156, 0.15);
   --p-accent-border: rgba(126, 146, 156, 0.34);
   --p-accent-text: #b4c5cd;
-  --p-border-control: rgba(232, 215, 183, 0.28);
+  --p-border-control: rgba(232, 215, 183, 0.42);
   --p-ink: #0a1013;
 }
 

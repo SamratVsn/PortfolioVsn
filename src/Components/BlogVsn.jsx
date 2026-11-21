@@ -12,11 +12,8 @@ import { AsideCard, BulletList } from './case-study/CaseStudyAside'
 import { getProject } from '../data/projects'
 import Card from './ui/Card'
 
-import B1 from '../assets/BlogVsn/B1.png'
-import B2 from '../assets/BlogVsn/B2.png'
-import B3 from '../assets/BlogVsn/B3.png'
-import B4 from '../assets/BlogVsn/B4.png'
-import B5 from '../assets/BlogVsn/B5.png'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const LIVE_URL = 'https://blogvsn.vercel.app/'
 const REPO_URL = 'https://github.com/SamratVsn/BlogVsn'
@@ -32,10 +29,10 @@ const TECH_STACK = [
 ]
 
 const SCREENSHOTS = [
-  { src: B2, label: 'Data Feed', desc: 'Post list loaded from the Blogger API.' },
-  { src: B3, label: 'Content Engine', desc: 'Blogger post HTML rendered inside the React app.' },
-  { src: B4, label: 'Google Sign-in', desc: 'Google sign-in state reflected in the interface.' },
-  { src: B5, label: 'Contact Form', desc: 'EmailJS contact form with client-side validation.' },
+  { src: image('blogvsn-b2'), label: 'Data Feed', desc: 'Post list loaded from the Blogger API.' },
+  { src: image('blogvsn-b3'), label: 'Content Engine', desc: 'Blogger post HTML rendered inside the React app.' },
+  { src: image('blogvsn-b4'), label: 'Google Sign-in', desc: 'Google sign-in state reflected in the interface.' },
+  { src: image('blogvsn-b5'), label: 'Contact Form', desc: 'EmailJS contact form with client-side validation.' },
 ]
 
 const TABS = [
@@ -131,9 +128,10 @@ const BlogVsn = () => {
         }
       >
         <div className="overflow-hidden rounded-xl border border-border bg-surface">
-          <img
-            src={B1}
+          <ResponsiveImage
+            image={image('blogvsn-b1')}
             alt="BlogVsn Platform"
+            sizes="(min-width: 1024px) 720px, 100vw"
             className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
           />
         </div>

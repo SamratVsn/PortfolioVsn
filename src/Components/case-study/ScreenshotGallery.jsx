@@ -1,10 +1,17 @@
 import { cn } from "../ui/cn";
 import Eyebrow from "../ui/Eyebrow";
+import ResponsiveImage from "../ui/ResponsiveImage";
 
 const columnMap = {
   2: "grid-cols-1 sm:grid-cols-2",
   3: "grid-cols-2 sm:grid-cols-3",
   4: "grid-cols-2 lg:grid-cols-4",
+};
+
+const sizeMap = {
+  2: "(min-width: 640px) 50vw, 100vw",
+  3: "(min-width: 640px) 33vw, 50vw",
+  4: "(min-width: 1024px) 25vw, 50vw",
 };
 
 // One gallery for every case study. Existing label/desc pairs are preserved;
@@ -38,11 +45,11 @@ export default function ScreenshotGallery({
             `${screen.label} screenshot${screen.desc ? ` — ${screen.desc}` : ""}`;
           const content = (
             <>
-              <img
-                src={screen.src}
+              <ResponsiveImage
+                image={screen.src}
                 alt={alt}
+                sizes={sizeMap[columns] || sizeMap[3]}
                 loading="lazy"
-                decoding="async"
                 className="h-40 w-full object-cover object-top opacity-80 transition-all duration-300 group-hover:opacity-100 sm:h-48"
               />
               <div
@@ -68,7 +75,7 @@ export default function ScreenshotGallery({
 
           return onSelect ? (
             <button
-              key={`${screen.label}-${screen.src}`}
+              key={`${screen.label}-${screen.src?.src || screen.src}`}
               type="button"
               onClick={() => onSelect(screen)}
               aria-label={`Open ${screen.label} screenshot`}
@@ -77,7 +84,7 @@ export default function ScreenshotGallery({
               {content}
             </button>
           ) : (
-            <figure key={`${screen.label}-${screen.src}`} className={classes}>
+            <figure key={`${screen.label}-${screen.src?.src || screen.src}`} className={classes}>
               {content}
             </figure>
           );

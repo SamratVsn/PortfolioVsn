@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
+import ResponsiveImage from "./ui/ResponsiveImage";
 
 // One accessible image viewer for every case study.
 //
@@ -100,10 +101,10 @@ export default function Lightbox({ image, onClose }) {
           </button>
         </div>
 
-        <img
-          src={image.src}
+        <ResponsiveImage
+          image={image.src}
           alt={alt}
-          decoding="async"
+          sizes="(min-width: 768px) 768px, 100vw"
           className="mx-auto max-h-[70vh] w-auto max-w-full rounded-lg border border-border object-contain"
         />
 
