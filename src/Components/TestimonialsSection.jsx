@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import Reveal from "./ui/Reveal";
 import { Quote } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6";
 import SectionHeading from "./SectionHeading";
@@ -14,15 +14,13 @@ function getInitials(name = "") {
     .toUpperCase();
 }
 
-function TestimonialCard({ testimonial, index, reduceMotion }) {
+function TestimonialCard({ testimonial, index }) {
   const { quote, name, role, linkedinUrl, avatar } = testimonial;
 
   return (
-    <motion.figure
-      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.35, delay: (index % 3) * 0.06 }}
+    <Reveal
+      as="figure"
+      delay={(index % 3) * 60}
       className="group relative mb-5 break-inside-avoid overflow-hidden rounded-xl border border-border bg-surface p-6 transition-colors duration-300 hover:border-accent-border sm:p-7 lg:mb-6"
     >
       <div className="relative">
@@ -72,13 +70,11 @@ function TestimonialCard({ testimonial, index, reduceMotion }) {
           )}
         </figcaption>
       </div>
-    </motion.figure>
+    </Reveal>
   );
 }
 
 export default function TestimonialsSection({ testimonials }) {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section
       id="testimonials"
@@ -96,12 +92,7 @@ export default function TestimonialsSection({ testimonials }) {
         {/* Masonry via CSS columns — cards keep their natural height, no forced gaps */}
         <div className="columns-1 gap-5 md:columns-2 lg:columns-3 lg:gap-6">
           {testimonials.map((t, i) => (
-            <TestimonialCard
-              key={t.name}
-              testimonial={t}
-              index={i}
-              reduceMotion={reduceMotion}
-            />
+            <TestimonialCard key={t.name} testimonial={t} index={i} />
           ))}
         </div>
       </Container>

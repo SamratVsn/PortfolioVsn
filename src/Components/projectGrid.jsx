@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m as motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Github, ExternalLink, ArrowUpRight, FolderOpen, Sparkles, Download } from "lucide-react";
 import PageHeader from "./PageHeader";
 import SectionHeading from "./SectionHeading";
 import CategoryFilter from "./CategoryFilter";
+import ResponsiveImage from "./ui/ResponsiveImage";
 import Container from "./ui/Container";
 import Tag from "./ui/Tag";
 import StatusPill from "./ui/StatusPill";
@@ -66,7 +67,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="relative z-20 flex items-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+          className="relative z-20 flex min-h-6 min-w-6 items-center justify-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           title="View source code on GitHub"
           aria-label={`View ${project.title} source code on GitHub`}
         >
@@ -80,7 +81,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="relative z-20 flex items-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+          className="relative z-20 flex min-h-6 min-w-6 items-center justify-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           title="View live project"
           aria-label={`Visit ${project.title} live site`}
         >
@@ -94,7 +95,7 @@ function ProjectLinks({ project }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="relative z-20 flex items-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
+          className="relative z-20 flex min-h-6 min-w-6 items-center justify-center gap-1.5 rounded text-small text-slate-400 transition-colors hover:text-accent-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
           title={`Download ${project.title} APK`}
           aria-label={`Download ${project.title} APK`}
         >
@@ -127,7 +128,6 @@ function ProjectStatus({ project }) {
 
 function FeaturedCard({ project, wide = false }) {
   const screenshot = screenshots[project.path];
-  const imageLayoutId = `project-image-${project.path}`;
 
   return (
     <motion.article
@@ -147,13 +147,12 @@ function FeaturedCard({ project, wide = false }) {
           wide ? "h-56 shrink-0 sm:h-64 md:h-72 md:w-1/2 lg:h-80" : "h-48 sm:h-56"
         }`}
       >
-        <motion.img
-          layoutId={imageLayoutId}
-          src={screenshot}
+        <ResponsiveImage
+          image={screenshot}
           alt={`Preview of ${project.title}`}
+          sizes={wide ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
           className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
-          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />
@@ -185,7 +184,6 @@ function FeaturedCard({ project, wide = false }) {
 
 function ProjectCard({ project }) {
   const screenshot = screenshots[project.path];
-  const imageLayoutId = `project-image-${project.path}`;
 
   return (
     <motion.article
@@ -199,13 +197,12 @@ function ProjectCard({ project }) {
       />
 
       <div className="relative h-40 overflow-hidden sm:h-44">
-        <motion.img
-          layoutId={imageLayoutId}
-          src={screenshot}
+        <ResponsiveImage
+          image={screenshot}
           alt={`Preview of ${project.title}`}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
-          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />
@@ -233,6 +230,7 @@ function ProjectCard({ project }) {
 
 export default function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const reduceMotion = useReducedMotion();
 
   const matches = (project) =>
     activeCategory === "All" || project.category === activeCategory;
@@ -245,6 +243,7 @@ export default function ProjectGrid() {
   }));
 
   const hasAny = tiers.some((tier) => tier.projects.length > 0);
+  const shownCount = tiers.reduce((total, tier) => total + tier.projects.length, 0);
 
   return (
     <Container className="pb-6">
@@ -265,8 +264,30 @@ export default function ProjectGrid() {
         label="Filter projects by category"
       />
 
+      <p role="status" aria-live="polite" className="sr-only">
+        {shownCount} {shownCount === 1 ? "project" : "projects"} shown
+        {activeCategory === "All" ? "" : ` in ${activeCategory}`}.
+      </p>
+
       {tiers.map((tier, tierIndex) => {
         if (tier.projects.length === 0) return null;
+
+        const gridClass =
+          tier.id === "foundations"
+            ? "grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
+            : "grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2";
+
+        const cards = tier.projects.map((project, index) =>
+          tier.id === "shipped" ? (
+            <FeaturedCard
+              key={project.id}
+              project={project}
+              wide={index === 0}
+            />
+          ) : (
+            <ProjectCard key={project.id} project={project} />
+          )
+        );
 
         return (
           <section
@@ -281,29 +302,19 @@ export default function ProjectGrid() {
               subtitle={tier.subtitle}
             />
 
-            <motion.div
-              key={`${tier.id}-${activeCategory}`}
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-              className={
-                tier.id === "foundations"
-                  ? "grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
-                  : "grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2"
-              }
-            >
-              {tier.projects.map((project, index) =>
-                tier.id === "shipped" ? (
-                  <FeaturedCard
-                    key={project.id}
-                    project={project}
-                    wide={index === 0}
-                  />
-                ) : (
-                  <ProjectCard key={project.id} project={project} />
-                )
-              )}
-            </motion.div>
+            {reduceMotion ? (
+              <div className={gridClass}>{cards}</div>
+            ) : (
+              <motion.div
+                key={`${tier.id}-${activeCategory}`}
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+                className={gridClass}
+              >
+                {cards}
+              </motion.div>
+            )}
           </section>
         );
       })}

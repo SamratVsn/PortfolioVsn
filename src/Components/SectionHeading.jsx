@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import Reveal from "./ui/Reveal";
 import Eyebrow from "./ui/Eyebrow";
 
 export default function SectionHeading({
@@ -26,16 +26,9 @@ export default function SectionHeading({
     </div>
   );
 
+  // `animated` keeps the original opt-in API, now implemented with the CSS/IO
+  // reveal so the homepage bundle does not need framer-motion.
   if (!animated) return inner;
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5 }}
-    >
-      {inner}
-    </motion.div>
-  );
+  return <Reveal>{inner}</Reveal>;
 }

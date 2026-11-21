@@ -1,23 +1,15 @@
-import Tasks from "../assets/ToDo/Home.png";
-import MoviePoster from "../assets/TheMovie/MoviePoster.webp";
-import BlogVsnB1 from "../assets/BlogVsn/B1.png";
-import SMS1 from "../assets/SMS/SMS1.png";
-import Portfolio from "../assets/Profile.webp";
-import BMSK from "../assets/BMSK/BMSK1.png";
-import Kathmandu from "../assets/KathmanduPoster.jpeg";
-import JuicePoster from "../assets/JuicePoster.jpeg";
-import AvalokanHome from "../assets/Avalokan/home.png";
+import { image } from "../content/images";
 
 export const screenshots = {
-  "/projects/avalokan": AvalokanHome,
-  "/projects/todo": Tasks,
-  "/projects/themovie": MoviePoster,
-  "/projects/blogvsn": BlogVsnB1,
-  "/projects/sms": SMS1,
-  "/projects/this": Portfolio,
-  "/projects/bmsk": BMSK,
-  "/projects/kathmandu": Kathmandu,
-  "/projects/juicetracker": JuicePoster,
+  "/projects/avalokan": image("avalokan-home"),
+  "/projects/todo": image("todo-home"),
+  "/projects/themovie": image("themovie-movieposter"),
+  "/projects/blogvsn": image("blogvsn-b1"),
+  "/projects/sms": image("sms-sms1"),
+  "/projects/this": image("profile"),
+  "/projects/bmsk": image("bmsk-bmsk1"),
+  "/projects/kathmandu": image("kathmanduposter"),
+  "/projects/juicetracker": image("juiceposter"),
 };
 
 // Project tiers are evidence-based, not marketing categories:

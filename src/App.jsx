@@ -1,24 +1,30 @@
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { TransitionProvider } from './Components/TransitionProvider'
 import Home from './Pages/Home'
-import Contact from './Pages/Contact'
-import About from './Pages/About'
-import Projects from './Pages/Projects'
-import Privacy from './Pages/Privacy'
-import NotFound from './Pages/NotFound'
+import RouteFallback from './Components/RouteFallback'
+import { lazyPage } from './routes/lazyPages'
 import { STATIC_ROUTES } from './content/routes'
+
+// The homepage stays in the initial bundle; every other page and all nine case
+// studies are split and preloaded on demand (see src/routes/lazyPages.jsx).
+const LAZY_PAGES = {
+  about: lazyPage('about'),
+  projects: lazyPage('projects'),
+  contact: lazyPage('contact'),
+  privacy: lazyPage('privacy'),
+  'not-found': lazyPage('not-found'),
+}
 
 const PAGE_COMPONENTS = {
   home: Home,
-  about: About,
-  projects: Projects,
-  contact: Contact,
-  privacy: Privacy,
+  ...LAZY_PAGES,
 }
+
+const NotFoundPage = LAZY_PAGES['not-found']
 
 export default function App() {
   return (
-    <TransitionProvider>
+    <Suspense fallback={<RouteFallback />}>
       <Routes>
         {STATIC_ROUTES.map((route) => {
           const Page = PAGE_COMPONENTS[route.id]
@@ -26,8 +32,8 @@ export default function App() {
           const path = route.id === 'projects' ? '/projects/*' : route.url
           return <Route key={route.id} path={path} element={<Page />} />
         })}
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </TransitionProvider>
+    </Suspense>
   )
 }

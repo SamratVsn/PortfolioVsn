@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import { SITE } from "../Components/seoHead";
 import Footer from "../Components/Footer";
 import SectionHeading from "../Components/SectionHeading";
 import TestimonialsSection from "../Components/TestimonialsSection";
+import Reveal from "../Components/ui/Reveal";
 import Section from "../Components/ui/Section";
 import Container from "../Components/ui/Container";
 import Card from "../Components/ui/Card";
@@ -25,7 +25,10 @@ import {
 } from "lucide-react";
 import Hero from "../Components/Hero";
 import { PROJECTS, screenshots } from "../data/projects";
-import AvalokanLogo from "../assets/Avalokan/logo.jpeg";
+import { image } from "../content/images";
+import ResponsiveImage from "../Components/ui/ResponsiveImage";
+
+const AVALOKAN_LOGO = image("avalokan-logo");
 
 const APK_URL =
   "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk";
@@ -180,16 +183,7 @@ const testimonials = [
   },
 ];
 
-const sectionMotion = {
-  initial: { opacity: 0, y: 12 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-  transition: { duration: 0.4 },
-};
-
 function Home() {
-  const reduceMotion = useReducedMotion();
-
   const profilePageSchema = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -228,12 +222,9 @@ function Home() {
               {capabilities.map((capability, index) => {
                 const Icon = capability.icon;
                 return (
-                  <motion.div
+                  <Reveal
                     key={capability.title}
-                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.35, delay: index * 0.06 }}
+                    delay={index * 60}
                   >
                     <Card variant="subtle" padding="lg" className="flex h-full flex-col">
                       <div className="mb-5 flex items-center justify-between gap-3">
@@ -260,7 +251,7 @@ function Home() {
                         </Link>
                       )}
                     </Card>
-                  </motion.div>
+                  </Reveal>
                 );
               })}
             </div>
@@ -342,9 +333,10 @@ function Home() {
                   </div>
 
                   <div className="hidden justify-self-end sm:block">
-                    <img
-                      src={AvalokanLogo}
+                    <ResponsiveImage
+                      image={AVALOKAN_LOGO}
                       alt="Avalokan - Nepal Heritage Explorer app logo"
+                      sizes="(min-width: 1024px) 192px, 160px"
                       className="h-40 w-auto rounded-xl border border-border-strong bg-[#F5F3ED] object-contain lg:h-48"
                       loading="lazy"
                     />
@@ -358,12 +350,9 @@ function Home() {
                 const screenshot = screenshots[project.path];
                 return (
                   <Card
-                    as={motion.article}
+                    as={Reveal}
                     key={project.id}
-                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.35, delay: index * 0.05 }}
+                    delay={index * 50}
                     padding="none"
                     interactive
                     className="group relative flex flex-col overflow-hidden"
@@ -375,9 +364,10 @@ function Home() {
                     />
                     {screenshot && (
                       <div className="relative overflow-hidden border-b border-border">
-                        <img
-                          src={screenshot}
+                        <ResponsiveImage
+                          image={screenshot}
                           alt={`Preview of ${project.title}`}
+                          sizes="(min-width: 768px) 50vw, 100vw"
                           className="h-40 w-full object-cover object-top opacity-90 transition-transform duration-500 group-hover:scale-[1.02]"
                           loading="lazy"
                         />
@@ -434,10 +424,9 @@ function Home() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {buildSteps.map((step, index) => (
-                <motion.div
+                <Reveal
                   key={step.number}
-                  {...sectionMotion}
-                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  delay={index * 50}
                   className="relative"
                 >
                   <div className="flex h-full flex-col rounded-xl border border-border bg-surface/50 p-5 sm:p-6">
@@ -458,7 +447,7 @@ function Home() {
                       {step.artifact}
                     </p>
                   </div>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
           </Container>
@@ -478,13 +467,13 @@ function Home() {
               {evidence.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <motion.a
+                  <Reveal
+                    as="a"
                     key={item.title}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    {...sectionMotion}
-                    transition={{ duration: 0.35, delay: index * 0.05 }}
+                    delay={index * 50}
                     className="group flex h-full flex-col rounded-xl border border-border bg-surface/50 p-5 transition-colors hover:border-accent-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-soft"
                   >
                     <div className="mb-4 flex items-center justify-between gap-3">
@@ -505,7 +494,7 @@ function Home() {
                       {item.cta}
                       <ArrowUpRight size={13} aria-hidden="true" />
                     </span>
-                  </motion.a>
+                  </Reveal>
                 );
               })}
             </div>
@@ -536,12 +525,10 @@ function Home() {
 
             <div className="border-t border-border">
               {notePreviews.map((note, i) => (
-                <motion.a
+                <Reveal
+                  as="a"
                   key={note.url}
-                  initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  delay={i * 40}
                   href={note.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -565,7 +552,7 @@ function Home() {
                   <div className="shrink-0 pt-1 text-slate-600 transition-colors group-hover:text-accent-soft">
                     <ArrowRight size={15} aria-hidden="true" />
                   </div>
-                </motion.a>
+                </Reveal>
               ))}
             </div>
 
@@ -583,7 +570,7 @@ function Home() {
         {/* ═══ 7. Contact CTA ══════════════════════════════════════════════ */}
         <Section divided spacing="loose" aria-labelledby="contact-cta-heading">
           <Container variant="narrow" className="text-center">
-            <motion.div {...sectionMotion}>
+            <Reveal>
               <h2
                 id="contact-cta-heading"
                 className="mb-4 text-h2 font-semibold text-paper"
@@ -608,7 +595,7 @@ function Home() {
                   View GitHub
                 </Button>
               </div>
-            </motion.div>
+            </Reveal>
           </Container>
         </Section>
       </main>

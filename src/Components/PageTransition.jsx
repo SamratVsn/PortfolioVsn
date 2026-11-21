@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
+import { m as motion, useReducedMotion, AnimatePresence } from "framer-motion";
+import { pageVariants } from "./PageTransitionConstants";
 
-// Import variants and constants from constants file
-import { pageVariants, SHARED_ELEMENTS } from "./PageTransitionConstants";
-
+// Route-level enter/exit feedback for the projects area. The first render must
+// match the prerendered HTML, so the initial animation is suppressed until
+// after mount. Reduced-motion users get the content immediately, with no
+// AnimatePresence wrapper and no delay.
 export function PageTransition({ children }) {
   const location = useLocation();
   const reduceMotion = useReducedMotion();
@@ -14,15 +16,19 @@ export function PageTransition({ children }) {
     isInitialMount.current = false;
   }, []);
 
+  if (reduceMotion) {
+    return <div className="relative w-full">{children}</div>;
+  }
+
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={location.pathname}
-        initial={isInitialMount.current || reduceMotion ? false : "initial"}
-        animate={reduceMotion ? "enter" : "enter"}
-        exit={reduceMotion ? "enter" : "exit"}
+        initial={isInitialMount.current ? false : "initial"}
+        animate="enter"
+        exit="exit"
         variants={pageVariants}
-        style={{ position: "relative", width: "100%" }}
+        className="relative w-full"
       >
         {children}
       </motion.div>
@@ -30,7 +36,4 @@ export function PageTransition({ children }) {
   );
 }
 
-// Component for shared layout elements that should NOT animate
-export function Persistent({ children }) {
-  return <>{children}</>;
-}
+export default PageTransition;

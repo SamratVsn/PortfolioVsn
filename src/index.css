@@ -232,6 +232,26 @@
   .hero-enter-visual {
     animation: hero-enter-visual 0.75s ease-out 0.1s both;
   }
+
+  /* Scroll reveal used by <Reveal> (src/Components/ui/Reveal.jsx). The hidden
+     state is only added after mount for elements below the fold, so prerendered
+     HTML and no-JS readers always see the content. The global
+     prefers-reduced-motion rule collapses the transition to ~0s. */
+  .reveal {
+    transition-property: opacity, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .reveal-shown {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes hero-enter {

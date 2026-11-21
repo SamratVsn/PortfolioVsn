@@ -1,30 +1,17 @@
-import React from 'react';
+import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SEO from '../Components/SEO';
 import ProjectGrid from '../Components/projectGrid';
 import PageLayout from '../Components/PageLayout';
-import SMS from '../Components/SMS';
-import BMSK from '../Components/BMSK';
-import BlogVsn from '../Components/BlogVsn';
-import This from '../Components/This';
-import Tasks from '../Components/Tasks';
-import TheMovie from '../Components/TheMovie';
-import JuiceTracker from '../Components/JuiceTracker';
-import Kathmandu from '../Components/Kathmandu';
-import Avalokan from '../Components/Avalokan';
+import RouteFallback from '../Components/RouteFallback';
+import { lazyPage } from '../routes/lazyPages';
 import { PROJECT_ROUTES } from '../content/routes';
 
-const PROJECT_COMPONENTS = {
-  avalokan: Avalokan,
-  todo: Tasks,
-  themovie: TheMovie,
-  juicetracker: JuiceTracker,
-  kathmandu: Kathmandu,
-  sms: SMS,
-  bmsk: BMSK,
-  blogvsn: BlogVsn,
-  this: This,
-};
+// One lazy component per case study. The registry resolves these through the
+// same preload path used by the prerenderer and hydration.
+const PROJECT_COMPONENTS = Object.fromEntries(
+  PROJECT_ROUTES.map((route) => [route.id, lazyPage(route.id)])
+);
 
 const Projects = () => {
   const projectsSchema = {
@@ -40,6 +27,7 @@ const Projects = () => {
 
   return (
     <PageLayout>
+      <Suspense fallback={<RouteFallback />}>
       <Routes>
         <Route index element={<><SEO
           title="Android & Software Projects | Samrat Parajuli"
@@ -52,6 +40,7 @@ const Projects = () => {
           return <Route key={route.id} path={route.slug} element={<Project />} />;
         })}
       </Routes>
+      </Suspense>
     </PageLayout>
   );
 };

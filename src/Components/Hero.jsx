@@ -7,7 +7,8 @@ import {
   SiMaterialdesign,
 } from "react-icons/si";
 import { ArrowUpRight, Database, Download, Play, Syringe } from "lucide-react";
-import HeroImage from "../assets/Hero_Image.webp";
+import { image } from "../content/images";
+import ResponsiveImage from "./ui/ResponsiveImage";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
 import { SPECIALTY_PLAIN, TAGLINE } from "../content/site";
@@ -245,6 +246,8 @@ function DeviceFrame() {
             <img
               src="/media/avalokan-poster.jpg"
               alt="Avalokan home screen: Boudhanath Stupa story of the day, historical gems, and local events"
+              width={1080}
+              height={1920}
               className="h-full w-full object-cover object-top"
               loading="lazy"
               decoding="async"
@@ -395,13 +398,11 @@ export default function Hero() {
                 className="absolute bottom-2 left-[6%] h-6 w-[62%] rounded-[50%] bg-black/55 blur-lg"
               />
 
-              <img
-                src={HeroImage}
+              <ResponsiveImage
+                image={image("hero-image")}
                 alt="Portrait of Samrat Parajuli, product-minded systems and application engineer"
-                width={1127}
-                height={1396}
+                sizes="(min-width: 1024px) 46vw, (min-width: 640px) 70vw, 90vw"
                 fetchPriority="high"
-                decoding="async"
                 className="portrait-fade absolute bottom-0 left-0 h-[94%] w-auto max-w-none object-contain object-bottom brightness-[0.95] saturate-[0.94] contrast-[1.03] drop-shadow-[0_24px_44px_rgba(0,0,0,0.45)] lg:h-full"
               />
 
