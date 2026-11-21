@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import SEO from "../Components/SEO";
 import BackgroundFX from "../Components/BackgroundFX";
+import MotionProvider from "../Components/MotionProvider";
 import Eyebrow from "../Components/ui/Eyebrow";
 import Button from "../Components/ui/Button";
 
 const NotFound = () => {
   return (
+    <MotionProvider>
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-canvas px-4 text-slate-300">
       <SEO
         title="404 Not Found | Samrat Parajuli"
@@ -44,6 +46,7 @@ const NotFound = () => {
         </motion.div>
       </main>
     </div>
+    </MotionProvider>
   );
 };
 

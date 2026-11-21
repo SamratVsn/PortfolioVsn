@@ -1,0 +1,604 @@
+{
+  "avalokan-discover": {
+    "src": "/img/avalokan-discover-540.webp",
+    "width": 540,
+    "height": 1152,
+    "variants": [
+      {
+        "src": "/img/avalokan-discover-480.webp",
+        "width": 480,
+        "height": 1024,
+        "bytes": 45612
+      },
+      {
+        "src": "/img/avalokan-discover-540.webp",
+        "width": 540,
+        "height": 1152,
+        "bytes": 52962
+      }
+    ]
+  },
+  "avalokan-events": {
+    "src": "/img/avalokan-events-540.webp",
+    "width": 540,
+    "height": 1152,
+    "variants": [
+      {
+        "src": "/img/avalokan-events-480.webp",
+        "width": 480,
+        "height": 1024,
+        "bytes": 34870
+      },
+      {
+        "src": "/img/avalokan-events-540.webp",
+        "width": 540,
+        "height": 1152,
+        "bytes": 40898
+      }
+    ]
+  },
+  "avalokan-home": {
+    "src": "/img/avalokan-home-540.webp",
+    "width": 540,
+    "height": 1152,
+    "variants": [
+      {
+        "src": "/img/avalokan-home-480.webp",
+        "width": 480,
+        "height": 1024,
+        "bytes": 47974
+      },
+      {
+        "src": "/img/avalokan-home-540.webp",
+        "width": 540,
+        "height": 1152,
+        "bytes": 56536
+      }
+    ]
+  },
+  "avalokan-logo": {
+    "src": "/img/avalokan-logo-960.webp",
+    "width": 960,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/img/avalokan-logo-480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 6190
+      },
+      {
+        "src": "/img/avalokan-logo-960.webp",
+        "width": 960,
+        "height": 960,
+        "bytes": 13292
+      }
+    ]
+  },
+  "avalokan-place-detail": {
+    "src": "/img/avalokan-place-detail-540.webp",
+    "width": 540,
+    "height": 1152,
+    "variants": [
+      {
+        "src": "/img/avalokan-place-detail-480.webp",
+        "width": 480,
+        "height": 1024,
+        "bytes": 42734
+      },
+      {
+        "src": "/img/avalokan-place-detail-540.webp",
+        "width": 540,
+        "height": 1152,
+        "bytes": 48990
+      }
+    ]
+  },
+  "blogvsn-b1": {
+    "src": "/img/blogvsn-b1-960.webp",
+    "width": 960,
+    "height": 456,
+    "variants": [
+      {
+        "src": "/img/blogvsn-b1-480.webp",
+        "width": 480,
+        "height": 228,
+        "bytes": 2332
+      },
+      {
+        "src": "/img/blogvsn-b1-960.webp",
+        "width": 960,
+        "height": 456,
+        "bytes": 5556
+      }
+    ]
+  },
+  "blogvsn-b2": {
+    "src": "/img/blogvsn-b2-960.webp",
+    "width": 960,
+    "height": 446,
+    "variants": [
+      {
+        "src": "/img/blogvsn-b2-480.webp",
+        "width": 480,
+        "height": 223,
+        "bytes": 5678
+      },
+      {
+        "src": "/img/blogvsn-b2-960.webp",
+        "width": 960,
+        "height": 446,
+        "bytes": 14758
+      }
+    ]
+  },
+  "blogvsn-b3": {
+    "src": "/img/blogvsn-b3-960.webp",
+    "width": 960,
+    "height": 448,
+    "variants": [
+      {
+        "src": "/img/blogvsn-b3-480.webp",
+        "width": 480,
+        "height": 224,
+        "bytes": 5518
+      },
+      {
+        "src": "/img/blogvsn-b3-960.webp",
+        "width": 960,
+        "height": 448,
+        "bytes": 15862
+      }
+    ]
+  },
+  "blogvsn-b4": {
+    "src": "/img/blogvsn-b4-960.webp",
+    "width": 960,
+    "height": 447,
+    "variants": [
+      {
+        "src": "/img/blogvsn-b4-480.webp",
+        "width": 480,
+        "height": 223,
+        "bytes": 6646
+      },
+      {
+        "src": "/img/blogvsn-b4-960.webp",
+        "width": 960,
+        "height": 447,
+        "bytes": 19802
+      }
+    ]
+  },
+  "blogvsn-b5": {
+    "src": "/img/blogvsn-b5-604.webp",
+    "width": 604,
+    "height": 528,
+    "variants": [
+      {
+        "src": "/img/blogvsn-b5-480.webp",
+        "width": 480,
+        "height": 420,
+        "bytes": 6472
+      },
+      {
+        "src": "/img/blogvsn-b5-604.webp",
+        "width": 604,
+        "height": 528,
+        "bytes": 8950
+      }
+    ]
+  },
+  "bmsk-bmsk1": {
+    "src": "/img/bmsk-bmsk1-960.webp",
+    "width": 960,
+    "height": 712,
+    "variants": [
+      {
+        "src": "/img/bmsk-bmsk1-480.webp",
+        "width": 480,
+        "height": 356,
+        "bytes": 9888
+      },
+      {
+        "src": "/img/bmsk-bmsk1-960.webp",
+        "width": 960,
+        "height": 712,
+        "bytes": 31180
+      }
+    ]
+  },
+  "bmsk-bmsk2": {
+    "src": "/img/bmsk-bmsk2-960.webp",
+    "width": 960,
+    "height": 669,
+    "variants": [
+      {
+        "src": "/img/bmsk-bmsk2-480.webp",
+        "width": 480,
+        "height": 335,
+        "bytes": 7972
+      },
+      {
+        "src": "/img/bmsk-bmsk2-960.webp",
+        "width": 960,
+        "height": 669,
+        "bytes": 27464
+      }
+    ]
+  },
+  "hero-image": {
+    "src": "/img/hero-image-960.webp",
+    "width": 960,
+    "height": 1189,
+    "variants": [
+      {
+        "src": "/img/hero-image-480.webp",
+        "width": 480,
+        "height": 595,
+        "bytes": 16272
+      },
+      {
+        "src": "/img/hero-image-960.webp",
+        "width": 960,
+        "height": 1189,
+        "bytes": 39476
+      }
+    ]
+  },
+  "juiceposter": {
+    "src": "/img/juiceposter-572.webp",
+    "width": 572,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/img/juiceposter-480.webp",
+        "width": 480,
+        "height": 859,
+        "bytes": 34826
+      },
+      {
+        "src": "/img/juiceposter-572.webp",
+        "width": 572,
+        "height": 1024,
+        "bytes": 44042
+      }
+    ]
+  },
+  "kathmanduposter": {
+    "src": "/img/kathmanduposter-572.webp",
+    "width": 572,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/img/kathmanduposter-480.webp",
+        "width": 480,
+        "height": 859,
+        "bytes": 22142
+      },
+      {
+        "src": "/img/kathmanduposter-572.webp",
+        "width": 572,
+        "height": 1024,
+        "bytes": 26850
+      }
+    ]
+  },
+  "profile": {
+    "src": "/img/profile-960.webp",
+    "width": 960,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/img/profile-480.webp",
+        "width": 480,
+        "height": 480,
+        "bytes": 15778
+      },
+      {
+        "src": "/img/profile-960.webp",
+        "width": 960,
+        "height": 960,
+        "bytes": 33428
+      }
+    ]
+  },
+  "sms-sms1": {
+    "src": "/img/sms-sms1-910.webp",
+    "width": 910,
+    "height": 317,
+    "variants": [
+      {
+        "src": "/img/sms-sms1-480.webp",
+        "width": 480,
+        "height": 167,
+        "bytes": 5230
+      },
+      {
+        "src": "/img/sms-sms1-910.webp",
+        "width": 910,
+        "height": 317,
+        "bytes": 11422
+      }
+    ]
+  },
+  "sms-sms2": {
+    "src": "/img/sms-sms2-785.webp",
+    "width": 785,
+    "height": 552,
+    "variants": [
+      {
+        "src": "/img/sms-sms2-480.webp",
+        "width": 480,
+        "height": 338,
+        "bytes": 12916
+      },
+      {
+        "src": "/img/sms-sms2-785.webp",
+        "width": 785,
+        "height": 552,
+        "bytes": 23952
+      }
+    ]
+  },
+  "sms-sms3": {
+    "src": "/img/sms-sms3-670.webp",
+    "width": 670,
+    "height": 318,
+    "variants": [
+      {
+        "src": "/img/sms-sms3-480.webp",
+        "width": 480,
+        "height": 228,
+        "bytes": 6326
+      },
+      {
+        "src": "/img/sms-sms3-670.webp",
+        "width": 670,
+        "height": 318,
+        "bytes": 8952
+      }
+    ]
+  },
+  "sms-sms4": {
+    "src": "/img/sms-sms4-855.webp",
+    "width": 855,
+    "height": 257,
+    "variants": [
+      {
+        "src": "/img/sms-sms4-480.webp",
+        "width": 480,
+        "height": 144,
+        "bytes": 4212
+      },
+      {
+        "src": "/img/sms-sms4-855.webp",
+        "width": 855,
+        "height": 257,
+        "bytes": 8786
+      }
+    ]
+  },
+  "sms-sms5": {
+    "src": "/img/sms-sms5-757.webp",
+    "width": 757,
+    "height": 210,
+    "variants": [
+      {
+        "src": "/img/sms-sms5-480.webp",
+        "width": 480,
+        "height": 133,
+        "bytes": 9214
+      },
+      {
+        "src": "/img/sms-sms5-757.webp",
+        "width": 757,
+        "height": 210,
+        "bytes": 15020
+      }
+    ]
+  },
+  "sms-sms6": {
+    "src": "/img/sms-sms6-872.webp",
+    "width": 872,
+    "height": 515,
+    "variants": [
+      {
+        "src": "/img/sms-sms6-480.webp",
+        "width": 480,
+        "height": 283,
+        "bytes": 8988
+      },
+      {
+        "src": "/img/sms-sms6-872.webp",
+        "width": 872,
+        "height": 515,
+        "bytes": 17994
+      }
+    ]
+  },
+  "sms-sms7": {
+    "src": "/img/sms-sms7-910.webp",
+    "width": 910,
+    "height": 450,
+    "variants": [
+      {
+        "src": "/img/sms-sms7-480.webp",
+        "width": 480,
+        "height": 237,
+        "bytes": 7324
+      },
+      {
+        "src": "/img/sms-sms7-910.webp",
+        "width": 910,
+        "height": 450,
+        "bytes": 16426
+      }
+    ]
+  },
+  "themovie-details": {
+    "src": "/img/themovie-details-422.webp",
+    "width": 422,
+    "height": 898,
+    "variants": [
+      {
+        "src": "/img/themovie-details-422.webp",
+        "width": 422,
+        "height": 898,
+        "bytes": 33214
+      }
+    ]
+  },
+  "themovie-movieposter": {
+    "src": "/img/themovie-movieposter-960.webp",
+    "width": 960,
+    "height": 1440,
+    "variants": [
+      {
+        "src": "/img/themovie-movieposter-480.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 39742
+      },
+      {
+        "src": "/img/themovie-movieposter-960.webp",
+        "width": 960,
+        "height": 1440,
+        "bytes": 98284
+      }
+    ]
+  },
+  "todo-add": {
+    "src": "/img/todo-add-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-add-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 12014
+      },
+      {
+        "src": "/img/todo-add-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 26524
+      }
+    ]
+  },
+  "todo-categories": {
+    "src": "/img/todo-categories-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-categories-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 14736
+      },
+      {
+        "src": "/img/todo-categories-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 32274
+      }
+    ]
+  },
+  "todo-details": {
+    "src": "/img/todo-details-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-details-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 11348
+      },
+      {
+        "src": "/img/todo-details-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 24308
+      }
+    ]
+  },
+  "todo-focus": {
+    "src": "/img/todo-focus-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-focus-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 16236
+      },
+      {
+        "src": "/img/todo-focus-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 34342
+      }
+    ]
+  },
+  "todo-home": {
+    "src": "/img/todo-home-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-home-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 14664
+      },
+      {
+        "src": "/img/todo-home-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 30510
+      }
+    ]
+  },
+  "todo-profile": {
+    "src": "/img/todo-profile-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-profile-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 14448
+      },
+      {
+        "src": "/img/todo-profile-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 29584
+      }
+    ]
+  },
+  "todo-settings": {
+    "src": "/img/todo-settings-960.webp",
+    "width": 960,
+    "height": 2081,
+    "variants": [
+      {
+        "src": "/img/todo-settings-480.webp",
+        "width": 480,
+        "height": 1040,
+        "bytes": 16764
+      },
+      {
+        "src": "/img/todo-settings-960.webp",
+        "width": 960,
+        "height": 2081,
+        "bytes": 35398
+      }
+    ]
+  }
+}

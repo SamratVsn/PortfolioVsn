@@ -9,23 +9,18 @@ import ScreenshotGallery from './case-study/ScreenshotGallery'
 import { AsideCard, SpecList, BulletList } from './case-study/CaseStudyAside'
 import Card from './ui/Card'
 
-import SMS1 from '../assets/SMS/SMS1.png'
-import SMS2 from '../assets/SMS/SMS2.png'
-import SMS3 from '../assets/SMS/SMS3.png'
-import SMS4 from '../assets/SMS/SMS4.png'
-import SMS5 from '../assets/SMS/SMS5.png'
-import SMS6 from '../assets/SMS/SMS6.png'
-import SMS7 from '../assets/SMS/SMS7.png'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const REPO_URL = 'https://github.com/SamratVsn/C-codes'
 
 const SCREENSHOTS = [
-  { src: SMS2, label: 'Add Record', desc: 'Validating struct serialization to disk.' },
-  { src: SMS3, label: 'Database Dump', desc: 'Iterating through binary stream using fread().' },
-  { src: SMS4, label: 'Query Engine', desc: 'Testing fseek() jump logic by Roll No.' },
-  { src: SMS5, label: 'Update Buffer', desc: 'Overwriting specific byte offsets in rb+ mode.' },
-  { src: SMS6, label: 'Delete Rewrite', desc: 'Temporary file swap logic for record removal.' },
-  { src: SMS7, label: 'Integrity Check', desc: 'Validating file pointers and end-of-file markers.' },
+  { src: image('sms-sms2'), label: 'Add Record', desc: 'Validating struct serialization to disk.' },
+  { src: image('sms-sms3'), label: 'Database Dump', desc: 'Iterating through binary stream using fread().' },
+  { src: image('sms-sms4'), label: 'Query Engine', desc: 'Testing fseek() jump logic by Roll No.' },
+  { src: image('sms-sms5'), label: 'Update Buffer', desc: 'Overwriting specific byte offsets in rb+ mode.' },
+  { src: image('sms-sms6'), label: 'Delete Rewrite', desc: 'Temporary file swap logic for record removal.' },
+  { src: image('sms-sms7'), label: 'Integrity Check', desc: 'Validating file pointers and end-of-file markers.' },
 ]
 
 const FEATURES = [
@@ -132,14 +127,15 @@ const SMS = () => {
           <button
             type="button"
             onClick={() =>
-              setSelectedImage({ src: SMS1, label: 'Main Menu', desc: 'Interactive command-line interface' })
+              setSelectedImage({ src: image('sms-sms1'), label: 'Main Menu', desc: 'Interactive command-line interface' })
             }
             aria-label="Open Main Menu screenshot"
             className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
           >
-            <img
-              src={SMS1}
+            <ResponsiveImage
+              image={image('sms-sms1')}
               alt="CLI Interface"
+              sizes="(min-width: 1024px) 720px, 100vw"
               className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
             />
           </button>

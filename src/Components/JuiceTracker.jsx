@@ -18,7 +18,8 @@ import CaseStudyTabs from './case-study/CaseStudyTabs'
 import CaseStudySection from './case-study/CaseStudySection'
 import { AsideCard, SpecList, BulletList, TagList } from './case-study/CaseStudyAside'
 import Card from './ui/Card'
-import JuicePoster from '../assets/JuicePoster.jpeg'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const REPO_URL = 'https://github.com/SamratVsn/Juicetracker'
 
@@ -112,9 +113,10 @@ function JuiceTracker() {
         actions={[{ href: REPO_URL, label: 'View Code', icon: Github, primary: true }]}
         banner={
           <div className="relative overflow-hidden rounded-2xl border border-border">
-            <img
-              src={JuicePoster}
+            <ResponsiveImage
+              image={image('juiceposter')}
               alt="Juice Tracker app poster"
+              sizes="(min-width: 1024px) 900px, 100vw"
               className="h-64 w-full object-cover sm:h-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-canvas via-transparent to-transparent" />

@@ -21,7 +21,8 @@ import CaseStudyTabs from './case-study/CaseStudyTabs'
 import CaseStudySection from './case-study/CaseStudySection'
 import { AsideCard, SpecList, BulletList, TagList } from './case-study/CaseStudyAside'
 import Card from './ui/Card'
-import KathmanduPoster from '../assets/KathmanduPoster.jpeg'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const REPO_URL = 'https://github.com/SamratVsn/Kathmandu'
 
@@ -117,9 +118,10 @@ function Kathmandu() {
         actions={[{ href: REPO_URL, label: 'View Code', icon: Github, primary: true }]}
         banner={
           <div className="relative overflow-hidden rounded-2xl border border-border">
-            <img
-              src={KathmanduPoster}
+            <ResponsiveImage
+              image={image('kathmanduposter')}
               alt="Kathmandu My-City app poster"
+              sizes="(min-width: 1024px) 900px, 100vw"
               className="h-64 w-full object-cover sm:h-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-canvas via-transparent to-transparent" />
@@ -274,17 +276,17 @@ function Kathmandu() {
                   <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
                     <FolderTree size={16} aria-hidden="true" className="text-accent-text" /> Project Structure
                   </h3>
-                  <div className="rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
-                    <p>com.example.kathmandu/</p>
-                    <p className="ml-4">├── <span className="text-accent-text">data/</span> <span className="text-slate-400">// Local data provider (DataSource)</span></p>
-                    <p className="ml-4">├── <span className="text-accent-text">model/</span> <span className="text-slate-400">// Places.kt, CityUiState</span></p>
-                    <p className="ml-4">├── <span className="text-accent-text">ui/</span></p>
-                    <p className="ml-8">│   ├── theme/ <span className="text-slate-400">// M3 color, type, shapes</span></p>
-                    <p className="ml-8">│   ├── CityViewModel.kt <span className="text-slate-400">// Business logic & state</span></p>
-                    <p className="ml-8">│   ├── CityScreen.kt <span className="text-slate-400">// Root Composable</span></p>
-                    <p className="ml-8">│   └── screens/ <span className="text-slate-400">// Start, Categories, Options</span></p>
-                    <p className="ml-4">└── MainActivity.kt <span className="text-slate-400">// App entry point</span></p>
-                  </div>
+                  <pre className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
+                    <code>{`com.example.kathmandu/
+├── data/               // Local data provider (DataSource)
+├── model/              // Places.kt, CityUiState
+├── ui/
+│   ├── theme/          // M3 color, type, shapes
+│   ├── CityViewModel.kt // Business logic & state
+│   ├── CityScreen.kt   // Root Composable
+│   └── screens/        // Start, Categories, Options
+└── MainActivity.kt     // App entry point`}</code>
+                  </pre>
                 </div>
 
                 <div className="space-y-4">

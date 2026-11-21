@@ -1,7 +1,10 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { m as motion, useReducedMotion } from "framer-motion";
 import Header from "../Components/Header";
 import SEO from "../Components/SEO";
 import Footer from "../Components/Footer";
+import MotionProvider from "../Components/MotionProvider";
+import { image } from "../content/images";
+import ResponsiveImage from "../Components/ui/ResponsiveImage";
 import BackgroundFX from "../Components/BackgroundFX";
 import Button from "../Components/ui/Button";
 import {
@@ -17,7 +20,6 @@ import {
   Smartphone,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
-import PortfolioImage from "../assets/Hero_Image.webp";
 import { IDENTITY, SPECIALTY_PLAIN, TAGLINE } from "../content/site";
 
 const fadeUp = {
@@ -167,6 +169,7 @@ export default function About() {
   const reduceMotion = useReducedMotion();
 
   return (
+    <MotionProvider>
     <div className="min-h-screen overflow-x-clip bg-canvas text-slate-400 selection:bg-accent/20 selection:text-paper">
       <SEO
         title="About Samrat Parajuli | Product-Minded Systems & Application Engineer"
@@ -206,11 +209,10 @@ export default function About() {
               >
                 <div className="relative w-full max-w-md">
                   <div className="absolute -inset-3 sm:-inset-4 border border-border rounded-2xl pointer-events-none" />
-                  <img
-                    src={PortfolioImage}
+                  <ResponsiveImage
+                    image={image("hero-image")}
                     alt="Portrait of Samrat Parajuli, product-minded systems and application engineer"
-                    width={1127}
-                    height={1396}
+                    sizes="(min-width: 1024px) 448px, 100vw"
                     className="relative z-10 block w-full aspect-[4/5] rounded-2xl border border-border bg-surface object-contain object-bottom"
                     loading="eager"
                   />
@@ -401,7 +403,7 @@ export default function About() {
               <span className="w-4 h-px bg-border" />
               <span>Share</span>
               <span className="w-4 h-px bg-border" />
-              <span className="text-accent/50">Build again</span>
+              <span className="text-accent-text">Build again</span>
             </motion.div>
           </div>
         </section>
@@ -542,6 +544,7 @@ export default function About() {
       </main>
       <Footer />
     </div>
+    </MotionProvider>
   );
 }
 

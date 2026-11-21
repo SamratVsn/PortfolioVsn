@@ -25,8 +25,8 @@ import DataModelTable from './case-study/DataModelTable'
 import { AsideCard, SpecList, BulletList, TagList } from './case-study/CaseStudyAside'
 import { getProject } from '../data/projects'
 import Card from './ui/Card'
-import MovieDetails from '../assets/TheMovie/Details.png'
-import MoviePoster from '../assets/TheMovie/MoviePoster.webp'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const REPO_URL = 'https://github.com/SamratVsn/TheMovie'
 const movie = getProject('themovie')
@@ -54,8 +54,8 @@ const FEATURES = [
 ]
 
 const SCREENSHOTS = [
-  { src: MovieDetails, label: 'Movie Details', desc: 'Backdrops, ratings, and the full plot overview with pull-to-refresh and a favorite toggle.' },
-  { src: MoviePoster, label: 'Poster', desc: 'Movie poster with title, rating, and release date.' },
+  { src: image('themovie-details'), label: 'Movie Details', desc: 'Backdrops, ratings, and the full plot overview with pull-to-refresh and a favorite toggle.' },
+  { src: image('themovie-movieposter'), label: 'Poster', desc: 'Movie poster with title, rating, and release date.' },
 ]
 
 const LIBRARIES = [
@@ -183,7 +183,7 @@ function TheMovie() {
             type="button"
             onClick={() =>
               setSelectedImage({
-                src: MoviePoster,
+                src: image('themovie-movieposter'),
                 label: 'The Movie App',
                 desc: 'Native Android movie browser built with Kotlin & Jetpack Compose.',
               })
@@ -191,9 +191,10 @@ function TheMovie() {
             aria-label="Open The Movie App poster"
             className="block w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
           >
-            <img
-              src={MoviePoster}
+            <ResponsiveImage
+              image={image('themovie-movieposter')}
               alt="The Movie App poster"
+              sizes="(min-width: 1024px) 720px, 100vw"
               className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
               loading="lazy"
             />
@@ -290,30 +291,30 @@ function TheMovie() {
                   <h3 className="flex items-center gap-2 text-h4 font-semibold text-paper">
                     <FolderTree size={16} aria-hidden="true" className="text-accent-text" /> Project Structure
                   </h3>
-                  <div className="rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
-                    <p>app/</p>
-                    <p className="ml-4">├── <span className="text-accent-text">data/</span></p>
-                    <p className="ml-8">│   ├── auth/ <span className="text-slate-400">// AuthRepository, AuthState (Firebase session)</span></p>
-                    <p className="ml-8">│   ├── MovieRepository.kt <span className="text-slate-400">// TMDB access + in-memory cache</span></p>
-                    <p className="ml-8">│   ├── PreferencesRepository.kt <span className="text-slate-400">// Theme, profile (DataStore)</span></p>
-                    <p className="ml-8">│   ├── WatchlistRepository.kt <span className="text-slate-400">// Favorites (DataStore JSON)</span></p>
-                    <p className="ml-8">│   ├── MovieErrors.kt <span className="text-slate-400">// HTTP errors → friendly messages</span></p>
-                    <p className="ml-8">│   └── UserPreferences.kt <span className="text-slate-400">// ThemeMode, categories, genres</span></p>
-                    <p className="ml-4">├── <span className="text-accent-text">model/</span> <span className="text-slate-400">// Movie / MovieDetail / Genre DTOs</span></p>
-                    <p className="ml-4">├── <span className="text-accent-text">network/</span> <span className="text-slate-400">// Retrofit service & OkHttp client</span></p>
-                    <p className="ml-4">├── <span className="text-accent-text">ui/</span></p>
-                    <p className="ml-8">│   ├── components/ <span className="text-slate-400">// Reusable widgets</span></p>
-                    <p className="ml-8">│   ├── detail/ <span className="text-slate-400">// Movie detail + favorite toggle</span></p>
-                    <p className="ml-8">│   ├── home/ <span className="text-slate-400">// Home + recommendations</span></p>
-                    <p className="ml-8">│   ├── profile/ <span className="text-slate-400">// Profile + Auth (login/signup)</span></p>
-                    <p className="ml-8">│   ├── search/ <span className="text-slate-400">// Debounced search + pagination</span></p>
-                    <p className="ml-8">│   ├── settings/ <span className="text-slate-400">// Profile editing, appearance</span></p>
-                    <p className="ml-8">│   ├── watchlist/ <span className="text-slate-400">// Favorites screen</span></p>
-                    <p className="ml-8">│   ├── theme/ <span className="text-slate-400">// Color, Type, Theme</span></p>
-                    <p className="ml-8">│   └── NavGraph.kt <span className="text-slate-400">// All routes + bottom bar</span></p>
-                    <p className="ml-4">├── MainActivity.kt <span className="text-slate-400">// Entry point</span></p>
-                    <p className="ml-4">└── MovieApplication.kt <span className="text-slate-400">// DI provisioning + network init</span></p>
-                  </div>
+                  <pre className="overflow-x-auto rounded-xl border border-border bg-canvas p-4 font-mono text-small leading-relaxed text-slate-400">
+                    <code>{`app/
+├── data/
+│   ├── auth/                   // AuthRepository, AuthState (Firebase session)
+│   ├── MovieRepository.kt      // TMDB access + in-memory cache
+│   ├── PreferencesRepository.kt // Theme, profile (DataStore)
+│   ├── WatchlistRepository.kt  // Favorites (DataStore JSON)
+│   ├── MovieErrors.kt          // HTTP errors → friendly messages
+│   └── UserPreferences.kt      // ThemeMode, categories, genres
+├── model/                      // Movie / MovieDetail / Genre DTOs
+├── network/                    // Retrofit service & OkHttp client
+├── ui/
+│   ├── components/             // Reusable widgets
+│   ├── detail/                 // Movie detail + favorite toggle
+│   ├── home/                   // Home + recommendations
+│   ├── profile/                // Profile + Auth (login/signup)
+│   ├── search/                 // Debounced search + pagination
+│   ├── settings/               // Profile editing, appearance
+│   ├── watchlist/              // Favorites screen
+│   ├── theme/                  // Color, Type, Theme
+│   └── NavGraph.kt             // All routes + bottom bar
+├── MainActivity.kt             // Entry point
+└── MovieApplication.kt         // DI provisioning + network init`}</code>
+                  </pre>
                 </div>
 
                 <div className="space-y-4">

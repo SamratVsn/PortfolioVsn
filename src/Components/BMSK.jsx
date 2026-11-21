@@ -7,8 +7,8 @@ import CaseStudySection from './case-study/CaseStudySection'
 import ScreenshotGallery from './case-study/ScreenshotGallery'
 import { AsideCard, SpecList, BulletList } from './case-study/CaseStudyAside'
 import Card from './ui/Card'
-import BMSK1 from '../assets/BMSK/BMSK1.png'
-import BMSK2 from '../assets/BMSK/BMSK2.png'
+import { image } from '../content/images'
+import ResponsiveImage from './ui/ResponsiveImage'
 
 const REPO_URL = 'https://github.com/SamratVsn/Kotlin-Beginner-Codes/blob/main/bankAccountManagement.kt'
 
@@ -113,9 +113,10 @@ function BMSK() {
         }
       >
         <div className="overflow-hidden rounded-xl border border-border bg-surface">
-          <img
-            src={BMSK1}
+          <ResponsiveImage
+            image={image('bmsk-bmsk1')}
             alt="Bank Management System terminal interface"
+            sizes="(min-width: 1024px) 720px, 100vw"
             className="h-auto w-full opacity-90 transition-opacity hover:opacity-100"
             loading="lazy"
           />
@@ -226,8 +227,8 @@ function BMSK() {
 
         <ScreenshotGallery
           screenshots={[
-            { src: BMSK1, label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
-            { src: BMSK2, label: 'Transaction Flow', desc: 'Deposit and withdrawal logic with validation.' },
+            { src: image('bmsk-bmsk1'), label: 'Main Interface', desc: 'Account management menu with CRUD operations.' },
+            { src: image('bmsk-bmsk2'), label: 'Transaction Flow', desc: 'Deposit and withdrawal logic with validation.' },
           ]}
           columns={2}
         />

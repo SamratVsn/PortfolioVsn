@@ -102,7 +102,7 @@ const END = "<!-- ROUTE_SEO_END -->";
 checkHostingConfig();
 
 for (const route of routes) {
-  const { content, head } = render(route.url);
+  const { content, head } = await render(route.url);
 
   const startIdx = template.indexOf(START);
   const endIdx = template.indexOf(END);

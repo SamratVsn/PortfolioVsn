@@ -123,7 +123,7 @@
   --p-accent-muted: rgba(107, 143, 122, 0.14);
   --p-accent-border: rgba(107, 143, 122, 0.32);
   --p-accent-text: #97bca5;
-  --p-border-control: rgba(232, 215, 183, 0.28);
+  --p-border-control: rgba(232, 215, 183, 0.42);
   --p-ink: #0b120e;
 }
 
@@ -135,7 +135,7 @@
   --p-accent-muted: rgba(200, 111, 74, 0.14);
   --p-accent-border: rgba(200, 111, 74, 0.34);
   --p-accent-text: #e0a184;
-  --p-border-control: rgba(232, 215, 183, 0.28);
+  --p-border-control: rgba(232, 215, 183, 0.42);
   --p-ink: #150b06;
 }
 
@@ -147,7 +147,7 @@
   --p-accent-muted: rgba(126, 146, 156, 0.15);
   --p-accent-border: rgba(126, 146, 156, 0.34);
   --p-accent-text: #b4c5cd;
-  --p-border-control: rgba(232, 215, 183, 0.28);
+  --p-border-control: rgba(232, 215, 183, 0.42);
   --p-ink: #0a1013;
 }
 
@@ -231,6 +231,26 @@
 
   .hero-enter-visual {
     animation: hero-enter-visual 0.75s ease-out 0.1s both;
+  }
+
+  /* Scroll reveal used by <Reveal> (src/Components/ui/Reveal.jsx). The hidden
+     state is only added after mount for elements below the fold, so prerendered
+     HTML and no-JS readers always see the content. The global
+     prefers-reduced-motion rule collapses the transition to ~0s. */
+  .reveal {
+    transition-property: opacity, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .reveal-shown {
+    opacity: 1;
+    transform: none;
   }
 }
 
