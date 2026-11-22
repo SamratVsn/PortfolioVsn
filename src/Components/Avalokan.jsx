@@ -270,7 +270,7 @@ export default function Avalokan() {
         description="Avalokan is a native Android heritage explorer for Nepal — places, cultural stories, festivals and events, built with Kotlin, Jetpack Compose and Room."
         ogUrl={`${SITE}/projects/avalokan`}
         ogImage={`${SITE}/media/avalokan-og.jpg`}
-        ogType="article"
+        ogType="website"
         imageAlt="Avalokan — Nepal heritage explorer app for Android"
         schema={[
           {
@@ -302,10 +302,21 @@ export default function Avalokan() {
               '@type': 'Offer',
               price: '0',
               priceCurrency: 'USD',
-              availability: 'https://schema.org/InStock',
             },
             keywords:
               'Avalokan, Nepal heritage app, Kotlin, Jetpack Compose, Firebase, Room, Hilt, offline-first Android',
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareSourceCode',
+            '@id': `${SITE}/projects/avalokan#source`,
+            name: 'Avalokan',
+            description:
+              'Kotlin and Jetpack Compose source for the Avalokan Android heritage explorer.',
+            codeRepository: REPO_URL,
+            programmingLanguage: 'Kotlin',
+            runtimePlatform: 'Android',
+            author: { '@id': `${SITE}/#person` },
           },
           {
             '@context': 'https://schema.org',

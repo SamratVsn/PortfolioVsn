@@ -53,7 +53,7 @@ const SMS = () => {
         title="Student Management System in C | Samrat Parajuli"
         description="A console-based CRUD system in C with binary file I/O, struct serialization, and direct byte-offset navigation. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/sms"
-        ogType="article"
+        ogType="website"
         imageAlt="Student Management System — console CRUD program written in C"
         schema={[
           {

@@ -126,7 +126,8 @@ function Tasks() {
         title="Tasks — Android To-Do & Pomodoro App | Samrat Parajuli"
         description="Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/todo"
-        ogType="article"
+        ogImage="https://www.samratparajuli0.com.np/og/tasks.jpg"
+        ogType="website"
         imageAlt="Tasks — Android task manager built with Kotlin and Jetpack Compose"
         schema={[
           {
@@ -145,10 +146,22 @@ function Tasks() {
             name: 'Tasks',
             applicationCategory: 'ProductivityApplication',
             operatingSystem: 'Android',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description: 'Tasks is an Android task manager with Pomodoro sessions, categories, reminders, and dynamic theming. Built with Kotlin & Jetpack Compose by Samrat Parajuli.',
             url: REPO_URL,
             downloadUrl: RELEASE_URL,
+            author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareSourceCode',
+            '@id': 'https://www.samratparajuli0.com.np/projects/todo#source',
+            name: 'Tasks',
+            description:
+              'Kotlin and Jetpack Compose source for the Tasks Android task manager.',
+            codeRepository: REPO_URL,
+            programmingLanguage: 'Kotlin',
+            runtimePlatform: 'Android',
             author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
           },
         ]}

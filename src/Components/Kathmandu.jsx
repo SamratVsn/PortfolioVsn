@@ -79,7 +79,7 @@ function Kathmandu() {
         title="Kathmandu My-City — Android App | Samrat Parajuli"
         description="Android app showcasing Kathmandu's temples, shops, and destinations — Kotlin, Jetpack Compose (M3), MVVM, Navigation Compose. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/kathmandu"
-        ogType="article"
+        ogType="website"
         imageAlt="Kathmandu My-City — Android app showcasing places in Kathmandu"
         schema={[
           {
@@ -98,7 +98,7 @@ function Kathmandu() {
             name: 'Kathmandu My-City App',
             applicationCategory: 'TravelApplication',
             operatingSystem: 'Android',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description: 'Android app showcasing Kathmandu temples, shops, and destinations with adaptive layouts. Built with Kotlin, Jetpack Compose (M3), MVVM, and Navigation Compose.',
             url: REPO_URL,
             author: { '@id': 'https://www.samratparajuli0.com.np/#person' },

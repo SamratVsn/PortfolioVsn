@@ -7,7 +7,17 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "images": "node scripts/optimize-images.mjs",
+    "og": "node scripts/generate-og.mjs",
+    "serve:dist": "node scripts/serve-dist.mjs",
+    "check:dist": "node scripts/check-dist.mjs",
+    "check:budget": "node scripts/check-budget.mjs",
+    "check:runtime": "node scripts/check-runtime.mjs",
+    "check:a11y": "node scripts/check-a11y.mjs",
+    "check": "npm run check:dist && npm run check:budget && npm run check:runtime && npm run check:a11y",
+    "ci": "npm run lint && npm run build && npm run check",
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

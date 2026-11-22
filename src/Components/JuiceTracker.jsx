@@ -74,7 +74,7 @@ function JuiceTracker() {
         title="Juice Tracker — Android App in Kotlin | Samrat Parajuli"
         description="Android app for tracking juice combinations and ratings — Kotlin, MVVM, Room, and Jetpack Compose + View interoperability. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/juicetracker"
-        ogType="article"
+        ogType="website"
         imageAlt="Juice Tracker — Android app for logging juice combinations and ratings"
         schema={[
           {
@@ -93,7 +93,7 @@ function JuiceTracker() {
             name: 'Juice Tracker',
             applicationCategory: 'LifestyleApplication',
             operatingSystem: 'Android',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description: 'Android app for tracking juice combinations, details, and ratings. Explores Compose-View interop with Room, RecyclerView, and reactive state. Built with Kotlin, MVVM, Room, and Jetpack Compose + View interoperability.',
             url: REPO_URL,
             author: { '@id': 'https://www.samratparajuli0.com.np/#person' },

@@ -50,7 +50,7 @@ function BMSK() {
         title="Bank Management System in Kotlin | Samrat Parajuli"
         description="OOP-driven banking simulation in Kotlin with account encapsulation, transaction logic, and UUID-based identity. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/bmsk"
-        ogType="article"
+        ogType="website"
         imageAlt="Bank Account Manager — Kotlin banking simulation built by Samrat Parajuli"
         schema={[
           {

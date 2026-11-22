@@ -40,14 +40,11 @@ export default function ScreenshotGallery({
 
       <div className={cn("grid gap-3 sm:gap-4", columnMap[columns] || columnMap[3])}>
         {screenshots.map((screen) => {
-          const alt =
-            screen.alt ||
-            `${screen.label} screenshot${screen.desc ? ` — ${screen.desc}` : ""}`;
           const content = (
             <>
               <ResponsiveImage
                 image={screen.src}
-                alt={alt}
+                alt=""
                 sizes={sizeMap[columns] || sizeMap[3]}
                 loading="lazy"
                 className="h-40 w-full object-cover object-top opacity-80 transition-all duration-300 group-hover:opacity-100 sm:h-48"
@@ -78,7 +75,6 @@ export default function ScreenshotGallery({
               key={`${screen.label}-${screen.src?.src || screen.src}`}
               type="button"
               onClick={() => onSelect(screen)}
-              aria-label={`Open ${screen.label} screenshot`}
               className={classes}
             >
               {content}

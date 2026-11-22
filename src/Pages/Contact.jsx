@@ -221,7 +221,10 @@ const Contact = () => {
 
             {/* RIGHT — Contact Form (3 cols) */}
             <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <p role="status" aria-live="polite" className="sr-only">
+                  {sending ? 'Sending your message.' : ''}
+                </p>
                 <div>
                   <label htmlFor="name" className="mb-2 block font-mono text-label font-bold uppercase text-slate-400">
                     Your name
@@ -234,9 +237,16 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    aria-invalid={invalid.name ? 'true' : undefined}
+                    aria-describedby={invalid.name ? 'name-error' : undefined}
                     placeholder="Your name"
                     className={FORM_FIELD_CLASS}
                   />
+                  {invalid.name && (
+                    <p id="name-error" className="mt-2 text-label text-red-300">
+                      {invalid.name}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -251,9 +261,16 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    aria-invalid={invalid.email ? 'true' : undefined}
+                    aria-describedby={invalid.email ? 'email-error' : undefined}
                     placeholder="example@email.com"
                     className={FORM_FIELD_CLASS}
                   />
+                  {invalid.email && (
+                    <p id="email-error" className="mt-2 text-label text-red-300">
+                      {invalid.email}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -267,9 +284,16 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    aria-invalid={invalid.message ? 'true' : undefined}
+                    aria-describedby={invalid.message ? 'message-error' : undefined}
                     placeholder="Tell me about your project, idea, or just say hello..."
                     className={`${FORM_FIELD_CLASS} resize-none`}
                   />
+                  {invalid.message && (
+                    <p id="message-error" className="mt-2 text-label text-red-300">
+                      {invalid.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button

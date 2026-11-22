@@ -100,7 +100,8 @@ function TheMovie() {
         title="The Movie App — Android TMDB Client | Samrat Parajuli"
         description="Android movie app using the TMDB API — debounced search, watchlist, Firebase auth, and offline caching. Built with Kotlin & Jetpack Compose by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/themovie"
-        ogType="article"
+        ogImage="https://www.samratparajuli0.com.np/og/themovie.jpg"
+        ogType="website"
         imageAlt="The Movie App — Android movie browser built with Kotlin and Jetpack Compose"
         schema={[
           {
@@ -119,9 +120,21 @@ function TheMovie() {
             name: 'The Movie App',
             applicationCategory: 'EntertainmentApplication',
             operatingSystem: 'Android',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description: 'Native Android movie browser using the TMDB API with debounced search, watchlist, Firebase auth, and offline caching. Built with Kotlin & Jetpack Compose.',
             url: REPO_URL,
+            author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareSourceCode',
+            '@id': 'https://www.samratparajuli0.com.np/projects/themovie#source',
+            name: 'The Movie App',
+            description:
+              'Kotlin and Jetpack Compose source for The Movie App, a TMDB client for Android.',
+            codeRepository: REPO_URL,
+            programmingLanguage: 'Kotlin',
+            runtimePlatform: 'Android',
             author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
           },
         ]}

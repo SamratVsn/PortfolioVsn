@@ -29,7 +29,7 @@ export default function This() {
         title="How This Portfolio Is Built | Samrat Parajuli"
         description="This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np."
         ogUrl="https://www.samratparajuli0.com.np/projects/this"
-        ogType="article"
+        ogType="website"
         imageAlt="Developer portfolio built with React and Vite by Samrat Parajuli"
         schema={[
           {
@@ -48,7 +48,7 @@ export default function This() {
             name: 'Developer Portfolio',
             applicationCategory: 'WebApplication',
             operatingSystem: 'Web',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description: 'This portfolio website built with React, Framer Motion, and Tailwind CSS. Explore the architecture and design philosophy behind samratparajuli0.com.np.',
             url: 'https://www.samratparajuli0.com.np/',
             codeRepository: 'https://github.com/SamratVsn/devPortfoli0',

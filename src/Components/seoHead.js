@@ -8,13 +8,46 @@
 // HTML and again on hydration.
 
 import { SITE, personSchema, websiteSchema } from "../content/site";
+import { PROJECT_ROUTES, SITE_ORIGIN } from "../content/routes";
 
 export { SITE };
+
+// Case-study pages get a WebPage entity whose dateModified comes from the route
+// manifest (`lastmod`), never from the build clock. That keeps the JSON-LD and
+// the sitemap telling the same story about when the page last changed.
+function pathnameOf(url) {
+  try {
+    const pathname = new URL(url, SITE_ORIGIN).pathname;
+    return pathname.replace(/\/+$/, "") || "/";
+  } catch {
+    return "/";
+  }
+}
+
+function webPageSchema(resolved) {
+  const pathname = pathnameOf(resolved.ou);
+  const route = PROJECT_ROUTES.find((candidate) => candidate.url === pathname);
+  if (!route) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${resolved.ou}#webpage`,
+    url: resolved.ou,
+    name: resolved.t,
+    description: resolved.d,
+    isPartOf: { "@id": `${SITE_ORIGIN}/#website` },
+    inLanguage: "en",
+    dateModified: route.lastmod,
+  };
+}
 
 // Site-wide entities are added to every route, before any page-specific schema.
 function siteSchemas(props) {
   const pageSchemas = Array.isArray(props.schema) ? props.schema.filter(Boolean) : [];
-  return [personSchema(), websiteSchema(), ...pageSchemas];
+  const resolved = resolveSEO(props);
+  const page = webPageSchema(resolved);
+  return [personSchema(), websiteSchema(), page, ...pageSchemas].filter(Boolean);
 }
 
 // Every social image must be served at 1200x630 so the declared dimensions

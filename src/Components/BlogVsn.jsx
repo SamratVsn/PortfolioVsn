@@ -51,7 +51,8 @@ const BlogVsn = () => {
         title="BlogVsn — React Blog Platform | Samrat Parajuli"
         description="Blog platform that pairs a React 19 frontend with the Blogger API and Google sign-in, deployed on Vercel. Built by Samrat Parajuli."
         ogUrl="https://www.samratparajuli0.com.np/projects/blogvsn"
-        ogType="article"
+        ogImage="https://www.samratparajuli0.com.np/og/blogvsn.jpg"
+        ogType="website"
         imageAlt="BlogVsn — React blog platform built by Samrat Parajuli"
         schema={[
           {
@@ -70,10 +71,22 @@ const BlogVsn = () => {
             name: 'BlogVsn Platform',
             applicationCategory: 'WebApplication',
             operatingSystem: 'Web',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
             description: 'Blog platform that pairs a React 19 frontend with the Blogger API and Google sign-in, deployed on Vercel.',
             url: LIVE_URL,
             codeRepository: REPO_URL,
+            author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareSourceCode',
+            '@id': 'https://www.samratparajuli0.com.np/projects/blogvsn#source',
+            name: 'BlogVsn Platform',
+            description:
+              'React 19 source for the BlogVsn platform, a Blogger API frontend with Google sign-in.',
+            codeRepository: REPO_URL,
+            programmingLanguage: 'JavaScript',
+            runtimePlatform: 'Web',
             author: { '@id': 'https://www.samratparajuli0.com.np/#person' },
           },
         ]}
