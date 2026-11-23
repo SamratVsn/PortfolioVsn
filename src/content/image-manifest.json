@@ -56,6 +56,25 @@
       }
     ]
   },
+  "avalokan-launch-poster": {
+    "src": "/img/avalokan-launch-poster-960.webp",
+    "width": 960,
+    "height": 1707,
+    "variants": [
+      {
+        "src": "/img/avalokan-launch-poster-480.webp",
+        "width": 480,
+        "height": 853,
+        "bytes": 14506
+      },
+      {
+        "src": "/img/avalokan-launch-poster-960.webp",
+        "width": 960,
+        "height": 1707,
+        "bytes": 32846
+      }
+    ]
+  },
   "avalokan-logo": {
     "src": "/img/avalokan-logo-960.webp",
     "width": 960,

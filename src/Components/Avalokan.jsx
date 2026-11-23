@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react'
-import { m as motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
   ArrowUpRight,
@@ -369,15 +368,10 @@ export default function Avalokan() {
                 अवलोकन · to observe
               </Eyebrow>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-display font-bold text-paper"
-              >
+              <h1 className="hero-enter text-display font-bold text-paper">
                 Avalokan
                 <span style={{ color: TERRA }}>.</span>
-              </motion.h1>
+              </h1>
 
               <p className="mt-4 max-w-xl text-body-lg font-medium text-slate-300">
                 Discover Nepal. Explore its heritage. Experience its stories.
@@ -421,12 +415,7 @@ export default function Avalokan() {
 
             {/* Logo poster */}
             <div className="lg:col-span-5">
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative mx-auto max-w-[300px] lg:max-w-[360px]"
-              >
+              <div className="hero-enter-visual relative mx-auto max-w-[300px] lg:max-w-[360px]">
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-border-strong bg-paper">
                   <ResponsiveImage
                     image={image('avalokan-logo')}
@@ -439,7 +428,7 @@ export default function Avalokan() {
                 <p className="mt-4 text-center font-mono text-label uppercase tracking-[0.28em] text-slate-400">
                   Nepal Heritage Explorer
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
 

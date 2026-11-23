@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { m as motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Github, ExternalLink, ArrowUpRight, FolderOpen, Sparkles, Download } from "lucide-react";
 import PageHeader from "./PageHeader";
@@ -12,20 +11,6 @@ import StatusPill from "./ui/StatusPill";
 import { PROJECTS, TIERS, screenshots } from "../data/projects";
 
 const CATEGORIES = ["All", "Android", "Web", "C", "Experiments"];
-
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
-};
 
 /* -- small building blocks --------------------------------------------------- */
 
@@ -126,12 +111,11 @@ function ProjectStatus({ project }) {
 
 /* -- featured card ----------------------------------------------------------- */
 
-function FeaturedCard({ project, wide = false }) {
+function FeaturedCard({ project, wide = false, priority = false }) {
   const screenshot = screenshots[project.path];
 
   return (
-    <motion.article
-      variants={cardVariants}
+    <article
       className={`group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-300 hover:border-accent-border focus-within:border-accent-border ${
         wide ? "md:col-span-2 md:flex-row lg:col-span-2" : ""
       }`}
@@ -152,7 +136,8 @@ function FeaturedCard({ project, wide = false }) {
           alt={`Preview of ${project.title}`}
           sizes={wide ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
           className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : undefined}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface/90" />
         <CategoryChip category={project.category} />
@@ -176,7 +161,7 @@ function FeaturedCard({ project, wide = false }) {
         </div>
         <ProjectLinks project={project} />
       </div>
-    </motion.article>
+    </article>
   );
 }
 
@@ -186,8 +171,7 @@ function ProjectCard({ project }) {
   const screenshot = screenshots[project.path];
 
   return (
-    <motion.article
-      variants={cardVariants}
+    <article
       className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors duration-300 hover:border-accent-border focus-within:border-accent-border"
     >
       <Link
@@ -222,7 +206,7 @@ function ProjectCard({ project }) {
         </div>
         <ProjectLinks project={project} />
       </div>
-    </motion.article>
+    </article>
   );
 }
 
@@ -230,7 +214,11 @@ function ProjectCard({ project }) {
 
 export default function ProjectGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const reduceMotion = useReducedMotion();
+  const hasMounted = useRef(false);
+
+  useEffect(() => {
+    hasMounted.current = true;
+  }, []);
 
   const matches = (project) =>
     activeCategory === "All" || project.category === activeCategory;
@@ -283,6 +271,7 @@ export default function ProjectGrid() {
               key={project.id}
               project={project}
               wide={index === 0}
+              priority={tierIndex === 0 && index === 0}
             />
           ) : (
             <ProjectCard key={project.id} project={project} />
@@ -302,19 +291,12 @@ export default function ProjectGrid() {
               subtitle={tier.subtitle}
             />
 
-            {reduceMotion ? (
-              <div className={gridClass}>{cards}</div>
-            ) : (
-              <motion.div
-                key={`${tier.id}-${activeCategory}`}
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className={gridClass}
-              >
-                {cards}
-              </motion.div>
-            )}
+            <div
+              key={`${tier.id}-${activeCategory}`}
+              className={`${gridClass}${hasMounted.current ? " grid-enter" : ""}`}
+            >
+              {cards}
+            </div>
           </section>
         );
       })}

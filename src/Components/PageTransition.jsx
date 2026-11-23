@@ -1,38 +1,26 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { m as motion, useReducedMotion, AnimatePresence } from "framer-motion";
-import { pageVariants } from "./PageTransitionConstants";
 
-// Route-level enter/exit feedback for the projects area. The first render must
-// match the prerendered HTML, so the initial animation is suppressed until
-// after mount. Reduced-motion users get the content immediately, with no
-// AnimatePresence wrapper and no delay.
+// Route-level enter feedback. This is CSS-only on purpose: the first paint must
+// match the prerendered HTML and must not wait for a JS animation frame, so the
+// animation class is applied only after the initial mount (i.e. on navigation).
+// Reduced-motion users are handled by the global prefers-reduced-motion rule in
+// index.css, which collapses the animation to its end state.
 export function PageTransition({ children }) {
-  const location = useLocation();
-  const reduceMotion = useReducedMotion();
+  const { pathname } = useLocation();
   const isInitialMount = useRef(true);
 
   useEffect(() => {
     isInitialMount.current = false;
   }, []);
 
-  if (reduceMotion) {
-    return <div className="relative w-full">{children}</div>;
-  }
-
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={location.pathname}
-        initial={isInitialMount.current ? false : "initial"}
-        animate="enter"
-        exit="exit"
-        variants={pageVariants}
-        className="relative w-full"
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      key={pathname}
+      className={`relative w-full${isInitialMount.current ? "" : " page-enter"}`}
+    >
+      {children}
+    </div>
   );
 }
 

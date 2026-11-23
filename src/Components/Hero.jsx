@@ -16,6 +16,8 @@ import { SPECIALTY_PLAIN, TAGLINE } from "../content/site";
 const APK_URL =
   "https://github.com/SamratVsn/Avalokan/releases/download/v1.0.0/avalokan1.0.0.apk";
 
+const LAUNCH_POSTER = image("avalokan-launch-poster");
+
 // Credibility strip — brand marks where a real one exists, neutral glyphs for
 // Room and Hilt (neither library has an official logo).
 const stack = [
@@ -228,7 +230,7 @@ function DeviceFrame() {
         {playing ? (
           <video
             src="/media/avalokan-launch.mp4"
-            poster="/media/avalokan-poster.jpg"
+            poster={LAUNCH_POSTER.src}
             className="h-full w-full object-cover"
             controls
             autoPlay
@@ -243,14 +245,12 @@ function DeviceFrame() {
             className="group relative block h-full w-full cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-accent-soft"
             aria-label="Play the 22-second Avalokan launch film"
           >
-            <img
-              src="/media/avalokan-poster.jpg"
+            <ResponsiveImage
+              image={LAUNCH_POSTER}
               alt="Avalokan home screen: Boudhanath Stupa story of the day, historical gems, and local events"
-              width={1080}
-              height={1920}
+              sizes="(min-width: 1024px) 12rem, (min-width: 640px) 9.5rem, 8.25rem"
               className="h-full w-full object-cover object-top"
               loading="lazy"
-              decoding="async"
             />
             <span
               aria-hidden="true"
@@ -403,7 +403,7 @@ export default function Hero() {
                 alt="Portrait of Samrat Parajuli, product-minded systems and application engineer"
                 sizes="(min-width: 1024px) 46vw, (min-width: 640px) 70vw, 90vw"
                 fetchPriority="high"
-                className="portrait-fade absolute bottom-0 left-0 h-[94%] w-auto max-w-none object-contain object-bottom brightness-[0.95] saturate-[0.94] contrast-[1.03] drop-shadow-[0_24px_44px_rgba(0,0,0,0.45)] lg:h-full"
+                className="portrait-fade absolute bottom-0 left-0 h-[94%] w-auto max-w-none object-contain object-bottom lg:h-full"
               />
 
               <div className="absolute bottom-8 right-0 z-10 w-[8.25rem] sm:bottom-10 sm:w-[9.5rem] lg:bottom-14 lg:w-[11rem] xl:w-[12rem]">

@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* Self-hosted variable fonts (latin subset). Self-hosting removes two
+   cross-origin round trips from the critical path and lets the browser start
+   the font request before hydration. Files are OFL-licensed; see
+   public/fonts/OFL-*.txt. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/jetbrains-mono-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
    Design tokens
    Every colour utility resolves through a `--p-*` custom property, so the
@@ -233,6 +259,19 @@
     animation: hero-enter-visual 0.75s ease-out 0.1s both;
   }
 
+  /* Route enter animation (PageTransition). The class is added only after the
+     first mount, so the prerendered document is never hidden behind a JS or
+     CSS animation. The global prefers-reduced-motion rule collapses it. */
+  .page-enter {
+    animation: page-enter 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  /* Project grid re-entrance after a filter change. The first render is
+     intentionally unanimated so the lead project image paints immediately. */
+  .grid-enter {
+    animation: grid-enter 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
   /* Scroll reveal used by <Reveal> (src/Components/ui/Reveal.jsx). The hidden
      state is only added after mount for elements below the fold, so prerendered
      HTML and no-JS readers always see the content. The global
@@ -269,6 +308,28 @@
   from {
     opacity: 0;
     transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grid-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;

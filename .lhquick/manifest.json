@@ -1,0 +1,41 @@
+[
+  {
+    "url": "http://127.0.0.1:4181/projects",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\baburam\\OneDrive\\Documents\\GitHub\\devPortfoli0\\.lhquick\\127_0_0_1-projects-2026_11_23_08_35_26.report.html",
+    "jsonPath": "C:\\Users\\baburam\\OneDrive\\Documents\\GitHub\\devPortfoli0\\.lhquick\\127_0_0_1-projects-2026_11_23_08_35_26.report.json",
+    "summary": {
+      "performance": 0.9,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    }
+  },
+  {
+    "url": "http://127.0.0.1:4181/projects",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\baburam\\OneDrive\\Documents\\GitHub\\devPortfoli0\\.lhquick\\127_0_0_1-projects-2026_11_23_08_35_44.report.html",
+    "jsonPath": "C:\\Users\\baburam\\OneDrive\\Documents\\GitHub\\devPortfoli0\\.lhquick\\127_0_0_1-projects-2026_11_23_08_35_44.report.json",
+    "summary": {
+      "performance": 0.92,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    }
+  },
+  {
+    "url": "http://127.0.0.1:4181/projects",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\baburam\\OneDrive\\Documents\\GitHub\\devPortfoli0\\.lhquick\\127_0_0_1-projects-2026_11_23_08_35_06.report.html",
+    "jsonPath": "C:\\Users\\baburam\\OneDrive\\Documents\\GitHub\\devPortfoli0\\.lhquick\\127_0_0_1-projects-2026_11_23_08_35_06.report.json",
+    "summary": {
+      "performance": 0.95,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1
+    }
+  }
+]

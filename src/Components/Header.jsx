@@ -47,7 +47,7 @@ export default function Header() {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-50 border-b border-border bg-canvas/90 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-border bg-canvas">
         <Container className="flex h-16 items-center justify-between gap-3">
           {/* Brand */}
           <Link
